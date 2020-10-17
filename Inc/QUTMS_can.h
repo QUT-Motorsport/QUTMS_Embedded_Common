@@ -6,7 +6,7 @@
 #endif
 
 /* Includes ------------------------------------------------------------------*/
-
+#include <stdint.h>
 #include "can.h"
 
 uint32_t Compose_CANId(uint8_t priority, uint16_t sourceId, uint8_t autonomous, uint8_t type, uint16_t extra, uint8_t BMSId);
