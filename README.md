@@ -14,6 +14,9 @@ To update to the latest version of the submodule in a parent repo:
 2. Have a beer, you did a good job.
 
 # FSM
+## Requirements
+* CMSISv2 RTOS Wrapper
+
 ## Required Files
 * FSM.h 
 * FSM.c
