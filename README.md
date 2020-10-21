@@ -8,6 +8,11 @@ Common libraries to be shared across embedded board source code
 4. Add Core/Common/Inc
 5. Clean & Rebuild
 
+# Updating
+To update to the latest version of the submodule in a parent repo:
+1. Run `git submodule foreach git pull origin master`
+2. Have a beer, you did a good job.
+
 # FSM
 ## Required Files
 * FSM.h 
