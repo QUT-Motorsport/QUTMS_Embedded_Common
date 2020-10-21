@@ -1,6 +1,13 @@
 # QUTMS_Embedded_Common
 Common libraries to be shared across embedded board source code
 
+# Setup
+1. cd to `Project/Software/Core/`
+2. Run `git submodule add https://github.com/QUT-Motorsport/QUTMS_Embedded_Common.git ./Common/`
+3. Go int STM32CubeIde, Right click on the Project, Properties->C/C++ General->Paths and Symbols->Includes->Add
+4. Add Core/Common/Inc
+5. Clean & Rebuild
+
 # FSM
 ## Required Files
 * FSM.h 
