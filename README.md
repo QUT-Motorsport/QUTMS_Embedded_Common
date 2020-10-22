@@ -8,6 +8,12 @@ Common libraries to be shared across embedded board source code
 4. Add Core/Common/Inc
 5. Clean & Rebuild
 
+# First Time Usage
+1. cd to the repository
+2. Run `git submodule init`
+3. Run `git submodule update`
+4. Run `git submodules update foreach git pull origin master`
+
 # Updating
 To update to the latest version of the submodule in a parent repo:
 1. Run `git submodule foreach git pull origin master`
