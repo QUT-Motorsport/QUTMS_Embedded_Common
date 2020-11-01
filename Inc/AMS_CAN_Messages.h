@@ -12,6 +12,7 @@
 #include "main.h"
 #include "can.h"
 #include <stdlib.h>
+#include "QUTMS_can.h"
 
 /**
  * @brief AMS Cell Voltage Shutdown Message
