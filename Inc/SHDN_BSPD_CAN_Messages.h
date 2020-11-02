@@ -64,7 +64,7 @@ typedef struct SHDN_BSPD_HeartbeatResponse_t
 SHDN_BSPD_HeartbeatResponse_t Compose_SHDN_BSPD_HeartbeatResponse(bool isShutdown, uint8_t bspdError, uint8_t brakeError, bool brakePedal, bool fivekW, bool trig);
 
 /**
- * @brief Shutdown IMD Heartbeat Response Parser
+ * @brief Shutdown BSPD Heartbeat Response Parser
  * @param isShutdown
  * @param bspdError reports 5kwError[1:0]
  * @param brakeError reports brakeError[1:0]
@@ -93,12 +93,93 @@ typedef struct SHDN_BSPD_RequestCalibration_t
 SHDN_BSPD_RequestCalibration_t Compose_SHDN_BSPD_RequestCalibration(uint8_t calibration, bool min, bool max);
 
 /**
- * @brief Shutdown IMD Heartbeat Response Parser
+ * @brief Shutdown BSPD Request Calibration Parser
  * @param calibration[2:0]
  * @param max
  * @param min
  */
 void Parse_SHDN_BSPD_RequestCalibration(SHDN_BSPD_RequestCalibration_t packet, uint8_t* calibration, bool* min, bool* max);
 
+/**
+ * @brief Shutdown BSPD Set Calibration Message
+ */
+typedef struct SHDN_BSPD_SetCalibration_t
+{
+	uint32_t id; /**< CAN Packet ID */
+	uint8_t data[5]; /**< Data */
+} SHDN_BSPD_SetCalibration_t;
+
+/**
+ * @brief Shutdown BSPD Set Calibration Composer
+ * @param calibration[2:0]
+ * @param max
+ * @param min
+ * @param calibrationMin
+ * @param calibrationMax
+ * @return The composed SHDN_BSPD_SetCalibration_t packet
+ */
+SHDN_BSPD_SetCalibration_t Compose_SHDN_BSPD_SetCalibration(uint8_t calibration, bool min, bool max, uint16_t calibrationMin, uint16_t calibrationMax);
+
+/**
+ * @brief Shutdown BSPD Set Calibration Parser
+ * @param calibration[2:0]
+ * @param max
+ * @param min
+ * @param calibrationMin
+ * @param calibrationMax
+ */
+void Parse_SHDN_BSPD_SetCalibration(SHDN_BSPD_SetCalibration_t packet, uint8_t* calibration, bool* min, bool* max, uint16_t* calibrationMin, uint16_t* calibrationMax);
+
+/**
+ * @brief Shutdown BSPD Transmit Calibration Message
+ */
+typedef struct SHDN_BSPD_TransmitCalibration_t
+{
+	uint32_t id; /**< CAN Packet ID */
+	uint8_t data[5]; /**< Data */
+} SHDN_BSPD_TransmitCalibration_t;
+
+/**
+ * @brief Shutdown BSPD Transmit Calibration Composer
+ * @param calibration[2:0]
+ * @param max
+ * @param min
+ * @param calibrationMin
+ * @param calibrationMax
+ * @return The composed SHDN_BSPD_SetCalibration_t packet
+ */
+SHDN_BSPD_TransmitCalibration_t Compose_SHDN_BSPD_TransmitCalibration(uint8_t calibration, bool min, bool max, uint16_t calibrationMin, uint16_t calibrationMax);
+
+/**
+ * @brief Shutdown BSPD Transmit Calibration Parser
+ * @param calibration[2:0]
+ * @param max
+ * @param min
+ * @param calibrationMin
+ * @param calibrationMax
+ */
+void Parse_SHDN_BSPD_TransmitCalibration(SHDN_BSPD_TransmitCalibration_t packet, uint8_t* calibration, bool* min, bool* max, uint16_t* calibrationMin, uint16_t* calibrationMax);
+
+/**
+ * @brief Shutdown BSPD Request Values Message
+ */
+typedef struct SHDN_BSPD_RequestValues_t
+{
+	uint32_t id; /**< CAN Packet ID */
+	uint8_t data; /**< Data */
+} SHDN_BSPD_RequestValues_t;
+
+/**
+ * @brief Shutdown BSPD Request Values Composer
+ * @param value[2:0]
+ * @return The composed SHDN_BSPD_RequestValues_t packet
+ */
+SHDN_BSPD_RequestValues_t Compose_SHDN_BSPD_RequestValues(uint8_t value);
+
+/**
+ * @brief Shutdown BSPD Request Calibration Parser
+ * @param value[2:0]
+ */
+void Parse_SHDN_BSPD_RequestValues(SHDN_BSPD_RequestValues_t packet, uint8_t* value);
 
 #endif /* INC_SHDN_BSPD_CAN_MESSAGES_H_ */

@@ -43,14 +43,69 @@ SHDN_BSPD_RequestCalibration_t Compose_SHDN_BSPD_RequestCalibration(uint8_t cali
 {
 	SHDN_BSPD_RequestCalibration_t p;
 	p.id = Compose_CANId(0x1, 0x0A, 0x0, 0x1, 0x01, 0x0);
-	p.data = (calibration & 0x3) | (min << 3) | (max << 4);
+	p.data = (calibration & 0x7) | (min << 3) | (max << 4);
 	return p;
 }
 
 void Parse_SHDN_BSPD_RequestCalibration(SHDN_BSPD_RequestCalibration_t packet, uint8_t* calibration, bool* min, bool* max)
 {
-	*calibration = (uint8_t)(packet.data & 0x3);
+	*calibration = (uint8_t)(packet.data & 0x7);
 	*min = (bool)(packet.data & 0x4);
 	*max = (bool)(packet.data & 0x8);
+}
 
+SHDN_BSPD_SetCalibration_t Compose_SHDN_BSPD_SetCalibration(uint8_t calibration, bool min, bool max, uint16_t calibrationMin, uint16_t calibrationMax)
+{
+	SHDN_BSPD_SetCalibration_t p;
+	p.id = Compose_CANId(0x1, 0x0A, 0x0, 0x2, 0x01, 0x0);
+	p.data[0] = (calibration & 0x7) | (min << 3) | (max << 4);
+	p.data[1] = (calibrationMin & 0xFF);
+	p.data[2] = (calibrationMin >> 8);
+	p.data[3] = (calibrationMax & 0xFF);
+	p.data[4] = (calibrationMax >> 8);
+	return p;
+}
+
+void Parse_SHDN_BSPD_SetCalibration(SHDN_BSPD_SetCalibration_t packet, uint8_t* calibration, bool* min, bool* max, uint16_t* calibrationMin, uint16_t* calibrationMax)
+{
+	*calibration = (uint8_t)(packet.data[0] & 0x7);
+	*min = (bool)(packet.data[0] & 0x4);
+	*max = (bool)(packet.data[0] & 0x8);
+	*calibrationMin = (uint16_t)((packet.data[2] & 0x7) | (packet.data[1]));
+	*calibrationMax = (uint16_t)((packet.data[4] & 0x7) | (packet.data[3]));
+}
+
+
+SHDN_BSPD_TransmitCalibration_t Compose_SHDN_BSPD_TransmitCalibration(uint8_t calibration, bool min, bool max, uint16_t calibrationMin, uint16_t calibrationMax)
+{
+	SHDN_BSPD_TransmitCalibration_t p;
+	p.id = Compose_CANId(0x1, 0x0A, 0x0, 0x3, 0x01, 0x0);
+	p.data[0] = (calibration & 0x7) | (min << 3) | (max << 4);
+	p.data[1] = (calibrationMin & 0xFF);
+	p.data[2] = (calibrationMin >> 8);
+	p.data[3] = (calibrationMax & 0xFF);
+	p.data[4] = (calibrationMax >> 8);
+	return p;
+}
+
+void Parse_SHDN_BSPD_TransmitCalibration(SHDN_BSPD_TransmitCalibration_t packet, uint8_t* calibration, bool* min, bool* max, uint16_t* calibrationMin, uint16_t* calibrationMax)
+{
+	*calibration = (uint8_t)(packet.data[0] & 0x7);
+	*min = (bool)(packet.data[0] & 0x4);
+	*max = (bool)(packet.data[0] & 0x8);
+	*calibrationMin = (uint16_t)((packet.data[2] & 0x7) | (packet.data[1]));
+	*calibrationMax = (uint16_t)((packet.data[4] & 0x7) | (packet.data[3]));
+}
+
+SHDN_BSPD_RequestValues_t Compose_SHDN_BSPD_RequestValues(uint8_t value)
+{
+	SHDN_BSPD_RequestCalibration_t p;
+	p.id = Compose_CANId(0x2, 0x0A, 0x0, 0x2, 0x02, 0x0);
+	p.data = (value & 0x7);
+	return p;
+}
+
+void Parse_SHDN_BSPD_RequestValues(SHDN_BSPD_RequestValues_t packet, uint8_t* value)
+{
+	*value = (uint8_t)(packet.data & 0x7);
 }
