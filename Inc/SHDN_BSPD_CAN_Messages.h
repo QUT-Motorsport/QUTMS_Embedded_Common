@@ -177,9 +177,59 @@ typedef struct SHDN_BSPD_RequestValues_t
 SHDN_BSPD_RequestValues_t Compose_SHDN_BSPD_RequestValues(uint8_t value);
 
 /**
- * @brief Shutdown BSPD Request Calibration Parser
+ * @brief Shutdown BSPD Request Values Parser
  * @param value[2:0]
  */
 void Parse_SHDN_BSPD_RequestValues(SHDN_BSPD_RequestValues_t packet, uint8_t* value);
+
+/**
+ * @brief Shutdown BSPD Transmit Values Message
+ */
+typedef struct SHDN_BSPD_TransmitValues_t
+{
+	uint32_t id; /**< CAN Packet ID */
+	uint8_t data[3]; /**< Data */
+} SHDN_BSPD_TransmitValues_t;
+
+/**
+ * @brief Shutdown BSPD Transmit Values Composer
+ * @param selectedValue[2:0]
+ * @return The composed SHDN_BSPD_TransmitValues_t packet
+ */
+SHDN_BSPD_TransmitValues_t Compose_SHDN_BSPD_TransmitValues(uint8_t selectValue, uint16_t outputValue);
+
+/**
+ * @brief Shutdown BSPD Transmit Values Parser
+ * @param selectedValue[2:0]
+ */
+void Parse_SHDN_BSPD_TransmitValues(SHDN_BSPD_TransmitValues_t packet, uint8_t* selectValue, uint16_t* outputValue);
+
+/**
+ * @brief Shutdown BSPD Startup Ok Message
+ */
+typedef struct SHDN_BSPD_StartupOk_t
+{
+	uint32_t id; /**< CAN Packet ID */
+} SHDN_BSPD_StartupOk_t;
+
+/**
+ * @brief Shutdown BSPD Startup Ok Composer
+ * @return The composed SHDN_BSPD_StartupOk_t packet
+ */
+SHDN_BSPD_StartupOk_t Compose_SHDN_BSPD_StartupOk(void);
+
+/**
+ * @brief Shutdown BSPD Reset Message
+ */
+typedef struct SHDN_BSPD_Reset_t
+{
+	uint32_t id; /**< CAN Packet ID */
+} SHDN_BSPD_Reset_t;
+
+/**
+ * @brief Shutdown BSPD Reset Composer
+ * @return The composed SHDN_BSPD_Reset_t packet
+ */
+SHDN_BSPD_Reset_t Compose_SHDN_BSPD_Reset(void);
 
 #endif /* INC_SHDN_BSPD_CAN_MESSAGES_H_ */

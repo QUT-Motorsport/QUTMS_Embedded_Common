@@ -99,7 +99,7 @@ void Parse_SHDN_BSPD_TransmitCalibration(SHDN_BSPD_TransmitCalibration_t packet,
 
 SHDN_BSPD_RequestValues_t Compose_SHDN_BSPD_RequestValues(uint8_t value)
 {
-	SHDN_BSPD_RequestCalibration_t p;
+	SHDN_BSPD_RequestValues_t p;
 	p.id = Compose_CANId(0x2, 0x0A, 0x0, 0x2, 0x02, 0x0);
 	p.data = (value & 0x7);
 	return p;
@@ -108,4 +108,34 @@ SHDN_BSPD_RequestValues_t Compose_SHDN_BSPD_RequestValues(uint8_t value)
 void Parse_SHDN_BSPD_RequestValues(SHDN_BSPD_RequestValues_t packet, uint8_t* value)
 {
 	*value = (uint8_t)(packet.data & 0x7);
+}
+
+SHDN_BSPD_TransmitValues_t Compose_SHDN_BSPD_TransmitValues(uint8_t selectValue, uint16_t outputValue)
+{
+	SHDN_BSPD_TransmitValues_t p;
+	p.id = Compose_CANId(0x2, 0x0A, 0x0, 0x3, 0x02, 0x0);
+	p.data[0] = (selectValue & 0x7);
+	p.data[1] = (outputValue & 0xFF);
+	p.data[2] = (outputValue >> 8);
+	return p;
+}
+
+void Parse_SHDN_BSPD_TransmitValues(SHDN_BSPD_TransmitValues_t packet, uint8_t* selectValue, uint16_t* outputValue)
+{
+	*selectValue = (uint8_t)(packet.data[0] & 0x7);
+	*outputValue = (uint16_t)(packet.data[2] << 8 | packet.data[1]);
+}
+
+SHDN_BSPD_StartupOk_t Compose_SHDN_BSPD_StartupOk(void)
+{
+	SHDN_BSPD_StartupOk_t p;
+	p.id = Compose_CANId(0x2, 0x0A, 0x0, 0x3, 0x04, 0x0);
+	return p;
+}
+
+SHDN_BSPD_Reset_t Compose_SHDN_BSPD_Reset(void)
+{
+	SHDN_BSPD_Reset_t p;
+	p.id = Compose_CANId(0x2, 0x0A, 0x0, 0x2, 0x04, 0x0);
+	return p;
 }
