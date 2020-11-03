@@ -17,7 +17,7 @@
 /**
  * @brief AMS Cell Voltage Shutdown Message
  */
-typedef struct
+typedef struct AMS_CellVoltageShutdown_t
 {
 	uint32_t id; /**< CAN Packet ID */
 	uint8_t data[2]; /**< Data */
@@ -44,7 +44,7 @@ void Parse_AMS_CellVoltageShutdown(AMS_CellVoltageShutdown_t packet, uint8_t* ce
 /**
  * @brief AMS Cell Temperature Shutdown Message
  */
-typedef struct
+typedef struct AMS_CellTemperatureShutdown_t
 {
 	uint32_t id; /**< CAN Packet ID */
 	uint8_t data[2]; /**< Data */
@@ -71,7 +71,7 @@ void Parse_AMS_CellTemperatureShutdown(AMS_CellTemperatureShutdown_t packet, uin
 /**
  * @brief AMS Missing BMS Message
  */
-typedef struct
+typedef struct AMS_MissingBMS_t
 {
 	uint32_t id; /**< CAN Packet ID */
 	uint8_t data[2]; /**< Data */
@@ -94,7 +94,7 @@ void Parse_AMS_MissingBMS(AMS_MissingBMS_t packet, bool* data[12]);
 /**
  * @brief AMS Heartbeat Request Message
  */
-typedef struct
+typedef struct AMS_HeartbeatRequest_t
 {
 	uint32_t id; /**< CAN Packet ID */
 } AMS_HeartbeatRequest_t;
@@ -108,7 +108,7 @@ AMS_HeartbeatRequest_t Compose_AMS_HeartbeatRequest();
 /**
  * @brief AMS Heartbeat Response Message
  */
-typedef struct
+typedef struct AMS_HeartbeatResponse_t
 {
 	uint32_t id; /**< CAN Packet ID */
 	uint8_t data[5]; /**< Data */
@@ -143,7 +143,7 @@ void Parse_AMS_HeartbeatResponse(AMS_HeartbeatResponse_t packet, bool* HVAn, boo
 /**
  * @brief AMS Start Up Message
  */
-typedef struct
+typedef struct AMS_StartUp_t
 {
 	uint32_t id; /**< CAN Packet ID */
 } AMS_StartUp_t;
@@ -157,7 +157,7 @@ AMS_StartUp_t Compose_AMS_StartUp();
 /**
  * @brief AMS Reset Tractive Message
  */
-typedef struct
+typedef struct AMS_ResetTractive_t
 {
 	uint32_t id; /**< CAN Packet ID */
 } AMS_ResetTractive_t;
@@ -171,7 +171,7 @@ AMS_ResetTractive_t Compose_AMS_ResetTractive();
 /**
  * @brief AMS Shutdown Message
  */
-typedef struct
+typedef struct AMS_Shutdown_t
 {
 	uint32_t id; /**< CAN Packet ID */
 } AMS_Shutdown_t;
@@ -185,7 +185,7 @@ AMS_Shutdown_t Compose_AMS_Shutdown();
 /**
  * @brief AMS Request Temperature Message
  */
-typedef struct
+typedef struct AMS_RequestTemperature_t
 {
 	uint32_t id; /**< CAN Packet ID */
 } AMS_RequestTemperature_t;
@@ -199,7 +199,7 @@ AMS_RequestTemperature_t Compose_AMS_RequestTemperature();
 /**
  * @brief AMS Transmit Temperature Message
  */
-typedef struct
+typedef struct AMS_TransmitTemperature_t
 {
 	uint32_t id; /**< CAN Packet ID */
 	uint8_t data[1]; /**< Data */
@@ -222,7 +222,7 @@ void Parse_AMS_TransmitTemperature(AMS_TransmitTemperature_t packet, uint8_t* te
 /**
  * @brief AMS Request Charge State
  */
-typedef struct
+typedef struct AMS_RequestChargeState_t
 {
 	uint32_t id; /**< CAN Packet ID */
 } AMS_RequestChargeState_t;
@@ -236,7 +236,7 @@ AMS_RequestChargeState_t Compose_AMS_RequestChargeState();
 /**
  * @brief AMS Transmit Charge State
  */
-typedef struct
+typedef struct AMS_TransmitChargeState_t
 {
 	uint32_t id; /**< CAN Packet ID */
 	uint8_t data[2]; /**< Data */
@@ -259,7 +259,7 @@ void Parse_AMS_TransmitChargeState(AMS_TransmitChargeState_t packet, uint16_t* c
 /**
  * @brief AMS Ready Message
  */
-typedef struct
+typedef struct AMS_Ready_t
 {
 	uint32_t id; /**< CAN Packet ID */
 } AMS_Ready_t;

@@ -24,7 +24,7 @@ PDM_StartupOk_t Compose_PDM_StartupOk(uint32_t powerChannels)
 		d[i] = ((uint8_t*)&powerChannels)[3-i];
 
 	for (int i=0; i<4 ;++i)
-		packet.data[i] = d[i];
+		packet.data[i] = (uint8_t)(d[i] & 0xFF);
 
 	return packet;
 }
@@ -44,7 +44,7 @@ PDM_SelectStartup_t Compose_PDM_SelectStartup(uint32_t powerChannels)
 		d[i] = ((uint8_t*)&powerChannels)[3-i];
 
 	for (int i=0; i<4 ;++i)
-		packet.data[i] = d[i];
+		packet.data[i] = (uint8_t)(d[i] & 0xFF);
 
 	return packet;
 }
@@ -64,7 +64,7 @@ PDM_SetChannelStates_t Compose_PDM_SetChannelStates(uint32_t powerChannels)
 		d[i] = ((uint8_t*)&powerChannels)[3-i];
 
 	for (int i=0; i<4 ;++i)
-		packet.data[i] = d[i];
+		packet.data[i] = (uint8_t)(d[i] & 0xFF);
 
 	return packet;
 }

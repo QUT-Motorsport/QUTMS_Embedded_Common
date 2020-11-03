@@ -17,7 +17,7 @@
 /**
  * @brief Chassis Controller RTD Message
  */
-typedef struct
+typedef struct CC_ReadyToDrive_t
 {
 	uint32_t id; /**< CAN Packet ID */
 } CC_ReadyToDrive_t;
@@ -32,7 +32,7 @@ CC_ReadyToDrive_t Compose_CC_ReadyToDrive(void);
 /**
  * @brief Chassis Controller Fatal Shutdown Message
  */
-typedef struct
+typedef struct CC_FatalShutdown_t
 {
 	uint32_t id; /**< CAN Packet ID */
 } CC_FatalShutdown_t;
@@ -47,7 +47,7 @@ CC_FatalShutdown_t Compose_CC_FatalShutdown(void);
 /**
  * @brief Chassis Controller Fatal Shutdown Message
  */
-typedef struct
+typedef struct CC_SoftShutdown_t
 {
 	uint32_t id; /**< CAN Packet ID */
 } CC_SoftShutdown_t;
