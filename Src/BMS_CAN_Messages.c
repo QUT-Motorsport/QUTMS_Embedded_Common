@@ -5,6 +5,8 @@
  ******************************************************************************
  */
 
+#ifdef QUTMS_CAN_BMS
+
 #include "BMS_CAN_Messages.h"
 
 BMS_BadCellVoltage_t Compose_BMS_BadCellVoltage(uint8_t BMSId, uint8_t cellNumber, uint8_t voltage)
@@ -144,3 +146,5 @@ void Parse_BMS_SetBMSId(BMS_SetBMSId_t packet, uint8_t* BMSId, uint32_t* uid)
 	*uid = (packet.data[3] << 24 | packet.data[2] << 16 | packet.data[1] << 8 | (packet.data[0] & 0xFF));
 	*BMSId = packet.data[4];
 }
+
+#endif

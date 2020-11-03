@@ -5,6 +5,8 @@
  ******************************************************************************
  */
 
+#ifdef QUTMS_CAN_PDM
+
 #include "PDM_CAN_Messages.h"
 
 PDM_InitiateStartup_t Compose_PDM_InitiateStartup(void)
@@ -73,3 +75,6 @@ void Parse_PDM_SetChannelStates(PDM_SetChannelStates_t packet, uint32_t* powerCh
 {
 	*powerChannels = (packet.data[0] << 24) + (packet.data[1] << 16) + (packet.data[2] << 8) + packet.data[3];
 }
+
+
+#endif

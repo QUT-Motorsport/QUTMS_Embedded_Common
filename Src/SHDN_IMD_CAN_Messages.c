@@ -5,6 +5,8 @@
  ******************************************************************************
  */
 
+#ifdef QUTMS_CAN_SHDN_IMD
+
 #include "SHDN_IMD_CAN_Messages.h"
 
 SHDN_IMD_HeartbeatRequest_t Compose_SHDN_IMD_HeartbeatRequest(void)
@@ -26,3 +28,5 @@ void Parse_SHDN_IMD_HeartbeatResponse(SHDN_IMD_HeartbeatResponse_t packet, uint8
 {
 	*pwmState = packet.data;
 }
+
+#endif

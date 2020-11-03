@@ -5,6 +5,8 @@
  ******************************************************************************
  */
 
+#ifdef QUTMS_CAN_SHDN
+
 #include "SHDN_CAN_Messages.h"
 
 SHDN_HeartbeatRequest_t Compose_SHDN_HeartbeatRequest(void)
@@ -42,3 +44,5 @@ void Parse_SHDN_HeartbeatResponse(SHDN_HeartbeatResponse_t packet, uint8_t* segm
 {
 	*segmentState = packet.data;
 }
+
+#endif

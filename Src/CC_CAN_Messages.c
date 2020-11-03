@@ -5,6 +5,8 @@
  ******************************************************************************
  */
 
+#ifdef QUTMS_CAN_CC
+
 #include "CC_CAN_Messages.h"
 
 CC_ReadyToDrive_t Compose_CC_ReadyToDrive(void)
@@ -27,3 +29,5 @@ CC_SoftShutdown_t Compose_CC_SoftShutdown(void)
 	p.id = Compose_CANId(0x2, 0x18, 0x0, 0x0, 0x0, 0x0);
 	return p;
 }
+
+#endif

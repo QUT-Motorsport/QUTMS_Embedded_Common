@@ -5,6 +5,8 @@
  ******************************************************************************
  */
 
+#ifdef QUTMS_CAN_SHDN_BSPD
+
 #include "SHDN_BSPD_CAN_Messages.h"
 
 SHDN_BSPD_Fault_t Compose_SHDN_BSPD_Fault(void)
@@ -139,3 +141,5 @@ SHDN_BSPD_Reset_t Compose_SHDN_BSPD_Reset(void)
 	p.id = Compose_CANId(0x2, 0x0A, 0x0, 0x2, 0x04, 0x0);
 	return p;
 }
+
+#endif

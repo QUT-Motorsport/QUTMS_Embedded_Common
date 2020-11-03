@@ -5,6 +5,8 @@
  ******************************************************************************
  */
 
+#ifdef QUTMS_CAN_AMS
+
 
 #include "AMS_CAN_Messages.h"
 
@@ -170,3 +172,5 @@ AMS_Ready_t Compose_AMS_Ready()
 
 	return p;
 }
+
+#endif
