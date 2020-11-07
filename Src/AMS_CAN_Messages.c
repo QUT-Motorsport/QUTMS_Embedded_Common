@@ -55,7 +55,7 @@ AMS_MissingBMS_t Compose_AMS_MissingBMS(bool data[12])
 	return p;
 }
 
-void Parse_AMS_MissingBMS(uint8_t* data, bool* data[12])
+void Parse_AMS_MissingBMS(uint8_t* pdata, bool* data[12])
 {
 	return;
 }

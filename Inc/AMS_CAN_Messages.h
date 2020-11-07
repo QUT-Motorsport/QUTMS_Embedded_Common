@@ -89,7 +89,7 @@ AMS_MissingBMS_t Compose_AMS_MissingBMS(bool data[12]);
  * @param packet The AMS_MissingBMS_t packet to parse
  * @param data The array containing the bools denoting if each BMS is present
  */
-void Parse_AMS_MissingBMS(uint8_t *data, bool* data[12]);
+void Parse_AMS_MissingBMS(uint8_t *pdata, bool* data[12]);
 
 /**
  * @brief AMS Heartbeat Request Message
