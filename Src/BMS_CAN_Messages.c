@@ -19,11 +19,11 @@ BMS_BadCellVoltage_t Compose_BMS_BadCellVoltage(uint8_t BMSId, uint8_t cellNumbe
 	return packet;
 }
 
-void Parse_BMS_BadCellVoltage(BMS_BadCellVoltage_t packet, uint8_t* BMSId, uint8_t* cellNumber, uint8_t* voltage)
+void Parse_BMS_BadCellVoltage(uint8_t* data, uint8_t* BMSId, uint8_t* cellNumber, uint8_t* voltage)
 {
-	*BMSId = (packet.data[0] & 0xF);
-	*cellNumber = (packet.data[0] >> 4) & 0xF;
-	*voltage = packet.data[1];
+	*BMSId = (data[0] & 0xF);
+	*cellNumber = (data[0] >> 4) & 0xF;
+	*voltage = data[1];
 }
 
 BMS_BadCellTemperature_t Compose_BMS_BadCellTemperature(uint8_t BMSId, uint8_t cellNumber, uint8_t temperature)
@@ -36,11 +36,11 @@ BMS_BadCellTemperature_t Compose_BMS_BadCellTemperature(uint8_t BMSId, uint8_t c
 	return packet;
 }
 
-void Parse_BMS_BadCellTemperature(BMS_BadCellTemperature_t packet, uint8_t* BMSId, uint8_t* cellNumber, uint8_t* temperature)
+void Parse_BMS_BadCellTemperature(uint8_t* data, uint8_t* BMSId, uint8_t* cellNumber, uint8_t* temperature)
 {
-	*BMSId = (packet.data[0] & 0xF);
-	*cellNumber = (packet.data[0] >> 4) & 0xF;
-	*temperature = packet.data[1];
+	*BMSId = (data[0] & 0xF);
+	*cellNumber = (data[0] >> 4) & 0xF;
+	*temperature = data[1];
 }
 
 BMS_TransmitVoltage_t Compose_BMS_TransmitVoltage(uint8_t BMSId, uint8_t vMsgId, uint16_t voltages[4])
@@ -62,14 +62,14 @@ BMS_TransmitVoltage_t Compose_BMS_TransmitVoltage(uint8_t BMSId, uint8_t vMsgId,
 	return packet;
 }
 
-void Parse_BMS_TransmitVoltage(BMS_TransmitVoltage_t packet, uint8_t* BMSId, uint8_t* vMsgId, uint16_t* voltages)
+void Parse_BMS_TransmitVoltage(uint32_t canId, uint8_t* data, uint8_t* BMSId, uint8_t* vMsgId, uint16_t* voltages)
 {
-	Parse_CANId(packet.id, NULL, NULL, NULL, NULL, NULL, BMSId); // We dont care about any packet info except the BMSId.
-	*vMsgId = packet.data[0] >> 6 & 0x3;
-	*(voltages) = packet.data[1] << 6 | (packet.data[0] & 0x3F);
-	*(voltages+1) = packet.data[3] << 6 | (packet.data[2] & 0x3F);
-	*(voltages+2) = packet.data[5] << 6 | (packet.data[4] & 0x3F);
-	*(voltages+3) = packet.data[7] << 6 | (packet.data[6] & 0x3F);
+	Parse_CANId(canId, NULL, NULL, NULL, NULL, NULL, BMSId); // We dont care about any packet info except the BMSId.
+	*vMsgId = data[0] >> 6 & 0x3;
+	*(voltages) = data[1] << 6 | (data[0] & 0x3F);
+	*(voltages+1) = data[3] << 6 | (data[2] & 0x3F);
+	*(voltages+2) = data[5] << 6 | (data[4] & 0x3F);
+	*(voltages+3) = data[7] << 6 | (data[6] & 0x3F);
 }
 
 BMS_TransmitTemperature_t Compose_BMS_TransmitTemperature(uint8_t BMSId, uint8_t tMsgId, uint8_t temperatures[6])
@@ -85,13 +85,13 @@ BMS_TransmitTemperature_t Compose_BMS_TransmitTemperature(uint8_t BMSId, uint8_t
 	return packet;
 }
 
-void Parse_BMS_TransmitTemperature(BMS_TransmitTemperature_t packet, uint8_t* BMSId, uint8_t* tMsgId, uint8_t* temperatures)
+void Parse_BMS_TransmitTemperature(uint32_t canId, uint8_t* data, uint8_t* BMSId, uint8_t* tMsgId, uint8_t* temperatures)
 {
-	Parse_CANId(packet.id, NULL, NULL, NULL, NULL, NULL, BMSId);
-	*tMsgId = packet.data[0];
+	Parse_CANId(canId, NULL, NULL, NULL, NULL, NULL, BMSId);
+	*tMsgId = data[0];
 	for(int i = 1; i < 7; i++)
 	{
-		*(temperatures+i-1) = packet.data[i];
+		*(temperatures+i-1) = data[i];
 	}
 }
 
@@ -103,9 +103,9 @@ BMS_ChargeEnabled_t Compose_BMS_ChargeEnabled(uint8_t BMSId)
 	return packet;
 }
 
-void Parse_ChargeEnabled(BMS_ChargeEnabled_t packet, uint8_t* BMSId)
+void Parse_ChargeEnabled(uint32_t canId, uint8_t* BMSId)
 {
-	Parse_CANId(packet.id, NULL, NULL, NULL, NULL, NULL, BMSId);
+	Parse_CANId(canId, NULL, NULL, NULL, NULL, NULL, BMSId);
 }
 
 BMS_TransmitDeviceId_t Compose_BMS_TransmitDeviceId(uint8_t BMSId, uint32_t uid)
@@ -121,10 +121,10 @@ BMS_TransmitDeviceId_t Compose_BMS_TransmitDeviceId(uint8_t BMSId, uint32_t uid)
 	return packet;
 }
 
-void Parse_BMS_TransmitDeviceId(BMS_TransmitDeviceId_t packet, uint8_t* BMSId, uint32_t* uid)
+void Parse_BMS_TransmitDeviceId(uint32_t canId, uint8_t* data, uint8_t* BMSId, uint32_t* uid)
 {
-	Parse_CANId(packet.id, NULL, NULL, NULL, NULL, NULL, BMSId); // BMSId from CANId will be 0x0 as we haven't assigned one yet.
-	*uid = (packet.data[3] << 24 | packet.data[2] << 16 | packet.data[1] << 8 | (packet.data[0] & 0xFF));
+	Parse_CANId(canId, NULL, NULL, NULL, NULL, NULL, BMSId); // BMSId from CANId will be 0x0 as we haven't assigned one yet.
+	*uid = (data[3] << 24 | data[2] << 16 | data[1] << 8 | (data[0] & 0xFF));
 }
 
 BMS_SetBMSId_t Compose_BMS_SetBMSId(uint8_t BMSId, uint32_t uid)
@@ -140,11 +140,11 @@ BMS_SetBMSId_t Compose_BMS_SetBMSId(uint8_t BMSId, uint32_t uid)
 	return packet;
 }
 
-void Parse_BMS_SetBMSId(BMS_SetBMSId_t packet, uint8_t* BMSId, uint32_t* uid)
+void Parse_BMS_SetBMSId(uint32_t canId, uint8_t* data, uint8_t* BMSId, uint32_t* uid)
 {
-	Parse_CANId(packet.id, NULL, NULL, NULL, NULL, NULL, BMSId); // BMSId from CANId will be 0x0 as we haven't assigned one yet.
-	*uid = (packet.data[3] << 24 | packet.data[2] << 16 | packet.data[1] << 8 | (packet.data[0] & 0xFF));
-	*BMSId = packet.data[4];
+	Parse_CANId(canId, NULL, NULL, NULL, NULL, NULL, BMSId); // BMSId from CANId will be 0x0 as we haven't assigned one yet.
+	*uid = (data[3] << 24 | data[2] << 16 | data[1] << 8 | (data[0] & 0xFF));
+	*BMSId = data[4];
 }
 
 #endif

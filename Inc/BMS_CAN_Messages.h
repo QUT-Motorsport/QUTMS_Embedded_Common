@@ -39,7 +39,7 @@ BMS_BadCellVoltage_t Compose_BMS_BadCellVoltage(uint8_t BMSId, uint8_t cellNumbe
  * @param cellNumber The cell number relating to the voltage
  * @param voltage The voltage of said cell
  */
-void Parse_BMS_BadCellVoltage(BMS_BadCellVoltage_t packet, uint8_t* BMSId, uint8_t* cellNumber, uint8_t* voltage);
+void Parse_BMS_BadCellVoltage(uint8_t* data, uint8_t* BMSId, uint8_t* cellNumber, uint8_t* voltage);
 
 /**
  * @brief BMS Bad Cell Temperature Message
@@ -66,7 +66,7 @@ BMS_BadCellTemperature_t Compose_BMS_BadCellTemperature(uint8_t BMSId, uint8_t c
  * @param cellNumber The Cell number relating to the temperature
  * @param temperature The temperature of said cell
  */
-void Parse_BMS_BadCellTemperature(BMS_BadCellTemperature_t packet, uint8_t* BMSId, uint8_t* cellNumber, uint8_t* temperature);
+void Parse_BMS_BadCellTemperature(uint8_t* data, uint8_t* BMSId, uint8_t* cellNumber, uint8_t* temperature);
 
 /**
  * @brief BMS Transmit Voltage Message
@@ -93,7 +93,7 @@ BMS_TransmitVoltage_t Compose_BMS_TransmitVoltage(uint8_t BMSId, uint8_t vMsgId,
  * @param vMsgId The voltage message ID (0 or 1) as we send 2 packets with all voltages
  * @param voltages The voltages parsed from the packet
  */
-void Parse_BMS_TransmitVoltage(BMS_TransmitVoltage_t packet, uint8_t* BMSId, uint8_t* vMsgId, uint16_t* voltages);
+void Parse_BMS_TransmitVoltage(uint32_t canId, uint8_t* data, uint8_t* BMSId, uint8_t* vMsgId, uint16_t* voltages);
 
 /**
  * @brief BMS Transmit Temperature Message
@@ -120,7 +120,7 @@ BMS_TransmitTemperature_t Compose_BMS_TransmitTemperature(uint8_t BMSId, uint8_t
  * @param tMsgId The temperature message ID (0 or 1) as we send 2 packets with all temperatures
  * @param temperatures The temperatures parsed from the packet
  */
-void Parse_BMS_TransmitTemperature(BMS_TransmitTemperature_t packet, uint8_t* BMSId, uint8_t* tMsgId, uint8_t* temperatures);
+void Parse_BMS_TransmitTemperature(uint32_t canId, uint8_t* data, uint8_t* BMSId, uint8_t* tMsgId, uint8_t* temperatures);
 
 /**
  * @brief BMS Charge Enabled Message
@@ -142,7 +142,7 @@ BMS_ChargeEnabled_t Compose_BMS_ChargeEnabled(uint8_t BMSId);
  * @param packet The BMS_ChargeEnabled_t packet to parse
  * @param BMSId The BMS ID
  */
-void Parse_ChargeEnabled(BMS_ChargeEnabled_t packet, uint8_t* BMSId);
+void Parse_ChargeEnabled(uint32_t canId, uint8_t* BMSId);
 
 /**
  * @brief BMS Transmit Device ID Message
@@ -166,7 +166,7 @@ BMS_TransmitDeviceId_t Compose_BMS_TransmitDeviceId(uint8_t BMSId, uint32_t uid)
  * @param BMSId The BMS ID
  * @param uid The UID of the BMS micro-controller
  */
-void Parse_BMS_TransmitDeviceId(BMS_TransmitDeviceId_t packet, uint8_t* BMSId, uint32_t* uid);
+void Parse_BMS_TransmitDeviceId(uint32_t canId, uint8_t* data, uint8_t* BMSId, uint32_t* uid);
 
 /**
  * @brief BMS Set BMS ID Message
@@ -191,6 +191,6 @@ BMS_SetBMSId_t Compose_BMS_SetBMSId(uint8_t BMSId, uint32_t uid);
  * @param BMSId The BMS ID
  * @param uid the UID of the BMS micro-controller
  */
-void Parse_BMS_SetBMSId(BMS_SetBMSId_t packet, uint8_t* BMSId, uint32_t* uid);
+void Parse_BMS_SetBMSId(uint32_t canId, uint8_t* data, uint8_t* BMSId, uint32_t* uid);
 
 #endif /* INC_BMS_CAN_MESSAGES_H_ */

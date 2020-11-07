@@ -20,11 +20,11 @@ AMS_CellVoltageShutdown_t Compose_AMS_CellVoltageShutdown(uint8_t cellNum, uint8
 	return p;
 }
 
-void Parse_AMS_CellVoltageShutdown(AMS_CellVoltageShutdown_t packet, uint8_t* cellNum, uint8_t* bmsID, uint8_t* voltage)
+void Parse_AMS_CellVoltageShutdown(uint8_t* data, uint8_t* cellNum, uint8_t* bmsID, uint8_t* voltage)
 {
-	*cellNum = (uint8_t)(packet.data[0] >> 4);
-	*bmsID = (uint8_t)(packet.data[0] & 0xF);
-	*voltage = (uint8_t)(packet.data[1] & 0xFF);
+	*cellNum = (uint8_t)(data[0] >> 4);
+	*bmsID = (uint8_t)(data[0] & 0xF);
+	*voltage = (uint8_t)(data[1] & 0xFF);
 }
 
 AMS_CellTemperatureShutdown_t Compose_AMS_CellTemperatureShutdown(uint8_t cellNum, uint8_t bmsID, uint8_t temperature)
@@ -37,11 +37,11 @@ AMS_CellTemperatureShutdown_t Compose_AMS_CellTemperatureShutdown(uint8_t cellNu
 	return p;
 }
 
-void Parse_AMS_CellTemperatureShutdown(AMS_CellTemperatureShutdown_t packet, uint8_t* cellNum, uint8_t* bmsID, uint8_t* temperature)
+void Parse_AMS_CellTemperatureShutdown(uint8_t* data, uint8_t* cellNum, uint8_t* bmsID, uint8_t* temperature)
 {
-	*cellNum = (uint8_t)(packet.data[0] >> 4);
-	*bmsID = (uint8_t)(packet.data[0] & 0xF);
-	*temperature = (uint8_t)(packet.data[1] & 0xFF);
+	*cellNum = (uint8_t)(data[0] >> 4);
+	*bmsID = (uint8_t)(data[0] & 0xF);
+	*temperature = (uint8_t)(data[1] & 0xFF);
 }
 
 AMS_MissingBMS_t Compose_AMS_MissingBMS(bool data[12])
@@ -55,7 +55,7 @@ AMS_MissingBMS_t Compose_AMS_MissingBMS(bool data[12])
 	return p;
 }
 
-void Parse_AMS_MissingBMS(AMS_MissingBMS_t packet, bool* data[12])
+void Parse_AMS_MissingBMS(uint8_t* data, bool* data[12])
 {
 	return;
 }
@@ -83,17 +83,17 @@ AMS_HeartbeatResponse_t Compose_AMS_HeartbeatResponse(bool HVAn, bool HVBn, bool
 	return p;
 }
 
-void Parse_AMS_HeartbeatResponse(AMS_HeartbeatResponse_t packet, bool* HVAn, bool* HVBn, bool* precharge, bool* HVAp, bool* HVBp, uint16_t* averageVoltage, uint16_t* runtime)
+void Parse_AMS_HeartbeatResponse(uint8_t *data, bool* HVAn, bool* HVBn, bool* precharge, bool* HVAp, bool* HVBp, uint16_t* averageVoltage, uint16_t* runtime)
 {
-	*HVAn = (bool)(packet.data[0] & 0x1);
-	*HVBn = (bool)(packet.data[0] & 0x2);
-	*precharge = (bool)(packet.data[0] & 0x4);
+	*HVAn = (bool)(data[0] & 0x1);
+	*HVBn = (bool)(data[0] & 0x2);
+	*precharge = (bool)(data[0] & 0x4);
 
-	*HVAp = (bool)(packet.data[0] & 0x10);
-	*HVBp = (bool)(packet.data[0] & 0x20);
+	*HVAp = (bool)(data[0] & 0x10);
+	*HVBp = (bool)(data[0] & 0x20);
 
-	*averageVoltage = (uint16_t)((packet.data[1] & 0x3F) << 6 | (packet.data[0]));
-	*runtime = (uint16_t)(packet.data[3] << 8 | packet.data[2]);
+	*averageVoltage = (uint16_t)((data[1] & 0x3F) << 6 | (data[0]));
+	*runtime = (uint16_t)(data[3] << 8 | data[2]);
 }
 
 AMS_StartUp_t Compose_AMS_StartUp()
@@ -137,9 +137,9 @@ AMS_TransmitTemperature_t Compose_AMS_TransmitTemperature(uint8_t temperature)
 	return p;
 }
 
-void Parse_AMS_TransmitTemperature(AMS_TransmitTemperature_t packet, uint8_t* temperature)
+void Parse_AMS_TransmitTemperature(uint8_t* data, uint8_t* temperature)
 {
-	*temperature = packet.data[0];
+	*temperature = data[0];
 }
 
 AMS_RequestChargeState_t Compose_AMS_RequestChargeState()
@@ -160,9 +160,9 @@ AMS_TransmitChargeState_t Compose_AMS_TransmitChargeState(uint16_t chargeState)
 	return p;
 }
 
-void Parse_AMS_TransmitChargeState(AMS_TransmitChargeState_t packet, uint16_t* chargeState)
+void Parse_AMS_TransmitChargeState(uint8_t *data, uint16_t* chargeState)
 {
-	*chargeState = (packet.data[0] << 8 | packet.data[1]);
+	*chargeState = (data[0] << 8 | data[1]);
 }
 
 AMS_Ready_t Compose_AMS_Ready()

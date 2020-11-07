@@ -39,7 +39,7 @@ AMS_CellVoltageShutdown_t Compose_AMS_CellVoltageShutdown(uint8_t cellNum, uint8
  * @param bmsID The BMS ID
  * @param voltage The voltage of said cell
  */
-void Parse_AMS_CellVoltageShutdown(AMS_CellVoltageShutdown_t packet, uint8_t* cellNum, uint8_t* bmsID, uint8_t* voltage);
+void Parse_AMS_CellVoltageShutdown(uint8_t* data, uint8_t* cellNum, uint8_t* bmsID, uint8_t* voltage);
 
 /**
  * @brief AMS Cell Temperature Shutdown Message
@@ -66,7 +66,7 @@ AMS_CellTemperatureShutdown_t Compose_AMS_CellTemperatureShutdown(uint8_t cellNu
  * @param bmsID The BMS ID
  * @param temperature The temperature of said cell
  */
-void Parse_AMS_CellTemperatureShutdown(AMS_CellTemperatureShutdown_t packet, uint8_t* cellNum, uint8_t* bmsID, uint8_t* temperature);
+void Parse_AMS_CellTemperatureShutdown(uint8_t* data, uint8_t* cellNum, uint8_t* bmsID, uint8_t* temperature);
 
 /**
  * @brief AMS Missing BMS Message
@@ -89,7 +89,7 @@ AMS_MissingBMS_t Compose_AMS_MissingBMS(bool data[12]);
  * @param packet The AMS_MissingBMS_t packet to parse
  * @param data The array containing the bools denoting if each BMS is present
  */
-void Parse_AMS_MissingBMS(AMS_MissingBMS_t packet, bool* data[12]);
+void Parse_AMS_MissingBMS(uint8_t *data, bool* data[12]);
 
 /**
  * @brief AMS Heartbeat Request Message
@@ -138,7 +138,7 @@ AMS_HeartbeatResponse_t Compose_AMS_HeartbeatResponse(bool HVAn, bool HVBn, bool
  * @param averageVoltage The average voltage across all BMSs
  * @param runtime The runtime of the AMS micro-controller
  */
-void Parse_AMS_HeartbeatResponse(AMS_HeartbeatResponse_t packet, bool* HVAn, bool* HVBn, bool* precharge, bool* HVAp, bool* HVBp, uint16_t* averageVoltage, uint16_t* runtime);
+void Parse_AMS_HeartbeatResponse(uint8_t* data, bool* HVAn, bool* HVBn, bool* precharge, bool* HVAp, bool* HVBp, uint16_t* averageVoltage, uint16_t* runtime);
 
 /**
  * @brief AMS Start Up Message
@@ -217,7 +217,7 @@ AMS_TransmitTemperature_t Compose_AMS_TransmitTemperature(uint8_t temperature);
  * @param packet The AMS_TransmitTemperature_t packet to parse
  * @param temperature The temperature
  */
-void Parse_AMS_TransmitTemperature(AMS_TransmitTemperature_t packet, uint8_t* temperature);
+void Parse_AMS_TransmitTemperature(uint8_t* data, uint8_t* temperature);
 
 /**
  * @brief AMS Request Charge State
@@ -254,7 +254,7 @@ AMS_TransmitChargeState_t Compose_AMS_TransmitChargeState(uint16_t chargeState);
  * @param packet The AMS_TransmitCHargeState_t packet to parse
  * @param chargeState The charge state
  */
-void Parse_AMS_TransmitChargeState(AMS_TransmitChargeState_t packet, uint16_t* chargeState);
+void Parse_AMS_TransmitChargeState(uint8_t* data, uint16_t* chargeState);
 
 /**
  * @brief AMS Ready Message
