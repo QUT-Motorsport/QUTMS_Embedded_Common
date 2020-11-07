@@ -12,7 +12,7 @@
 BMS_BadCellVoltage_t Compose_BMS_BadCellVoltage(uint8_t BMSId, uint8_t cellNumber, uint8_t voltage)
 {
 	BMS_BadCellVoltage_t packet;
-	packet.id = Compose_CANId(0x0, 0x12, 0x0, 0x0, 0x00, BMSId);
+	packet.id = Compose_CANId(CAN_PRIORITY_ERROR, CAN_SRC_ID_BMS, CAN_TYPE_ERROR, 0x0, 0x00, BMSId);
 	packet.data[0] = (BMSId & 0xF) | (cellNumber & 0xF) << 4;
 	packet.data[1] = voltage;
 
@@ -29,7 +29,7 @@ void Parse_BMS_BadCellVoltage(uint8_t* data, uint8_t* BMSId, uint8_t* cellNumber
 BMS_BadCellTemperature_t Compose_BMS_BadCellTemperature(uint8_t BMSId, uint8_t cellNumber, uint8_t temperature)
 {
 	BMS_BadCellTemperature_t packet;
-	packet.id = Compose_CANId(0x0, 0x12, 0x0, 0x0, 0x01, BMSId);
+	packet.id = Compose_CANId(CAN_PRIORITY_ERROR, CAN_SRC_ID_BMS, CAN_TYPE_ERROR, 0x0, 0x01, BMSId);
 	packet.data[0] = (BMSId & 0xF) | (cellNumber & 0xF) << 4;
 	packet.data[1] = temperature;
 
@@ -46,7 +46,7 @@ void Parse_BMS_BadCellTemperature(uint8_t* data, uint8_t* BMSId, uint8_t* cellNu
 BMS_TransmitVoltage_t Compose_BMS_TransmitVoltage(uint8_t BMSId, uint8_t vMsgId, uint16_t voltages[4])
 {
 	BMS_TransmitVoltage_t packet;
-	packet.id = Compose_CANId(0x2, 0x12, 0x0, 0x3, 0x02, BMSId);
+	packet.id = Compose_CANId(CAN_PRIORITY_NORMAL, CAN_SRC_ID_BMS, 0x0, CAN_TYPE_TRANSMIT, 0x02, BMSId);
 	packet.data[0] = vMsgId << 6 | (voltages[0] & 0x3F);
 	packet.data[1] = (voltages[0] >> 6) & 0x3F;
 
@@ -75,7 +75,7 @@ void Parse_BMS_TransmitVoltage(uint32_t canId, uint8_t* data, uint8_t* BMSId, ui
 BMS_TransmitTemperature_t Compose_BMS_TransmitTemperature(uint8_t BMSId, uint8_t tMsgId, uint8_t temperatures[6])
 {
 	BMS_TransmitTemperature_t packet;
-	packet.id = Compose_CANId(0x0, 0x12, 0x0, 0x3, 0x3, BMSId);
+	packet.id = Compose_CANId(CAN_PRIORITY_NORMAL, CAN_SRC_ID_BMS, 0x0, CAN_TYPE_TRANSMIT, 0x3, BMSId);
 	packet.data[0] = tMsgId > 0 ? 1 : 0;
 	for(int i = 1; i < 7; i++)
 	{
@@ -98,7 +98,7 @@ void Parse_BMS_TransmitTemperature(uint32_t canId, uint8_t* data, uint8_t* BMSId
 BMS_ChargeEnabled_t Compose_BMS_ChargeEnabled(uint8_t BMSId)
 {
 	BMS_ChargeEnabled_t packet;
-	packet.id = Compose_CANId(0x2, 0x12, 0x0, 0x2, 0x0, BMSId);
+	packet.id = Compose_CANId(CAN_PRIORITY_NORMAL, CAN_SRC_ID_BMS, 0x0, CAN_TYPE_RECEIVE, 0x0, BMSId);
 
 	return packet;
 }
@@ -106,45 +106,6 @@ BMS_ChargeEnabled_t Compose_BMS_ChargeEnabled(uint8_t BMSId)
 void Parse_ChargeEnabled(uint32_t canId, uint8_t* BMSId)
 {
 	Parse_CANId(canId, NULL, NULL, NULL, NULL, NULL, BMSId);
-}
-
-BMS_TransmitDeviceId_t Compose_BMS_TransmitDeviceId(uint8_t BMSId, uint32_t uid)
-{
-	BMS_TransmitDeviceId_t packet;
-	BMSId = 0x0; // We don't use BMSId here, as we don't know our ID assigned by AMS yet.
-	packet.id = Compose_CANId(0x2, 0x12, 0x0, 0x3, 0x1, BMSId);
-	packet.data[0] = (uid & 0xFF);
-	packet.data[1] = ((uid >> 8) & 0xFF);
-	packet.data[2] = ((uid >> 16) & 0xFF);
-	packet.data[3] = ((uid >> 24) & 0xFF);
-
-	return packet;
-}
-
-void Parse_BMS_TransmitDeviceId(uint32_t canId, uint8_t* data, uint8_t* BMSId, uint32_t* uid)
-{
-	Parse_CANId(canId, NULL, NULL, NULL, NULL, NULL, BMSId); // BMSId from CANId will be 0x0 as we haven't assigned one yet.
-	*uid = (data[3] << 24 | data[2] << 16 | data[1] << 8 | (data[0] & 0xFF));
-}
-
-BMS_SetBMSId_t Compose_BMS_SetBMSId(uint8_t BMSId, uint32_t uid)
-{
-	BMS_SetBMSId_t packet;
-	packet.id = Compose_CANId(0x2, 0x12, 0x0, 0x2, 0x01, 0x0); // BMS not looking for its ID, so we won't put it in the CAN id.
-	packet.data[0] = (uid & 0xFF);
-	packet.data[1] = ((uid >> 8) & 0xFF);
-	packet.data[2] = ((uid >> 16) & 0xFF);
-	packet.data[3] = ((uid >> 24) & 0xFF);
-	packet.data[4] = BMSId;
-
-	return packet;
-}
-
-void Parse_BMS_SetBMSId(uint32_t canId, uint8_t* data, uint8_t* BMSId, uint32_t* uid)
-{
-	Parse_CANId(canId, NULL, NULL, NULL, NULL, NULL, BMSId); // BMSId from CANId will be 0x0 as we haven't assigned one yet.
-	*uid = (data[3] << 24 | data[2] << 16 | data[1] << 8 | (data[0] & 0xFF));
-	*BMSId = data[4];
 }
 
 #endif

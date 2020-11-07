@@ -10,8 +10,20 @@
 #include "can.h"
 
 // defines
+#define CAN_PRIORITY_ERROR 0x0
+#define CAN_PRIORITY_HEARTBEAT 0x1
+#define CAN_PRIORITY_NORMAL 0x2
+#define CAN_PRIORITY_DEBUG 0x3
+
 #define CAN_SRC_ID_AMS 0x10
 #define CAN_SRC_ID_BMS 0x12
+
+#define CAN_TYPE_ERROR 0x0
+#define CAN_TYPE_HEARTBEAT 0x1
+#define CAN_TYPE_RECEIVE 0x2
+#define CAN_TYPE_TRANSMIT 0x3
+#define CAN_TYPE_STREAM 0x7
+
 
 #define CAN_MASK_SRC_ID 0x1FF << 18
 
