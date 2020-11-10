@@ -26,7 +26,7 @@ CC_FatalShutdown_t Compose_CC_FatalShutdown(void)
 CC_SoftShutdown_t Compose_CC_SoftShutdown(void)
 {
 	CC_SoftShutdown_t p;
-	p.id = Compose_CANId(0x2, 0x18, 0x0, 0x1, 0x1, 0x0);
+	p.id = Compose_CANId(0x2, 0x16, 0x0, 0x1, 0x1, 0x0);
 	return p;
 }
 
