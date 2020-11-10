@@ -68,13 +68,13 @@ AMS_HeartbeatRequest_t Compose_AMS_HeartbeatRequest()
 	return p;
 }
 
-AMS_HeartbeatResponse_t Compose_AMS_HeartbeatResponse(bool HVAn, bool HVBn, bool precharge, bool HVAp, bool HVBp, uint16_t averageVoltage, uint16_t runtime)
+AMS_HeartbeatResponse_t Compose_AMS_HeartbeatResponse(bool initialised, bool HVAn, bool HVBn, bool precharge, bool HVAp, bool HVBp, uint16_t averageVoltage, uint16_t runtime)
 {
 
 	AMS_HeartbeatResponse_t p;
 	p.id = Compose_CANId(0x1, 0x10, 0x0, 0x1, 0x01, 0x0);
 
-	p.data[0] = HVAn | (HVBn << 1) | (precharge << 2) | (HVAp << 4) | (HVBp << 5);
+	p.data[0] = HVAn | (HVBn << 1) | (precharge << 2) | (HVAp << 4) | (HVBp << 5) | (initialised << 8);
 	p.data[1] = (averageVoltage & 0x3F);
 	p.data[2] = (averageVoltage >> 6) & 0x3F;
 	p.data[3] = (runtime & 0xFF);
@@ -83,7 +83,7 @@ AMS_HeartbeatResponse_t Compose_AMS_HeartbeatResponse(bool HVAn, bool HVBn, bool
 	return p;
 }
 
-void Parse_AMS_HeartbeatResponse(uint8_t *data, bool* HVAn, bool* HVBn, bool* precharge, bool* HVAp, bool* HVBp, uint16_t* averageVoltage, uint16_t* runtime)
+void Parse_AMS_HeartbeatResponse(uint8_t *data, bool *initialised, bool* HVAn, bool* HVBn, bool* precharge, bool* HVAp, bool* HVBp, uint16_t* averageVoltage, uint16_t* runtime)
 {
 	*HVAn = (bool)(data[0] & 0x1);
 	*HVBn = (bool)(data[0] & 0x2);
@@ -91,6 +91,8 @@ void Parse_AMS_HeartbeatResponse(uint8_t *data, bool* HVAn, bool* HVBn, bool* pr
 
 	*HVAp = (bool)(data[0] & 0x10);
 	*HVBp = (bool)(data[0] & 0x20);
+
+	*initialised = (bool)(data[0] & 0x80);
 
 	*averageVoltage = (uint16_t)((data[1] & 0x3F) << 6 | (data[0]));
 	*runtime = (uint16_t)(data[3] << 8 | data[2]);

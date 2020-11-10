@@ -125,7 +125,7 @@ typedef struct AMS_HeartbeatResponse_t
  * @param runtime The runtime of the AMS micro-controller
  * @return The composed AMS_HeartbeatResponse_t packet
  */
-AMS_HeartbeatResponse_t Compose_AMS_HeartbeatResponse(bool HVAn, bool HVBn, bool precharge, bool HVAp, bool HVBp, uint16_t averageVoltage, uint16_t runtime);
+AMS_HeartbeatResponse_t Compose_AMS_HeartbeatResponse(bool initialised, bool HVAn, bool HVBn, bool precharge, bool HVAp, bool HVBp, uint16_t averageVoltage, uint16_t runtime);
 
 /**
  * @brief AMS Heartbeat Response Parser
@@ -138,7 +138,7 @@ AMS_HeartbeatResponse_t Compose_AMS_HeartbeatResponse(bool HVAn, bool HVBn, bool
  * @param averageVoltage The average voltage across all BMSs
  * @param runtime The runtime of the AMS micro-controller
  */
-void Parse_AMS_HeartbeatResponse(uint8_t* data, bool* HVAn, bool* HVBn, bool* precharge, bool* HVAp, bool* HVBp, uint16_t* averageVoltage, uint16_t* runtime);
+void Parse_AMS_HeartbeatResponse(uint8_t* data, bool *initialised, bool* HVAn, bool* HVBn, bool* precharge, bool* HVAp, bool* HVBp, uint16_t* averageVoltage, uint16_t* runtime);
 
 /**
  * @brief AMS Start Up Message
