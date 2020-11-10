@@ -74,7 +74,7 @@ AMS_HeartbeatResponse_t Compose_AMS_HeartbeatResponse(bool initialised, bool HVA
 	AMS_HeartbeatResponse_t p;
 	p.id = Compose_CANId(0x1, 0x10, 0x0, 0x1, 0x01, 0x0);
 
-	p.data[0] = HVAn | (HVBn << 1) | (precharge << 2) | (HVAp << 4) | (HVBp << 5) | (initialised << 8);
+	p.data[0] = HVAn | (HVBn << 1) | (precharge << 2) | (HVAp << 4) | (HVBp << 5) | (initialised << 7);
 	p.data[1] = (averageVoltage & 0x3F);
 	p.data[2] = (averageVoltage >> 6) & 0x3F;
 	p.data[3] = (runtime & 0xFF);
