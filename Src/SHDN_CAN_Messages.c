@@ -9,10 +9,10 @@
 
 #include "SHDN_CAN_Messages.h"
 
-SHDN_HeartbeatRequest_t Compose_SHDN_HeartbeatRequest(void)
+SHDN_ShutdownTriggered_t Compose_SHDN_ShudownTriggered(void)
 {
-	SHDN_HeartbeatRequest_t p;
-	p.id = Compose_CANId(0x1, 0x06, 0x0, 0x1, 0x00, 0x0);
+	SHDN_ShutdownTriggered_t p;
+	p.id = Compose_CANId(0x0, 0x06, 0x0, 0x0, 0x0, 0x0);
 	return p;
 }
 

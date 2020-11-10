@@ -17,16 +17,16 @@
 /**
  * @brief Shutdown Heartbeat Request Message
  */
-typedef struct SHDN_HeartbeatRequest_t
+typedef struct SHDN_ShutdownTriggered_t
 {
 	uint32_t id; /**< CAN Packet ID */
-} SHDN_HeartbeatRequest_t;
+} SHDN_ShutdownTriggered_t;
 
 /**
  * @brief Shutdown Heartbeat Request Message Composer
  * @return The composed SHDN_HeartbeatRequest_t packet
  */
-SHDN_HeartbeatRequest_t Compose_SHDN_HeartbeatRequest(void);
+SHDN_ShutdownTriggered_t Compose_SHDN_ShudownTriggered(void);
 
 /**
  * @brief Shutdown Heartbeat Response Message
