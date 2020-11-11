@@ -37,22 +37,21 @@ void Parse_PDM_StartupOk(uint8_t data[4], uint32_t *powerChannels) {
 
 PDM_SelectStartup_t Compose_PDM_SelectStartup(uint32_t powerChannels) {
 	PDM_SelectStartup_t packet;
-	packet.id = Compose_CANId(0x2, 0x14, 0x0, 0x2, 0x01, 0x0);
+	packet.id = Compose_CANId(CAN_PRIORITY_NORMAL, CAN_SRC_ID_PDM, 0x0,
+	CAN_TYPE_TRANSMIT, 0x01, 0x0);
 
-	uint8_t d[4] = { 0 };
-	for (int i = 0; i < 4; ++i)
-		d[i] = ((uint8_t*) &powerChannels)[3 - i];
-
-	for (int i = 0; i < 4; ++i)
-		packet.data[i] = (uint8_t) (d[i] & 0xFF);
+	for (int i = 0; i < 4; i++) {
+		packet.data[i] = (powerChannels >> (i * 8)) & 0xFF;
+	}
 
 	return packet;
 }
 
-void Parse_PDM_SelectStartup(PDM_SelectStartup_t packet,
-		uint32_t *powerChannels) {
-	*powerChannels = (packet.data[0] << 24) + (packet.data[1] << 16)
-			+ (packet.data[2] << 8) + packet.data[3];
+void Parse_PDM_SelectStartup(uint8_t data[4], uint32_t *powerChannels) {
+	*powerChannels = 0;
+	for (int i = 0; i < 4; i++) {
+		*powerChannels |= data[i] << (i * 8);
+	}
 }
 
 PDM_SetChannelStates_t Compose_PDM_SetChannelStates(uint32_t powerChannels) {
@@ -67,8 +66,7 @@ PDM_SetChannelStates_t Compose_PDM_SetChannelStates(uint32_t powerChannels) {
 	return packet;
 }
 
-void Parse_PDM_SetChannelStates(uint8_t data[4],
-		uint32_t *powerChannels) {
+void Parse_PDM_SetChannelStates(uint8_t data[4], uint32_t *powerChannels) {
 	*powerChannels = 0;
 	for (int i = 0; i < 4; i++) {
 		*powerChannels |= data[i] << (i * 8);

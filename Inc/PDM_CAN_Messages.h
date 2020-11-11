@@ -74,7 +74,7 @@ PDM_SelectStartup_t Compose_PDM_SelectStartup(uint32_t powerChannels);
  * @param packet The PDM_SelectStartup_t packet to parse
  * @param 32 bit string containing Boolean-like values power channels toggled to
  */
-void Parse_PDM_SelectStartup(PDM_SelectStartup_t packet, uint32_t* powerChannels);
+void Parse_PDM_SelectStartup(uint8_t data[4], uint32_t *powerChannels);
 
 /**
  * @brief PDM Set Channel States Message
