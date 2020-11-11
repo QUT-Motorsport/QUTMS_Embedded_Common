@@ -99,4 +99,24 @@ PDM_SetChannelStates_t Compose_PDM_SetChannelStates(uint32_t powerChannels);
  */
 void Parse_PDM_SetChannelStates(PDM_SetChannelStates_t packet, uint32_t* powerChannels);
 
+typedef struct PDM_Heartbeat_t
+{
+	uint32_t id; /**< CAN Packet ID*/
+	uint8_t data[4]; /**< Data */
+} PDM_Heartbeat_t;
+
+/**
+ * @brief PDM Heartbeat Message Composer
+ * @param 32 bit string containing Boolean-like values to set power status to
+ * @return The generated PDM_Heartbeat_t packet
+ */
+PDM_Heartbeat_t Compose_PDM_Heartbeat(uint8_t powerChannels[4]);
+
+/**
+ * @brief PDM Heartbeat Message Parser
+ * @param packet The PDM_Heartbeat_t packet to parse
+ * @param 32 bit string containing Boolean-like values power channels toggled to
+ */
+void Parse_PDM_Heartbeat(PDM_Heartbeat_t packet, uint8_t powerChannels[4]);
+
 #endif /* INC_PDM_CAN_MESSAGES_H_ */

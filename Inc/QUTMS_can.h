@@ -17,6 +17,7 @@
 
 #define CAN_SRC_ID_AMS 0x10
 #define CAN_SRC_ID_BMS 0x12
+#define CAN_SRC_ID_PDM 0x14
 
 #define CAN_TYPE_ERROR 0x0
 #define CAN_TYPE_HEARTBEAT 0x1
