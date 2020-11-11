@@ -13,7 +13,7 @@ void Send_CC_FatalShutdown(char* errorCause, bool echo)
 {
 	if(echo)
 	{
-		HAL_UART_Transmit(&huart3, (uint8_t *)errorCause, strlen(errorCause), HAL_MAX_DELAY);
+		HAL_UART_Transmit(&huart3, (uint8_t *)errorCause, (size_t)strlen(errorCause), HAL_MAX_DELAY);
 	}
 	CC_FatalShutdown_t fatalShutdown = Compose_CC_FatalShutdown();
 	CAN_TxHeaderTypeDef header =
