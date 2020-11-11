@@ -24,6 +24,9 @@
  * @param echo Echo errorCause over USART3
  * @return void
  */
-void Send_CC_FatalShutdown(char* errorCause, bool echo);
+void Send_CC_FatalShutdown(char* errorCause, bool echo,
+		uint32_t* CAN1_Mailbox, uint32_t* CAN2_Mailbox, uint32_t* CAN3_Mailbox,
+		CAN_HandleTypeDef* CanHandle, CAN_HandleTypeDef* CanHandle2, CAN_HandleTypeDef* CanHandle3,
+		UART_HandleTypeDef* huartHandle);
 
 #endif /* INC_CC_CAN_WRAPPER_H_ */
