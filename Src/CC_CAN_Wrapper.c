@@ -9,7 +9,7 @@
 
 #include "CC_CAN_Wrapper.h"
 
-void Send_CC_FatalShutdown(char* errorCause, bool echo,
+bool Send_CC_FatalShutdown(char* errorCause, bool echo,
 		uint32_t* CAN1_Mailbox, uint32_t* CAN2_Mailbox, uint32_t* CAN3_Mailbox,
 		CAN_HandleTypeDef* CanHandle, CAN_HandleTypeDef* CanHandle2, CAN_HandleTypeDef* CanHandle3,
 		UART_HandleTypeDef* huartHandle)
@@ -31,12 +31,7 @@ void Send_CC_FatalShutdown(char* errorCause, bool echo,
 	HAL_CAN_AddTxMessage(CanHandle, &header, data, CAN1_Mailbox);
 	HAL_CAN_AddTxMessage(CanHandle2, &header, data, CAN2_Mailbox);
 	HAL_CAN_AddTxMessage(CanHandle3, &header, data, CAN3_Mailbox);
-
-	if(osSemaphoreAcquire(CC_GlobalState->sem, SEM_ACQUIRE_TIMEOUT) == osOK)
-	{
-		CC_GlobalState->ccInit = false;
-		osSemaphoreRelease(CC_GlobalState->sem);
-	}
+	return true;
 }
 
 #endif
