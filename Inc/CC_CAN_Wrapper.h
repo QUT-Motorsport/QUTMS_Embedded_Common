@@ -1,0 +1,29 @@
+/**
+ ******************************************************************************
+ * @file CC_CAN_Wrapper.h
+ * @brief Chassis Controller CAN Wrapper
+ ******************************************************************************
+ */
+
+#ifndef INC_CC_CAN_WRAPPER_H_
+#define INC_CC_CAN_WRAPPER_H_
+
+#include "stdbool.h"
+#include "main.h"
+#include "can.h"
+#include <stdlib.h>
+#include "QUTMS_can.h"
+#include "usart.h"
+#include "string.h"
+#include "CC_FSM_States.h"
+#include "CC_CAN_Messages.h"
+
+/**
+ * @brief Echo & Send Chassis Controller Fatal Shutdown
+ * @param errorCause Source of Error
+ * @param echo Echo errorCause over USART3
+ * @return void
+ */
+void Send_CC_FatalShutdown(char* errorCause, bool echo);
+
+#endif /* INC_CC_CAN_WRAPPER_H_ */
