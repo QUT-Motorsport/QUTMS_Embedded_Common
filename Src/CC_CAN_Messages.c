@@ -85,7 +85,7 @@ CC_ShutdownInverter_t Compose_CC_ShutdownInverter(uint16_t nodeId)
 	p.data[5] = 0x00; // Data
 	p.data[6] = 0x00; // Data
 	p.data[7] = 0x00; // Data
-
+	return p;
 }
 
 void Parse_CC_ShutdownInverter(uint8_t* data){
