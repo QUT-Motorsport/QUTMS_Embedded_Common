@@ -19,22 +19,14 @@ CC_ReadyToDrive_t Compose_CC_ReadyToDrive(void)
 CC_FatalShutdown_t Compose_CC_FatalShutdown(void)
 {
 	CC_FatalShutdown_t p;
-<<<<<<< HEAD
-	p.id = Compose_CANId(0x2, 0x16, 0x0, 0x1, 0x0, 0x0);
-=======
 	p.id = Compose_CANId(0x2, 0x16, 0x0, 0x0, 0x1, 0x0);
->>>>>>> 0d80ea6... Fixed CC CANIDs
 	return p;
 }
 
 CC_SoftShutdown_t Compose_CC_SoftShutdown(void)
 {
 	CC_SoftShutdown_t p;
-<<<<<<< HEAD
-	p.id = Compose_CANId(0x2, 0x16, 0x0, 0x1, 0x1, 0x0);
-=======
 	p.id = Compose_CANId(0x2, 0x16, 0x0, 0x0, 0x1, 0x1);
->>>>>>> 0d80ea6... Fixed CC CANIDs
 	return p;
 }
 

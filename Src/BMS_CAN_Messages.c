@@ -64,7 +64,7 @@ BMS_TransmitVoltage_t Compose_BMS_TransmitVoltage(uint8_t BMSId, uint8_t vMsgId,
 
 void Parse_BMS_TransmitVoltage(uint32_t canId, uint8_t* data, uint8_t* BMSId, uint8_t* vMsgId, uint16_t* voltages)
 {
-	Parse_CANId(canId, NULL, NULL, NULL, NULL, NULL, BMSId); // We dont care about any packet info except the BMSId.
+	*BMSId = canId & 0xF;
 	*vMsgId = data[0] >> 6 & 0x3;
 	*(voltages) = data[1] << 6 | (data[0] & 0x3F);
 	*(voltages+1) = data[3] << 6 | (data[2] & 0x3F);
@@ -87,7 +87,7 @@ BMS_TransmitTemperature_t Compose_BMS_TransmitTemperature(uint8_t BMSId, uint8_t
 
 void Parse_BMS_TransmitTemperature(uint32_t canId, uint8_t* data, uint8_t* BMSId, uint8_t* tMsgId, uint8_t* temperatures)
 {
-	Parse_CANId(canId, NULL, NULL, NULL, NULL, NULL, BMSId);
+	*BMSId = canId & 0xF;
 	*tMsgId = data[0];
 	for(int i = 1; i < 7; i++)
 	{
