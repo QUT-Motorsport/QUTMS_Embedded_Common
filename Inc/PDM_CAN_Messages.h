@@ -15,6 +15,12 @@
 #include <stdio.h>
 #include "QUTMS_can.h"
 
+
+#define LV_STARTUP 0xB08D1F50
+#define HV_STARTUP 0x06628029
+#define BRAKE_LIGHT_MASK 0x00000080
+#define PDM_POWER_CC_MASK 0x91000000
+
 /**
  * @brief PDM Initiate Startup Message
  */

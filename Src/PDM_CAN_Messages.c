@@ -9,10 +9,6 @@
 
 #include "PDM_CAN_Messages.h"
 
-#define LV_STARTUP 0xB08D1F50
-#define HV_STARTUP 0x06628029
-#define BRAKE_LIGHT_MASK 0x00000080
-
 PDM_InitiateStartup_t Compose_PDM_InitiateStartup(void) {
 	PDM_InitiateStartup_t p;
 	p.id = Compose_CANId(CAN_PRIORITY_NORMAL, CAN_SRC_ID_PDM, 0x0,
