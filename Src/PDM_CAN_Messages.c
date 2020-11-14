@@ -69,7 +69,7 @@ PDM_SetChannelStates_t Compose_PDM_SetChannelStates(uint32_t powerChannels) {
 void Parse_PDM_SetChannelStates(uint8_t data[4], uint32_t *powerChannels) {
 	*powerChannels = 0;
 	for (int i = 0; i < 4; i++) {
-		*powerChannels |= data[i] << (i * 8);
+		*powerChannels |= data[i] << (24 - (i * 8));
 	}
 }
 
