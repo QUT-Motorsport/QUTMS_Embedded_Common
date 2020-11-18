@@ -104,6 +104,52 @@ CC_MotorCommand_t Compose_CC_MotorCommand(uint16_t nodeId, int32_t motorCommand,
  */
 void Parse_CC_MotorCommand(uint8_t* data, int32_t* motorCommand);
 
+
+/**
+ * @brief Chassis Controller Inverter Set Variable Command Message
+ */
+typedef struct CC_SetVariable_t
+{
+	uint32_t id; /**< CAN Packet ID*/
+	uint8_t data[8]; /**< Data */
+} CC_SetVariable_t;
+
+/**
+ * @brief Chassis Controller Inverter Set Variable Message Composer
+ * @return The generated CC_SetVariable_t packet
+ */
+CC_SetVariable_t Compose_CC_SetVariable(uint16_t nodeId, uint8_t userVariable, int32_t userCommand);
+
+/**
+ * @brief Chassis Controller Inverter Set Variable Message Parser
+ * @param data The CC_SetVariable_t packet data to parse
+ * @param userCommand The desired user variable output pointer
+ */
+void Parse_CC_SetVariable(uint8_t* data, int32_t* userCommand);
+
+
+/**
+ * @brief Chassis Controller Inverter Set Bool Command Message
+ */
+typedef struct CC_SetBool_t
+{
+	uint32_t id; /**< CAN Packet ID*/
+	uint8_t data[8]; /**< Data */
+} CC_SetBool_t;
+
+/**
+ * @brief Chassis Controller Inverter Set Bool Message Composer
+ * @return The generated CC_SetBool_t packet
+ */
+CC_SetBool_t Compose_CC_SetBool(uint16_t nodeId, uint8_t boolNum, uint32_t userBool);
+
+/**
+ * @brief Chassis Controller Inverter Set Bool Message Parser
+ * @param data The CC_SetBool_t packet data to parse
+ * @param userBool The desired user bool variable output pointer
+ */
+void Parse_CC_SetBool(uint8_t* data, int32_t* userBool);
+
 /**
  * @brief Chassis Controller Inverter Emergency Shutdown Command Message
  */
@@ -118,6 +164,28 @@ typedef struct CC_ShutdownInverter_t
  * @return The generated CC_ShutdownInverter_t packet
  */
 CC_ShutdownInverter_t Compose_CC_ShutdownInverter(uint16_t nodeId);
+
+
+/**
+ * @brief Chassis Controller Inverter Run Micro Basic Script Command Message
+ */
+typedef struct CC_RunMicroBasic_t
+{
+	uint32_t id; /**< CAN Packet ID*/
+	uint8_t data[8]; /**< Data */
+} CC_RunMicroBasic_t;
+
+/**
+ * @brief Chassis Controller Inverter Run Micro Basic Script Message Composer
+ * @return The generated CC_SetBool_t packet
+ */
+CC_RunMicroBasic_t Compose_CC_RunMicroBasic(uint16_t nodeId);
+
+/**
+ * @brief Chassis Controller Inverter Run Micro Basic Script Message Parser
+ * @param data The CC_RunMicroBasic_t packet data to parse
+ */
+void Parse_CC_RunMicroBasic(uint8_t* data);
 
 /**
  * @brief Chassis Controller Inverter Emergency Shutdown Command Message Parser
