@@ -12,12 +12,38 @@
 bool Send_CC_FatalShutdown(char* errorCause, bool echo,
 		uint32_t* CAN1_Mailbox, uint32_t* CAN2_Mailbox, uint32_t* CAN3_Mailbox,
 		CAN_HandleTypeDef* CanHandle, CAN_HandleTypeDef* CanHandle2, CAN_HandleTypeDef* CanHandle3,
-		UART_HandleTypeDef* huartHandle)
+		UART_HandleTypeDef* huartHandle, uint8_t INVERTER_1_NODE_ID, uint8_t INVERTER_2_NODE_ID)
 {
 	if(echo)
 	{
 		HAL_UART_Transmit(huartHandle, (uint8_t *)errorCause, (size_t)strlen(errorCause), HAL_MAX_DELAY);
 	}
+	CC_SetVariable_t accelLeftZero = Compose_CC_SetVariable(INVERTER_1_NODE_ID,
+			0x01,
+			0);
+	CAN_TxHeaderTypeDef accelLeftZeroHeader =
+	{
+			.StdId = accelLeftZero.id,
+			.IDE = CAN_ID_STD,
+			.RTR = CAN_RTR_DATA,
+			.DLC = 8,
+			.TransmitGlobalTime = DISABLE,
+	};
+	HAL_CAN_AddTxMessage(CanHandle, &accelLeftZeroHeader, accelLeftZero.data, CAN1_Mailbox);
+
+	CC_SetVariable_t accelRightZero = Compose_CC_SetVariable(INVERTER_2_NODE_ID,
+			0x01,
+			0);
+	CAN_TxHeaderTypeDef accelRightZeroHeader =
+	{
+			.StdId = accelRightZero.id,
+			.IDE = CAN_ID_STD,
+			.RTR = CAN_RTR_DATA,
+			.DLC = 8,
+			.TransmitGlobalTime = DISABLE,
+	};
+	HAL_CAN_AddTxMessage(CanHandle, &accelRightZeroHeader, accelRightZero.data, CAN1_Mailbox);
+
 	CC_FatalShutdown_t fatalShutdown = Compose_CC_FatalShutdown();
 	CAN_TxHeaderTypeDef header =
 	{
@@ -31,6 +57,7 @@ bool Send_CC_FatalShutdown(char* errorCause, bool echo,
 	HAL_CAN_AddTxMessage(CanHandle, &header, data, CAN1_Mailbox);
 	HAL_CAN_AddTxMessage(CanHandle2, &header, data, CAN2_Mailbox);
 	HAL_CAN_AddTxMessage(CanHandle3, &header, data, CAN3_Mailbox);
+
 	return true;
 }
 
