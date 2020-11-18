@@ -51,12 +51,33 @@ void Parse_CC_RequestRPM(uint8_t* data, int16_t* motorRPM)
 	*motorRPM = data[5] << 8 | data[4];
 }
 
+CC_RunMicroBasic_t Compose_CC_RunMicroBasic(uint16_t nodeId)
+{
+	CC_RunMicroBasic_t p;
+	uint16_t index = 0x2018;
+	p.id = 0x600 + nodeId; // 0x600 for Query + Node ID Specifier
+	p.data[0] = 0x2C; // Client Command Specifier + Number of Bytes + xx
+	p.data[1] = (uint8_t)index & 0xFF; // Index
+	p.data[2] = (uint8_t)(index >> 8) & 0xFF; // Index
+	p.data[3] = 0x00; // Subindex
+	p.data[4] = 0x00; // Data
+	p.data[5] = 0x00; // Data
+	p.data[6] = 0x00; // Data
+	p.data[7] = 0x00; // Data
+	return p;
+}
+
+void Parse_CC_RunMicroBasic(uint8_t* data)
+{
+	return;
+}
+
 CC_MotorCommand_t Compose_CC_MotorCommand(uint16_t nodeId, int32_t motorCommand, uint8_t motorId)
 {
 	CC_MotorCommand_t p;
 	uint16_t index = 0x2000;
 	p.id = 0x600 + nodeId; // 0x600 for Query + Node ID Specifier
-	p.data[0] = 0b00110000; // Client Command Specifier + Number of Bytes + xx
+	p.data[0] = 0b00100000; // Client Command Specifier + Number of Bytes + xx
 	p.data[1] = (uint8_t)index & 0xFF; // Index
 	p.data[2] = (uint8_t)(index >> 8) & 0xFF; // Index
 	p.data[3] = motorId; // Subindex
@@ -77,7 +98,7 @@ CC_ShutdownInverter_t Compose_CC_ShutdownInverter(uint16_t nodeId)
 	CC_ShutdownInverter_t p;
 	uint16_t index = 0x200C;
 	p.id = 0x600 + nodeId; // 0x600 for Query + Node ID Specifier
-	p.data[0] = 0b00111100; // Client Command Specifier + Number of Bytes + xx
+	p.data[0] = 0b00101100; // Client Command Specifier + Number of Bytes + xx
 	p.data[1] = (uint8_t)index & 0xFF; // Index
 	p.data[2] = (uint8_t)(index >> 8) & 0xFF; // Index
 	p.data[3] = 0x00; // Subindex
@@ -89,6 +110,48 @@ CC_ShutdownInverter_t Compose_CC_ShutdownInverter(uint16_t nodeId)
 }
 
 void Parse_CC_ShutdownInverter(uint8_t* data){
+	return;
+}
+
+CC_SetVariable_t Compose_CC_SetVariable(uint16_t nodeId, uint8_t userVariable, int32_t userCommand)
+{
+	CC_SetVariable_t p;
+	uint16_t index = 0x2005;
+	p.id = 0x600 + nodeId; // 0x600 for Query + Node ID Specifier
+	p.data[0] = 0b00100000; // Client Command Specifier + Number of Bytes + xx
+	p.data[1] = (uint8_t)index & 0xFF; // Index
+	p.data[2] = (uint8_t)(index >> 8) & 0xFF; // Index
+	p.data[3] = userVariable; // Subindex
+	p.data[4] = (uint8_t)userCommand & 0xFF; // Data
+	p.data[5] = (uint8_t)(userCommand >> 8) & 0xFF; // Data
+	p.data[6] = (uint8_t)(userCommand >> 16) & 0xFF; // Data
+	p.data[7] = (uint8_t)(userCommand >> 24) & 0xFF; // Data
+	return p;
+}
+
+void Parse_CC_SetVariable(uint8_t* data, int32_t* userCommand)
+{
+	return;
+}
+
+CC_SetBool_t Compose_CC_SetBool(uint16_t nodeId, uint8_t boolNum, uint32_t userBool)
+{
+	CC_SetBool_t p;
+	uint16_t index = 0x2015;
+	p.id = 0x600 + nodeId; // 0x600 for Query + Node ID Specifier
+	p.data[0] = 0b00100000; // Client Command Specifier + Number of Bytes + xx
+	p.data[1] = (uint8_t)index & 0xFF; // Index
+	p.data[2] = (uint8_t)(index >> 8) & 0xFF; // Index
+	p.data[3] = boolNum; // Subindex
+	p.data[4] = (uint8_t)userBool & 0xFF; // Data
+	p.data[5] = (uint8_t)(userBool >> 8) & 0xFF; // Data
+	p.data[6] = (uint8_t)(userBool >> 16) & 0xFF; // Data
+	p.data[7] = (uint8_t)(userBool >> 24) & 0xFF; // Data
+	return p;
+}
+
+void Parse_CC_SetBool(uint8_t* data, int32_t* userBool)
+{
 	return;
 }
 
