@@ -18,31 +18,27 @@ bool Send_CC_FatalShutdown(char* errorCause, bool echo,
 	{
 		HAL_UART_Transmit(huartHandle, (uint8_t *)errorCause, (size_t)strlen(errorCause), HAL_MAX_DELAY);
 	}
-	CC_SetVariable_t accelLeftZero = Compose_CC_SetVariable(INVERTER_1_NODE_ID,
-			0x01,
-			0);
-	CAN_TxHeaderTypeDef accelLeftZeroHeader =
+	CC_ShutdownInverter_t shutdownInverter = Compose_CC_ShutdownInverter(INVERTER_1_NODE_ID);
+	CAN_TxHeaderTypeDef shutdownheader =
 	{
-			.StdId = accelLeftZero.id,
+			.StdId = shutdownInverter.id,
 			.IDE = CAN_ID_STD,
 			.RTR = CAN_RTR_DATA,
 			.DLC = 8,
 			.TransmitGlobalTime = DISABLE,
 	};
-	HAL_CAN_AddTxMessage(CanHandle, &accelLeftZeroHeader, accelLeftZero.data, CAN1_Mailbox);
+	HAL_CAN_AddTxMessage(CanHandle, &shutdownheader, shutdownInverter.data, CAN1_Mailbox);
 
-	CC_SetVariable_t accelRightZero = Compose_CC_SetVariable(INVERTER_2_NODE_ID,
-			0x01,
-			0);
-	CAN_TxHeaderTypeDef accelRightZeroHeader =
+	CC_ShutdownInverter_t shutdownSecondInverter = Compose_CC_ShutdownInverter(INVERTER_2_NODE_ID);
+	CAN_TxHeaderTypeDef shutdownSecondheader =
 	{
-			.StdId = accelRightZero.id,
+			.StdId = shutdownSecondInverter.id,
 			.IDE = CAN_ID_STD,
 			.RTR = CAN_RTR_DATA,
 			.DLC = 8,
 			.TransmitGlobalTime = DISABLE,
 	};
-	HAL_CAN_AddTxMessage(CanHandle, &accelRightZeroHeader, accelRightZero.data, CAN1_Mailbox);
+	HAL_CAN_AddTxMessage(CanHandle, &shutdownSecondheader, shutdownSecondInverter.data, CAN1_Mailbox);
 
 	CC_FatalShutdown_t fatalShutdown = Compose_CC_FatalShutdown();
 	CAN_TxHeaderTypeDef header =
