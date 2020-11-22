@@ -193,5 +193,24 @@ void Parse_CC_RunMicroBasic(uint8_t* data);
  */
 void Parse_CC_ShutdownInverter(uint8_t* data);
 
+typedef struct CC_CanadaInverter /**< TODO Rename */
+{
+	uint32_t id; /**< CAN Packet ID */
+	uint8_t data[2];
+} CC_CanadaInverter_t;
+
+/**
+ * @brief Chassis Controller Inverter 2 Compose DAC Value
+ * @param DACValue A 0-4096 Value dictating brake and throttle values
+ * @return The CC_CanadaInverter_t packet
+ */
+CC_CanadaInverter_t Compose_CC_CanadaInverter(uint16_t DACValue);
+
+/**
+ * @brief Chassis Controller Inverter 2 DAC Value Parser
+ * @param data The CC_CanadaInverter_t packet data to parse
+ */
+void Parse_CC_CanadaInverter(uint8_t* data, uint16_t* DACValue);
+
 
 #endif /* INC_CC_CAN_MESSAGES_H_ */
