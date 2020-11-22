@@ -155,4 +155,19 @@ void Parse_CC_SetBool(uint8_t* data, int32_t* userBool)
 	return;
 }
 
+CC_CanadaInverter_t Compose_CC_CanadaInverter(uint16_t DACValue)
+{
+	CC_CanadaInverter_t p;
+	p.id = 0x01;
+	p.data[0] = DACValue >> 8 & 0xFF;
+	p.data[1] = DACValue & 0xFF;
+
+	return p;
+}
+
+void Parse_CC_CanadaInverter(uint8_t* data, uint16_t* DACValue)
+{
+	*DACValue = (data[0] & 0xFF) << 8 | data[1];
+}
+
 #endif
