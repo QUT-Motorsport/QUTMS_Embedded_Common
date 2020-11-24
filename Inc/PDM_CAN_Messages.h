@@ -15,6 +15,10 @@
 #include <stdio.h>
 #include "QUTMS_can.h"
 
+#define PDM_PWM_ACU_FAN 7
+#define PDM_PWM_LEFT_FAN 23
+#define PDM_PWM_RIGHT_FAN 27
+
 #define PDMFLAG_SENSOR_BOARD_BREAKOUT 	0x1
 #define PDMFLAG_INVERTER_ISO_2 			0x2
 #define PDMFLAG_BRAKE_LIGHT 			0x4
@@ -45,10 +49,10 @@
 #define PDMFLAG_TSAL_CONNECTOR 			0x40000000
 #define PDMFLAG_TSAL_LIGHT 				0x80000000
 
-#define LV_STARTUP PDMFLAG_SENSOR_BOARD_BREAKOUT | PDMFLAG_INVERTER_ISO_2 | PDMFLAG_AMS_PWR | PDMFLAG_REAR_SHDN_PWR | PDMFLAG_SHDN_CURRENT_PWR | PDMFLAG_IMD_DAUGHTER_PWR | PDMFLAG_IMD_BOARD | PDMFLAG_PDOC_DETECTION | PDMFLAG_INVERTER_ISO_1 | PDMFLAG_SENDYNE_1 | PDMFLAG_STEERING_WHEEL_PWR | PDMFLAG_SENDYNE_2 | PDMFLAG_FRONT_SHDN_SEG | PDMFLAG_FRONT_SHDN_PWR_1 | PDMFLAG_BSPD_PWR | PDMFLAG_TSAL_CONNECTOR | PDMFLAG_TSAL_LIGHT
-#define HV_STARTUP PDMFLAG_ACU_SHDN_CHAIN_IN | PDMFLAG_ACU_SHDN_PWR | PDMFLAG_ACU_FAN | PDMFLAG_LEFT_PUMP | PDMFLAG_LEFT_FAN | PDMFLAG_RIGHT_PUMP | PDMFLAG_RIGHT_FAN
+#define (LV_STARTUP PDMFLAG_SENSOR_BOARD_BREAKOUT | PDMFLAG_INVERTER_ISO_2 | PDMFLAG_AMS_PWR | PDMFLAG_REAR_SHDN_PWR | PDMFLAG_SHDN_CURRENT_PWR | PDMFLAG_IMD_DAUGHTER_PWR | PDMFLAG_IMD_BOARD | PDMFLAG_PDOC_DETECTION | PDMFLAG_INVERTER_ISO_1 | PDMFLAG_SENDYNE_1 | PDMFLAG_STEERING_WHEEL_PWR | PDMFLAG_SENDYNE_2 | PDMFLAG_FRONT_SHDN_SEG | PDMFLAG_FRONT_SHDN_PWR_1 | PDMFLAG_BSPD_PWR | PDMFLAG_TSAL_CONNECTOR | PDMFLAG_TSAL_LIGHT)
+#define (HV_STARTUP PDMFLAG_ACU_SHDN_CHAIN_IN | PDMFLAG_ACU_SHDN_PWR | PDMFLAG_ACU_FAN | PDMFLAG_LEFT_PUMP | PDMFLAG_LEFT_FAN | PDMFLAG_RIGHT_PUMP | PDMFLAG_RIGHT_FAN)
 #define BRAKE_LIGHT_MASK PDMFLAG_BRAKE_LIGHT
-#define PDM_POWER_CC_MASK PDMFLAG_CC_PWR_1 | PDMFLAG_CC_PWR_2 | PDMFLAG_CC_PWR_3
+#define PDM_POWER_CC_MASK (PDMFLAG_CC_PWR_1 | PDMFLAG_CC_PWR_2 | PDMFLAG_CC_PWR_3)
 
 /**
  * @brief PDM Initiate Startup Message
@@ -148,5 +152,29 @@ PDM_Heartbeat_t Compose_PDM_Heartbeat(uint32_t powerChannels);
  * @param 32 bit string containing Boolean-like values power channels toggled to
  */
 void Parse_PDM_Heartbeat(uint8_t data[4], uint32_t *powerChannels);
+
+typedef struct PDM_RequestDutyCycle {
+	uint32_t id; /**< CAN Packet ID*/
+	uint8_t data[1]; /**< Data */
+} PDM_RequestDutyCycle_t;
+
+PDM_RequestDutyCycle_t Compose_PDM_RequestDutyCycle(uint8_t channel);
+void Parse_PDM_RequestDutyCycle(uint8_t data[1], uint8_t *channel);
+
+typedef struct PDM_SetDutyCycle {
+	uint32_t id; /**< CAN Packet ID*/
+	uint8_t data[2]; /**< Data */
+} PDM_SetDutyCycle_t;
+
+PDM_SetDutyCycle_t Compose_PDM_SetDutyCycle(uint8_t channel, uint8_t duty_cycle);
+void Parse_PDM_SetDutyCycle(uint8_t data[2], uint8_t *channel, uint8_t *duty_cycle);
+
+typedef struct PDM_TransmitDutyCycle {
+	uint32_t id; /**< CAN Packet ID*/
+	uint8_t data[2]; /**< Data */
+} PDM_TransmitDutyCycle_t;
+
+PDM_TransmitDutyCycle_t Compose_PDM_TransmitDutyCycle(uint8_t channel, uint8_t duty_cycle);
+void Parse_PDM_TransmitDutyCycle(uint8_t data[2], uint8_t *channel, uint8_t *duty_cycle);
 
 #endif /* INC_PDM_CAN_MESSAGES_H_ */
