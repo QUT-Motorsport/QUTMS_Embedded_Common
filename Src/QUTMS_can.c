@@ -24,3 +24,27 @@ void Parse_CANId(uint32_t CANId, uint8_t* priority, uint16_t* sourceId, uint8_t*
 	*BMSId = (CANId & 0xF);
 	return;
 }
+
+CAN_LOG_t Compose_CAN_LOG(uint8_t dataType, uint8_t dataLength, uint8_t* data)
+{
+	CAN_LOG_t p;
+	p.id = Compose_CANId(CAN_PRIORITY_DEBUG, CAN_SRC_ID_AMS, 0x0, 0x0, 0x0, 0x0);
+	p.data[0] = (dataType & 0x1F << 3) | (dataLength & 0x7);
+	for(int i = 0; i < dataLength; i++)
+	{
+		p.data[i+1] = data[i];
+	}
+
+	return p;
+}
+
+void Parse_CAN_LOG(uint8_t *data, uint8_t *dataType, uint8_t* dataLength, uint8_t *rdata)
+{
+	*dataType = (data[0] >> 3) & 0x1F;
+	*dataLength = data[0] & 0x7;
+	for(int i = 0; i < *dataLength; i++)
+	{
+		rdata[i] = data[i+1];
+	}
+	return;
+}

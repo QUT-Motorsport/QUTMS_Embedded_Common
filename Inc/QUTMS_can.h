@@ -2,7 +2,7 @@
 #ifndef QUTMS_can_H
 #define QUTMS_can_H
 #ifdef __cplusplus
- extern "C" {
+extern "C" {
 #endif
 
 /* Includes ------------------------------------------------------------------*/
@@ -33,11 +33,21 @@
 uint32_t Compose_CANId(uint8_t priority, uint16_t sourceId, uint8_t autonomous, uint8_t type, uint16_t extra, uint8_t BMSId);
 void Parse_CANId(uint32_t CANId, uint8_t* priority, uint16_t* sourceId, uint8_t* autonomous, uint8_t* type, uint16_t* extra, uint8_t* BMSId);
 
-typedef struct CAN_MSG_Generic {
+typedef struct CAN_MSG_Generic
+{
 	CAN_RxHeaderTypeDef header;
 	uint8_t data[8];
 	void *hcan;
 } CAN_MSG_Generic_t;
+
+typedef struct CAN_LOG
+{
+	uint32_t id;
+	uint8_t data[8];
+}	CAN_LOG_t;
+
+CAN_LOG_t Compose_CAN_LOG(uint8_t dataType, uint8_t dataLength, uint8_t* data);
+void Parse_CAN_LOG(uint8_t *data, uint8_t *dataType, uint8_t* dataLength, uint8_t *rdata);
 
 #ifdef __cplusplus
 }
