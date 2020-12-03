@@ -11,6 +11,7 @@
 #include <stdlib.h>
 #include <memory.h>
 #include <stdio.h>
+#include <stdarg.h>
 #include "cmsis_os.h"
 
 /**
@@ -29,7 +30,7 @@ typedef struct fsm fsm_t;
  */
 typedef void (*fsm_function)(fsm_t*);
 
-typedef void (*fsm_log_function)(char*, size_t);
+typedef int (*fsm_log_function)(const char* restrict, ...);
 
 /**
  * @brief FSM state
@@ -113,6 +114,6 @@ void fsm_setLogFunction(fsm_t *fsm, fsm_log_function func);
  * @param msg The message to log
  * @param length The strlen() of the message
  */
-void fsm_log(fsm_t *fsm, char* msg, size_t length);
+void fsm_log(fsm_t *fsm, char* msg, ...);
 
 #endif /* INC_FSM_H_ */
