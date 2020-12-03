@@ -129,9 +129,12 @@ void fsm_setLogFunction(fsm_t *fsm, fsm_log_function func)
 	fsm->log = func;
 }
 
-void fsm_log(fsm_t *fsm, char* msg, size_t length)
+void fsm_log(fsm_t *fsm, char* msg, ...)
 {
-	fsm->log(msg, length);
+	va_list args;
+	va_start(args, msg);
+	fsm->log(msg, args);
+	va_end(args);
 }
 
 #endif
