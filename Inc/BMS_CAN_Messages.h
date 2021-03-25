@@ -144,4 +144,27 @@ BMS_ChargeEnabled_t Compose_BMS_ChargeEnabled(uint8_t BMSId);
  */
 void Parse_ChargeEnabled(uint32_t canId, uint8_t* BMSId);
 
+/**
+ * @brief BMS Charge Enabled Message
+ */
+typedef struct BMS_TransmitBalancing
+{
+	uint32_t id; /**< CAN Packet ID */
+	uint8_t data[4];
+} BMS_TransmitBalancing_t;
+
+/**
+ * @brief
+ * @param BMSId The BMS ID
+ * @return
+ */
+BMS_TransmitBalancing_t Compose_BMS_TransmitBalancing(uint8_t BMSId, uint16_t balancing_voltage, uint16_t balancing_state);
+
+/**
+ * @brief
+ * @param packet
+ * @param BMSId The BMS ID
+ */
+void Parse_TransmitBalancing(uint32_t canId, uint8_t* data, uint8_t* BMSId, uint16_t *balancing_voltage, uint16_t *balancing_state);
+
 #endif /* INC_BMS_CAN_MESSAGES_H_ */
