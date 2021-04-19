@@ -10,7 +10,7 @@
 
 #include <stdint.h>
 
-#define WINDOW_FILTERING_COUNT 128
+#define WINDOW_FILTERING_COUNT 8
 
 typedef struct window_filter {
 	uint16_t current_filtered;

@@ -35,6 +35,6 @@ void update_filtering(window_filter_t *filter_data, uint16_t new_value) {
 				% WINDOW_FILTERING_COUNT;
 
 		// we know PEDAL_FILTERING_COUNT is multiple of 2 so we can bit shift to do the division
-		filter_data->current_filtered = filter_data->running_sum >> 7;
+		filter_data->current_filtered = filter_data->running_sum >> 3;
 	}
 }
