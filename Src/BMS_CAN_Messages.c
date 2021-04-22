@@ -95,19 +95,19 @@ void Parse_BMS_TransmitTemperature(uint32_t canId, uint8_t* data, uint8_t* BMSId
 	}
 }
 
-BMS_ChargeEnabled_t Compose_BMS_ChargeEnabled(uint8_t BMSId)
+BMS_ChargeEnabled_t Compose_BMS_ChargeEnabled(uint8_t bms_count)
 {
 	BMS_ChargeEnabled_t packet;
-	packet.id = Compose_CANId(CAN_PRIORITY_NORMAL, CAN_SRC_ID_BMS, 0x0, CAN_TYPE_RECEIVE, 0x0, BMSId);
+	packet.id = Compose_CANId(CAN_PRIORITY_NORMAL, CAN_SRC_ID_BMS, 0x0, CAN_TYPE_RECEIVE, 0x0, 0);
+	packet.data[0] = bms_count;
 
 	return packet;
 }
 
-void Parse_ChargeEnabled(uint32_t canId, uint8_t* BMSId)
+void Parse_ChargeEnabled(uint32_t canId, uint8_t *data, uint8_t *bms_count)
 {
-	Parse_CANId(canId, NULL, NULL, NULL, NULL, NULL, BMSId);
+	*bms_count = data[0];
 }
-
 
 BMS_TransmitBalancing_t Compose_BMS_TransmitBalancing(uint8_t BMSId, uint16_t balancing_voltage, uint16_t balancing_state) {
 	BMS_TransmitBalancing_t packet;

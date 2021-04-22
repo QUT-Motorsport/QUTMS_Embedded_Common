@@ -128,6 +128,7 @@ void Parse_BMS_TransmitTemperature(uint32_t canId, uint8_t* data, uint8_t* BMSId
 typedef struct BMS_ChargeEnabled
 {
 	uint32_t id; /**< CAN Packet ID */
+	uint8_t data[1];
 } BMS_ChargeEnabled_t;
 
 /**
@@ -135,14 +136,14 @@ typedef struct BMS_ChargeEnabled
  * @param BMSId The BMS ID
  * @return The composed BMS_ChargeEnabled_t packet
  */
-BMS_ChargeEnabled_t Compose_BMS_ChargeEnabled(uint8_t BMSId);
+BMS_ChargeEnabled_t Compose_BMS_ChargeEnabled(uint8_t bms_count);
 
 /**
  * @brief BMS Charge Enabled Message Parser
  * @param packet The BMS_ChargeEnabled_t packet to parse
  * @param BMSId The BMS ID
  */
-void Parse_ChargeEnabled(uint32_t canId, uint8_t* BMSId);
+void Parse_ChargeEnabled(uint32_t canId, uint8_t *data, uint8_t *bms_count);
 
 /**
  * @brief BMS Charge Enabled Message
