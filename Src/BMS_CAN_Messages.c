@@ -112,19 +112,19 @@ void Parse_ChargeEnabled(uint32_t canId, uint8_t *data, uint8_t *bms_count)
 BMS_TransmitBalancing_t Compose_BMS_TransmitBalancing(uint8_t BMSId, uint16_t balancing_voltage, uint16_t balancing_state) {
 	BMS_TransmitBalancing_t packet;
 	packet.id = Compose_CANId(CAN_PRIORITY_NORMAL, CAN_SRC_ID_BMS, DRIVER, CAN_TYPE_TRANSMIT, 0x04, BMSId);
-	packet.data[0] = balancing_voltage & 0x1f;
-	packet.data[1] = (balancing_voltage >> 5) & 0x1f;
+	packet.data[0] = balancing_voltage & 0xff;
+	packet.data[1] = (balancing_voltage >> 8) & 0xff;
 
-	packet.data[2] = balancing_state & 0x1f;
-	packet.data[3] = (balancing_state >> 5) & 0x1f;
+	packet.data[2] = balancing_state & 0xff;
+	packet.data[3] = (balancing_state >> 8) & 0xff;
 
 	return packet;
 }
 
 void Parse_TransmitBalancing(uint32_t canId, uint8_t* data, uint8_t* BMSId, uint16_t *balancing_voltage, uint16_t *balancing_state) {
 	*BMSId = canId & 0xF;
-	*balancing_voltage = (data[1] << 5) | data[0];
-	*balancing_state = (data[3] << 5) | data[1];
+	*balancing_voltage = (data[1] << 8) | data[0];
+	*balancing_state = (data[3] << 8) | data[2];
 }
 
 #endif
