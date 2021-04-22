@@ -76,10 +76,10 @@ BMS_TransmitTemperature_t Compose_BMS_TransmitTemperature(uint8_t BMSId, uint8_t
 {
 	BMS_TransmitTemperature_t packet;
 	packet.id = Compose_CANId(CAN_PRIORITY_NORMAL, CAN_SRC_ID_BMS, 0x0, CAN_TYPE_TRANSMIT, 0x3, BMSId);
-	packet.data[0] = tMsgId > 0 ? 1 : 0;
-	for(int i = 1; i < 7; i++)
+	packet.data[0] = tMsgId;
+	for(int i = 0; i < 6; i++)
 	{
-		packet.data[i] = temperatures[i-1];
+		packet.data[i+1] = temperatures[i];
 	}
 
 	return packet;
@@ -89,9 +89,9 @@ void Parse_BMS_TransmitTemperature(uint32_t canId, uint8_t* data, uint8_t* BMSId
 {
 	*BMSId = canId & 0xF;
 	*tMsgId = data[0];
-	for(int i = 1; i < 7; i++)
+	for(int i = 0; i < 6; i++)
 	{
-		*(temperatures+i-1) = data[i];
+		temperatures[i] = data[i+1];
 	}
 }
 
