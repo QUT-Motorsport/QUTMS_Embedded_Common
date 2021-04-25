@@ -21,8 +21,10 @@ bool queue_init(message_queue_t *queue, size_t queue_item_size,
 
 bool queue_delete(message_queue_t *queue) {
 	if (queue == NULL) {
-		return true;
+		return false;
 	}
+
+	// free queue memory
 	if (queue->queue_items != NULL) {
 		free(queue->queue_items);
 		queue->queue - items = NULL;
@@ -31,44 +33,49 @@ bool queue_delete(message_queue_t *queue) {
 	return true;
 }
 
-int queue_clear(message_queue_t *queue) {
+bool queue_clear(message_queue_t *queue) {
 	queue->count = 0;
 	queue->head = 0;
 	queue->tail = QUEUE_LENGTH - 1;
 
-	return 0;
+	return true;
 }
 
-int queue_add(message_queue_t *queue, CAN_t *msg) {
+bool queue_add(message_queue_t *queue, void *item) {
 	if (queue->count < QUEUE_LENGTH) {
 		queue->tail = (queue->tail + 1) % QUEUE_LENGTH;
 		queue->queue[queue->tail] = *msg;
 		queue->count++;
 
-		return 0;
+		return true;
 	} else {
 		// queue is full
-		return -1;
+		return false;
 	}
 }
 
-int queue_peek(message_queue_t *queue, CAN_t *peek) {
+bool queue_peek(message_queue_t *queue, void *peek) {
 	if (queue->count > 0) {
-		*peek = queue->queue[queue->head];
-		return 0;
+		// copy next item into pointer
+		memcpy(peek, &queue->queue[queue->head * queue->queue_item_size]);
+		return true;
 	} else {
-		return -1;
+		return false;
 	}
 }
 
-int queue_next(message_queue_t *queue, CAN_t *next) {
+bool queue_next(message_queue_t *queue, void *next) {
 	if (queue->count > 0) {
-		*next = queue->queue[queue->head];
+		// copy next item into pointer
+		memcpy(next, &queue->queue[queue->head * queue->queue_item_size]);
+
+		// increase head pointer
 		queue->head = (queue->head + 1) % QUEUE_LENGTH;
 		queue->count--;
-		return 0;
+
+		return true;
 	} else {
-		return -1;
+		return false;
 	}
 }
 

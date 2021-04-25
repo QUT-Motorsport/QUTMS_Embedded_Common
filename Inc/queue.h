@@ -26,7 +26,7 @@ int queue_clear(message_queue_t *queue);
 bool queue_add(message_queue_t *queue, void *item);
 
 // gets the new item from the queue without removing it
-bool queue_peek(message_queue_t *queue, void *item);
+bool queue_peek(message_queue_t *queue, void *peek);
 
 // gets the next item from the queue and removes it
 bool queue_next(message_queue_t *queue, void *item);
