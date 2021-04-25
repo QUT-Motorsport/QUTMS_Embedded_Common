@@ -44,6 +44,11 @@ void Timer_start(Timer_t* timer)
 	timer->lastTick = HAL_GetTick();
 }
 
+bool Timer_isRunning(Timer_t* timer)
+{
+	return timer->isRunning;
+}
+
 void Timer_reset(Timer_t* timer)
 {
 	timer->isRunning = true;
