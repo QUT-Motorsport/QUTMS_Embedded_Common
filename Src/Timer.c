@@ -69,6 +69,5 @@ void timer_stop(ms_timer_t* timer)
 
 void timer_delete(ms_timer_t* timer)
 {
-	free(timer);
 	timer = NULL;
 }

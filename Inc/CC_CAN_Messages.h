@@ -47,7 +47,7 @@ CC_FatalShutdown_t Compose_CC_FatalShutdown(void);
 /**
  * @brief Chassis Controller Fatal Shutdown Message
  */
-typedef struct CC_SoftShutdown_t
+typedef struct CC_SoftShutdown
 {
 	uint32_t id; /**< CAN Packet ID */
 } CC_SoftShutdown_t;
@@ -58,6 +58,14 @@ typedef struct CC_SoftShutdown_t
  * @return The composed CC_SoftShutdown_t packet
  */
 CC_SoftShutdown_t Compose_CC_SoftShutdown(void);
+
+typedef struct CC_TransmitPedals {
+	uint32_t id;
+	uint8_t data[6];
+} CC_TransmitPedals_t;
+
+CC_TransmitPedals_t Compose_CC_TransmitPedals(uint16_t accel0, uint16_t accel1, uint16_t brake);
+void Parse_CC_TransmitPedals(uint8_t* data, uint16_t *accel0, uint16_t *accel1, uint16_t *brake);
 
 
 /**

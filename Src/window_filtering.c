@@ -39,7 +39,7 @@ void window_filter_update(window_filter_t *filter, uint16_t new_value) {
 		filter->current_idx = (filter->current_idx + 1)
 				% filter->window_size;
 
-		filter->current_filtered = filter->running_sum / filter->window_size;
+		filter->current_filtered = (float)filter->running_sum / filter->window_size;
 	}
 }
 

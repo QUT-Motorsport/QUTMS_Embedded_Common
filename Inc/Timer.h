@@ -13,7 +13,6 @@
 #include <stdint.h>
 #include <string.h>
 
-#include <FSM.h>
 
 typedef struct timer {
 	uint32_t lastTick;
