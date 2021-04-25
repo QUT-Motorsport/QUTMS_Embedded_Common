@@ -12,7 +12,6 @@
 #include <memory.h>
 #include <stdio.h>
 #include <stdarg.h>
-#include "cmsis_os.h"
 
 /**
  * @brief Typedef state as state_t
@@ -48,8 +47,6 @@ struct state {
 struct fsm {
 	state_t *currentState; /**< Current FSM State */
 	fsm_log_function log;
-	osSemaphoreId_t sem; /**< FSM change state semaphore */
-	osSemaphoreId_t updating; /**< FSM iterating semaphore */
 };
 
 /**

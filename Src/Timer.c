@@ -7,14 +7,15 @@
 
 #include <Timer.h>
 
-Timer_t Timer_init(uint32_t timeout, bool isContinuous, void (*fcn)(void))
+Timer_t Timer_init(uint32_t timeout, bool isContinuous, void (*fcn)(void* fsm))
 {
 	Timer_t t =
 	{
-		.lastTick = 0,
-		.isContinuous = isContinuous,
-		.timeout = timeout,
-		.fcn = fcn
+			.lastTick = 0,
+			.isContinuous = isContinuous,
+			.isRunning = false,
+			.timeout = timeout,
+			.fcn = fcn
 	};
 
 	return t;
@@ -22,30 +23,36 @@ Timer_t Timer_init(uint32_t timeout, bool isContinuous, void (*fcn)(void))
 
 bool Timer_update(Timer_t* timer)
 {
-	if(HAL_GetTick() - timer->lastTick >= timer->timeout)
+	if(timer->isRunning)
 	{
-		timer->fcn();
-		if(timer->isContinuous)
+		if(HAL_GetTick() - timer->lastTick >= timer->timeout)
 		{
-			Timer_reset(timer);
+			timer->fcn();
+			if(timer->isContinuous)
+			{
+				Timer_reset(timer);
+			}
+			return true;
 		}
-		return true;
 	}
 	return false;
 }
 
 void Timer_start(Timer_t* timer)
 {
+	timer->isRunning = true;
 	timer->lastTick = HAL_GetTick();
 }
 
 void Timer_reset(Timer_t* timer)
 {
+	timer->isRunning = true;
 	timer->lastTick = HAL_GetTick();
 }
 
 void Timer_stop(Timer_t* timer)
 {
+	timer->isRunning = false;
 	timer->lastTick = UINT32_MAX;
 }
 

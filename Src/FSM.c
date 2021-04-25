@@ -16,30 +16,15 @@ fsm_t *fsm_new(state_t *beginState)
 	fsm_t *fsm = malloc(sizeof(fsm_t));
 	memset(fsm, 0, sizeof(fsm_t));
 	fsm->currentState = beginState;
-
-	// Set semaphores
-	fsm->sem = osSemaphoreNew(3U, 3U, NULL);
-	fsm->updating = osSemaphoreNew(3U, 3U, NULL);
-
-	// Enter state
-	if(osSemaphoreAcquire(fsm->sem, 32U) == osOK)
-	{
-		fsm->currentState->enter(fsm);
-		osSemaphoreRelease(fsm->sem);
-	}
+	fsm->currentState->enter(fsm);
 
 	return fsm;
 }
 
 void fsm_iterate(fsm_t *fsm)
 {
-	if(osSemaphoreAcquire(fsm->updating, 32U) == osOK) {
-		fsm->currentState->iter(fsm);
-		osSemaphoreRelease(fsm->updating);
-	} else
-	{
-		fsm_log(fsm, "Unable to gain fsm updating semaphore", strlen("Unable to gain fsm updating semaphore"));
-	}
+	fsm->currentState->iter(fsm);
+
 }
 
 void fsm_changeState(fsm_t *fsm, state_t *newState, char* changeReason)
@@ -48,49 +33,29 @@ void fsm_changeState(fsm_t *fsm, state_t *newState, char* changeReason)
 	{
 		return;
 	}
-	if(osSemaphoreAcquire(fsm->sem, 32U) == osOK)
-	{
-		char x[80];
-		int len = sprintf(x, "Changing FSM State: %s->%s (%s)\r\n", fsm->currentState->stateName, newState->stateName, changeReason);
-		fsm_log(fsm, x, len);
-		fsm->currentState->exit(fsm);
 
-		fsm->currentState = newState;
-		fsm->currentState->enter(fsm);
+	char x[80];
+	int len = sprintf(x, "Changing FSM State: %s->%s (%s)\r\n", fsm->currentState->stateName, newState->stateName, changeReason);
+	fsm_log(fsm, x, len);
+	fsm->currentState->exit(fsm);
 
-		osSemaphoreRelease(fsm->sem);
-	} else
-	{
-		fsm_log(fsm, "Unable to gain fsm sem semaphore", strlen("Unable to gain fsm sem semaphore"));
-	}
+	fsm->currentState = newState;
+	fsm->currentState->enter(fsm);
+
 }
 
 state_t *fsm_getState_t(fsm_t *fsm)
 {
-	if(osSemaphoreAcquire(fsm->sem, 32U) == osOK)
-	{
-		state_t *s = fsm->currentState;
-		osSemaphoreRelease(fsm->sem);
-		return s;
-	} else
-	{
-		fsm_log(fsm, "Unable to gain fsm updating semaphore", strlen("Unable to gain fsm sem semaphore"));
-	}
-	return NULL;
+
+	state_t *s = fsm->currentState;
+	return s;
 }
 
 char* fsm_getState(fsm_t *fsm)
 {
-	if(osSemaphoreAcquire(fsm->sem, 32U) == osOK)
-	{
-		char *n = fsm->currentState->stateName;
-		osSemaphoreRelease(fsm->sem);
-		return n;
-	} else
-	{
-		fsm_log(fsm, "Unable to gain fsm updating semaphore", strlen("Unable to gain fsm updating semaphore"));
-	}
-	return NULL;
+
+	char *n = fsm->currentState->stateName;
+	return n;
 }
 
 void fsm_reset(fsm_t *fsm, state_t *resetState)
@@ -103,22 +68,12 @@ void fsm_reset(fsm_t *fsm, state_t *resetState)
 	fsm->log = f;
 	fsm->currentState = resetState;
 
-	// Set semaphores
-	fsm->sem = osSemaphoreNew(3U, 3U, NULL);
-	fsm->updating = osSemaphoreNew(3U, 3U, NULL);
-
 	// Enter state
-	if(osSemaphoreAcquire(fsm->sem, 32U) == osOK)
-	{
-		fsm->currentState->enter(fsm);
-		osSemaphoreRelease(fsm->sem);
-	}
+	fsm->currentState->enter(fsm);
 }
 
 void fsm_delete(fsm_t *fsm)
 {
-	osSemaphoreDelete(fsm->sem);
-	osSemaphoreDelete(fsm->updating);
 	free(fsm);
 	fsm = NULL;
 }

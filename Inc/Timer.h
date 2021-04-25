@@ -17,10 +17,11 @@ typedef struct Timer {
 	uint32_t lastTick;
 	uint32_t timeout;
 	bool isContinuous;
+	bool isRunning;
 	void (*fcn)(void);
 } Timer_t;
 
-Timer_t Timer_init(uint32_t timeout, bool isContinuous, void (*fcn)(void));
+Timer_t Timer_init(uint32_t timeout, bool isContinuous, void (*fcn)(void* fsm));
 
 bool Timer_update(Timer_t* timer);
 
@@ -28,8 +29,11 @@ void Timer_start(Timer_t* timer);
 
 void Timer_reset(Timer_t* timer);
 
+bool Timer_isRunning(Timer_t* timer);
+
 void Timer_stop(Timer_t* timer);
 
 void Timer_delete(Timer_t* timer);
+
 
 #endif /* COMMON_INC_TIMER_H_ */
