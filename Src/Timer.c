@@ -27,7 +27,10 @@ bool timer_update(ms_timer_t* timer, void *args)
 	{
 		if(HAL_GetTick() - timer->lastTick >= timer->timeout)
 		{
-			timer->callback(args);
+			if(timer->callback != NULL)
+			{
+				timer->callback(args);
+			}
 			if(timer->isContinuous)
 			{
 				timer_reset(timer);
