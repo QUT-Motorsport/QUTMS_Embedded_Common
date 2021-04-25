@@ -5,35 +5,35 @@
  *      Author: Thomas Fraser
  */
 
-#include <Timer.h>
+#include <timer.h>
 
-Timer_t Timer_init(uint32_t timeout, bool isContinuous, void (*fcn)(void* args))
+ms_timer_t timer_init(uint32_t timeout, bool isContinuous, void (*callback)(void* args))
 {
-	Timer_t t =
+	ms_timer_t t =
 	{
 			.lastTick = 0,
 			.isContinuous = isContinuous,
 			.isRunning = false,
 			.timeout = timeout,
-			.fcn = fcn
+			.callback = callback
 	};
 
 	return t;
 }
 
-bool Timer_update(Timer_t* timer, void *args)
+bool timer_update(ms_timer_t* timer, void *args)
 {
 	if(timer->isRunning)
 	{
 		if(HAL_GetTick() - timer->lastTick >= timer->timeout)
 		{
-			timer->fcn(args);
+			timer->callback(args);
 			if(timer->isContinuous)
 			{
-				Timer_reset(timer);
+				timer_reset(timer);
 			} else
 			{
-				Timer_stop(timer);
+				timer_stop(timer);
 			}
 			return true;
 		}
@@ -41,30 +41,30 @@ bool Timer_update(Timer_t* timer, void *args)
 	return false;
 }
 
-void Timer_start(Timer_t* timer)
+void timer_start(ms_timer_t* timer)
 {
 	timer->isRunning = true;
 	timer->lastTick = HAL_GetTick();
 }
 
-bool Timer_isRunning(Timer_t* timer)
+bool timer_isRunning(ms_timer_t* timer)
 {
 	return timer->isRunning;
 }
 
-void Timer_reset(Timer_t* timer)
+void timer_reset(ms_timer_t* timer)
 {
 	timer->isRunning = true;
 	timer->lastTick = HAL_GetTick();
 }
 
-void Timer_stop(Timer_t* timer)
+void timer_stop(ms_timer_t* timer)
 {
 	timer->isRunning = false;
 	timer->lastTick = UINT32_MAX;
 }
 
-void Timer_delete(Timer_t* timer)
+void timer_delete(ms_timer_t* timer)
 {
 	free(timer);
 	timer = NULL;
