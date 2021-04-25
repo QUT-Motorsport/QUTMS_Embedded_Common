@@ -1,5 +1,4 @@
 #include "queue.h"
-#include <stdlib.h>
 
 bool queue_init(message_queue_t *queue, size_t queue_item_size,
 		size_t queue_length) {
@@ -11,12 +10,12 @@ bool queue_init(message_queue_t *queue, size_t queue_item_size,
 		return false;
 	}
 
-	queue->count = 0;
-	queue->head = 0;
-	queue->tail = QUEUE_LENGTH - 1;
-
 	queue->queue_item_size = queue_item_size;
 	queue->queue_length = queue_length;
+
+	queue->count = 0;
+	queue->head = 0;
+	queue->tail = queue->queue_length - 1;
 }
 
 bool queue_delete(message_queue_t *queue) {
@@ -27,7 +26,7 @@ bool queue_delete(message_queue_t *queue) {
 	// free queue memory
 	if (queue->queue_items != NULL) {
 		free(queue->queue_items);
-		queue->queue - items = NULL;
+		queue->queue_items = NULL;
 	}
 
 	return true;
@@ -36,15 +35,15 @@ bool queue_delete(message_queue_t *queue) {
 bool queue_clear(message_queue_t *queue) {
 	queue->count = 0;
 	queue->head = 0;
-	queue->tail = QUEUE_LENGTH - 1;
+	queue->tail =  queue->queue_length - 1;
 
 	return true;
 }
 
 bool queue_add(message_queue_t *queue, void *item) {
-	if (queue->count < QUEUE_LENGTH) {
-		queue->tail = (queue->tail + 1) % QUEUE_LENGTH;
-		queue->queue[queue->tail] = *msg;
+	if (queue->count <  queue->queue_length) {
+		queue->tail = (queue->tail + 1) %  queue->queue_length;
+		memcpy(&queue->queue[queue->tail * queue->queue_item_size], item, queue->queue_item_size);
 		queue->count++;
 
 		return true;
@@ -57,7 +56,7 @@ bool queue_add(message_queue_t *queue, void *item) {
 bool queue_peek(message_queue_t *queue, void *peek) {
 	if (queue->count > 0) {
 		// copy next item into pointer
-		memcpy(peek, &queue->queue[queue->head * queue->queue_item_size]);
+		memcpy(peek, &queue->queue[queue->head * queue->queue_item_size], queue->queue_item_size);
 		return true;
 	} else {
 		return false;
@@ -67,10 +66,10 @@ bool queue_peek(message_queue_t *queue, void *peek) {
 bool queue_next(message_queue_t *queue, void *next) {
 	if (queue->count > 0) {
 		// copy next item into pointer
-		memcpy(next, &queue->queue[queue->head * queue->queue_item_size]);
+		memcpy(next, &queue->queue[queue->head * queue->queue_item_size], queue->queue_item_size);
 
 		// increase head pointer
-		queue->head = (queue->head + 1) % QUEUE_LENGTH;
+		queue->head = (queue->head + 1) %  queue->queue_length;
 		queue->count--;
 
 		return true;
@@ -80,7 +79,7 @@ bool queue_next(message_queue_t *queue, void *next) {
 }
 
 bool queue_full(message_queue_t *queue) {
-	return queue->count == QUEUE_LENGTH;
+	return queue->count ==  queue->queue_length;
 }
 
 bool queue_empty(message_queue_t *queue) {

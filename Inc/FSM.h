@@ -52,9 +52,9 @@ struct fsm {
 /**
  * @brief Creates a new FSM object
  * @param beginState The inital state to be set for the FSM
- * @return A pointer to the FSM object
+ * @return the initialized FSM object
  */
-fsm_t *fsm_new(state_t *beginState);
+fsm_t fsm_new(state_t *beginState);
 
 /**
  * @brief Iterates the FSM by calling fsm->currentState->iter(fsm)

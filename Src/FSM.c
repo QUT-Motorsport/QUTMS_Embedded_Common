@@ -1,4 +1,3 @@
-
 /**
  ******************************************************************************
  * @file FSM.c
@@ -10,11 +9,11 @@
 
 #include <FSM.h>
 
-fsm_t *fsm_new(state_t *beginState)
+fsm_t fsm_new(state_t *beginState)
 {
-	// malloc, 0 memory then set state
-	fsm_t *fsm = malloc(sizeof(fsm_t));
-	memset(fsm, 0, sizeof(fsm_t));
+	// 0 memory then set state
+	fsm_t fsm = {0};
+	memset(&fsm, 0, sizeof(fsm_t));
 	fsm->currentState = beginState;
 	fsm->currentState->enter(fsm);
 
@@ -70,12 +69,6 @@ void fsm_reset(fsm_t *fsm, state_t *resetState)
 
 	// Enter state
 	fsm->currentState->enter(fsm);
-}
-
-void fsm_delete(fsm_t *fsm)
-{
-	free(fsm);
-	fsm = NULL;
 }
 
 void fsm_setLogFunction(fsm_t *fsm, fsm_log_function func)
