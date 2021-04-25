@@ -21,7 +21,7 @@ bool queue_init(message_queue_t *queue, size_t queue_item_size, size_t queue_len
 bool queue_delete(message_queue_t *queue);
 
 // clears all items in the queue (does not free memory)
-int queue_clear(message_queue_t *queue);
+bool queue_clear(message_queue_t *queue);
 
 // adds a new item to the queue,
 bool queue_add(message_queue_t *queue, void *item);

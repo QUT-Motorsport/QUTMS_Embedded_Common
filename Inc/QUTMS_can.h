@@ -113,7 +113,7 @@ typedef struct CAN_LOG
 {
 	uint32_t id;
 	uint8_t data[8];
-}	CAN_LOG_t;
+} CAN_LOG_t;
 
 CAN_LOG_t Compose_CAN_LOG(uint8_t dataType, uint8_t dataLength, uint8_t* data);
 void Parse_CAN_LOG(uint8_t *data, uint8_t *dataType, uint8_t* dataLength, uint8_t *rdata);

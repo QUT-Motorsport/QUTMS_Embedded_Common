@@ -7,7 +7,7 @@
 
 #include <Timer.h>
 
-Timer_t Timer_init(uint32_t timeout, bool isContinuous, void (*fcn)(void* fsm))
+Timer_t Timer_init(uint32_t timeout, bool isContinuous, void (*fcn)(void* args))
 {
 	Timer_t t =
 	{
@@ -21,13 +21,13 @@ Timer_t Timer_init(uint32_t timeout, bool isContinuous, void (*fcn)(void* fsm))
 	return t;
 }
 
-bool Timer_update(Timer_t* timer)
+bool Timer_update(Timer_t* timer, void *args)
 {
 	if(timer->isRunning)
 	{
 		if(HAL_GetTick() - timer->lastTick >= timer->timeout)
 		{
-			timer->fcn();
+			timer->fcn(args);
 			if(timer->isContinuous)
 			{
 				Timer_reset(timer);

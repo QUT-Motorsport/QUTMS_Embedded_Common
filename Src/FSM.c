@@ -14,8 +14,8 @@ fsm_t fsm_new(state_t *beginState)
 	// 0 memory then set state
 	fsm_t fsm = {0};
 	memset(&fsm, 0, sizeof(fsm_t));
-	fsm->currentState = beginState;
-	fsm->currentState->enter(fsm);
+	fsm.currentState = beginState;
+	fsm.currentState->enter(&fsm);
 
 	return fsm;
 }
