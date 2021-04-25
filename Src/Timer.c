@@ -31,6 +31,9 @@ bool Timer_update(Timer_t* timer, void *args)
 			if(timer->isContinuous)
 			{
 				Timer_reset(timer);
+			} else
+			{
+				Timer_stop(timer);
 			}
 			return true;
 		}
@@ -63,5 +66,6 @@ void Timer_stop(Timer_t* timer)
 
 void Timer_delete(Timer_t* timer)
 {
+	free(timer);
 	timer = NULL;
 }
