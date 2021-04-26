@@ -15,6 +15,7 @@ extern "C" {
 #define CAN_PRIORITY_NORMAL 0x2
 #define CAN_PRIORITY_DEBUG 0x3
 
+#define CAN_SRC_ID_SHDN 0x06
 #define CAN_SRC_ID_AMS 0x10
 #define CAN_SRC_ID_BMS 0x12
 #define CAN_SRC_ID_PDM 0x14
@@ -89,6 +90,11 @@ enum CAN_MSG_IDs {
 	PDM_RequestDutyCycle_ID			= Compose_CANId(CAN_PRIORITY_NORMAL, CAN_SRC_ID_PDM, DRIVER, CAN_TYPE_RECEIVE, 0x3, 0x0),
 	PDM_SetDutyCycle_ID 			= Compose_CANId(CAN_PRIORITY_NORMAL, CAN_SRC_ID_PDM, DRIVER, CAN_TYPE_RECEIVE, 0x4, 0x0),
 	PDM_TransmitDutyCycle_ID		= Compose_CANId(CAN_PRIORITY_NORMAL, CAN_SRC_ID_PDM, DRIVER, CAN_TYPE_TRANSMIT, 0x4, 0x0),
+#endif
+
+	// Shutdown
+#ifdef QUTMS_CAN_SHDN
+	SHDN_ShutdownTriggered_ID		= Compose_CANId(CAN_PRIORITY_ERROR, CAN_SRC_ID_SHDN, DRIVER, CAN_TYPE_ERROR, 0x0, 0x0),
 #endif
 
 	/** General Sensor */
