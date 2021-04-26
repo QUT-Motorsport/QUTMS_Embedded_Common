@@ -73,10 +73,10 @@ enum CAN_MSG_IDs {
 
 	/** CC */
 #ifdef QUTMS_CAN_CC
-	CC_ReadyToDrive_ID 				= Compose_CANId(CAN_PRIORITY_NORMAL, CAN_SRC_ID_CC, DRIVER, 0x0, CAN_TYPE_TRANSMIT, 0x0),
-	CC_FatalShutdown_ID 			= Compose_CANId(CAN_PRIORITY_ERROR, CAN_SRC_ID_CC, DRIVER, 0x0, CAN_TYPE_ERROR, 0x0),
-	CC_SoftShutdown_ID				= Compose_CANId(CAN_PRIORITY_ERROR, CAN_SRC_ID_CC, DRIVER, 0x0, CAN_TYPE_ERROR, 0x1),
-	CC_TransmitPedals_ID			= Compose_CANId(CAN_PRIORITY_NORMAL, CAN_SRC_ID_CC, DRIVER, 0x0, CAN_TYPE_TRANSMIT, 0x1),
+	CC_ReadyToDrive_ID 				= Compose_CANId(CAN_PRIORITY_NORMAL, CAN_SRC_ID_CC, DRIVER, CAN_TYPE_TRANSMIT, 0x0, 0x0),
+	CC_FatalShutdown_ID 			= Compose_CANId(CAN_PRIORITY_ERROR, CAN_SRC_ID_CC, DRIVER, CAN_TYPE_ERROR, 0x0, 0x0),
+	CC_SoftShutdown_ID				= Compose_CANId(CAN_PRIORITY_ERROR, CAN_SRC_ID_CC, DRIVER, CAN_TYPE_ERROR, 0x1, 0x0),
+	CC_TransmitPedals_ID			= Compose_CANId(CAN_PRIORITY_NORMAL, CAN_SRC_ID_CC, DRIVER, CAN_TYPE_TRANSMIT, 0x1, 0x0),
 #endif
 
 	/** PDM */
@@ -105,8 +105,12 @@ void Parse_CANId(uint32_t CANId, uint8_t* priority, uint16_t* sourceId, uint8_t*
 
 typedef struct CAN_MSG_Generic
 {
-	CAN_RxHeaderTypeDef header;
+	uint32_t timestamp;
+	uint32_t ID;
+	uint8_t ID_TYPE;
+	uint8_t DLC;
 	uint8_t data[8];
+	// optional pointer to a CAN handle
 	void *hcan;
 } CAN_MSG_Generic_t;
 
