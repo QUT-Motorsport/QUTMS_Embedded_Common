@@ -114,6 +114,7 @@ CC_ShutdownInverter_t Compose_CC_ShutdownInverter(uint16_t nodeId)
 {
 	CC_ShutdownInverter_t p;
 	uint16_t index = 0x200C;
+
 	p.id = 0x600 + nodeId; // 0x600 for Query + Node ID Specifier
 	p.data[0] = 0b00101100; // Client Command Specifier + Number of Bytes + xx
 	p.data[1] = (uint8_t)index & 0xFF; // Index
@@ -186,5 +187,26 @@ void Parse_CC_CanadaInverter(uint8_t* data, uint16_t* DACValue)
 {
 	*DACValue = (data[0] & 0xFF) << 8 | data[1];
 }
+
+
+CC_Roboteq_t Compose_Roboteq_CAN(uint16_t nodeID, uint8_t css, uint8_t n, uint16_t index, uint8_t subindex, uint32_t data) {
+	CC_Roboteq_t msg;
+
+	// 0x600 for command / query to inverter
+	msg.id = 0x600 + nodeID;
+
+	msg.data[0] = ((css & 0b111) << 4) | ((n & 0b11) << 2);
+	msg.data[1] = (index & 0xFF);
+	msg.data[2] = (index >> 8) & 0xFF;
+	msg.data[3] = subindex;
+	msg.data[4] = data & 0xff;
+	msg.data[5] = (data >> 8) & 0xff;
+	msg.data[6] = (data >> 16) & 0xff;
+	msg.data[7] = (data >> 24) & 0xff;
+
+	return msg;
+}
+
+
 
 #endif

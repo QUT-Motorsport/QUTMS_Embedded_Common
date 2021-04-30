@@ -220,5 +220,12 @@ CC_CanadaInverter_t Compose_CC_CanadaInverter(uint16_t DACValue);
  */
 void Parse_CC_CanadaInverter(uint8_t* data, uint16_t* DACValue);
 
+typedef struct CC_Roboteq {
+	uint32_t id;
+	uint8_t data[8];
+} CC_Roboteq_t;
+
+CC_Roboteq_t Compose_Roboteq_CAN(uint16_t nodeID, uint8_t css, uint8_t n, uint16_t index, uint8_t subindex, uint32_t data);
+
 
 #endif /* INC_CC_CAN_MESSAGES_H_ */
