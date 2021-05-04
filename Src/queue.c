@@ -5,7 +5,7 @@
 bool queue_init(message_queue_t *queue, size_t queue_item_size,
 		size_t queue_length) {
 	// assumes queue is an empty struct
-	queue->queue_items = calloc(queue_item_size, queue_length);
+	queue->queue_items = calloc(queue_length, queue_item_size);
 
 	if (queue->queue_items == NULL) {
 		// calloc failed
