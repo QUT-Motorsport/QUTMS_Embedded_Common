@@ -34,7 +34,4 @@ bool timer_isRunning(ms_timer_t* timer);
 
 void timer_stop(ms_timer_t* timer);
 
-void timer_delete(ms_timer_t* timer);
-
-
 #endif /* COMMON_INC_TIMER_H_ */

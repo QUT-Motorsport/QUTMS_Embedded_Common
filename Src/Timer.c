@@ -66,8 +66,3 @@ void timer_stop(ms_timer_t* timer)
 	timer->isRunning = false;
 	timer->lastTick = UINT32_MAX;
 }
-
-void timer_delete(ms_timer_t* timer)
-{
-	timer = NULL;
-}
