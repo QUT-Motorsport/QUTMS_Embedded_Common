@@ -9,7 +9,7 @@
 
 #include "SHDN_CAN_Messages.h"
 
-SHDN_ShutdownTriggered_t Compose_SHDN_ShudownTriggered(void)
+SHDN_ShutdownTriggered_t Compose_SHDN_ShutdownTriggered(void)
 {
 	SHDN_ShutdownTriggered_t p;
 	p.id = Compose_CANId(0x0, 0x06, 0x0, 0x0, 0x0, 0x0);

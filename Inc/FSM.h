@@ -12,7 +12,6 @@
 #include <memory.h>
 #include <stdio.h>
 #include <stdarg.h>
-#include "cmsis_os.h"
 
 /**
  * @brief Typedef state as state_t
@@ -48,16 +47,14 @@ struct state {
 struct fsm {
 	state_t *currentState; /**< Current FSM State */
 	fsm_log_function log;
-	osSemaphoreId_t sem; /**< FSM change state semaphore */
-	osSemaphoreId_t updating; /**< FSM iterating semaphore */
 };
 
 /**
  * @brief Creates a new FSM object
  * @param beginState The inital state to be set for the FSM
- * @return A pointer to the FSM object
+ * @return the initialized FSM object
  */
-fsm_t *fsm_new(state_t *beginState);
+fsm_t fsm_new(state_t *beginState);
 
 /**
  * @brief Iterates the FSM by calling fsm->currentState->iter(fsm)

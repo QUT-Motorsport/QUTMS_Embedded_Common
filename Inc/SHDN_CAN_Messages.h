@@ -26,7 +26,7 @@ typedef struct SHDN_ShutdownTriggered_t
  * @brief Shutdown Heartbeat Request Message Composer
  * @return The composed SHDN_HeartbeatRequest_t packet
  */
-SHDN_ShutdownTriggered_t Compose_SHDN_ShudownTriggered(void);
+SHDN_ShutdownTriggered_t Compose_SHDN_ShutdownTriggered(void);
 
 /**
  * @brief Shutdown Heartbeat Response Message

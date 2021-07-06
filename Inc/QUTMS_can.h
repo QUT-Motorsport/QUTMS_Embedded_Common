@@ -8,6 +8,9 @@ extern "C" {
 /* Includes ------------------------------------------------------------------*/
 #include <stdint.h>
 #include "can.h"
+#ifdef QUTMS_CAN_VESC
+#include "VESC_CAN_Datatypes.h"
+#endif
 
 // defines
 #define CAN_PRIORITY_ERROR 0x0
@@ -15,6 +18,7 @@ extern "C" {
 #define CAN_PRIORITY_NORMAL 0x2
 #define CAN_PRIORITY_DEBUG 0x3
 
+#define CAN_SRC_ID_SHDN 0x06
 #define CAN_SRC_ID_AMS 0x10
 #define CAN_SRC_ID_BMS 0x12
 #define CAN_SRC_ID_PDM 0x14
@@ -42,6 +46,9 @@ extern "C" {
 				| ((type) & 0x7) << 14 \
 				| ((extra) & 0x3FF) << 4 \
 				| ((BMSId) & 0xF)))
+
+#define Compose_VESCCANId(type, vescid)((((type) << 8) | ((vescid))))
+
 
 enum CAN_MSG_IDs {
 	/** AMS */
@@ -73,9 +80,10 @@ enum CAN_MSG_IDs {
 
 	/** CC */
 #ifdef QUTMS_CAN_CC
-	CC_ReadyToDrive_ID 				= Compose_CANId(CAN_PRIORITY_NORMAL, CAN_SRC_ID_CC, DRIVER, 0x0, 0x0, 0x0),
-	CC_FatalShutdown_ID 			= Compose_CANId(CAN_PRIORITY_NORMAL, CAN_SRC_ID_CC, DRIVER, 0x0, 0x1, 0x0),
-	CC_SoftShutdown_ID				= Compose_CANId(CAN_PRIORITY_NORMAL, CAN_SRC_ID_CC, DRIVER, 0x0, 0x1, 0x1),
+	CC_ReadyToDrive_ID 				= Compose_CANId(CAN_PRIORITY_NORMAL, CAN_SRC_ID_CC, DRIVER, CAN_TYPE_TRANSMIT, 0x0, 0x0),
+	CC_FatalShutdown_ID 			= Compose_CANId(CAN_PRIORITY_ERROR, CAN_SRC_ID_CC, DRIVER, CAN_TYPE_ERROR, 0x0, 0x0),
+	CC_SoftShutdown_ID				= Compose_CANId(CAN_PRIORITY_ERROR, CAN_SRC_ID_CC, DRIVER, CAN_TYPE_ERROR, 0x1, 0x0),
+	CC_TransmitPedals_ID			= Compose_CANId(CAN_PRIORITY_NORMAL, CAN_SRC_ID_CC, DRIVER, CAN_TYPE_TRANSMIT, 0x1, 0x0),
 #endif
 
 	/** PDM */
@@ -90,6 +98,11 @@ enum CAN_MSG_IDs {
 	PDM_TransmitDutyCycle_ID		= Compose_CANId(CAN_PRIORITY_NORMAL, CAN_SRC_ID_PDM, DRIVER, CAN_TYPE_TRANSMIT, 0x4, 0x0),
 #endif
 
+	// Shutdown
+#ifdef QUTMS_CAN_SHDN
+	SHDN_ShutdownTriggered_ID		= Compose_CANId(CAN_PRIORITY_ERROR, CAN_SRC_ID_SHDN, DRIVER, CAN_TYPE_ERROR, 0x0, 0x0),
+#endif
+
 	/** General Sensor */
 #ifdef QUTMS_CAN_GENERAL_SENSOR
 	GENERAL_SENSOR_LinearPot_ID		= Compose_CANId(CAN_PRIORITY_NORMAL, CAN_SRC_ID_GENERAL_SENSOR, DRIVER, CAN_TYPE_TRANSMIT, 0x00, 0x00);
@@ -97,6 +110,28 @@ enum CAN_MSG_IDs {
 	GENERAL_SENSOR_RadiatorTemp_ID	= Compose_CANId(CAN_PRIORITY_NORMAL, CAN_SRC_ID_GENERAL_SENSOR, DRIVER, CAN_TYPE_TRANSMIT, 0x02, 0x00);
 #endif
 
+#ifdef QUTMS_CAN_VESC
+	VESC_SetDuty_ID					= Compose_VESCCANId(VESC_CAN_PACKET_SET_DUTY, 0),
+	VESC_SetCurrent_ID				= Compose_VESCCANId(VESC_CAN_PACKET_SET_CURRENT, 0),
+	VESC_SetCurrentBrake_ID			= Compose_VESCCANId(VESC_CAN_PACKET_SET_CURRENT_BRAKE, 0),
+	VESC_SetRPM_ID					= Compose_VESCCANId(VESC_CAN_PACKET_SET_RPM, 0),
+	VESC_Status_1_ID				= Compose_VESCCANId(VESC_CAN_PACKET_STATUS, 0),
+	VESC_SetCurrentRel_ID			= Compose_VESCCANId(VESC_CAN_PACKET_SET_CURRENT_REL, 0),
+	VESC_SetCurrentBrakeRel_ID		= Compose_VESCCANId(VESC_CAN_PACKET_SET_CURRENT_BRAKE_REL, 0),
+	VESC_SetCurrentHandbrake_ID		= Compose_VESCCANId(VESC_CAN_PACKET_SET_CURRENT_HANDBRAKE, 0),
+	VESC_SetCurrentHandbrakeRel_ID	= Compose_VESCCANId(VESC_CAN_PACKET_SET_CURRENT_HANDBRAKE_REL, 0),
+	VESC_Status_2_ID				= Compose_VESCCANId(VESC_CAN_PACKET_STATUS_2, 0),
+	VESC_Status_3_ID				= Compose_VESCCANId(VESC_CAN_PACKET_STATUS_3, 0),
+	VESC_Status_4_ID				= Compose_VESCCANId(VESC_CAN_PACKET_STATUS_4, 0),
+	VESC_Ping_ID					= Compose_VESCCANId(VESC_CAN_PACKET_PING, 0),
+	VESC_Pong_ID					= Compose_VESCCANId(VESC_CAN_PACKET_PONG, 0),
+	VESC_SetCurrentLimits			= Compose_VESCCANId(VESC_CAN_PACKET_CONF_CURRENT_LIMITS, 0),
+	VESC_SetCurrentLimitsEEPROM		= Compose_VESCCANId(VESC_CAN_PACKET_CONF_STORE_CURRENT_LIMITS, 0),
+	VESC_SetCurrentInLimits			= Compose_VESCCANId(VESC_CAN_PACKET_CONF_CURRENT_LIMITS_IN, 0),
+	VESC_SetCurrentInLimitsEEPROM	= Compose_VESCCANId(VESC_CAN_PACKET_CONF_STORE_CURRENT_LIMITS_IN, 0),
+	VESC_Status_5_ID				= Compose_VESCCANId(VESC_CAN_PACKET_STATUS_5, 0),
+	VESC_Shutdown_ID				= Compose_VESCCANId(VESC_CAN_PACKET_SHUTDOWN, 0),
+#endif
 };
 
 //uint32_t Compose_CANId(uint8_t priority, uint16_t sourceId, uint8_t autonomous, uint8_t type, uint16_t extra, uint8_t BMSId);
@@ -104,8 +139,12 @@ void Parse_CANId(uint32_t CANId, uint8_t* priority, uint16_t* sourceId, uint8_t*
 
 typedef struct CAN_MSG_Generic
 {
-	CAN_RxHeaderTypeDef header;
+	uint32_t timestamp;
+	uint32_t ID;
+	uint8_t ID_TYPE;
+	uint8_t DLC;
 	uint8_t data[8];
+	// optional pointer to a CAN handle
 	void *hcan;
 } CAN_MSG_Generic_t;
 
@@ -113,7 +152,7 @@ typedef struct CAN_LOG
 {
 	uint32_t id;
 	uint8_t data[8];
-}	CAN_LOG_t;
+} CAN_LOG_t;
 
 CAN_LOG_t Compose_CAN_LOG(uint8_t dataType, uint8_t dataLength, uint8_t* data);
 void Parse_CAN_LOG(uint8_t *data, uint8_t *dataType, uint8_t* dataLength, uint8_t *rdata);

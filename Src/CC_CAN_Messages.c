@@ -12,22 +12,39 @@
 CC_ReadyToDrive_t Compose_CC_ReadyToDrive(void)
 {
 	CC_ReadyToDrive_t p;
-	p.id = Compose_CANId(0x2, 0x16, 0x0, 0x0, 0x0, 0x0);
+	p.id = CC_ReadyToDrive_ID;
 	return p;
 }
 
 CC_FatalShutdown_t Compose_CC_FatalShutdown(void)
 {
 	CC_FatalShutdown_t p;
-	p.id = Compose_CANId(0x2, 0x16, 0x0, 0x0, 0x1, 0x0);
+	p.id = CC_FatalShutdown_ID;
 	return p;
 }
 
 CC_SoftShutdown_t Compose_CC_SoftShutdown(void)
 {
 	CC_SoftShutdown_t p;
-	p.id = Compose_CANId(0x2, 0x16, 0x0, 0x0, 0x1, 0x1);
+	p.id = CC_SoftShutdown_ID;
 	return p;
+}
+
+CC_TransmitPedals_t Compose_CC_TransmitPedals(uint16_t accel0, uint16_t accel1, uint16_t brake) {
+	CC_TransmitPedals_t msg;
+	msg.id = CC_TransmitPedals_ID;
+	msg.data[0] = accel0 & 0xff;
+	msg.data[1] = (accel0 >> 8) & 0xff;
+	msg.data[2] = accel1 & 0xff;
+	msg.data[3] = (accel1 >> 8) & 0xff;
+	msg.data[4] = brake & 0xff;
+	msg.data[5] = (brake >> 8) & 0xff;
+	return msg;
+}
+void Parse_CC_TransmitPedals(uint8_t* data, uint16_t *accel0, uint16_t *accel1, uint16_t *brake) {
+	*accel0 = (data[1]) << 8 | data[0];
+	*accel1 = (data[3]) << 8 | data[2];
+	*brake = (data[5]) << 8 | data[4];
 }
 
 CC_RequestRPM_t Compose_CC_RequestRPM(uint16_t nodeId)
@@ -97,6 +114,7 @@ CC_ShutdownInverter_t Compose_CC_ShutdownInverter(uint16_t nodeId)
 {
 	CC_ShutdownInverter_t p;
 	uint16_t index = 0x200C;
+
 	p.id = 0x600 + nodeId; // 0x600 for Query + Node ID Specifier
 	p.data[0] = 0b00101100; // Client Command Specifier + Number of Bytes + xx
 	p.data[1] = (uint8_t)index & 0xFF; // Index
@@ -169,5 +187,26 @@ void Parse_CC_CanadaInverter(uint8_t* data, uint16_t* DACValue)
 {
 	*DACValue = (data[0] & 0xFF) << 8 | data[1];
 }
+
+
+CC_Roboteq_t Compose_Roboteq_CAN(uint16_t nodeID, uint8_t css, uint8_t n, uint16_t index, uint8_t subindex, uint32_t data) {
+	CC_Roboteq_t msg;
+
+	// 0x600 for command / query to inverter
+	msg.id = 0x600 + nodeID;
+
+	msg.data[0] = ((css & 0b111) << 4) | ((n & 0b11) << 2);
+	msg.data[1] = (index & 0xFF);
+	msg.data[2] = (index >> 8) & 0xFF;
+	msg.data[3] = subindex;
+	msg.data[4] = data & 0xff;
+	msg.data[5] = (data >> 8) & 0xff;
+	msg.data[6] = (data >> 16) & 0xff;
+	msg.data[7] = (data >> 24) & 0xff;
+
+	return msg;
+}
+
+
 
 #endif
