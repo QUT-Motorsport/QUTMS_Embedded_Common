@@ -62,7 +62,7 @@ typedef struct VESC_CANPacketStatus_t
 
 VESC_CANPacketStatus_t Compose_VESC_CANPacketStatus(VESC_ID id);
 
-void Parse_VESC_CANPacketStatus(uint8_t* data, VESC_ID* id, int32_t* rpm, int16_t* current, int16_t* duty);
+void Parse_VESC_CANPacketStatus(uint8_t* data, VESC_ID* id, int32_t* rpm, float* current, float* duty);
 
 typedef struct VESC_SetCurrentRel_t
 {
@@ -136,7 +136,7 @@ typedef struct VESC_CANPacketStatus4_t
 
 VESC_CANPacketStatus4_t Compose_VESC_CANPacketStatus4(VESC_ID id);
 
-void Parse_VESC_CANPacketStatus4(uint8_t* data, VESC_ID* id, int16_t* mosfetTemperature, int16_t* motorTemperature, int16_t* inputCurrent, int16_t* pidPos);
+void Parse_VESC_CANPacketStatus4(uint8_t* data, VESC_ID* id, float* mosfetTemperature, float* motorTemperature, float* inputCurrent, float* pidPos);
 
 typedef struct VESC_Ping_t
 {
@@ -154,7 +154,7 @@ typedef struct VESC_Pong_t
 
 VESC_Pong_t Compose_VESC_Pong(VESC_ID id);
 
-void Parse_VESC_Pong(VESC_ID* id);
+void Parse_VESC_Pong(uint8_t* data, VESC_ID* id);
 
 typedef struct VESC_SetCurrentLimits_t
 {
@@ -205,7 +205,7 @@ typedef struct VESC_CANPacketStatus5_t
 
 VESC_CANPacketStatus5_t Compose_VESC_CANPacketStatus5(VESC_ID id);
 
-void Parse_VESC_CANPacketStatus5(uint8_t* data, VESC_ID* id, int32_t* tachoRPM, int16_t* inputVoltage, int16_t* reserved);
+void Parse_VESC_CANPacketStatus5(uint8_t* data, VESC_ID* id, int32_t* tachoRPM, float* inputVoltage, float* reserved);
 
 typedef struct VESC_Shutdown_t
 {

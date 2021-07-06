@@ -56,7 +56,7 @@ VESC_SetDuty_t Compose_VESC_SetDuty(VESC_ID id, float duty)
 void Parse_VESC_SetDuty(uint8_t* data, VESC_ID* id, float* duty)
 {
 	*duty = (float)((data[3] << 24) | (data[2] << 16) | (data[1] << 8) | data[0]);
-	sb(duty, 4);
+//	sb(duty, 4);
 	*duty /= 100000.f; // Undo VESC Scaling
 }
 
@@ -81,7 +81,7 @@ VESC_SetCurrent_t Compose_VESC_SetCurrent(VESC_ID id, float current)
 void Parse_VESC_SetCurrent(uint8_t* data, VESC_ID* id, float* current)
 {
 	*current = (float)((data[3] << 24) | (data[2] << 16) | (data[1] << 8) | data[0]);
-	sb(current, 4);
+//	sb(current, 4);
 	*current /= 1000.f;
 }
 
@@ -105,7 +105,7 @@ VESC_SetCurrentBrake_t Compose_VESC_SetCurrentBrake(VESC_ID id, float currentBra
 void Parse_VESC_SetCurrentBrake(uint8_t* data, VESC_ID* id, float* currentBrake)
 {
 	*currentBrake = (float)((data[3] << 24) | (data[2] << 16) | (data[1] << 8) | data[0]);
-	sb(currentBrake, 4);
+//	sb(currentBrake, 4);
 	*currentBrake /= 1000.f;
 }
 
@@ -127,7 +127,7 @@ VESC_SetRPM_t Compose_VESC_SetRPM(VESC_ID id, int32_t rpm)
 void Parse_VESC_SetRPM(uint8_t* data, VESC_ID* id, int32_t* rpm)
 {
 	*rpm = (int32_t)((data[3] << 24) | (data[2] << 16) | (data[1] << 8) | data[0]);
-	sb(rpm, 4);
+//	sb(rpm, 4);
 }
 
 VESC_CANPacketStatus_t Compose_VESC_CANPacketStatus(VESC_ID id)
@@ -138,13 +138,15 @@ VESC_CANPacketStatus_t Compose_VESC_CANPacketStatus(VESC_ID id)
 	return p;
 }
 
-void Parse_VESC_CANPacketStatus(uint8_t* data, VESC_ID* id, int32_t* rpm, int16_t* current, int16_t* duty)
+void Parse_VESC_CANPacketStatus(uint8_t* data, VESC_ID* id, int32_t* rpm, float* current, float* duty)
 {
-	sb(data, 8);
+//	sb(data, 8);
 
-	*rpm = (int32_t)((data[3] << 24) | (data[2] << 16) | (data[1] << 8) | data[0]);
-	*current = (int16_t)((data[4] << 8) | data[5]);
-	*duty = (int16_t)((data[6] << 8) | data[7]);
+	*rpm = (int32_t)((data[0] << 24) | (data[1] << 16) | (data[2] << 8) | data[3]);
+	*current = (float)((data[4] << 8) | data[5]);
+	*current /= 100.f;
+	*duty = (float)((data[6] << 8) | data[7]);
+	*duty /= 1000.f;
 }
 
 VESC_SetCurrentRel_t Compose_VESC_SetCurrentRel(VESC_ID id, float currentRel)
@@ -167,7 +169,7 @@ VESC_SetCurrentRel_t Compose_VESC_SetCurrentRel(VESC_ID id, float currentRel)
 void Parse_VESC_SetCurrentRel(uint8_t* data, VESC_ID* id, float* currentRel)
 {
 	*currentRel = (float)((data[3] << 24) | (data[2] << 16) | (data[1] << 8) | data[0]);
-	sb(currentRel, 4);
+//	sb(currentRel, 4);
 }
 
 VESC_SetCurrentBrakeRel_t Compose_VESC_SetCurrentBrakeRel(VESC_ID id, float currentBrakeRel)
@@ -190,7 +192,7 @@ VESC_SetCurrentBrakeRel_t Compose_VESC_SetCurrentBrakeRel(VESC_ID id, float curr
 void Parse_VESC_SetCurrentBrakeRel(uint8_t* data, VESC_ID* id, float* currentBrakeRel)
 {
 	*currentBrakeRel = (float)((data[3] << 24) | (data[2] << 16) | (data[1] << 8) | data[0]);
-	sb(currentBrakeRel, 4);
+//	sb(currentBrakeRel, 4);
 }
 
 VESC_SetCurrentHandbrake_t Compose_VESC_SetCurrentHandbrake(VESC_ID id, float currentHandbrake)
@@ -213,7 +215,7 @@ VESC_SetCurrentHandbrake_t Compose_VESC_SetCurrentHandbrake(VESC_ID id, float cu
 void Parse_VESC_SetCurrentHandbrake(uint8_t* data, VESC_ID* id, float* currentHandbrake)
 {
 	*currentHandbrake = (float)((data[3] << 24) | (data[2] << 16) | (data[1] << 8) | data[0]);
-	sb(currentHandbrake, 4);
+//	sb(currentHandbrake, 4);
 }
 
 VESC_SetCurrentHandbrakeRel_t Compose_VESC_SetCurrentHandbrakeRel(VESC_ID id, float currentHandbrakeRel)
@@ -236,7 +238,7 @@ VESC_SetCurrentHandbrakeRel_t Compose_VESC_SetCurrentHandbrakeRel(VESC_ID id, fl
 void Parse_VESC_SetCurrentHandbrakeRel(uint8_t* data, VESC_ID* id, float* currentHandbrakeRel)
 {
 	*currentHandbrakeRel = (float)((data[3] << 24) | (data[2] << 16) | (data[1] << 8) | data[0]);
-	sb(currentHandbrakeRel, 4);
+//	sb(currentHandbrakeRel, 4);
 }
 
 VESC_CANPacketStatus2_t Compose_VESC_CANPacketStatus2(VESC_ID id)
@@ -249,10 +251,12 @@ VESC_CANPacketStatus2_t Compose_VESC_CANPacketStatus2(VESC_ID id)
 
 void Parse_VESC_CANPacketStatus2(uint8_t* data, VESC_ID* id, float* ampHoursDrive, float* ampHoursRegen)
 {
-	sb(data, 8);
+//	sb(data, 8);
 
-	*ampHoursDrive = (uint32_t)((data[3] << 24) | (data[2] << 16) | (data[1] << 8) | data[0]);
-	*ampHoursRegen = (uint32_t)((data[7] << 24) | (data[6] << 16) | (data[5] << 8) | data[4]);
+	*ampHoursDrive = (float)((data[0] << 24) | (data[1] << 16) | (data[2] << 8) | data[3]);
+	*ampHoursDrive /= 10000.f;
+	*ampHoursRegen = (float)((data[4] << 24) | (data[5] << 16) | (data[6] << 8) | data[7]);
+	*ampHoursRegen /= 10000.f;
 }
 
 VESC_CANPacketStatus3_t Compose_VESC_CANPacketStatus3(VESC_ID id)
@@ -265,10 +269,12 @@ VESC_CANPacketStatus3_t Compose_VESC_CANPacketStatus3(VESC_ID id)
 
 void Parse_VESC_CANPacketStatus3(uint8_t* data, VESC_ID* id, float* wattHoursDrive, float* wattHoursRegen)
 {
-	sb(data, 8);
+//	sb(data, 8);
 
-	*wattHoursDrive = (uint32_t)((data[3] << 24) | (data[2] << 16) | (data[1] << 8) | data[0]);
-	*wattHoursRegen = (uint32_t)((data[7] << 24) | (data[6] << 16) | (data[5] << 8) | data[4]);
+	*wattHoursDrive = (float)((data[0] << 24) | (data[1] << 16) | (data[2] << 8) | data[3]);
+	*wattHoursDrive /= 10000.f;
+	*wattHoursRegen = (float)((data[4] << 24) | (data[5] << 16) | (data[6] << 8) | data[7]);
+	*wattHoursRegen /= 10000.f;
 }
 
 VESC_CANPacketStatus4_t Compose_VESC_CANPacketStatus4(VESC_ID id)
@@ -279,14 +285,18 @@ VESC_CANPacketStatus4_t Compose_VESC_CANPacketStatus4(VESC_ID id)
 	return p;
 }
 
-void Parse_VESC_CANPacketStatus4(uint8_t* data, VESC_ID* id, int16_t* mosfetTemperature, int16_t* motorTemperature, int16_t* inputCurrent, int16_t* pidPos)
+void Parse_VESC_CANPacketStatus4(uint8_t* data, VESC_ID* id, float* mosfetTemperature, float* motorTemperature, float* inputCurrent, float* pidPos)
 {
-	sb(data, 8);
+//	sb(data, 8);
 
-	*mosfetTemperature = (int16_t)((data[1] << 8) | data[0]);
-	*motorTemperature = (int16_t)((data[3] << 8) | data[2]);
-	*inputCurrent = (int16_t)((data[5] << 8) | data[4]);
-	*pidPos = (int16_t)((data[7] << 8) | data[6]);
+	*mosfetTemperature = (float)((data[0] << 8) | data[1]);
+	*mosfetTemperature /= 10;
+	*motorTemperature = (float)((data[2] << 8) | data[3]);
+	*motorTemperature /= 10;
+	*inputCurrent = (float)((data[4] << 8) | data[5]);
+	*inputCurrent /= 10;
+	*pidPos = (float)((data[6] << 8) | data[7]);
+	*pidPos /= 50;
 }
 
 VESC_Ping_t Compose_VESC_Ping(VESC_ID id)
@@ -310,9 +320,9 @@ VESC_Pong_t Compose_VESC_Pong(VESC_ID id)
 	return p;
 }
 
-void Parse_VESC_Pong(VESC_ID* id)
+void Parse_VESC_Pong(uint8_t* data, VESC_ID* id)
 {
-	return; //Hmm how I get ID?
+	*id = data[0];
 }
 
 VESC_SetCurrentLimits_t Compose_VESC_SetCurrentLimits(VESC_ID id, float minCurrentLimit, float maxCurrentLimit)
@@ -340,7 +350,7 @@ VESC_SetCurrentLimits_t Compose_VESC_SetCurrentLimits(VESC_ID id, float minCurre
 
 void Parse_VESC_SetCurrentLimits(uint8_t* data, VESC_ID* id, float* minCurrentLimit, float* maxCurrentLimit)
 {
-	sb(data, 8);
+//	sb(data, 8);
 	*minCurrentLimit = (float)((data[3] << 24) | (data[2] << 16) | (data[1] << 8) | data[0]);
 	*maxCurrentLimit = (float)((data[7] << 24) | (data[6] << 16) | (data[5] << 8) | data[4]);
 
@@ -371,7 +381,7 @@ VESC_SetCurrentLimitsEEPROM_t Compose_VESC_SetCurrentLimitsEEPROM(VESC_ID id, fl
 
 void Parse_VESC_SetCurrentLimitsEEPROM(uint8_t* data, VESC_ID* id, float* minCurrentLimit, float* maxCurrentLimit)
 {
-	sb(data, 8);
+//	sb(data, 8);
 	*minCurrentLimit = (float)((data[3] << 24) | (data[2] << 16) | (data[1] << 8) | data[0]);
 	*maxCurrentLimit = (float)((data[7] << 24) | (data[6] << 16) | (data[5] << 8) | data[4]);
 }
@@ -401,7 +411,7 @@ VESC_SetCurrentInLimits_t Compose_VESC_SetCurrentInLimits(VESC_ID id, float minC
 
 void Parse_VESC_SetCurrentInLimits(uint8_t* data, VESC_ID* id, float* minCurrentInLimit, float* maxCurrentInLimit)
 {
-	sb(data, 8);
+//	sb(data, 8);
 	*minCurrentInLimit = (float)((data[3] << 24) | (data[2] << 16) | (data[1] << 8) | data[0]);
 	*maxCurrentInLimit = (float)((data[7] << 24) | (data[6] << 16) | (data[5] << 8) | data[4]);
 }
@@ -431,7 +441,7 @@ VESC_SetCurrentInLimitsEEPROM_t Compose_VESC_SetCurrentInLimitsEEPROM(VESC_ID id
 
 void Parse_VESC_SetCurrentInLimitsEEPROM(uint8_t* data, VESC_ID* id, float* minCurrentInLimit, float* maxCurrentInLimit)
 {
-	sb(data, 8);
+//	sb(data, 8);
 	*minCurrentInLimit = (float)((data[3] << 24) | (data[2] << 16) | (data[1] << 8) | data[0]);
 	*maxCurrentInLimit = (float)((data[7] << 24) | (data[6] << 16) | (data[5] << 8) | data[4]);
 }
@@ -444,12 +454,13 @@ VESC_CANPacketStatus5_t Compose_VESC_CANPacketStatus5(VESC_ID id)
 	return p;
 }
 
-void Parse_VESC_CANPacketStatus5(uint8_t* data, VESC_ID* id, int32_t* tachoRPM, int16_t* inputVoltage, int16_t* reserved)
+void Parse_VESC_CANPacketStatus5(uint8_t* data, VESC_ID* id, int32_t* tachoRPM, float* inputVoltage, float* reserved)
 {
-	sb(data, 8);
-	*tachoRPM = (int32_t)((data[3] << 24) | (data[2] << 16) | (data[1] << 8) | data[0]);
-	*inputVoltage = (int16_t)((data[5] << 8) | data[4]);
-	*reserved = (int16_t)((data[7] << 8) | data[6]);
+//	sb(data, 8);
+	*tachoRPM = (int32_t)((data[0] << 24) | (data[1] << 16) | (data[2] << 8) | data[3]);
+	*inputVoltage = (float)((data[4] << 8) | data[5]);
+	*inputVoltage /= 10;
+	*reserved = (float)((data[6] << 8) | data[7]);
 }
 
 VESC_Shutdown_t Compose_VESC_Shutdown(VESC_ID id)

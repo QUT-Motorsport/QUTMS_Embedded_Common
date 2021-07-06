@@ -8,6 +8,9 @@ extern "C" {
 /* Includes ------------------------------------------------------------------*/
 #include <stdint.h>
 #include "can.h"
+#ifdef QUTMS_CAN_VESC
+#include "VESC_CAN_Datatypes.h"
+#endif
 
 // defines
 #define CAN_PRIORITY_ERROR 0x0
@@ -44,10 +47,8 @@ extern "C" {
 				| ((extra) & 0x3FF) << 4 \
 				| ((BMSId) & 0xF)))
 
-#define Compose_VESCCANId(type, vescid)(\
-		0x00000000 \
-		| type << 8 \
-		| vescid)
+#define Compose_VESCCANId(type, vescid)((((type) << 8) | ((vescid))))
+
 
 enum CAN_MSG_IDs {
 	/** AMS */
@@ -110,26 +111,26 @@ enum CAN_MSG_IDs {
 #endif
 
 #ifdef QUTMS_CAN_VESC
-	VESC_SetDuty_ID					= Compose_VESCCANId(VESC_CAN_PACKET_SET_DUTY, 0);
-	VESC_SetCurrent_ID				= Compose_VESCCANId(VESC_CAN_PACKET_SET_CURRENT, 0);
-	VESC_SetCurrentBrake_ID			= Compose_VESCCANId(VESC_CAN_PACKET_SET_CURRENT_BRAKE, 0);
-	VESC_SetRPM_ID					= Compose_VESCCANId(VESC_CAN_PACKET_SET_RPM, 0);
-	VESC_Status_1_ID				= Compose_VESCCANId(VESC_CAN_PACKET_STATUS, 0);
-	VESC_SetCurrentRel_ID			= Compose_VESCCANId(VESC_CAN_PACKET_SET_CURRENT_REL, 0);
-	VESC_SetCurrentBrakeRel_ID		= Compose_VESCCANId(VESC_CAN_PACKET_SET_CURRENT_BRAKE_REL, 0);
-	VESC_SetCurrentHandbrake_ID		= Compose_VESCCANId(VESC_CAN_PACKET_SET_CURRENT_HANDBRAKE, 0);
-	VESC_SetCurrentHandbrakeRel_ID	= Compose_VESCCANId(VESC_CAN_PACKET_SET_CURRENT_HANDBRAKE_REL, 0);
-	VESC_Status_2_ID				= Compose_VESCCANId(VESC_CAN_PACKET_STATUS_2, 0);
-	VESC_Status_3_ID				= Compose_VESCCANId(VESC_CAN_PACKET_STATUS_3, 0);
-	VESC_Status_4_ID				= Compose_VESCCANId(VESC_CAN_PACKET_STATUS_4, 0);
-	VESC_Ping_ID					= Compose_VESCCANId(VESC_CAN_PACKET_PING, 0);
-	VESC_Pong_ID					= Compose_VESCCANId(VESC_CAN_PACKET_PONG, 0);
-	VESC_SetCurrentLimits			= Compose_VESCCANId(VESC_CAN_PACKET_CONF_CURRENT_LIMITS, 0);
-	VESC_SetCurrentLimitsEEPROM		= Compose_VESCCANId(VESC_CAN_PACKET_CONF_STORE_CURRENT_LIMITS, 0);
-	VESC_SetCurrentInLimits			= Compose_VESCCANId(VESC_CAN_PACKET_CONF_CURRENT_LIMITS_IN, 0);
-	VESC_SetCurrentInLimitsEEPROM	= Compose_VESCCANId(VESC_CAN_PACKET_CONF_STORE_CURRENT_LIMITS_IN, 0);
-	VESC_Status_5_ID				= Compose_VESCCANId(VESC_CAN_PACKET_STATUS_5, 0);
-	VESC_Shutdown_ID				= Compose_VESCCANId(VESC_CAN_PACKET_SHUTDOWN, 0);
+	VESC_SetDuty_ID					= Compose_VESCCANId(VESC_CAN_PACKET_SET_DUTY, 0),
+	VESC_SetCurrent_ID				= Compose_VESCCANId(VESC_CAN_PACKET_SET_CURRENT, 0),
+	VESC_SetCurrentBrake_ID			= Compose_VESCCANId(VESC_CAN_PACKET_SET_CURRENT_BRAKE, 0),
+	VESC_SetRPM_ID					= Compose_VESCCANId(VESC_CAN_PACKET_SET_RPM, 0),
+	VESC_Status_1_ID				= Compose_VESCCANId(VESC_CAN_PACKET_STATUS, 0),
+	VESC_SetCurrentRel_ID			= Compose_VESCCANId(VESC_CAN_PACKET_SET_CURRENT_REL, 0),
+	VESC_SetCurrentBrakeRel_ID		= Compose_VESCCANId(VESC_CAN_PACKET_SET_CURRENT_BRAKE_REL, 0),
+	VESC_SetCurrentHandbrake_ID		= Compose_VESCCANId(VESC_CAN_PACKET_SET_CURRENT_HANDBRAKE, 0),
+	VESC_SetCurrentHandbrakeRel_ID	= Compose_VESCCANId(VESC_CAN_PACKET_SET_CURRENT_HANDBRAKE_REL, 0),
+	VESC_Status_2_ID				= Compose_VESCCANId(VESC_CAN_PACKET_STATUS_2, 0),
+	VESC_Status_3_ID				= Compose_VESCCANId(VESC_CAN_PACKET_STATUS_3, 0),
+	VESC_Status_4_ID				= Compose_VESCCANId(VESC_CAN_PACKET_STATUS_4, 0),
+	VESC_Ping_ID					= Compose_VESCCANId(VESC_CAN_PACKET_PING, 0),
+	VESC_Pong_ID					= Compose_VESCCANId(VESC_CAN_PACKET_PONG, 0),
+	VESC_SetCurrentLimits			= Compose_VESCCANId(VESC_CAN_PACKET_CONF_CURRENT_LIMITS, 0),
+	VESC_SetCurrentLimitsEEPROM		= Compose_VESCCANId(VESC_CAN_PACKET_CONF_STORE_CURRENT_LIMITS, 0),
+	VESC_SetCurrentInLimits			= Compose_VESCCANId(VESC_CAN_PACKET_CONF_CURRENT_LIMITS_IN, 0),
+	VESC_SetCurrentInLimitsEEPROM	= Compose_VESCCANId(VESC_CAN_PACKET_CONF_STORE_CURRENT_LIMITS_IN, 0),
+	VESC_Status_5_ID				= Compose_VESCCANId(VESC_CAN_PACKET_STATUS_5, 0),
+	VESC_Shutdown_ID				= Compose_VESCCANId(VESC_CAN_PACKET_SHUTDOWN, 0),
 #endif
 };
 
