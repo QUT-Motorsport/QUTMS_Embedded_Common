@@ -146,6 +146,46 @@ BMS_ChargeEnabled_t Compose_BMS_ChargeEnabled(uint8_t bms_count);
 void Parse_ChargeEnabled(uint32_t canId, uint8_t *data, uint8_t *bms_count);
 
 /**
+ * @brief BMS Shutdown Message
+ */
+typedef struct BMS_Shutdown
+{
+	uint32_t id;
+} BMS_Shutdown_t;
+
+/**
+ * @brief BMS Shutdown Message Composer
+ * @return The composed BMS_Shutdown_t packet
+ */
+BMS_Shutdown_t Compose_BMS_Shutdown();
+
+/**
+ * @brief BMS Shutdown Message
+ */
+typedef struct BMS_ShutdownAck
+{
+	uint32_t id;
+	uint8_t data[1]
+} BMS_ShutdownAck_t;
+
+/**
+ * @brief BMS Shutdown Acknowledged Message Composer
+ * @param bmsId the ID of the BMS
+ * @return The composed BMS_ShutdownAck_t packet
+ */
+BMS_ShutdownAck_t Compose_BMS_ShutdownAck(uint8_t bmsId);
+
+/**
+ * @brief BMS Shutdown Acknowledged Message Parser
+ * @param packet The BMS_ShutdownAck_t packet to parse
+ * @param BMSId The BMS ID
+ */
+void Parse_BMS_ShutdownAck(uint32_t canId, uint8_t *data, uint8_t *bmsId);
+
+
+
+
+/**
  * @brief BMS Charge Enabled Message
  */
 typedef struct BMS_TransmitBalancing

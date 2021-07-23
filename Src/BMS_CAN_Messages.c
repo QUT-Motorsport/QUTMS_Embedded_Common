@@ -109,6 +109,24 @@ void Parse_ChargeEnabled(uint32_t canId, uint8_t *data, uint8_t *bms_count)
 	*bms_count = (data[0] & 0b1111);
 }
 
+BMS_Shutdown_t Compose_BMS_Shutdown() {
+	BMS_Shutdown_t packet;
+	packet.id = BMS_Shutdown_ID;
+
+	return packet;
+}
+
+BMS_ShutdownAck_t Compose_BMS_ShutdownAck(uint8_t bmsId) {
+	BMS_ShutdownAck_t packet;
+	packet.id = BMS_ShutdownAck_ID | (bmsId & 0xF);
+	packet.data[0] = bmsId;
+}
+
+void Parse_BMS_ShutdownAck(uint32_t canId, uint8_t *data, uint8_t *bmsId)
+{
+	*bmsId = data[0];
+}
+
 BMS_TransmitBalancing_t Compose_BMS_TransmitBalancing(uint8_t BMSId, uint16_t balancing_voltage, uint16_t balancing_state) {
 	BMS_TransmitBalancing_t packet;
 	packet.id = Compose_CANId(CAN_PRIORITY_NORMAL, CAN_SRC_ID_BMS, DRIVER, CAN_TYPE_TRANSMIT, 0x04, BMSId);
@@ -126,5 +144,7 @@ void Parse_TransmitBalancing(uint32_t canId, uint8_t* data, uint8_t* BMSId, uint
 	*balancing_voltage = (data[1] << 8) | data[0];
 	*balancing_state = (data[3] << 8) | data[2];
 }
+
+
 
 #endif
