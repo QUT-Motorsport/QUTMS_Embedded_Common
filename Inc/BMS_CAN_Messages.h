@@ -165,7 +165,7 @@ BMS_Shutdown_t Compose_BMS_Shutdown();
 typedef struct BMS_ShutdownAck
 {
 	uint32_t id;
-	uint8_t data[1]
+	uint8_t data[1];
 } BMS_ShutdownAck_t;
 
 /**

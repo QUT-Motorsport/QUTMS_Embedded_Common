@@ -120,6 +120,8 @@ BMS_ShutdownAck_t Compose_BMS_ShutdownAck(uint8_t bmsId) {
 	BMS_ShutdownAck_t packet;
 	packet.id = BMS_ShutdownAck_ID | (bmsId & 0xF);
 	packet.data[0] = bmsId;
+
+	return packet;
 }
 
 void Parse_BMS_ShutdownAck(uint32_t canId, uint8_t *data, uint8_t *bmsId)
