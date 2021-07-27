@@ -21,7 +21,7 @@
 typedef struct General_Sensor_LinearPot_t
 {
     uint32_t id; /**< CAN Packet ID */
-    uint8_t data[2]; /**< Data */
+    uint8_t data[5]; /**< Data */
 }  General_Sensor_LinearPot_t;
 
 /**
@@ -31,7 +31,7 @@ typedef struct General_Sensor_LinearPot_t
  * @param travel The linear potentiometer reading corresponding to travel
  * @return The composed potentiometer travel packet
  */ 
-General_Sensor_LinearPot_t Compose_General_Sensor_Travel (uint8_t potNum, uint8_t boardNum, uint8_t travel);
+General_Sensor_LinearPot_t Compose_General_Sensor_Travel (uint8_t boardNum, uint16_t travel1, uint16_t travel2);
 
 /**
  * @brief General Sensor Board Travel Parser
@@ -40,7 +40,7 @@ General_Sensor_LinearPot_t Compose_General_Sensor_Travel (uint8_t potNum, uint8_
  * @param boardNum The corresponding board number
  * @param travel The linear potentiometer reading corresponding to travel
  */ 
-General_Sensor_LinearPot_t Parse_General_Sensor_Travel(uint8_t* data, uint8_t* potNum, uint8_t* boardNum, uint8_t* travel);
+void Parse_General_Sensor_Travel(uint8_t *data, uint8_t *boardNum, uint16_t *travel1, uint16_t *travel2);
 
 typedef struct General_Sensor_GearboxTemp_t
 {
