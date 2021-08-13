@@ -9,8 +9,6 @@
 #define INC_GENERAL_SENSOR_CAN_MESSAGES_H_
 
 #include "stdbool.h"
-#include "main.h"
-#include "can.h"
 #include <stdlib.h>
 #include "QUTMS_can.h"
 

@@ -7,7 +7,7 @@ extern "C" {
 
 /* Includes ------------------------------------------------------------------*/
 #include <stdint.h>
-#include "can.h"
+//#include "can.h"
 #ifdef QUTMS_CAN_VESC
 #include "VESC_CAN_Datatypes.h"
 #endif
