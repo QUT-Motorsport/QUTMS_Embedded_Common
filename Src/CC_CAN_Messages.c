@@ -30,7 +30,7 @@ CC_SoftShutdown_t Compose_CC_SoftShutdown(void)
 	return p;
 }
 
-CC_TransmitPedals_t Compose_CC_TransmitPedals(uint16_t accel0, uint16_t accel1, uint16_t brake) {
+CC_TransmitPedals_t Compose_CC_TransmitPedals(uint16_t accel0, uint16_t accel1, uint16_t brake, uint16_t steering) {
 	CC_TransmitPedals_t msg;
 	msg.id = CC_TransmitPedals_ID;
 	msg.data[0] = accel0 & 0xff;
@@ -39,12 +39,15 @@ CC_TransmitPedals_t Compose_CC_TransmitPedals(uint16_t accel0, uint16_t accel1, 
 	msg.data[3] = (accel1 >> 8) & 0xff;
 	msg.data[4] = brake & 0xff;
 	msg.data[5] = (brake >> 8) & 0xff;
+	msg.data[6] = steering & 0xff;
+	msg.data[7] = (steering >> 8) & 0xff;
 	return msg;
 }
-void Parse_CC_TransmitPedals(uint8_t* data, uint16_t *accel0, uint16_t *accel1, uint16_t *brake) {
+void Parse_CC_TransmitPedals(uint8_t* data, uint16_t *accel0, uint16_t *accel1, uint16_t *brake, uint16_t *steering) {
 	*accel0 = (data[1]) << 8 | data[0];
 	*accel1 = (data[3]) << 8 | data[2];
 	*brake = (data[5]) << 8 | data[4];
+	*steering = (data[7]) << 8 | data[6];
 }
 
 CC_RequestRPM_t Compose_CC_RequestRPM(uint16_t nodeId)
