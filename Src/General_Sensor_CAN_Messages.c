@@ -5,6 +5,8 @@
  *      Author: Calvin
  */
 
+#ifdef QUTMS_CAN_GENERAL_SENSOR
+
 #include "General_Sensor_CAN_Messages.h"
 
 
@@ -25,3 +27,5 @@ void Parse_General_Sensor_Travel(uint8_t *data, uint8_t *boardNum, uint16_t *tra
 	*travel1 = (data[1] << 8) | data[2];
 	*travel2 = (data[3] << 8) | data[4];
 }
+
+#endif
