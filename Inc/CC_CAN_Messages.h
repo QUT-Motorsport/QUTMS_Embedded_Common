@@ -61,12 +61,19 @@ CC_SoftShutdown_t Compose_CC_SoftShutdown(void);
 
 typedef struct CC_TransmitPedals {
 	uint32_t id;
-	uint8_t data[8];
+	uint8_t data[6];
 } CC_TransmitPedals_t;
 
-CC_TransmitPedals_t Compose_CC_TransmitPedals(uint16_t accel0, uint16_t accel1, uint16_t brake, uint16_t steering);
-void Parse_CC_TransmitPedals(uint8_t* data, uint16_t *accel0, uint16_t *accel1, uint16_t *brake, uint16_t* steering);
+CC_TransmitPedals_t Compose_CC_TransmitPedals(uint16_t accel0, uint16_t accel1, uint16_t brake);
+void Parse_CC_TransmitPedals(uint8_t* data, uint16_t *accel0, uint16_t *accel1, uint16_t *brake);
 
+typedef struct CC_TransmitSteering {
+	uint32_t id;
+	uint8_t data[4];
+} CC_TransmitSteering_t;
+
+CC_TransmitSteering_t Compose_CC_TransmitSteering(uint16_t steering0, uint16_t steering1);
+void Parse_CC_TransmitSteering(uint8_t *data, uint16_t *steering0, uint16_t *steering1);
 
 /**
  * @brief Chassis Controller Inverter Motor RPM Request Message
