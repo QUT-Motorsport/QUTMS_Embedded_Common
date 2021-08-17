@@ -9,11 +9,16 @@
 
 #include "SHDN_CAN_Messages.h"
 
-SHDN_ShutdownTriggered_t Compose_SHDN_ShutdownTriggered(void)
+SHDN_ShutdownTriggered_t Compose_SHDN_ShutdownTriggered(uint8_t state)
 {
 	SHDN_ShutdownTriggered_t p;
 	p.id = Compose_CANId(0x0, 0x06, 0x0, 0x0, 0x0, 0x0);
+	p.data[0] = state;
 	return p;
+}
+
+void Parse_SHDN_ShutdownTriggered(SHDN_ShutdownTriggered_t packet, uint8_t *state) {
+	*state = packet.data[0];
 }
 
 SHDN_HeartbeatResponse_t Compose_SHDN_One_HeartbeatResponse(uint8_t segmentState)

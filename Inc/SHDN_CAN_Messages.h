@@ -20,13 +20,15 @@
 typedef struct SHDN_ShutdownTriggered_t
 {
 	uint32_t id; /**< CAN Packet ID */
+	uint8_t data[1];
 } SHDN_ShutdownTriggered_t;
 
 /**
  * @brief Shutdown Heartbeat Request Message Composer
  * @return The composed SHDN_HeartbeatRequest_t packet
  */
-SHDN_ShutdownTriggered_t Compose_SHDN_ShutdownTriggered(void);
+SHDN_ShutdownTriggered_t Compose_SHDN_ShutdownTriggered(uint8_t state);
+void Parse_SHDN_ShutdownTriggered(SHDN_ShutdownTriggered_t packet, uint8_t *state);
 
 /**
  * @brief Shutdown Heartbeat Response Message
