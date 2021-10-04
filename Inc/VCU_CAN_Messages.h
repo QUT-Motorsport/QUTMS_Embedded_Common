@@ -13,9 +13,9 @@
 typedef struct VCU_MotorTemp
 {
 	uint32_t id;
-	uint8_t data[4];
+	uint8_t data[8];
 } VCU_MotorTemp_t;
 
-VCU_MotorTemp_t Compose_VCU_MotorTemp(uint8_t VCU_ID, uint16_t temp0, uint16_t temp1);
+VCU_MotorTemp_t Compose_VCU_MotorTemp(uint8_t VCU_ID, uint32_t temp0, uint32_t temp1);
 
 #endif /* COMMON_INC_VCU_CAN_MESSAGES_H_ */
