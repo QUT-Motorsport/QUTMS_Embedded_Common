@@ -63,6 +63,29 @@ void Parse_CC_TransmitSteering(uint8_t *data, uint16_t *steering0, uint16_t *ste
 	*steering1 = (data[3]) << 8 | data[2];
 }
 
+CC_OBJ_DICT_t Compose_CC_OBJ_DICT(uint8_t data[8]) {
+	CC_OBJ_DICT_t msg;
+	msg.ID = CC_OBJ_DICT_ID;
+
+	for (int i = 0; i < 8; i++) {
+		msg.data[i] = data[i];
+	}
+
+	return msg;
+}
+void Parse_CC_OBJ_DICT(uint8_t *data, uint8_t *type, uint8_t *data_size, uint8_t *index, uint32_t *value) {
+	*type = data[0];
+	*data_size = data[1];
+	*index = data[2];
+
+	uint32_t output_value = 0;
+	for (int i = 0; i < 4; i++) {
+		output_value |= (data[3] << (i*8));
+	}
+
+	*value = output_value;
+}
+
 CC_RequestRPM_t Compose_CC_RequestRPM(uint16_t nodeId)
 {
 	CC_RequestRPM_t p;

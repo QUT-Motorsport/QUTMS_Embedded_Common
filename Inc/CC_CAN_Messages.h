@@ -75,6 +75,14 @@ typedef struct CC_TransmitSteering {
 CC_TransmitSteering_t Compose_CC_TransmitSteering(uint16_t steering0, uint16_t steering1);
 void Parse_CC_TransmitSteering(uint8_t *data, uint16_t *steering0, uint16_t *steering1);
 
+typedef struct CC_OBJ_DICT {
+	uint32_t id;
+	uint8_t data[8];
+} CC_OBJ_DICT_t;
+
+CC_OBJ_DICT_t Compose_CC_OBJ_DICT(uint8_t data[8]);
+void Parse_CC_OBJ_DICT(uint8_t *data, uint8_t *type, uint8_t *data_size, uint8_t *index, uint32_t *value);
+
 /**
  * @brief Chassis Controller Inverter Motor RPM Request Message
  */
