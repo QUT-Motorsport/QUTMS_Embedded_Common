@@ -65,7 +65,7 @@ void Parse_CC_TransmitSteering(uint8_t *data, uint16_t *steering0, uint16_t *ste
 
 CC_OBJ_DICT_t Compose_CC_OBJ_DICT(uint8_t data[8]) {
 	CC_OBJ_DICT_t msg;
-	msg.ID = CC_OBJ_DICT_ID;
+	msg.id = CC_OBJ_DICT_ID;
 
 	for (int i = 0; i < 8; i++) {
 		msg.data[i] = data[i];
