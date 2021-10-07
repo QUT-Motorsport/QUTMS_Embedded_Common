@@ -37,7 +37,7 @@ bool OD_handleCAN(obj_dict_t *obj_dict, uint8_t data[8], uint8_t *output) {
 
 	OD_type_t value = 0;
 	for (int i = 0; i < data_size; i++) {
-		value |= (output[3 + i] << (i * 8));
+		value |= (data[3 + i] << (i * 8));
 	}
 
 	if (type == OD_MSG_GET) {
@@ -86,7 +86,7 @@ bool OD_handleCAN(obj_dict_t *obj_dict, uint8_t data[8], uint8_t *output) {
 
 // generates body for CAN message
 void OD_generateCAN(obj_dict_t *obj_dict, uint8_t type, uint8_t index,
-		OD_type_t value, uint8_t *output) {
+		OD_type_t value, uint8_t output[8]) {
 	if (!obj_dict->init) {
 		OD_init(obj_dict);
 	}
