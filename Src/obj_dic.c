@@ -8,6 +8,7 @@
 #include "obj_dic.h"
 
 #include <stdlib.h>
+#include <string.h>
 
 void OD_init(obj_dict_t *obj_dict) {
 	// default values for all variables
