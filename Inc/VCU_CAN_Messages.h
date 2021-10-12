@@ -34,4 +34,12 @@ typedef struct VCU_IMU_Gyro
 
 VCU_IMU_Gyro_t Compose_VCU_IMU_Gyro(uint8_t VCU_ID, uint16_t scale, int16_t x, int16_t y, int16_t z);
 
+typedef struct VCU_LinearTravel
+{
+	uint32_t id;
+	uint8_t data[4];
+} VCU_LinearTravel_t;
+
+VCU_LinearTravel_t Compose_VCU_LinearTravel(uint8_t VCU_ID, uint16_t t0, uint16_t t1);
+
 #endif /* COMMON_INC_VCU_CAN_MESSAGES_H_ */
