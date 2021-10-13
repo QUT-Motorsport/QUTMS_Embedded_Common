@@ -42,4 +42,12 @@ typedef struct VCU_LinearTravel
 
 VCU_LinearTravel_t Compose_VCU_LinearTravel(uint8_t VCU_ID, uint16_t t0, uint16_t t1);
 
+typedef struct VCU_AirPressure
+{
+	uint32_t id;
+	uint8_t data[4];
+} VCU_AirPressure_t;
+
+VCU_AirPressure_t Compose_VCU_AirPressure(uint8_t VCU_ID, uint16_t pressure_raw, int16_t pressure);
+
 #endif /* COMMON_INC_VCU_CAN_MESSAGES_H_ */

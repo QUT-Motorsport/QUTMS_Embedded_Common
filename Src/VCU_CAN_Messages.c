@@ -73,4 +73,17 @@ VCU_LinearTravel_t Compose_VCU_LinearTravel(uint8_t VCU_ID, uint16_t t0,
 	return msg;
 }
 
+VCU_AirPressure_t Compose_VCU_AirPressure(uint8_t VCU_ID, uint16_t pressure_raw,
+		int16_t pressure) {
+	VCU_AirPressure_t msg;
+	msg.id = VCU_AirPressure_ID | VCU_ID;
+
+	msg.data[0] = (pressure_raw >> 8) & 0xFF;
+	msg.data[1] = (pressure_raw >> 0) & 0xFF;
+	msg.data[2] = (pressure >> 8) & 0xFF;
+	msg.data[3] = (pressure >> 0) & 0xFF;
+
+	return msg;
+}
+
 #endif
