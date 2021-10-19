@@ -40,7 +40,7 @@ typedef struct SBG_ECAN_MSG_UTC_0
 } SBG_ECAN_MSG_UTC_0_t;
 
 SBG_ECAN_MSG_UTC_0_t Compose_SBG_ECAN_MSG_UTC_0(uint32_t id, uint32_t time_stamp, uint32_t gps_tow);
-void Parse_SBG_ECAN_MSG_UTC_0(uint8_t* data, uint32_t* id, uint32_t* time_stamp, uint32_t* gps_tow);
+void Parse_SBG_ECAN_MSG_UTC_0(uint8_t* data, uint32_t* time_stamp, uint32_t* gps_tow);
 
 typedef struct SBG_ECAN_MSG_UTC_1
 {
@@ -49,7 +49,7 @@ typedef struct SBG_ECAN_MSG_UTC_1
 } SBG_ECAN_MSG_UTC_1_t;
 
 SBG_ECAN_MSG_UTC_1_t Compose_SBG_ECAN_MSG_UTC_1(uint32_t id, uint8_t year, uint8_t month, uint8_t day, uint8_t hour, uint8_t min, uint8_t sec, uint16_t micro_sec);
-void Parse_SBG_ECAN_MSG_UTC_1(uint8_t* data, uint32_t* id, uint8_t* year, uint8_t* month, uint8_t* day, uint8_t* hour, uint8_t* min, uint8_t* sec, uint16_t* micro_sec);
+void Parse_SBG_ECAN_MSG_UTC_1(uint8_t* data, uint8_t* year, uint8_t* month, uint8_t* day, uint8_t* hour, uint8_t* min, uint8_t* sec, uint16_t* micro_sec);
 
 // IMU
 typedef struct SBG_ECAN_MSG_IMU_INFO
@@ -59,7 +59,7 @@ typedef struct SBG_ECAN_MSG_IMU_INFO
 } SBG_ECAN_MSG_IMU_INFO_t;
 
 SBG_ECAN_MSG_IMU_INFO_t Compose_SBG_ECAN_MSG_IMU_INFO(uint32_t id, uint32_t time_stamp, uint16_t imu_status, uint16_t temperature);
-void Parse_SBG_ECAN_MSG_IMU_INFO(uint8_t* data, uint32_t* id, uint32_t* time_stamp, uint16_t* imu_status, int16_t* temperature);
+void Parse_SBG_ECAN_MSG_IMU_INFO(uint8_t* data, uint32_t* time_stamp, uint16_t* imu_status, int16_t* temperature);
 
 typedef struct SBG_ECAN_MSG_IMU_ACCEL
 {
@@ -92,7 +92,7 @@ typedef struct SBG_ECAN_MSG_IMU_DELTA_ANGLE
 {
     uint32_t id;
     uint8_t data[6];
-} SBG_ECAN_MSG_IMU_DELTA_ANGLE_t;
+} SBG_ECAN_MSG_IMU_DETLA_ANGLE_t;
 
 SBG_ECAN_MSG_IMU_DELTA_ANGLE_t Compose_SBG_ECAN_MSG_IMU_DELTA_ANGLE(uint32_t id, int16_t delta_angle_x, int16_t delta_angle_y, int16_t delta_angle_z);
 void Parse_SBG_ECAN_MSG_IMU_DELTA_ANGLE(uint8_t* data, uint32_t* id, int16_t* delta_angle_x, int16_t* delta_angle_y, int16_t* delta_angle_z);
@@ -177,7 +177,7 @@ typedef struct SBG_ECAN_MSG_EKF_VEL_NED_ACC
 } SBG_ECAN_MSG_EKF_VEL_NED_ACC_t;
 
 SBG_ECAN_MSG_EKF_VEL_NED_ACC_t Compose_SBG_ECAN_MSG_EKF_VEL_NED_ACC(uint32_t id, uint16_t velocity_acc_n, uint16_t velocity_acc_e, uint16_t velocity_acc_d);
-void Parse_SBG_ECAN_MSG_EKF_VEL_NED_ACC(uint8_t* data, uint32_t* id, uint16_t* velocity_acc_n, uint16_t* velocity_acc_e, uint16_t* velocity_acc_d);
+void Parse_SBG_ECAN_MSG_EKF_VEL_NED_ACC(uint8_t* data, uint32_t* id, uint16_t* velocity_acc_n, uint16_t* velocity_acc_e, uint16_t* velocity_acc_d)
 
 typedef struct SBG_ECAN_MSG_EKF_VEL_BODY
 {
@@ -262,7 +262,7 @@ typedef struct SBG_ECAN_MSG_AIR_DATA_ALTITUDE
 } SBG_ECAN_MSG_AIR_DATA_ALTITUDE_t;
 
 SBG_ECAN_MSG_AIR_DATA_ALTITUDE_t Compose_SBG_ECAN_MSG_AIR_DATA_ALTITUDE(uint32_t id, uint32_t pressure_abs, int32_t altitude);
-void Parse_SBG_ECAN_MSG_AIR_DATA_ALTITUDE(uint8_t* data, uint32_t* id, uint32_t* pressure_abs, int32_t* altitude);
+void Parse_SBG_ECAN_MSG_AIR_DATA_ALTITUDE(uint8_t* data, uint32_t* id, uintew_2* pressure_abs, int32_t* altitude);
 
 typedef struct SBG_ECAN_MSG_AIR_DATA_AIRSPEED
 {
@@ -298,7 +298,7 @@ typedef struct SBG_ECAN_MSG_GPS1_VEL_ACC
     uint8_t data[6];
 } SBG_ECAN_MSG_GPS1_VEL_ACC_t;
 
-SBG_ECAN_MSG_GPS1_VEL_ACC_t Compose_SGB_ECAN_MSG_GPS1_VEL_ACC(uint32_t id, uint16_t vel_acc_n, uint16_t vel_acc_e, uint16_t vel_acc_d);
+SBG_ECAN_MSG_GPS1_VEL_ACC Compose_SGB_ECAN_MSG_GPS1_VEL_ACC(uint32_t id, uint16_t vel_acc_n, uint16_t vel_acc_e, uint16_t vel_acc_d);
 void Parse_SBG_ECAN_MSG_GPS1_VEL_ACC(uint8_t* data, uint32_t* id, uint16_t* vell_acc_n, uint16_t* vell_acc_e, uint16_t* vel_acc_d);
 
 typedef struct SBG_ECAN_MSG_GPS1_COURSE
