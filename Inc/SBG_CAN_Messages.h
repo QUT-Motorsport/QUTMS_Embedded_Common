@@ -59,7 +59,7 @@ typedef struct SBG_ECAN_MSG_IMU_INFO
 } SBG_ECAN_MSG_IMU_INFO_t;
 
 SBG_ECAN_MSG_IMU_INFO_t Compose_SBG_ECAN_MSG_IMU_INFO(uint32_t id, uint32_t time_stamp, uint16_t imu_status, uint16_t temperature);
-void Parse_SBG_ECAN_MSG_IMU_INFO(uint8_t* data, uint32_t* time_stamp, uint16_t* imu_status, int16_t* temperature);
+void Parse_SBG_ECAN_MSG_IMU_INFO(uint8_t* data, uint32_t* id, uint32_t* time_stamp, uint16_t* imu_status, int16_t* temperature);
 
 typedef struct SBG_ECAN_MSG_IMU_ACCEL
 {
@@ -92,9 +92,9 @@ typedef struct SBG_ECAN_MSG_IMU_DELTA_ANGLE
 {
     uint32_t id;
     uint8_t data[6];
-} SBG_ECAN_MSG_IMU_DETLA_ANGLE_t;
+} SBG_ECAN_MSG_IMU_DELTA_ANGLE_t;
 
-SBG_ECAN_MSG_IMU_DETLA_ANGLE_t Compose_SBG_ECAN_MSG_IMU_DELTA_ANGLE(uint32_t id, int16_t delta_angle_x, int16_t delta_angle_y, int16_t delta_angle_z);
+SBG_ECAN_MSG_IMU_DELTA_ANGLE_t Compose_SBG_ECAN_MSG_IMU_DELTA_ANGLE(uint32_t id, int16_t delta_angle_x, int16_t delta_angle_y, int16_t delta_angle_z);
 void Parse_SBG_ECAN_MSG_IMU_DELTA_ANGLE(uint8_t* data, uint32_t* id, int16_t* delta_angle_x, int16_t* delta_angle_y, int16_t* delta_angle_z);
 
 // EKF
