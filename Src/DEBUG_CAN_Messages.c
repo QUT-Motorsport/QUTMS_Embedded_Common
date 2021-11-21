@@ -31,3 +31,16 @@ DEBUG_ExitState_t Compose_DEBUG_ExitState(uint8_t boardID, uint8_t boardIndex, u
 
 	return msg;
 }
+
+DEBUG_ErrorPresent_t Compose_DEBUG_ErrorPresent(uint8_t boardID, uint8_t boardIndex, uint16_t errorCode) {
+	DEBUG_ErrorPresent_t msg;
+
+	msg.id = DEBUG_ErrorPresent_ID;
+	msg.data[0] = boardID;
+	msg.data[1] = boardIndex;
+
+	msg.data[2] = errorCode & 0xFF;
+	msg.data[3] = (errorCode >> 8) & 0xFF;
+
+	return msg;
+}
