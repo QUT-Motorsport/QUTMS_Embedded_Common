@@ -10,6 +10,11 @@
 
 #include "QUTMS_can.h"
 
+// ERROR CODES
+#define DEBUG_ERROR_APPS_IMPLAUSIBILITY			0x10 // T.4.2.5
+#define DEBUG_ERROR_BSE_IMPLAUSIBILITY			0x11 // T.4.3.3
+#define DEBUG_ERROR_PEDAL_IMPLAUSIBILITY		0x12 // EV.5.7
+
 typedef struct DEBUG_EnterState
 {
 	uint32_t id;
@@ -25,5 +30,13 @@ typedef struct DEBUG_ExitState
 } DEBUG_ExitState_t;
 
 DEBUG_ExitState_t Compose_DEBUG_ExitState(uint8_t boardID, uint8_t boardIndex, uint8_t stateID);
+
+typedef struct DEBUG_ErrorPresent
+{
+	uint32_t id;
+	uint8_t data[4];
+} DEBUG_ErrorPresent_t;
+
+DEBUG_ErrorPresent_t Compose_DEBUG_ErrorPresent(uint8_t boardID, uint8_t boardIndex, uint16_t errorCode);
 
 #endif /* COMMON_INC_DEBUG_CAN_MESSAGES_H_ */
