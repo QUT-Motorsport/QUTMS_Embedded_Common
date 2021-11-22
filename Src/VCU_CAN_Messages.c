@@ -61,14 +61,25 @@ VCU_IMU_Gyro_t Compose_VCU_IMU_Gyro(uint8_t VCU_ID, uint16_t scale, int16_t x,
 }
 
 VCU_LinearTravel_t Compose_VCU_LinearTravel(uint8_t VCU_ID, uint16_t t0,
-		uint16_t t1) {
+		uint16_t t1, uint16_t t2, uint16_t t3) {
 	VCU_LinearTravel_t msg;
 	msg.id = VCU_LinearTravel_ID | VCU_ID;
 
+	// rear right
 	msg.data[0] = (t0 >> 8) & 0xFF;
 	msg.data[1] = (t0 >> 0) & 0xFF;
+
+	// front right
 	msg.data[2] = (t1 >> 8) & 0xFF;
 	msg.data[3] = (t1 >> 0) & 0xFF;
+
+	// rear left
+	msg.data[4] = (t2 >> 8) & 0xFF;
+	msg.data[5] = (t2 >> 0) & 0xFF;
+
+	// front left
+	msg.data[6] = (t3 >> 8) & 0xFF;
+	msg.data[7] = (t3 >> 0) & 0xFF;
 
 	return msg;
 }

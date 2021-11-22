@@ -37,10 +37,10 @@ VCU_IMU_Gyro_t Compose_VCU_IMU_Gyro(uint8_t VCU_ID, uint16_t scale, int16_t x, i
 typedef struct VCU_LinearTravel
 {
 	uint32_t id;
-	uint8_t data[4];
+	uint8_t data[8];
 } VCU_LinearTravel_t;
 
-VCU_LinearTravel_t Compose_VCU_LinearTravel(uint8_t VCU_ID, uint16_t t0, uint16_t t1);
+VCU_LinearTravel_t Compose_VCU_LinearTravel(uint8_t VCU_ID, uint16_t t0, uint16_t t1, uint16_t t2, uint16_t t3);
 
 typedef struct VCU_AirPressure
 {
