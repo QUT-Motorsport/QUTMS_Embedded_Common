@@ -10,6 +10,8 @@
 
 #include "QUTMS_can.h"
 
+#include <stdbool.h>
+
 typedef struct VCU_MotorTemp
 {
 	uint32_t id;
@@ -49,5 +51,13 @@ typedef struct VCU_AirPressure
 } VCU_AirPressure_t;
 
 VCU_AirPressure_t Compose_VCU_AirPressure(uint8_t VCU_ID, uint16_t pressure_raw, int16_t pressure);
+
+typedef struct VCU_ShutdownSegments
+{
+	uint32_t id;
+	uint8_t data[2];
+} VCU_ShutdownSegments_t;
+
+VCU_ShutdownSegments_t Compose_VCU_ShutdownSegments(uint8_t line0, uint8_t line1, uint8_t line2, uint8_t line3);
 
 #endif /* COMMON_INC_VCU_CAN_MESSAGES_H_ */

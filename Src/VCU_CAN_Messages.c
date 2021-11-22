@@ -60,7 +60,8 @@ VCU_IMU_Gyro_t Compose_VCU_IMU_Gyro(uint8_t VCU_ID, uint16_t scale, int16_t x,
 	return msg;
 }
 
-VCU_LinearTravel_t Compose_VCU_LinearTravel(uint8_t VCU_ID, bool front, uint16_t t0, uint16_t t1) {
+VCU_LinearTravel_t Compose_VCU_LinearTravel(uint8_t VCU_ID, bool front,
+		uint16_t t0, uint16_t t1) {
 	VCU_LinearTravel_t msg;
 	msg.id = VCU_LinearTravel_ID | VCU_ID;
 
@@ -87,6 +88,17 @@ VCU_AirPressure_t Compose_VCU_AirPressure(uint8_t VCU_ID, uint16_t pressure_raw,
 	msg.data[1] = (pressure_raw >> 0) & 0xFF;
 	msg.data[2] = (pressure >> 8) & 0xFF;
 	msg.data[3] = (pressure >> 0) & 0xFF;
+
+	return msg;
+}
+
+VCU_ShutdownSegments_t Compose_VCU_ShutdownSegments(uint8_t line0,
+		uint8_t line1, uint8_t line2, uint8_t line3) {
+	VCU_ShutdownSegments_t msg;
+	msg.id = VCU_ShutdownSegments_ID;
+
+	msg.data[0] = (line0 & 0xF) | ((line1 & 0xF) << 4);
+	msg.data[1] = (line2 & 0xF) | ((line3 & 0xF) << 4);
 
 	return msg;
 }
