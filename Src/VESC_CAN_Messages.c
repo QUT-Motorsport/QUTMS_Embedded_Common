@@ -144,7 +144,7 @@ void Parse_VESC_CANPacketStatus(uint8_t* data, VESC_ID* id, int32_t* rpm, float*
 
 	*rpm = (int32_t)((data[0] << 24) | (data[1] << 16) | (data[2] << 8) | data[3]);
 	*current = (float)((data[4] << 8) | data[5]);
-	*current /= 100.f;
+	*current /= 10.f;
 	*duty = (float)((data[6] << 8) | data[7]);
 	*duty /= 1000.f;
 }
