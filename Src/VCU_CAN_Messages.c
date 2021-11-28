@@ -104,10 +104,11 @@ VCU_ShutdownSegments_t Compose_VCU_ShutdownSegments(uint8_t line0,
 }
 
 void Parse_VCU_ShutdownSegments(uint8_t *data, uint8_t *line0, uint8_t *line1, uint8_t *line2, uint8_t *line3) {
-	*line0 = msg.data[0] & 0xF;
-	*line1 = (msg.data[0] >> 4) & 0xF;
-	*line2 = msg.data[1] & 0xF;
-	*line3 = (msg.data[1] >> 4) & 0xF;
+
+	*line0 = data[0] & 0xF;
+	*line1 = (data[0] >> 4) & 0xF;
+	*line2 = data[1] & 0xF;
+	*line3 = (data[1] >> 4) & 0xF;
 }
 
 #endif
