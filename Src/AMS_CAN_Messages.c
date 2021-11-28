@@ -175,4 +175,16 @@ AMS_Ready_t Compose_AMS_Ready()
 	return p;
 }
 
+AMS_ShutdownState_t Compose_AMS_ShutdownState(uint8_t status) {
+	AMS_ShutdownState_t msg;
+	msg.id = AMS_ShutdownStatus_ID;
+	msg.data[0] = status & 0x1;
+
+	return msg;
+}
+
+void Parse_AMS_ShutdownState(uint8_t *data, uint8_t *status) {
+	*status = data[0] & 0x1;
+}
+
 #endif

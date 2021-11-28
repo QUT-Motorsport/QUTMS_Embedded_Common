@@ -270,4 +270,12 @@ typedef struct AMS_Ready_t
  */
 AMS_Ready_t Compose_AMS_Ready();
 
+typedef struct AMS_ShutdownState {
+	uint32_t id;
+	uint8_t data[1];
+} AMS_ShutdownState_t;
+
+AMS_ShutdownState_t Compose_AMS_ShutdownState(uint8_t status);
+void Parse_AMS_ShutdownState(uint8_t *data, uint8_t *status);
+
 #endif /* INC_AMS_CAN_MESSAGES_H_ */
