@@ -59,5 +59,6 @@ typedef struct VCU_ShutdownSegments
 } VCU_ShutdownSegments_t;
 
 VCU_ShutdownSegments_t Compose_VCU_ShutdownSegments(uint8_t line0, uint8_t line1, uint8_t line2, uint8_t line3);
+void Parse_VCU_ShutdownSegments(uint8_t *data, uint8_t *line0, uint8_t *line1, uint8_t *line2, uint8_t *line3);
 
 #endif /* COMMON_INC_VCU_CAN_MESSAGES_H_ */
