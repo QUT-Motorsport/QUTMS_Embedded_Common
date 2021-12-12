@@ -5,7 +5,7 @@
  *      Author: Thomas Fraser
  */
 
-#include <timer.h>
+#include <Timer.h>
 
 ms_timer_t timer_init(uint32_t timeout, bool isContinuous, void (*callback)(void* args))
 {
