@@ -20,7 +20,7 @@ typedef struct DEBUG_Version {
 	uint8_t data[4];
 } DEBUG_Version_t;
 
-DEBUG_Version Compose_DEBUG_Version (uint8_t boardID, uint8_t boardIndex, uint8_t vMajor, vMinor);
+DEBUG_Version_t Compose_DEBUG_Version (uint8_t boardID, uint8_t boardIndex, uint8_t vMajor, uint8_t vMinor);
 
 typedef struct DEBUG_EnterState
 {
