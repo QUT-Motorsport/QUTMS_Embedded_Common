@@ -48,7 +48,7 @@ typedef struct CC_Heartbeat {
 } CC_Heartbeat_t;
 
 CC_Heartbeat_t Compose_CC_Heartbeat(CC_HeartbeatState_t state);
-void Parse_CC_Heartbeat(uint8_t data[3], CC_HeartbeatState_t *state);
+void Parse_CC_Heartbeat(uint8_t *data, CC_HeartbeatState_t *state);
 
 // RTD
 
