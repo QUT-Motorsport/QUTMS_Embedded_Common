@@ -15,6 +15,13 @@
 #define DEBUG_ERROR_BSE_IMPLAUSIBILITY			0x11 // T.4.3.3
 #define DEBUG_ERROR_PEDAL_IMPLAUSIBILITY		0x12 // EV.5.7
 
+typedef struct DEBUG_Version {
+	uint32_t id;
+	uint8_t data[4];
+} DEBUG_Version_t;
+
+DEBUG_Version Compose_DEBUG_Version (uint8_t boardID, uint8_t boardIndex, uint8_t vMajor, vMinor);
+
 typedef struct DEBUG_EnterState
 {
 	uint32_t id;

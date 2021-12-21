@@ -14,50 +14,59 @@
 #include <stdlib.h>
 #include "QUTMS_can.h"
 
-/**
- * @brief Chassis Controller RTD Message
- */
-typedef struct CC_ReadyToDrive_t
-{
-	uint32_t id; /**< CAN Packet ID */
-} CC_ReadyToDrive_t;
+typedef union CC_Flags {
+	uint16_t rawMem;
+	struct {
+		uint8_t HB_AMS : 1;
+		uint8_t HB_MCISO : 1;
+		uint8_t HB_VESC : 1;
+		uint8_t P_Accel0 : 1;
+		uint8_t P_Accel1 : 1;
+		uint8_t P_Brake : 1;
+		uint8_t P_Steering0 : 1;
+		uint8_t P_Steering1 : 1;
+		uint8_t PCHRG_Failed : 1;
+		uint8_t SHDN : 1;
+		uint8_t IMP_APPS : 1; 		// T.4.2.5
+		uint8_t IMP_BSE : 1; 		// T.4.3.3
+		uint8_t IMP_Pedal : 1; 		// EV.5.7
+	};
+} CC_Flags_u;
 
-/**
- * @brief Chassis Controller RTD Message Composer
- * @param void
- * @return The composed CC_ReadyToDrive_t packet
- */
-CC_ReadyToDrive_t Compose_CC_ReadyToDrive(void);
 
-/**
- * @brief Chassis Controller Fatal Shutdown Message
- */
-typedef struct CC_FatalShutdown_t
-{
-	uint32_t id; /**< CAN Packet ID */
-} CC_FatalShutdown_t;
+typedef struct CC_HeartbeatState {
+	uint8_t stateID;
+	CC_Flags_u errorFlags;
+} CC_HeartbeatState_t;
 
-/**
- * @brief Chassis Controller Fatal Shutdown Message Composer
- * @param void
- * @return The composed CC_FatalShutdown_t packet
- */
-CC_FatalShutdown_t Compose_CC_FatalShutdown(void);
 
-/**
- * @brief Chassis Controller Fatal Shutdown Message
- */
-typedef struct CC_SoftShutdown
-{
-	uint32_t id; /**< CAN Packet ID */
-} CC_SoftShutdown_t;
+// Heartbeat
 
-/**
- * @brief Chassis Controller Soft Shutdown Message Composer
- * @param void
- * @return The composed CC_SoftShutdown_t packet
- */
-CC_SoftShutdown_t Compose_CC_SoftShutdown(void);
+typedef struct CC_Heartbeat {
+	uint32_t id;
+	uint8_t data[3];
+} CC_Heartbeat_t;
+
+CC_Heartbeat_t Compose_CC_Heartbeat(CC_HeartbeatState_t state);
+void Parse_CC_Heartbeat(uint8_t data[3], CC_HeartbeatState_t *state);
+
+// RTD
+
+typedef struct CC_RTD {
+	uint32_t id;
+} CC_RTD_t;
+
+CC_RTD_t Compose_CC_RTD();
+
+// Shutdown
+
+typedef struct CC_Shutdown {
+	uint32_t id;
+} CC_Shutdown_t;
+
+CC_Shutdown_t Compose_CC_Shutdown();
+
+// Pedals
 
 typedef struct CC_TransmitPedals {
 	uint32_t id;
@@ -67,6 +76,8 @@ typedef struct CC_TransmitPedals {
 CC_TransmitPedals_t Compose_CC_TransmitPedals(uint16_t accel0, uint16_t accel1, uint16_t brake, uint16_t brake_pressure_adc);
 void Parse_CC_TransmitPedals(uint8_t* data, uint16_t *accel0, uint16_t *accel1, uint16_t *brake, uint16_t *brake_pressure_adc);
 
+// Steering
+
 typedef struct CC_TransmitSteering {
 	uint32_t id;
 	uint8_t data[4];
@@ -74,6 +85,9 @@ typedef struct CC_TransmitSteering {
 
 CC_TransmitSteering_t Compose_CC_TransmitSteering(uint16_t steering0, uint16_t steering1);
 void Parse_CC_TransmitSteering(uint8_t *data, uint16_t *steering0, uint16_t *steering1);
+
+
+// Object Dictionary
 
 typedef struct CC_OBJ_DICT {
 	uint32_t id;
@@ -83,164 +97,13 @@ typedef struct CC_OBJ_DICT {
 CC_OBJ_DICT_t Compose_CC_OBJ_DICT(uint8_t data[8]);
 void Parse_CC_OBJ_DICT(uint8_t *data, uint8_t *type, uint8_t *data_size, uint8_t *index, uint32_t *value);
 
-/**
- * @brief Chassis Controller Inverter Motor RPM Request Message
- */
-typedef struct CC_RequestRPM_t
-{
-	uint32_t id; /**< CAN Packet ID*/
-	uint8_t data[8]; /**< Data */
-} CC_RequestRPM_t;
-
-/**
- * @brief Chassis Controller Inverter Motor RPM Request Message Composer
- * @return The generated CC_RequestRPM_t packet
- */
-CC_RequestRPM_t Compose_CC_RequestRPM(uint16_t nodeId);
-
-/**
- * @brief Chassis Controller Inverter Motor RPM Request Message Parser
- * @param data The CC_RequestRPM_t packet data to parse
- * @param motorRPM Address of where MotorRPM can be stored
- */
-void Parse_CC_RequestRPM(uint8_t* data, int16_t* motorRPM);
-
-/**
- * @brief Chassis Controller Inverter Motor Command Message
- */
-typedef struct CC_MotorCommand_t
-{
-	uint32_t id; /**< CAN Packet ID*/
-	uint8_t data[8]; /**< Data */
-} CC_MotorCommand_t;
-
-/**
- * @brief Chassis Controller Inverter Motor Command Message Composer
- * @return The generated CC_MotorCommand_t packet
- */
-CC_MotorCommand_t Compose_CC_MotorCommand(uint16_t nodeId, int32_t motorCommand, uint8_t motorId);
-
-/**
- * @brief Chassis Controller Inverter Motor Command Message Parser
- * @param data The CC_MotorCommand_t packet data to parse
- * @param motorCommand The desired duty cycle
- */
-void Parse_CC_MotorCommand(uint8_t* data, int32_t* motorCommand);
 
 
-/**
- * @brief Chassis Controller Inverter Set Variable Command Message
- */
-typedef struct CC_SetVariable_t
-{
-	uint32_t id; /**< CAN Packet ID*/
-	uint8_t data[8]; /**< Data */
-} CC_SetVariable_t;
-
-/**
- * @brief Chassis Controller Inverter Set Variable Message Composer
- * @return The generated CC_SetVariable_t packet
- */
-CC_SetVariable_t Compose_CC_SetVariable(uint16_t nodeId, uint8_t userVariable, int32_t userCommand);
-
-/**
- * @brief Chassis Controller Inverter Set Variable Message Parser
- * @param data The CC_SetVariable_t packet data to parse
- * @param userCommand The desired user variable output pointer
- */
-void Parse_CC_SetVariable(uint8_t* data, int32_t* userCommand);
 
 
-/**
- * @brief Chassis Controller Inverter Set Bool Command Message
- */
-typedef struct CC_SetBool_t
-{
-	uint32_t id; /**< CAN Packet ID*/
-	uint8_t data[8]; /**< Data */
-} CC_SetBool_t;
-
-/**
- * @brief Chassis Controller Inverter Set Bool Message Composer
- * @return The generated CC_SetBool_t packet
- */
-CC_SetBool_t Compose_CC_SetBool(uint16_t nodeId, uint8_t boolNum, uint32_t userBool);
-
-/**
- * @brief Chassis Controller Inverter Set Bool Message Parser
- * @param data The CC_SetBool_t packet data to parse
- * @param userBool The desired user bool variable output pointer
- */
-void Parse_CC_SetBool(uint8_t* data, int32_t* userBool);
-
-/**
- * @brief Chassis Controller Inverter Emergency Shutdown Command Message
- */
-typedef struct CC_ShutdownInverter_t
-{
-	uint32_t id; /**< CAN Packet ID*/
-	uint8_t data[8]; /**< Data */
-} CC_ShutdownInverter_t;
-
-/**
- * @brief Chassis Controller Inverter Emergency Shutdown Command Message Composer
- * @return The generated CC_ShutdownInverter_t packet
- */
-CC_ShutdownInverter_t Compose_CC_ShutdownInverter(uint16_t nodeId);
 
 
-/**
- * @brief Chassis Controller Inverter Run Micro Basic Script Command Message
- */
-typedef struct CC_RunMicroBasic_t
-{
-	uint32_t id; /**< CAN Packet ID*/
-	uint8_t data[8]; /**< Data */
-} CC_RunMicroBasic_t;
 
-/**
- * @brief Chassis Controller Inverter Run Micro Basic Script Message Composer
- * @return The generated CC_SetBool_t packet
- */
-CC_RunMicroBasic_t Compose_CC_RunMicroBasic(uint16_t nodeId);
-
-/**
- * @brief Chassis Controller Inverter Run Micro Basic Script Message Parser
- * @param data The CC_RunMicroBasic_t packet data to parse
- */
-void Parse_CC_RunMicroBasic(uint8_t* data);
-
-/**
- * @brief Chassis Controller Inverter Emergency Shutdown Command Message Parser
- * @param data The CC_ShutdownInverter_t packet data to parse
- */
-void Parse_CC_ShutdownInverter(uint8_t* data);
-
-typedef struct CC_CanadaInverter /**< TODO Rename */
-{
-	uint32_t id; /**< CAN Packet ID */
-	uint8_t data[2];
-} CC_CanadaInverter_t;
-
-/**
- * @brief Chassis Controller Inverter 2 Compose DAC Value
- * @param DACValue A 0-4096 Value dictating brake and throttle values
- * @return The CC_CanadaInverter_t packet
- */
-CC_CanadaInverter_t Compose_CC_CanadaInverter(uint16_t DACValue);
-
-/**
- * @brief Chassis Controller Inverter 2 DAC Value Parser
- * @param data The CC_CanadaInverter_t packet data to parse
- */
-void Parse_CC_CanadaInverter(uint8_t* data, uint16_t* DACValue);
-
-typedef struct CC_Roboteq {
-	uint32_t id;
-	uint8_t data[8];
-} CC_Roboteq_t;
-
-CC_Roboteq_t Compose_Roboteq_CAN(uint16_t nodeID, uint8_t css, uint8_t n, uint16_t index, uint8_t subindex, uint32_t data);
 
 
 #endif /* INC_CC_CAN_MESSAGES_H_ */
