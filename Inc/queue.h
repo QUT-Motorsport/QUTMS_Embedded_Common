@@ -5,8 +5,10 @@
 #include <stdint.h>
 #include <stdlib.h>
 
+#define MAX_QUEUE_SIZE 2048
+
 typedef struct message_queue {
-    void *queue_items;
+    uint8_t queue_items[MAX_QUEUE_SIZE];
     size_t queue_item_size;
     size_t queue_length;
     uint8_t head;
@@ -15,13 +17,10 @@ typedef struct message_queue {
 } message_queue_t;
 
 // initializes the queue
-bool queue_init(message_queue_t *queue, size_t queue_item_size, size_t queue_length);
+void queue_init(message_queue_t *queue, size_t queue_item_size);
 
-// frees queue memory and renders it unusable
-bool queue_delete(message_queue_t *queue);
-
-// clears all items in the queue (does not free memory)
-bool queue_clear(message_queue_t *queue);
+// clears all items in the queue
+void queue_clear(message_queue_t *queue);
 
 // adds a new item to the queue,
 bool queue_add(message_queue_t *queue, void *item);

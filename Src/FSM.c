@@ -9,17 +9,14 @@
 
 #include <FSM.h>
 
-fsm_t fsm_new(state_t *beginState, fsm_function state_enter, fsm_function state_exit)
+void fsm_init(fsm_t *fsm, state_t *beginState, fsm_function state_enter, fsm_function state_exit)
 {
-	fsm_t fsm;
-	fsm.currentState = beginState;
-	fsm.state_enter = state_enter;
-	fsm.state_exit = state_exit;
+	fsm->currentState = beginState;
+	fsm->state_enter = state_enter;
+	fsm->state_exit = state_exit;
 
-	fsm.state_enter(&fsm);
-	fsm.currentState->enter(&fsm);
-
-	return fsm;
+	fsm->state_enter(fsm);
+	fsm->currentState->enter(fsm);
 }
 
 void fsm_iterate(fsm_t *fsm)
@@ -35,7 +32,7 @@ void fsm_changeState(fsm_t *fsm, state_t *newState, char* changeReason)
 	}
 
 	char x[80];
-	int len = sprintf(x, "Changing FSM State: %s->%s (%s)\r\n", fsm->currentState->stateName, newState->stateName, changeReason);
+	int len = sprintf(x, "Changing FSM State: 0x%02x -> 0x%02x (%s)\r\n", fsm->currentState->stateID, newState->stateID, changeReason);
 	fsm_log(fsm, x, len);
 
 	// exit callback

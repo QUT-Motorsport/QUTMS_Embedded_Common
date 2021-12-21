@@ -57,7 +57,7 @@ struct fsm {
  * @param beginState The inital state to be set for the FSM
  * @return the initialized FSM object
  */
-fsm_t fsm_new(state_t *beginState, fsm_function state_enter, fsm_function state_exit);
+void fsm_init(fsm_t *fsm, state_t *beginState, fsm_function state_enter, fsm_function state_exit);
 
 /**
  * @brief Iterates the FSM by calling fsm->currentState->iter(fsm)
