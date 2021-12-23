@@ -5,8 +5,8 @@
  *      Author: Calvin
  */
 
-#ifndef COMMON_INC_DEBUG_CAN_MESSAGES_H_
-#define COMMON_INC_DEBUG_CAN_MESSAGES_H_
+#ifndef COMMON_INC_CAN_DEBUG_H_
+#define COMMON_INC_CAN_DEBUG_H_
 
 #include "QUTMS_can.h"
 
@@ -46,4 +46,4 @@ typedef struct DEBUG_ErrorPresent
 
 DEBUG_ErrorPresent_t Compose_DEBUG_ErrorPresent(uint8_t boardID, uint8_t boardIndex, uint16_t errorCode);
 
-#endif /* COMMON_INC_DEBUG_CAN_MESSAGES_H_ */
+#endif /* COMMON_INC_CAN_DEBUG_H_ */

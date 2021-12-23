@@ -20,6 +20,7 @@ extern "C" {
 
 #define CAN_SRC_ID_SHDN 0x06
 #define CAN_SRC_ID_AMS 0x10
+#define CAN_SRC_ID_MCISO 0x11
 #define CAN_SRC_ID_BMS 0x12
 #define CAN_SRC_ID_PDM 0x14
 #define CAN_SRC_ID_CC 0x16
@@ -69,6 +70,10 @@ enum CAN_MSG_IDs {
 	AMS_TransmitChargeState_ID 		= Compose_CANId(CAN_PRIORITY_ERROR, CAN_SRC_ID_AMS, DRIVER, CAN_TYPE_TRANSMIT, 0x4, 0x0),
 	AMS_Ready_ID					= Compose_CANId(CAN_PRIORITY_ERROR, CAN_SRC_ID_AMS, DRIVER, CAN_TYPE_TRANSMIT, 0x0, 0x0),
 	AMS_ShutdownStatus_ID			= Compose_CANId(CAN_PRIORITY_NORMAL, CAN_SRC_ID_AMS, DRIVER, CAN_TYPE_TRANSMIT, 0x1, 0x0),
+#endif
+
+#ifdef QUTMS_CAN_MCISO
+	MCISO_Heartbeat_ID 				= Compose_CANId(CAN_PRIORITY_HEARTBEAT, CAN_SRC_ID_MCISO, DRIVER, CAN_TYPE_HEARTBEAT, 0x00, 0x0),
 #endif
 
 	/** BMS */
@@ -136,6 +141,7 @@ enum CAN_MSG_IDs {
 	VESC_Shutdown_ID				= Compose_VESCCANId(VESC_CAN_PACKET_SHUTDOWN, 0),
 #endif
 };
+
 
 //uint32_t Compose_CANId(uint8_t priority, uint16_t sourceId, uint8_t autonomous, uint8_t type, uint16_t extra, uint8_t BMSId);
 void Parse_CANId(uint32_t CANId, uint8_t* priority, uint16_t* sourceId, uint8_t* autonomous, uint8_t* type, uint16_t* extra, uint8_t* BMSId);
