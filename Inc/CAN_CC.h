@@ -16,11 +16,13 @@
 
 typedef union CC_Flags {
 	uint16_t rawMem;
+	// 15 bits
 	struct {
 		uint8_t HB_AMS : 1;
 		uint8_t HB_MCISO : 1;
 		uint8_t HB_VESC : 1;
 		uint8_t P_CAN : 1;
+		uint8_t P_ADC : 1;
 		uint8_t S_Accel0 : 1;
 		uint8_t S_Accel1 : 1;
 		uint8_t S_Brake : 1;
