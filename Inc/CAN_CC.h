@@ -20,11 +20,12 @@ typedef union CC_Flags {
 		uint8_t HB_AMS : 1;
 		uint8_t HB_MCISO : 1;
 		uint8_t HB_VESC : 1;
-		uint8_t P_Accel0 : 1;
-		uint8_t P_Accel1 : 1;
-		uint8_t P_Brake : 1;
-		uint8_t P_Steering0 : 1;
-		uint8_t P_Steering1 : 1;
+		uint8_t P_CAN : 1;
+		uint8_t S_Accel0 : 1;
+		uint8_t S_Accel1 : 1;
+		uint8_t S_Brake : 1;
+		uint8_t S_Steering0 : 1;
+		uint8_t S_Steering1 : 1;
 		uint8_t PCHRG_Failed : 1;
 		uint8_t SHDN : 1;
 		uint8_t IMP_APPS : 1; 		// T.4.2.5
