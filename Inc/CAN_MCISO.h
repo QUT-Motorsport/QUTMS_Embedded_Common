@@ -35,7 +35,7 @@ typedef struct MCISO_Heartbeat {
 } MCISO_Heartbeat_t;
 
 MCISO_Heartbeat_t Compose_MCISO_Heartbeat(uint8_t id, MCISO_HeartbeatState_t *state);
-void Parse_MSISO_Heartbeat(uint8_t *data, MCISO_HeartbeatState_t *state);
+void Parse_MCISO_Heartbeat(uint8_t *data, MCISO_HeartbeatState_t *state);
 
 
 #endif /* COMMON_INC_CAN_MCISO_H_ */

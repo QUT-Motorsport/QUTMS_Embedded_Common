@@ -18,7 +18,7 @@ MCISO_Heartbeat_t Compose_MCISO_Heartbeat(uint8_t id, MCISO_HeartbeatState_t *st
 	return msg;
 }
 
-void Parse_MSISO_Heartbeat(uint8_t *data, MCISO_HeartbeatState_t *state) {
+void Parse_MCISO_Heartbeat(uint8_t *data, MCISO_HeartbeatState_t *state) {
 	state->stateID = data[0];
 	state->errorFlags.rawMem = data[1];
 }
