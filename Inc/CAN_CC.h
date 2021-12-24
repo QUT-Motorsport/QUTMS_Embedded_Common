@@ -16,7 +16,7 @@
 
 typedef union CC_Flags {
 	uint16_t rawMem;
-	// 15 bits
+	// 16 bits
 	struct {
 		uint8_t HB_AMS : 1;
 		uint8_t HB_MCISO : 1;
@@ -33,6 +33,7 @@ typedef union CC_Flags {
 		uint8_t IMP_APPS : 1; 		// T.4.2.5
 		uint8_t IMP_BSE : 1; 		// T.4.3.3
 		uint8_t IMP_Pedal : 1; 		// EV.5.7
+		uint8_t IMP_Steering : 1;   // for TV
 	};
 } CC_Flags_u;
 
@@ -86,8 +87,8 @@ typedef struct CC_TransmitSteering {
 	uint8_t data[4];
 } CC_TransmitSteering_t;
 
-CC_TransmitSteering_t Compose_CC_TransmitSteering(uint16_t steering0, uint16_t steering1);
-void Parse_CC_TransmitSteering(uint8_t *data, uint16_t *steering0, uint16_t *steering1);
+CC_TransmitSteering_t Compose_CC_TransmitSteering(int16_t steering0, int16_t steering1);
+void Parse_CC_TransmitSteering(uint8_t *data, int16_t *steering0, int16_t *steering1);
 
 
 // Object Dictionary

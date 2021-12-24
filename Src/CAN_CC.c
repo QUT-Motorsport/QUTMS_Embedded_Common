@@ -59,10 +59,11 @@ void Parse_CC_TransmitPedals(uint8_t *data, uint16_t *accel0, uint16_t *accel1,
 	*brake_pressure_adc = (data[7]) << 8 | data[6];
 }
 
-CC_TransmitSteering_t Compose_CC_TransmitSteering(uint16_t steering0,
-		uint16_t steering1) {
+CC_TransmitSteering_t Compose_CC_TransmitSteering(int16_t steering0,
+		int16_t steering1) {
 	CC_TransmitSteering_t msg;
 	msg.id = CC_TransmitSteering_ID;
+
 	msg.data[0] = steering0 & 0xff;
 	msg.data[1] = (steering0 >> 8) & 0xff;
 	msg.data[2] = steering1 & 0xff;
@@ -70,8 +71,8 @@ CC_TransmitSteering_t Compose_CC_TransmitSteering(uint16_t steering0,
 
 	return msg;
 }
-void Parse_CC_TransmitSteering(uint8_t *data, uint16_t *steering0,
-		uint16_t *steering1) {
+void Parse_CC_TransmitSteering(uint8_t *data, int16_t *steering0,
+		int16_t *steering1) {
 	*steering0 = (data[1]) << 8 | data[0];
 	*steering1 = (data[3]) << 8 | data[2];
 }
