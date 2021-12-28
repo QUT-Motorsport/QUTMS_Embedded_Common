@@ -32,6 +32,7 @@ typedef union AMS_Flags {
 	uint16_t rawMem;
 	//
 	struct {
+		uint8_t HB_BMS : 1;
 		uint8_t HB_SENDYNE0 : 1;
 		uint8_t HB_SENDYNE1 : 1;
 		uint8_t HB_CC : 1;
@@ -40,6 +41,7 @@ typedef union AMS_Flags {
 		uint8_t C_HVAp : 1;
 		uint8_t C_HVBp : 1;
 		uint8_t C_Precharge : 1;
+		uint8_t PCHRG_TIMEOUT : 1;
 	};
 } AMS_Flags_u;
 
