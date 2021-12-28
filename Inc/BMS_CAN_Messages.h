@@ -8,11 +8,11 @@
 #ifndef INC_BMS_CAN_MESSAGES_H_
 #define INC_BMS_CAN_MESSAGES_H_
 
+#include <QUTMS_CAN.h>
 #include "stdbool.h"
 #include "main.h"
 #include "can.h"
 #include <stdlib.h>
-#include "QUTMS_can.h"
 
 /**
  * @brief BMS Bad Cell Voltage Message

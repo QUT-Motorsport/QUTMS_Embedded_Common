@@ -8,8 +8,8 @@
 #ifndef COMMON_INC_CAN_MCISO_H_
 #define COMMON_INC_CAN_MCISO_H_
 
+#include <QUTMS_CAN.h>
 #include <stdint.h>
-#include "QUTMS_can.h"
 
 
 typedef union MCISO_Flags {

@@ -5,9 +5,9 @@
  ******************************************************************************
  */
 
-#ifdef QUTMS_CAN_BMS
-
 #include "BMS_CAN_Messages.h"
+
+#ifdef QUTMS_CAN_BMS
 
 BMS_BadCellVoltage_t Compose_BMS_BadCellVoltage(uint8_t BMSId, uint8_t cellNumber, uint8_t voltage)
 {

@@ -5,9 +5,9 @@
  ******************************************************************************
  */
 
-#ifdef QUTMS_CAN_AMS
-
 #include <CAN_AMS.h>
+
+#ifdef QUTMS_CAN_AMS
 
 AMS_Heartbeat_t Compose_AMS_Heartbeat(AMS_HeartbeatState_t *state) {
 	AMS_Heartbeat_t msg;
@@ -31,6 +31,13 @@ void Parse_AMS_Heartbeat(uint8_t *data, AMS_HeartbeatState_t *state) {
 	state->bmsStatus = (data[3] | (data[4] << 8));
 	state->voltage = (data[5] | (data[6] << 8));
 	state->SOC = data[7];
+}
+
+AMS_ShutdownTriggered_t Compose_AMS_ShutdownTriggered() {
+	AMS_ShutdownTriggered_t msg;
+	msg.id = AMS_ShutdownTriggered_ID;
+
+	return msg;
 }
 
 AMS_CellVoltageShutdown_t Compose_AMS_CellVoltageShutdown(uint8_t cellNum, uint8_t bmsID, uint8_t voltage)

@@ -8,7 +8,7 @@
 #ifndef COMMON_INC_CAN_DEBUG_H_
 #define COMMON_INC_CAN_DEBUG_H_
 
-#include "QUTMS_can.h"
+#include <QUTMS_CAN.h>
 
 // ERROR CODES
 #define DEBUG_ERROR_APPS_IMPLAUSIBILITY			0x10 // T.4.2.5

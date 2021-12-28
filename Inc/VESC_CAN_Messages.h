@@ -8,8 +8,8 @@
 #ifndef COMMON_INC_VESC_CAN_MESSAGES_H_
 #define COMMON_INC_VESC_CAN_MESSAGES_H_
 
+#include <QUTMS_CAN.h>
 #include "VESC_CAN_Datatypes.h"
-#include "QUTMS_can.h"
 
 void * sb(void *inp, size_t len);
 void * sbo(void *inp, void *out, size_t len);

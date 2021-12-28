@@ -1,13 +1,13 @@
 /*
- * VCU_CAN_Messages.c
+ * CAN_VCU.c
  *
  *  Created on: Sep 22, 2021
  *      Author: Calvin
  */
 
-#ifdef QUTMS_VCU
+#include <CAN_VCU.h>
 
-#include "VCU_CAN_Messages.h"
+#ifdef QUTMS_VCU
 
 VCU_MotorTemp_t Compose_VCU_MotorTemp(uint8_t VCU_ID, uint32_t temp0,
 		uint32_t temp1) {
@@ -92,23 +92,25 @@ VCU_AirPressure_t Compose_VCU_AirPressure(uint8_t VCU_ID, uint16_t pressure_raw,
 	return msg;
 }
 
-VCU_ShutdownSegments_t Compose_VCU_ShutdownSegments(uint8_t line0,
-		uint8_t line1, uint8_t line2, uint8_t line3) {
-	VCU_ShutdownSegments_t msg;
-	msg.id = VCU_ShutdownSegments_ID;
+VCU_ShutdownStatus_t Compose_VCU_ShutdownStatus(uint8_t line0,
+		uint8_t line1, uint8_t line2, uint8_t line3, bool status ) {
+	VCU_ShutdownStatus_t msg;
+	msg.id = VCU_ShutdownStatus_ID;
 
 	msg.data[0] = (line0 & 0xF) | ((line1 & 0xF) << 4);
 	msg.data[1] = (line2 & 0xF) | ((line3 & 0xF) << 4);
+	msg.data[2] = status ? 1 : 0;
+
 
 	return msg;
 }
 
-void Parse_VCU_ShutdownSegments(uint8_t *data, uint8_t *line0, uint8_t *line1, uint8_t *line2, uint8_t *line3) {
-
+void Parse_VCU_ShutdownStatus(uint8_t *data, uint8_t *line0, uint8_t *line1, uint8_t *line2, uint8_t *line3, bool *status) {
 	*line0 = data[0] & 0xF;
 	*line1 = (data[0] >> 4) & 0xF;
 	*line2 = data[1] & 0xF;
 	*line3 = (data[1] >> 4) & 0xF;
+	*status = (data[2] == 1) ? true : false;
 }
 
 #endif

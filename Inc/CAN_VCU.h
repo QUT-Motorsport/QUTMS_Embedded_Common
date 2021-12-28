@@ -1,15 +1,14 @@
 /*
- * VCU_CAN_Messages.h
+ * CAN_VCU.h
  *
  *  Created on: Sep 22, 2021
  *      Author: Calvin
  */
 
-#ifndef COMMON_INC_VCU_CAN_MESSAGES_H_
-#define COMMON_INC_VCU_CAN_MESSAGES_H_
+#ifndef COMMON_INC_CAN_VCU_H_
+#define COMMON_INC_CAN_VCU_H_
 
-#include "QUTMS_can.h"
-
+#include <QUTMS_CAN.h>
 #include <stdbool.h>
 
 typedef struct VCU_MotorTemp
@@ -52,13 +51,13 @@ typedef struct VCU_AirPressure
 
 VCU_AirPressure_t Compose_VCU_AirPressure(uint8_t VCU_ID, uint16_t pressure_raw, int16_t pressure);
 
-typedef struct VCU_ShutdownSegments
+typedef struct VCU_ShutdownStatus_t
 {
 	uint32_t id;
-	uint8_t data[2];
-} VCU_ShutdownSegments_t;
+	uint8_t data[3];
+} VCU_ShutdownStatus_t;
 
-VCU_ShutdownSegments_t Compose_VCU_ShutdownSegments(uint8_t line0, uint8_t line1, uint8_t line2, uint8_t line3);
-void Parse_VCU_ShutdownSegments(uint8_t *data, uint8_t *line0, uint8_t *line1, uint8_t *line2, uint8_t *line3);
+VCU_ShutdownStatus_t Compose_VCU_ShutdownStatus(uint8_t line0, uint8_t line1, uint8_t line2, uint8_t line3, bool status);
+void Parse_VCU_ShutdownStatus(uint8_t *data, uint8_t *line0, uint8_t *line1, uint8_t *line2, uint8_t *line3, bool *status);
 
-#endif /* COMMON_INC_VCU_CAN_MESSAGES_H_ */
+#endif /* COMMON_INC_CAN_VCU_H_ */

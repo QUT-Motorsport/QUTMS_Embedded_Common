@@ -8,11 +8,11 @@
 #ifndef INC_AMS_CAN_MESSAGES_H_
 #define INC_AMS_CAN_MESSAGES_H_
 
+#include <QUTMS_CAN.h>
 #include "stdbool.h"
 #include "main.h"
 #include "can.h"
 #include <stdlib.h>
-#include "QUTMS_can.h"
 
 enum AMS_STATES {
 	AMS_STATE_START = 0x00,
@@ -60,6 +60,12 @@ typedef struct AMS_Heartbeat {
 
 AMS_Heartbeat_t Compose_AMS_Heartbeat(AMS_HeartbeatState_t *state);
 void Parse_AMS_Heartbeat(uint8_t *data, AMS_HeartbeatState_t *state);
+
+typedef struct AMS_ShutdownTriggered {
+	uint32_t id;
+} AMS_ShutdownTriggered_t;
+
+AMS_ShutdownTriggered_t Compose_AMS_ShutdownTriggered();
 
 
 /**

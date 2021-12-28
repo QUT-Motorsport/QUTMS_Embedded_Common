@@ -8,9 +8,9 @@
 #ifndef INC_CC_CAN_MESSAGES_H_
 #define INC_CC_CAN_MESSAGES_H_
 
+#include <QUTMS_CAN.h>
 #include <stdbool.h>
 #include <stdlib.h>
-#include "QUTMS_can.h"
 
 enum CC_STATES {
 	CC_STATE_START = 0x00,
