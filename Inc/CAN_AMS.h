@@ -67,6 +67,15 @@ typedef struct AMS_ShutdownTriggered {
 
 AMS_ShutdownTriggered_t Compose_AMS_ShutdownTriggered();
 
+// Object Dictionary
+
+typedef struct AMS_OBJ_DICT {
+	uint32_t id;
+	uint8_t data[8];
+} AMS_OBJ_DICT_t;
+
+AMS_OBJ_DICT_t Compose_AMS_OBJ_DICT(uint8_t data[8]);
+void Parse_AMS_OBJ_DICT(uint8_t *data, uint8_t *type, uint8_t *data_size, uint8_t *index, uint32_t *value);
 
 /**
  * @brief AMS Cell Voltage Shutdown Message
