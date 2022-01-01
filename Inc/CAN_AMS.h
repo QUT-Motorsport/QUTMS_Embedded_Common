@@ -36,6 +36,8 @@ typedef union AMS_Flags {
 		uint8_t HB_SENDYNE0 : 1;
 		uint8_t HB_SENDYNE1 : 1;
 		uint8_t HB_CC : 1;
+		uint8_t P_CAN2 : 1;
+		uint8_t P_CAN4 : 1;
 		uint8_t C_HVAn : 1;
 		uint8_t C_HVBn : 1;
 		uint8_t C_HVAp : 1;
