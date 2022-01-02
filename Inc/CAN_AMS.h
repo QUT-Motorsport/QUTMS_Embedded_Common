@@ -22,8 +22,9 @@ enum AMS_STATES {
 	AMS_STATE_CHECK_BMS = 0x04,
 	AMS_STATE_CHECK_SENDYNE = 0x05,
 	AMS_STATE_READY = 0x06,
-	AMS_STATE_PRECHARGE = 0x07,
-	AMS_STATE_TS_ACTIVE = 0x08,
+	AMS_STATE_CHARGING = 0x07,
+	AMS_STATE_PRECHARGE = 0x08,
+	AMS_STATE_TS_ACTIVE = 0x10,
 	AMS_STATE_SHUTDOWN = 0x0F,
 	AMS_STATE_ERROR = 0xFF
 };
@@ -68,6 +69,12 @@ typedef struct AMS_ShutdownTriggered {
 } AMS_ShutdownTriggered_t;
 
 AMS_ShutdownTriggered_t Compose_AMS_ShutdownTriggered();
+
+typedef struct AMS_StartCharging {
+	uint32_t id;
+} AMS_StartCharging_t;
+
+AMS_StartCharging_t Compose_AMS_StartCharging();
 
 // Object Dictionary
 

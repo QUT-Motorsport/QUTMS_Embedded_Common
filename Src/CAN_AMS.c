@@ -40,6 +40,13 @@ AMS_ShutdownTriggered_t Compose_AMS_ShutdownTriggered() {
 	return msg;
 }
 
+AMS_StartCharging_t Compose_AMS_StartCharging() {
+	AMS_StartCharging_t msg;
+	msg.id = AMS_StartCharging_ID;
+
+	return msg;
+}
+
 AMS_OBJ_DICT_t Compose_AMS_OBJ_DICT(uint8_t data[8]) {
 	AMS_OBJ_DICT_t msg;
 	msg.id = AMS_OBJ_DICT_ID;
