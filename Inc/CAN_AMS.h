@@ -34,8 +34,8 @@ typedef union AMS_Flags {
 	//
 	struct {
 		uint8_t HB_BMS : 1;
-		uint8_t HB_SENDYNE0 : 1;
 		uint8_t HB_SENDYNE1 : 1;
+		uint8_t HB_SENDYNE2 : 1;
 		uint8_t HB_CC : 1;
 		uint8_t P_CAN2 : 1;
 		uint8_t P_CAN4 : 1;
