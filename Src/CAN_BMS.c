@@ -46,8 +46,9 @@ void Parse_BMS_BadCellTemperature(uint8_t* data, uint8_t* BMSId, uint8_t* cellNu
 BMS_TransmitVoltage_t Compose_BMS_TransmitVoltage(uint8_t BMSId, uint8_t vMsgId, uint16_t voltages[4])
 {
 	BMS_TransmitVoltage_t packet;
-	packet.id = Compose_CANId(CAN_PRIORITY_NORMAL, CAN_SRC_ID_BMS, DRIVER, CAN_TYPE_TRANSMIT, 0x02, BMSId);
-	packet.data[0] = vMsgId << 6 | (voltages[0] & 0x3F);
+	packet.id = BMS_TransmitVoltage_ID | BMSId;
+
+	packet.data[0] = (vMsgId << 6) | (voltages[0] & 0x3F);
 	packet.data[1] = (voltages[0] >> 6) & 0x3F;
 
 	packet.data[2] = voltages[1] & 0x3F;
@@ -62,14 +63,13 @@ BMS_TransmitVoltage_t Compose_BMS_TransmitVoltage(uint8_t BMSId, uint8_t vMsgId,
 	return packet;
 }
 
-void Parse_BMS_TransmitVoltage(uint32_t canId, uint8_t* data, uint8_t* BMSId, uint8_t* vMsgId, uint16_t* voltages)
+void Parse_BMS_TransmitVoltage(uint8_t* data, uint8_t* vMsgId, uint16_t voltages[4])
 {
-	*BMSId = canId & 0xF;
-	*vMsgId = data[0] >> 6 & 0x3;
-	*(voltages) = data[1] << 6 | (data[0] & 0x3F);
-	*(voltages+1) = data[3] << 6 | (data[2] & 0x3F);
-	*(voltages+2) = data[5] << 6 | (data[4] & 0x3F);
-	*(voltages+3) = data[7] << 6 | (data[6] & 0x3F);
+	*vMsgId = (data[0] >> 6) & 0x3;
+	voltages[0] = ((data[1] << 6) & 0x3F) | (data[0] & 0x3F);
+	voltages[1] = ((data[3] << 6) & 0x3F) | (data[2] & 0x3F);
+	voltages[2] = ((data[5] << 6) & 0x3F) | (data[4] & 0x3F);
+	voltages[3] = ((data[7] << 6) & 0x3F) | (data[6] & 0x3F);
 }
 
 BMS_TransmitTemperature_t Compose_BMS_TransmitTemperature(uint8_t BMSId, uint8_t tMsgId, uint8_t temperatures[6])

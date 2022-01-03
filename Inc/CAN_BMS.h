@@ -93,7 +93,7 @@ BMS_TransmitVoltage_t Compose_BMS_TransmitVoltage(uint8_t BMSId, uint8_t vMsgId,
  * @param vMsgId The voltage message ID (0 or 1) as we send 2 packets with all voltages
  * @param voltages The voltages parsed from the packet
  */
-void Parse_BMS_TransmitVoltage(uint32_t canId, uint8_t* data, uint8_t* BMSId, uint8_t* vMsgId, uint16_t* voltages);
+void Parse_BMS_TransmitVoltage(uint8_t* data, uint8_t* vMsgId, uint16_t voltages[4]);
 
 /**
  * @brief BMS Transmit Temperature Message
