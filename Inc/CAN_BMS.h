@@ -14,6 +14,14 @@
 #include "can.h"
 #include <stdlib.h>
 
+// 4 temperatures per BMS temperature CAN message
+#define BMS_TEMP_PACK_COUNT 6
+
+#define BMS_TEMP_COUNT 12
+
+#define BMS_VOLT_PACK_COUNT 4
+#define BMS_VOLT_COUNT 10
+
 /**
  * @brief BMS Bad Cell Voltage Message
  */
@@ -84,7 +92,7 @@ typedef struct BMS_TransmitVoltage
  * @param voltages The voltages to send
  * @return The composed BMS_TransmitVoltage_t packet
  */
-BMS_TransmitVoltage_t Compose_BMS_TransmitVoltage(uint8_t BMSId, uint8_t vMsgId, uint16_t voltages[4]);
+BMS_TransmitVoltage_t Compose_BMS_TransmitVoltage(uint8_t BMSId, uint8_t vMsgId, uint16_t voltages[BMS_VOLT_PACK_COUNT]);
 
 /**
  * @brief BMS Transmit Voltage Message Parser
@@ -93,7 +101,7 @@ BMS_TransmitVoltage_t Compose_BMS_TransmitVoltage(uint8_t BMSId, uint8_t vMsgId,
  * @param vMsgId The voltage message ID (0 or 1) as we send 2 packets with all voltages
  * @param voltages The voltages parsed from the packet
  */
-void Parse_BMS_TransmitVoltage(uint8_t* data, uint8_t* vMsgId, uint16_t voltages[4]);
+void Parse_BMS_TransmitVoltage(uint8_t* data, uint8_t* vMsgId, uint16_t voltages[BMS_VOLT_PACK_COUNT]);
 
 /**
  * @brief BMS Transmit Temperature Message
@@ -111,7 +119,7 @@ typedef struct BMS_TransmitTemperature
  * @param temperatures THe temperatures to send
  * @return The composed BMS_TransmitTemperatues_t packet
  */
-BMS_TransmitTemperature_t Compose_BMS_TransmitTemperature(uint8_t BMSId, uint8_t tMsgId, uint8_t temperatures[6]);
+BMS_TransmitTemperature_t Compose_BMS_TransmitTemperature(uint8_t BMSId, uint8_t tMsgId, uint8_t temperatures[BMS_TEMP_PACK_COUNT]);
 
 /**
  * @brief BMS Transmit Temperature Message Parser
@@ -120,7 +128,7 @@ BMS_TransmitTemperature_t Compose_BMS_TransmitTemperature(uint8_t BMSId, uint8_t
  * @param tMsgId The temperature message ID (0 or 1) as we send 2 packets with all temperatures
  * @param temperatures The temperatures parsed from the packet
  */
-void Parse_BMS_TransmitTemperature(uint32_t canId, uint8_t* data, uint8_t* BMSId, uint8_t* tMsgId, uint8_t* temperatures);
+void Parse_BMS_TransmitTemperature(uint8_t* data, uint8_t* tMsgId, uint8_t temperatures[BMS_TEMP_PACK_COUNT]);
 
 /**
  * @brief BMS Charge Enabled Message

@@ -43,7 +43,7 @@ void Parse_BMS_BadCellTemperature(uint8_t* data, uint8_t* BMSId, uint8_t* cellNu
 	*temperature = data[1];
 }
 
-BMS_TransmitVoltage_t Compose_BMS_TransmitVoltage(uint8_t BMSId, uint8_t vMsgId, uint16_t voltages[4])
+BMS_TransmitVoltage_t Compose_BMS_TransmitVoltage(uint8_t BMSId, uint8_t vMsgId, uint16_t voltages[BMS_VOLT_PACK_COUNT])
 {
 	BMS_TransmitVoltage_t packet;
 	packet.id = BMS_TransmitVoltage_ID | BMSId;
@@ -63,7 +63,7 @@ BMS_TransmitVoltage_t Compose_BMS_TransmitVoltage(uint8_t BMSId, uint8_t vMsgId,
 	return packet;
 }
 
-void Parse_BMS_TransmitVoltage(uint8_t* data, uint8_t* vMsgId, uint16_t voltages[4])
+void Parse_BMS_TransmitVoltage(uint8_t* data, uint8_t* vMsgId, uint16_t voltages[BMS_VOLT_PACK_COUNT])
 {
 	*vMsgId = (data[0] >> 6) & 0x3;
 	voltages[0] = ((data[1] << 6) & 0x3F) | (data[0] & 0x3F);
@@ -72,12 +72,12 @@ void Parse_BMS_TransmitVoltage(uint8_t* data, uint8_t* vMsgId, uint16_t voltages
 	voltages[3] = ((data[7] << 6) & 0x3F) | (data[6] & 0x3F);
 }
 
-BMS_TransmitTemperature_t Compose_BMS_TransmitTemperature(uint8_t BMSId, uint8_t tMsgId, uint8_t temperatures[6])
+BMS_TransmitTemperature_t Compose_BMS_TransmitTemperature(uint8_t BMSId, uint8_t tMsgId, uint8_t temperatures[BMS_TEMP_PACK_COUNT])
 {
 	BMS_TransmitTemperature_t packet;
 	packet.id = Compose_CANId(CAN_PRIORITY_NORMAL, CAN_SRC_ID_BMS, DRIVER, CAN_TYPE_TRANSMIT, 0x3, BMSId);
 	packet.data[0] = tMsgId;
-	for(int i = 0; i < 6; i++)
+	for(int i = 0; i < BMS_TEMP_PACK_COUNT; i++)
 	{
 		packet.data[i+1] = temperatures[i];
 	}
@@ -85,11 +85,10 @@ BMS_TransmitTemperature_t Compose_BMS_TransmitTemperature(uint8_t BMSId, uint8_t
 	return packet;
 }
 
-void Parse_BMS_TransmitTemperature(uint32_t canId, uint8_t* data, uint8_t* BMSId, uint8_t* tMsgId, uint8_t* temperatures)
+void Parse_BMS_TransmitTemperature(uint8_t* data, uint8_t* tMsgId, uint8_t temperatures[BMS_TEMP_PACK_COUNT])
 {
-	*BMSId = canId & 0xF;
 	*tMsgId = data[0];
-	for(int i = 0; i < 6; i++)
+	for(int i = 0; i < BMS_TEMP_PACK_COUNT; i++)
 	{
 		temperatures[i] = data[i+1];
 	}
