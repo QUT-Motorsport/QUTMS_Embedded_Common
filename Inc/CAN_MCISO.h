@@ -11,6 +11,8 @@
 #include <QUTMS_CAN.h>
 #include <stdint.h>
 
+#define MCISO_COUNT 2
+
 
 typedef union MCISO_Flags {
 	uint8_t rawMem;
