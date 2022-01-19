@@ -439,3 +439,125 @@ void Parse_SBG_ECAN_MSG_EKF_ALTITUDE(uint8_t* data, uint32_t* id, int32_t* altit
 	*altitude = (int32_t)((data[0] << 24) | (data[1] << 16) | (data[2] << 8) | (data[3]));
 	*undulation = (int16_t)((data[4] << 8) | (data[5]));
 }
+
+SBG_ECAN_MSG_GPS1_VEL_INFO_t Compose_SBG_ECAN_MSG_GPS1_VEL_INFO(uint32_t id, uint32_t time_stamp, uint32_t gps_vel_status) {
+	SBG_ECAN_MSG_GPS1_VEL_INFO_t msg;
+	msg.id = id;
+
+	// time_stamp
+	msg.data[0] = (time_stamp >> 24) & 0xFF;
+	msg.data[1] = (time_stamp >> 16) & 0xFF;
+	msg.data[2] = (time_stamp >> 8) & 0xFF;
+	msg.data[3] = (time_stamp >> 0) & 0xFF;
+
+	// gps_vel_status
+	msg.data[4] = (gps_vel_status >> 24) & 0xFF;
+	msg.data[5] = (gps_vel_status >> 16) & 0xFF;
+	msg.data[6] = (gps_vel_status >> 8) & 0xFF;
+	msg.data[7] = (gps_vel_status >> 0) & 0xFF;
+
+	return msg;
+}
+
+void Parse_SBG_ECAN_MSG_GPS1_VEL_INFO(uint8_t* data, uint32_t* id, uint32_t* time_stamp, uint32_t* gps_vel_status) {
+	*id = SBG_ECAN_MSG_GPS1_VEL_INFO_ID;
+	*time_stamp = (uint32_t)((data[0] << 24) | (data[1] << 16) | (data[2] << 8) | (data[3]));
+	*gps_vel_status = (uint32_t)((data[4] << 24) | (data[5] << 16) | (data[6] << 8) | (data[7]));
+}
+
+SBG_ECAN_MSG_GPS1_VEL_t Compose_SBG_ECAN_MSG_GPS1_VEL(uint32_t id, int16_t vel_n, int16_t vel_e, int16_t vel_d) {
+	SBG_ECAN_MSG_GPS1_VEL_t msg;
+	msg.id = id;
+
+	// vel_n
+	msg.data[0] = (vel_n >> 8) & 0xFF;
+	msg.data[1] = (vel_n >> 0) & 0xFF;
+
+	// vel_e
+	msg.data[2] = (vel_e >> 8) & 0xFF;
+	msg.data[3] = (vel_e >> 0) & 0xFF;
+
+	// vel_d
+	msg.data[4] = (vel_d >> 8) & 0xFF;
+	msg.data[5] = (vel_d >> 0) & 0xFF;
+
+	return msg;
+}
+
+void Parse_SBG_ECAN_MSG_GPS1_VEL(uint8_t* data, uint32_t* id, int16_t* vel_n, int16_t* vel_e, int16_t* vel_d) {
+	*id = SBG_ECAN_MSG_GPS1_VEL_ID;
+	*vel_n = (int16_t)((data[0] << 8) | data[1]);
+	*vel_e = (int16_t)((data[2] << 8) | data[3]);
+	*vel_d = (int16_t)((data[4] << 8) | data[5]);
+}
+
+SBG_ECAN_MSG_GPS1_COURSE_t Compose_SBG_ECAN_MSG_GPS1_COURSE(uint32_t id, uint16_t course, uint16_t course_acc) {
+	SBG_ECAN_MSG_GPS1_COURSE_t msg;
+	msg.id = id;
+
+	// course
+	msg.data[0] = (course << 8) & 0xFF;
+	msg.data[1] = (course << 0) & 0xFF;
+
+	// course_acc
+	msg.data[2] = (course_acc << 8) & 0xFF;
+	msg.data[3] = (course_acc << 0) & 0xFF;
+
+	return msg;
+}
+
+void Parse_SBG_ECAN_MSG_GPS1_COURSE(uint8_t* data, uint32_t *id, uint16_t* course, uint16_t* course_acc) {
+	*id = SBG_ECAN_MSG_GPS1_COURSE_ID;
+	*course = (uint16_t)((data[0] << 8) | data[1]);
+	*course_acc = (uint16_t)((data[2] << 8) | data[3]);
+}
+
+SBG_ECAN_MSG_GPS1_POS_INFO_t Compose_SBG_ECAN_MSG_GPS1_POS_INFO(uint32_t id, uint32_t time_stamp, uint32_t gps_pos_status) {
+	SBG_ECAN_MSG_GPS1_POS_INFO_t msg;
+	msg.id = id;
+
+	// time_stamp
+	msg.data[0] = (time_stamp >> 24) & 0xFF;
+	msg.data[1] = (time_stamp >> 16) & 0xFF;
+	msg.data[2] = (time_stamp >> 8) & 0xFF;
+	msg.data[3] = (time_stamp >> 0) & 0xFF;
+
+	// gps_pos_status
+	msg.data[4] = (gps_pos_status >> 24) & 0xFF;
+	msg.data[5] = (gps_pos_status >> 16) & 0xFF;
+	msg.data[6] = (gps_pos_status >> 8) & 0xFF;
+	msg.data[7] = (gps_pos_status >> 0) & 0xFF;
+
+	return msg;
+}
+
+void Parse_SBG_ECAN_MSG_GPS1_POS_INFO(uint8_t* data, uint32_t* id, uint32_t* time_stamp, uint32_t* gps_pos_status) {
+	*id = SBG_ECAN_MSG_GPS1_POS_INFO_ID;
+	*time_stamp = (uint32_t)((data[0] << 24) | (data[1] << 16) | (data[2] << 8) | (data[3]));
+	*gps_pos_status = (uint32_t)((data[4] << 24) | (data[5] << 16) | (data[6] << 8) | (data[7]));
+}
+
+SBG_ECAN_MSG_GPS1_POS_t Compose_SBG_ECAN_MSG_GPS1_POS(uint32_t id, int32_t latitude, int32_t longitude) {
+	SBG_ECAN_MSG_GPS1_POS_t msg;
+	msg.id = id;
+
+	// latitude
+	msg.data[0] = (latitude >> 24) & 0xFF;
+	msg.data[1] = (latitude >> 16) & 0xFF;
+	msg.data[2] = (latitude >> 8) & 0xFF;
+	msg.data[3] = (latitude >> 0) & 0xFF;
+
+	// longitude
+	msg.data[4] = (longitude >> 24) & 0xFF;
+	msg.data[5] = (longitude >> 16) & 0xFF;
+	msg.data[6] = (longitude >> 8) & 0xFF;
+	msg.data[7] = (longitude >> 0) & 0xFF;
+
+	return msg;
+}
+
+void Parse_SBG_ECAN_MSG_GPS1_POS(uint8_t* data, uint32_t* id, int32_t* latitude, int32_t* longitude) {
+	*id = SBG_ECAN_MSG_GPS1_POS_ID;
+	*latitude = (int32_t)((data[0] << 24) | (data[1] << 16) | (data[2] << 8) | (data[3]));
+	*longitude = (int32_t)((data[4] << 24) | (data[5] << 16) | (data[6] << 8) | (data[7]));
+}
