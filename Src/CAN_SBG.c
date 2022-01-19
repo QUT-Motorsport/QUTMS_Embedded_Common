@@ -1,4 +1,4 @@
-#include "SBG_CAN_Messages.h"
+#include "../Inc/CAN_SBG.h"
 
 SBG_ECAN_MSG_STATUS_01_t Compose_SBG_ECAN_MSG_STATUS_01(uint32_t id, uint32_t time_stamp, uint16_t general_status, uint16_t clock_status)
 {

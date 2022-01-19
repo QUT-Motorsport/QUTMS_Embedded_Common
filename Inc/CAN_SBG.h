@@ -1,8 +1,8 @@
-#ifndef COMMON_INC_SBG_CAN_MESSAGES_H_
-#define COMMON_INC_SBG_CAN_MESSAGES_H_
+#ifndef COMMON_INC_CAN_SBG_H_
+#define COMMON_INC_CAN_SBG_H_
 
+#include "CAN_SBG_DT.h"
 #include "QUTMS_can.h"
-#include "SBG_CAN_Datatypes.h"
 
 // STATUS
 typedef struct SBG_ECAN_MSG_STATUS_01
