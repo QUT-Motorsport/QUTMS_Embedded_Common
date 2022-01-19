@@ -8,7 +8,7 @@
 #ifndef INC_AMS_CAN_MESSAGES_H_
 #define INC_AMS_CAN_MESSAGES_H_
 
-#include <QUTMS_CAN.h>
+#include <QUTMS_can.h>
 #include "stdbool.h"
 #include "main.h"
 #include "can.h"

@@ -8,7 +8,7 @@
 #ifndef COMMON_INC_CAN_VCU_H_
 #define COMMON_INC_CAN_VCU_H_
 
-#include <QUTMS_CAN.h>
+#include <QUTMS_can.h>
 #include <stdbool.h>
 
 enum VCU_STATES {

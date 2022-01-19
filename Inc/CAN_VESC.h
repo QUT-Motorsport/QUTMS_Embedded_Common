@@ -8,7 +8,7 @@
 #ifndef COMMON_INC_CAN_VESC_H_
 #define COMMON_INC_CAN_VESC_H_
 
-#include <QUTMS_CAN.h>
+#include <QUTMS_can.h>
 #include "VESC_CAN_Datatypes.h"
 #include <stdint.h>
 #include <stddef.h>

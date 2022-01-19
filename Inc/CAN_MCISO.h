@@ -8,7 +8,7 @@
 #ifndef COMMON_INC_CAN_MCISO_H_
 #define COMMON_INC_CAN_MCISO_H_
 
-#include <QUTMS_CAN.h>
+#include <QUTMS_can.h>
 #include <stdint.h>
 
 #define MCISO_COUNT 2
