@@ -8,7 +8,7 @@
 #ifndef INC_SHDN_CAN_MESSAGES_H_
 #define INC_SHDN_CAN_MESSAGES_H_
 
-#include <QUTMS_CAN.h>
+#include <QUTMS_can.h>
 #include "stdbool.h"
 #include <stdlib.h>
 
