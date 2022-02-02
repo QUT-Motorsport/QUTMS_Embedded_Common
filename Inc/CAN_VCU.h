@@ -98,4 +98,14 @@ VCU_ShutdownStatus_t Compose_VCU_ShutdownStatus(uint8_t line0, uint8_t line1, ui
 void Parse_VCU_ShutdownStatus(uint8_t *data, uint8_t *line0, uint8_t *line1, uint8_t *line2, uint8_t *line3,
 bool *status);
 
+// Object Dictionary
+
+typedef struct VCU_OBJ_DICT {
+	uint32_t id;
+	uint8_t data[8];
+} VCU_OBJ_DICT_t;
+
+VCU_OBJ_DICT_t Compose_VCU_OBJ_DICT(uint8_t VCU_ID, uint8_t data[8]);
+void Parse_VCU_OBJ_DICT(uint8_t *data, uint8_t *type, uint8_t *data_size, uint8_t *index, uint32_t *value);
+
 #endif /* COMMON_INC_CAN_VCU_H_ */
