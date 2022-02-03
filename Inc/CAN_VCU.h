@@ -19,6 +19,16 @@ enum VCU_STATES {
 	VCU_STATE_ERROR = 0xFF,
 };
 
+typedef union VCU_Flags_Core {
+	uint8_t rawMem;
+	struct {
+		uint8_t P_CAN : 1;
+		uint8_t P_ADC : 1;
+		uint8_t P_ISRC : 1;
+		uint8_t P_IMU : 1;
+	};
+} VCU_Flags_Core_u;
+
 typedef union VCU_Flags_Dave {
 	uint16_t rawMem;
 	// 16 bits
@@ -26,8 +36,6 @@ typedef union VCU_Flags_Dave {
 		uint8_t HB_AMS :1;
 		uint8_t HB_MCISO :1;
 		uint8_t HB_INV :1;
-		uint8_t P_CAN :1;
-		uint8_t P_ADC :1;
 		uint8_t S_Accel0 :1;
 		uint8_t S_Accel1 :1;
 		uint8_t S_Brake :1;
@@ -42,6 +50,7 @@ typedef union VCU_Flags_Dave {
 
 typedef struct VCU_HeartbeatState {
 	uint8_t stateID;
+	VCU_Flags_Core_u coreFlags;
 	uint16_t flags;
 	uint16_t VCU;
 } VCU_HeartbeatState_t;
