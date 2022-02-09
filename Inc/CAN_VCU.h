@@ -29,7 +29,7 @@ typedef union VCU_Flags_Core {
 	};
 } VCU_Flags_Core_u;
 
-typedef union VCU_Flags_Dave {
+typedef union VCU_Flags_Ctrl {
 	uint16_t rawMem;
 	// 16 bits
 	struct {
@@ -38,7 +38,8 @@ typedef union VCU_Flags_Dave {
 		uint8_t HB_INV :1;
 		uint8_t S_Accel0 :1;
 		uint8_t S_Accel1 :1;
-		uint8_t S_Brake :1;
+		uint8_t S_Brake0 :1;
+		uint8_t S_Brake1 :1;
 		uint8_t PCHRG_Failed :1;
 		uint8_t SHDN :1;
 		uint8_t IMP_APPS :1; 		// T.4.2.5
@@ -46,7 +47,7 @@ typedef union VCU_Flags_Dave {
 		uint8_t IMP_Pedal :1; 		// EV.5.7
 
 	};
-} VCU_Flags_Dave_u;
+} VCU_Flags_Ctrl_u;
 
 typedef struct VCU_HeartbeatState {
 	uint8_t stateID;
