@@ -108,6 +108,22 @@ VCU_ShutdownStatus_t Compose_VCU_ShutdownStatus(uint8_t line0, uint8_t line1, ui
 void Parse_VCU_ShutdownStatus(uint8_t *data, uint8_t *line0, uint8_t *line1, uint8_t *line2, uint8_t *line3,
 bool *status);
 
+typedef struct VCU_Pedal_Accel {
+	uint32_t id;
+	uint8_t data[4];
+} VCU_Pedal_Accel_t;
+
+VCU_Pedal_Accel_t Compose_VCU_Pedal_Accel(uint8_t VCU_ID, uint16_t accel0, uint16_t accel1);
+void Parse_VCU_Pedal_Accel(uint8_t *data, uint16_t *accel0, uint16_t *accel1);
+
+typedef struct VCU_Pedal_Brake {
+	uint32_t id;
+	uint8_t data[6];
+} VCU_Pedal_Brake_t;
+
+VCU_Pedal_Brake_t Compose_VCU_Pedal_Brake(uint8_t VCU_ID, uint16_t brake, uint16_t brake_adc0, uint16_t brake_adc1);
+void Parse_VCU_Pedal_Brake(uint8_t *data, uint16_t *brake, uint16_t *brake_adc0, uint16_t *brake_adc1);
+
 // Object Dictionary
 
 typedef struct VCU_OBJ_DICT {
