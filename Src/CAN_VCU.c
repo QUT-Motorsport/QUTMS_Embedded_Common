@@ -14,18 +14,20 @@ VCU_Heartbeat_t Compose_VCU_Heartbeat(uint8_t id, VCU_HeartbeatState_t *state) {
 	msg.id = VCU_Heartbeat_ID | id;
 
 	msg.data[0] = state->stateID;
-	msg.data[1] = (state->flags) & 0xFF;
-	msg.data[2] = (state->flags >> 8) & 0xFF;
-	msg.data[3] = (state->VCU) & 0xFF;
-	msg.data[4] = (state->VCU >> 8) & 0xFF;
+	msg.data[1] = state->coreFlags.rawMem;
+	msg.data[2] = (state->otherFlags.rawMem) & 0xFF;
+	msg.data[3] = (state->otherFlags.rawMem >> 8) & 0xFF;
+	msg.data[4] = (state->VCU) & 0xFF;
+	msg.data[5] = (state->VCU >> 8) & 0xFF;
 
 	return msg;
 }
 
 void Parse_VCU_Heartbeat(uint8_t *data, VCU_HeartbeatState_t *state) {
 	state->stateID = data[0];
-	state->flags = (data[1] | (data[2] << 8));
-	state->VCU = (data[3] | (data[4] << 8));
+	state->coreFlags.rawMem = data[1];
+	state->otherFlags.rawMem = (data[2] | (data[3] << 8));
+	state->VCU = (data[4] | (data[5] << 8));
 }
 
 VCU_MotorTemp_t Compose_VCU_MotorTemp(uint8_t VCU_ID, uint32_t temp0, uint32_t temp1) {

@@ -12,11 +12,15 @@
 #include <stdbool.h>
 
 enum VCU_STATES {
-	VCU_STATE_START = 0x00,
-	VCU_STATE_PERIPHERAL_INIT = 0x01,
-	VCU_STATE_SENSOR_INIT = 0x02,
-	VCU_STATE_BOARD_CHECK = 0x03,
-	VCU_STATE_ERROR = 0xFF,
+	VCU_STATE_START 			= 0x00,
+	VCU_STATE_PERIPHERAL_INIT 	= 0x01,
+	VCU_STATE_SENSOR_INIT 		= 0x02,
+	VCU_STATE_BOARD_CHECK 		= 0x03,
+	VCU_STATE_AMS_CHECK 		= 0x04,
+	VCU_STATE_IDLE				= 0x05,
+	VCU_STATE_SHUTDOWN 			= 0x0F,
+	VCU_STATE_TS_ERROR			= 0xFE,
+	VCU_STATE_ERROR 			= 0xFF
 };
 
 typedef union VCU_Flags_Core {
@@ -49,10 +53,15 @@ typedef union VCU_Flags_Ctrl {
 	};
 } VCU_Flags_Ctrl_u;
 
+typedef union VCU_Flags_Other {
+	uint16_t rawMem;
+	VCU_Flags_Ctrl_u ctrl;
+} VCU_Flags_Other_u;
+
 typedef struct VCU_HeartbeatState {
 	uint8_t stateID;
 	VCU_Flags_Core_u coreFlags;
-	uint16_t flags;
+	VCU_Flags_Other_u otherFlags;
 	uint16_t VCU;
 } VCU_HeartbeatState_t;
 
