@@ -113,7 +113,7 @@ typedef struct VCU_Pedal_Accel {
 	uint8_t data[4];
 } VCU_Pedal_Accel_t;
 
-VCU_Pedal_Accel_t Compose_VCU_Pedal_Accel(uint8_t VCU_ID, uint16_t accel0, uint16_t accel1);
+VCU_Pedal_Accel_t Compose_VCU_Pedal_Accel(uint16_t accel0, uint16_t accel1);
 void Parse_VCU_Pedal_Accel(uint8_t *data, uint16_t *accel0, uint16_t *accel1);
 
 typedef struct VCU_Pedal_Brake {
@@ -121,7 +121,7 @@ typedef struct VCU_Pedal_Brake {
 	uint8_t data[6];
 } VCU_Pedal_Brake_t;
 
-VCU_Pedal_Brake_t Compose_VCU_Pedal_Brake(uint8_t VCU_ID, uint16_t brake, uint16_t brake_adc0, uint16_t brake_adc1);
+VCU_Pedal_Brake_t Compose_VCU_Pedal_Brake(uint16_t brake, uint16_t brake_adc0, uint16_t brake_adc1);
 void Parse_VCU_Pedal_Brake(uint8_t *data, uint16_t *brake, uint16_t *brake_adc0, uint16_t *brake_adc1);
 
 // Object Dictionary
