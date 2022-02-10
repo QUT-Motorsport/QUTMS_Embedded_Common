@@ -11,6 +11,10 @@
 #include <QUTMS_can.h>
 #include <stdbool.h>
 
+#define VCU_ID_REAR 0
+#define VCU_ID_CTRL 1
+#define VCU_ID_DASH 2
+
 enum VCU_STATES {
 	VCU_STATE_START 			= 0x00,
 	VCU_STATE_PERIPHERAL_INIT 	= 0x01,
