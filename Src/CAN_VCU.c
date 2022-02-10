@@ -30,6 +30,13 @@ void Parse_VCU_Heartbeat(uint8_t *data, VCU_HeartbeatState_t *state) {
 	state->VCU = (data[4] | (data[5] << 8));
 }
 
+VCU_RTD_t Compose_VCU_RTD() {
+	VCU_RTD_t msg;
+	msg.id = VCU_RTD_ID;
+
+	return msg;
+}
+
 VCU_MotorTemp_t Compose_VCU_MotorTemp(uint8_t VCU_ID, uint32_t temp0, uint32_t temp1) {
 	VCU_MotorTemp_t msg;
 	msg.id = VCU_MotorTemp_ID | VCU_ID;

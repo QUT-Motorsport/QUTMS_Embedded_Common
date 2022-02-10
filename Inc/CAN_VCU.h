@@ -18,6 +18,12 @@ enum VCU_STATES {
 	VCU_STATE_BOARD_CHECK 		= 0x03,
 	VCU_STATE_AMS_CHECK 		= 0x04,
 	VCU_STATE_IDLE				= 0x05,
+	VCU_STATE_PRECHARGE_REQUEST = 0x06,
+	VCU_STATE_PRECHARGE 		= 0x07,
+	VCU_STATE_INVERTER_CHECK 	= 0x08,
+	VCU_STATE_RTD_RDY 			= 0x09,
+	VCU_STATE_RTD_BTN 			= 0x10,
+	VCU_STATE_DRIVING 			= 0x11,
 	VCU_STATE_SHUTDOWN 			= 0x0F,
 	VCU_STATE_TS_ERROR			= 0xFE,
 	VCU_STATE_ERROR 			= 0xFF
@@ -72,6 +78,12 @@ typedef struct VCU_Heartbeat {
 
 VCU_Heartbeat_t Compose_VCU_Heartbeat(uint8_t id, VCU_HeartbeatState_t *state);
 void Parse_VCU_Heartbeat(uint8_t *data, VCU_HeartbeatState_t *state);
+
+typedef struct VCU_RTD {
+	uint32_t id;
+} VCU_RTD_t;
+
+VCU_RTD_t Compose_VCU_RTD();
 
 typedef struct VCU_MotorTemp {
 	uint32_t id;
