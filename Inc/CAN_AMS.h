@@ -46,6 +46,9 @@ typedef union AMS_Flags {
 		uint8_t C_HVBp : 1;
 		uint8_t C_Precharge : 1;
 		uint8_t PCHRG_TIMEOUT : 1;
+		uint8_t BMS_OVER_VOLT : 1;
+		uint8_t BMS_UNDER_VOLT : 1;
+		uint8_t BMS_BAD_TEMP : 1;
 	};
 } AMS_Flags_u;
 
