@@ -63,9 +63,25 @@ typedef union VCU_Flags_Ctrl {
 	};
 } VCU_Flags_Ctrl_u;
 
+typedef union VCU_Flags_Dash {
+	uint16_t rawMem;
+	struct {
+		uint8_t HB_AMS : 1;
+		uint8_t HB_VCU_SHDN : 1;
+		uint8_t S_Steer0 : 1;
+		uint8_t S_Steer1 : 1;
+		uint8_t IMP_Steer : 1;
+		uint8_t LED_AMS : 1;
+		uint8_t LED_IMD : 1;
+		uint8_t LED_BSPD : 1;
+		uint8_t LED_PDOC : 1;
+	};
+} VCU_Flags_Dash_u;
+
 typedef union VCU_Flags_Other {
 	uint16_t rawMem;
 	VCU_Flags_Ctrl_u ctrl;
+	VCU_Flags_Dash_u dash;
 } VCU_Flags_Other_u;
 
 typedef struct VCU_HeartbeatState {
