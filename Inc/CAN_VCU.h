@@ -65,9 +65,12 @@ typedef union VCU_Flags_Ctrl {
 
 typedef union VCU_Flags_Dash {
 	uint16_t rawMem;
+	// 11 bits
 	struct {
 		uint8_t HB_AMS : 1;
 		uint8_t HB_VCU_SHDN : 1;
+		uint8_t S_Sus_L : 1;
+		uint8_t S_Sus_R : 1;
 		uint8_t S_Steer0 : 1;
 		uint8_t S_Steer1 : 1;
 		uint8_t IMP_Steer : 1;
