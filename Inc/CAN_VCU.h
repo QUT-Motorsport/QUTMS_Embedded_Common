@@ -11,7 +11,7 @@
 #include <QUTMS_can.h>
 #include <stdbool.h>
 
-#define VCU_ID_REAR 0
+#define VCU_ID_SHDN 0
 #define VCU_ID_CTRL 1
 #define VCU_ID_DASH 2
 
