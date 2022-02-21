@@ -16,31 +16,32 @@
 #define VCU_ID_DASH 2
 
 enum VCU_STATES {
-	VCU_STATE_START 			= 0x00,
-	VCU_STATE_PERIPHERAL_INIT 	= 0x01,
-	VCU_STATE_SENSOR_INIT 		= 0x02,
-	VCU_STATE_BOARD_CHECK 		= 0x03,
-	VCU_STATE_AMS_CHECK 		= 0x04,
-	VCU_STATE_IDLE				= 0x05,
+	VCU_STATE_START = 0x00,
+	VCU_STATE_PERIPHERAL_INIT = 0x01,
+	VCU_STATE_SENSOR_INIT = 0x02,
+	VCU_STATE_BOARD_CHECK = 0x03,
+	VCU_STATE_AMS_CHECK = 0x04,
+	VCU_STATE_IDLE = 0x05,
 	VCU_STATE_PRECHARGE_REQUEST = 0x06,
-	VCU_STATE_PRECHARGE 		= 0x07,
-	VCU_STATE_INVERTER_CHECK 	= 0x08,
-	VCU_STATE_RTD_RDY 			= 0x09,
-	VCU_STATE_RTD_BTN 			= 0x10,
-	VCU_STATE_DRIVING 			= 0x11,
-	VCU_STATE_DASH				= 0x12,
-	VCU_STATE_SHUTDOWN 			= 0x0F,
-	VCU_STATE_TS_ERROR			= 0xFE,
-	VCU_STATE_ERROR 			= 0xFF
+	VCU_STATE_PRECHARGE = 0x07,
+	VCU_STATE_INVERTER_CHECK = 0x08,
+	VCU_STATE_RTD_RDY = 0x09,
+	VCU_STATE_RTD_BTN = 0x10,
+	VCU_STATE_DRIVING = 0x11,
+	VCU_STATE_DASH = 0x12,
+	VCU_STATE_SHDN = 0x13,
+	VCU_STATE_SHUTDOWN = 0x0F,
+	VCU_STATE_TS_ERROR = 0xFE,
+	VCU_STATE_ERROR = 0xFF
 };
 
 typedef union VCU_Flags_Core {
 	uint8_t rawMem;
 	struct {
-		uint8_t P_CAN : 1;
-		uint8_t P_ADC : 1;
-		uint8_t P_ISRC : 1;
-		uint8_t P_IMU : 1;
+		uint8_t P_CAN :1;
+		uint8_t P_ADC :1;
+		uint8_t P_ISRC :1;
+		uint8_t P_IMU :1;
 	};
 } VCU_Flags_Core_u;
 
@@ -68,24 +69,34 @@ typedef union VCU_Flags_Dash {
 	uint16_t rawMem;
 	// 11 bits
 	struct {
-		uint8_t HB_AMS : 1;
-		uint8_t HB_VCU_SHDN : 1;
-		uint8_t S_Sus_L : 1;
-		uint8_t S_Sus_R : 1;
-		uint8_t S_Steer0 : 1;
-		uint8_t S_Steer1 : 1;
-		uint8_t IMP_Steer : 1;
-		uint8_t LED_AMS : 1;
-		uint8_t LED_IMD : 1;
-		uint8_t LED_BSPD : 1;
-		uint8_t LED_PDOC : 1;
+		uint8_t HB_AMS :1;
+		uint8_t HB_VCU_SHDN :1;
+		uint8_t S_Sus_L :1;
+		uint8_t S_Sus_R :1;
+		uint8_t S_Steer0 :1;
+		uint8_t S_Steer1 :1;
+		uint8_t IMP_Steer :1;
+		uint8_t LED_AMS :1;
+		uint8_t LED_IMD :1;
+		uint8_t LED_BSPD :1;
+		uint8_t LED_PDOC :1;
 	};
 } VCU_Flags_Dash_u;
+
+typedef union VCU_Flags_SHDN {
+	uint16_t rawMem;
+	struct {
+		uint8_t S_Sus_L : 1;
+		uint8_t S_Sus_R : 1;
+		uint8_t SHDN_Status : 1;
+	};
+} VCU_Flags_SHDN_u;
 
 typedef union VCU_Flags_Other {
 	uint16_t rawMem;
 	VCU_Flags_Ctrl_u ctrl;
 	VCU_Flags_Dash_u dash;
+	VCU_Flags_SHDN_u shdn;
 } VCU_Flags_Other_u;
 
 typedef struct VCU_HeartbeatState {
