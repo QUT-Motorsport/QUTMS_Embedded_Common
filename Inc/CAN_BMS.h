@@ -17,7 +17,7 @@
 // 4 temperatures per BMS temperature CAN message
 #define BMS_TEMP_PACK_COUNT 6
 
-#define BMS_TEMP_COUNT 12
+#define BMS_TEMP_COUNT 14
 
 #define BMS_VOLT_PACK_COUNT 4
 #define BMS_VOLT_COUNT 10
