@@ -9,9 +9,7 @@
 #define INC_AMS_CAN_MESSAGES_H_
 
 #include <QUTMS_can.h>
-#include "stdbool.h"
-#include "main.h"
-#include "can.h"
+#include <stdbool.h>
 #include <stdlib.h>
 
 enum AMS_STATES {
@@ -28,7 +26,6 @@ enum AMS_STATES {
 	AMS_STATE_CHARGING_READY = 0x0A,
 	AMS_STATE_CHARGING_PRECHARGE = 0x0B,
 	AMS_STATE_CHARGING_TS_ACTIVE = 0x0C,
-	AMS_STATE_CHARGING_SHUTDOWN = 0x0D,
 	AMS_STATE_SHUTDOWN = 0x0F,
 	AMS_STATE_TRIG_SHUTDOWN = 0x1F,
 	AMS_STATE_ERROR = 0xFF
@@ -36,12 +33,13 @@ enum AMS_STATES {
 
 typedef union AMS_Flags {
 	uint16_t rawMem;
-	//
+	// 16 bits
 	struct {
 		uint8_t HB_BMS : 1;
 		uint8_t HB_SENDYNE1 : 1;
 		uint8_t HB_SENDYNE2 : 1;
 		uint8_t HB_VCU_CTRL : 1;
+		uint8_t HB_CHRG_CTRL : 1;
 		uint8_t P_CAN2 : 1;
 		uint8_t P_CAN4 : 1;
 		uint8_t C_HVAn : 1;
