@@ -32,6 +32,7 @@ extern "C" {
 #define CAN_TYPE_RECEIVE 0x1
 #define CAN_TYPE_TRANSMIT 0x2
 #define CAN_TYPE_HEARTBEAT 0x3
+#define CAN_TYPE_OBJ_DICT 0x4
 #define CAN_TYPE_STREAM 0x7
 
 #define DRIVER 0x00
@@ -42,13 +43,13 @@ extern "C" {
 
 // functions
 
-#define Compose_CANId(priority, sourceId, autonomous, type, extra, BMSId)(\
+#define Compose_CANId(priority, sourceId, autonomous, type, extra, boardIdx)(\
 		(((priority) & 0x3) << 27 \
 				| ((sourceId) & 0x1FF) << 18 \
 				| ((autonomous) & 0x1) << 17 \
 				| ((type) & 0x7) << 14 \
 				| ((extra) & 0x3FF) << 4 \
-				| ((BMSId) & 0xF)))
+				| ((boardIdx) & 0xF)))
 
 #define Compose_VESCCANId(type, vescid)((((type) << 8) | ((vescid))))
 
@@ -62,7 +63,7 @@ enum CAN_MSG_IDs {
 	AMS_Heartbeat_ID				= Compose_CANId(CAN_PRIORITY_HEARTBEAT, CAN_SRC_ID_AMS, DRIVER, CAN_TYPE_HEARTBEAT, 0x00, 0x0),
 	AMS_ShutdownTriggered_ID		= Compose_CANId(CAN_PRIORITY_ERROR, CAN_SRC_ID_AMS, DRIVER, CAN_TYPE_ERROR, 0x0, 0x0),
 	AMS_StartCharging_ID			= Compose_CANId(CAN_PRIORITY_NORMAL, CAN_SRC_ID_AMS, DRIVER, CAN_TYPE_RECEIVE, 0x0, 0x0),
-	AMS_OBJ_DICT_ID					= Compose_CANId(CAN_PRIORITY_NORMAL, CAN_SRC_ID_AMS, DRIVER, CAN_TYPE_RECEIVE, 0x3, 0x0),
+	AMS_OBJ_DICT_ID					= Compose_CANId(CAN_PRIORITY_NORMAL, CAN_SRC_ID_AMS, DRIVER, CAN_TYPE_OBJ_DICT, 0x0, 0x0),
 
 
 	AMS_CellVoltageShutdown_ID 		= Compose_CANId(CAN_PRIORITY_ERROR, CAN_SRC_ID_AMS, DRIVER, CAN_TYPE_ERROR, 0x0, 0x0),
@@ -127,7 +128,7 @@ enum CAN_MSG_IDs {
 	VCU_IMU_Gyro_ID 				= Compose_CANId(CAN_PRIORITY_NORMAL, CAN_SRC_ID_VCU, DRIVER, CAN_TYPE_TRANSMIT, 0x08, 0x00),
 	VCU_MotorTemp_ID 				= Compose_CANId(CAN_PRIORITY_NORMAL, CAN_SRC_ID_VCU, DRIVER, CAN_TYPE_TRANSMIT, 0x09, 0x00),
 
-	VCU_OBJ_DICT_ID					= Compose_CANId(CAN_PRIORITY_NORMAL, CAN_SRC_ID_VCU, DRIVER, CAN_TYPE_RECEIVE, 0x3, 0x0),
+	VCU_OBJ_DICT_ID					= Compose_CANId(CAN_PRIORITY_NORMAL, CAN_SRC_ID_VCU, DRIVER, CAN_TYPE_OBJ_DICT, 0x0, 0x0),
 
 #endif
 
