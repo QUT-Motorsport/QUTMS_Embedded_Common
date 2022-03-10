@@ -18,7 +18,7 @@ typedef union MCISO_Flags {
 	uint8_t rawMem;
 	struct {
 		uint8_t CAN_INV : 1;
-		uint8_t HB_CC : 1;
+		uint8_t HB_VCU_CTRL : 1;
 		uint8_t HB_INV0 : 1;
 		uint8_t HB_INV1 : 1;
 	};
