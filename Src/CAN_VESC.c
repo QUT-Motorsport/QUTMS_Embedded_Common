@@ -458,8 +458,9 @@ void Parse_VESC_CANPacketStatus5(uint8_t* data, int32_t* tachoRPM, float* inputV
 {
 	//	sb(data, 8);
 	*tachoRPM = (int32_t)((data[0] << 24) | (data[1] << 16) | (data[2] << 8) | data[3]);
-	*inputVoltage = (float)((data[4] << 8) | data[5]);
-	*inputVoltage /= 10;
+
+	int16_t inputVoltage_raw = ((data[4] << 8) | data[5]);
+	*inputVoltage = inputVoltage_raw / 10.0f;
 	*reserved = (float)((data[6] << 8) | data[7]);
 }
 

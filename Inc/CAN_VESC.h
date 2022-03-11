@@ -13,6 +13,8 @@
 #include <stdint.h>
 #include <stddef.h>
 
+#define NUM_VESC 4
+
 void * sb(void *inp, size_t len);
 void * sbo(void *inp, void *out, size_t len);
 
