@@ -42,6 +42,7 @@ typedef union VCU_Flags_Core {
 		uint8_t P_ADC :1;
 		uint8_t P_ISRC :1;
 		uint8_t P_IMU :1;
+		uint8_t P_Watchdog : 1;
 	};
 } VCU_Flags_Core_u;
 
