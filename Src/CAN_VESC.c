@@ -6,7 +6,8 @@
  */
 
 #include <CAN_VESC.h>
-#include "main.h"
+
+#ifdef QUTMS_CAN_VESC
 
 void * sb(void *inp, size_t len)
 {
@@ -506,3 +507,5 @@ void Parse_VESC_DetectApplyAllFOCRes(uint8_t* data, int8_t* result)
 	*result = data[0];
 	return; //Hmm how get ID?
 }
+
+#endif
