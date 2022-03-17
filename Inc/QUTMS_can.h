@@ -26,6 +26,7 @@ extern "C" {
 #define CAN_SRC_ID_CC 0x16
 #define CAN_SRC_ID_GENERAL_SENSOR 0x18
 #define CAN_SRC_ID_VCU 0x20
+#define CAN_SRC_ID_SW 	0x21
 #define CAN_SRC_ID_DEBUG 0x22
 
 #define CAN_TYPE_ERROR 0x0
@@ -112,6 +113,10 @@ enum CAN_MSG_IDs {
 	// Shutdown
 #ifdef QUTMS_CAN_SHDN
 	SHDN_ShutdownTriggered_ID		= Compose_CANId(CAN_PRIORITY_ERROR, CAN_SRC_ID_SHDN, DRIVER, CAN_TYPE_ERROR, 0x0, 0x0),
+#endif
+
+#ifdef QUTMS_CAN_SW
+	SW_Heartbeat_ID				= Compose_CANId(CAN_PRIORITY_HEARTBEAT, CAN_SRC_ID_SW, DRIVER, CAN_TYPE_HEARTBEAT, 0x00, 0x0),
 #endif
 
 	// VCU
