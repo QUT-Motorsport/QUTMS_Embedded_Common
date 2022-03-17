@@ -5,7 +5,7 @@
  *      Author: Calvin
  */
 
-#include "DEBUG_CAN_Messages.h"
+#include <CAN_Debug.h>
 
 
 DEBUG_EnterState_t Compose_DEBUG_EnterState(uint8_t boardID, uint8_t boardIndex, uint8_t stateID) {

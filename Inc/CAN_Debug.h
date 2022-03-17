@@ -5,15 +5,22 @@
  *      Author: Calvin
  */
 
-#ifndef COMMON_INC_DEBUG_CAN_MESSAGES_H_
-#define COMMON_INC_DEBUG_CAN_MESSAGES_H_
+#ifndef COMMON_INC_CAN_DEBUG_H_
+#define COMMON_INC_CAN_DEBUG_H_
 
-#include "QUTMS_can.h"
+#include <QUTMS_can.h>
 
 // ERROR CODES
 #define DEBUG_ERROR_APPS_IMPLAUSIBILITY			0x10 // T.4.2.5
 #define DEBUG_ERROR_BSE_IMPLAUSIBILITY			0x11 // T.4.3.3
 #define DEBUG_ERROR_PEDAL_IMPLAUSIBILITY		0x12 // EV.5.7
+
+typedef struct DEBUG_Version {
+	uint32_t id;
+	uint8_t data[4];
+} DEBUG_Version_t;
+
+DEBUG_Version_t Compose_DEBUG_Version (uint8_t boardID, uint8_t boardIndex, uint8_t vMajor, uint8_t vMinor);
 
 typedef struct DEBUG_EnterState
 {
@@ -39,4 +46,4 @@ typedef struct DEBUG_ErrorPresent
 
 DEBUG_ErrorPresent_t Compose_DEBUG_ErrorPresent(uint8_t boardID, uint8_t boardIndex, uint16_t errorCode);
 
-#endif /* COMMON_INC_DEBUG_CAN_MESSAGES_H_ */
+#endif /* COMMON_INC_CAN_DEBUG_H_ */

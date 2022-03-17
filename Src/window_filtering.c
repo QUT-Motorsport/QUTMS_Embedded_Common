@@ -8,13 +8,11 @@
 #include "window_filtering.h"
 #include <stdlib.h>
 
-void window_filter_initialize(window_filter_t *filter, uint32_t initial_value, size_t window_size) {
+void window_filter_initialize(window_filter_t *filter, uint32_t initial_value, uint16_t window_size) {
 	filter->current_idx = 0;
-	filter->window_size = window_size;
+	filter->window_size = (MAX_FILTER_SIZE < window_size) ? MAX_FILTER_SIZE : window_size;
 
-	filter->prev_values = calloc(window_size, sizeof(uint32_t));
-
-	for (int i = 0; i < window_size; i++) {
+	for (uint16_t i = 0; i < window_size; i++) {
 		filter->prev_values[i] = initial_value;
 	}
 	filter->running_sum = initial_value * window_size;
@@ -40,13 +38,5 @@ void window_filter_update(window_filter_t *filter, uint32_t new_value) {
 				% filter->window_size;
 
 		filter->current_filtered = (float)filter->running_sum / filter->window_size;
-	}
-}
-
-void window_filter_delete(window_filter_t *filter) {
-	if (filter->prev_values != NULL) {
-		free(filter->prev_values);
-		filter->prev_values = NULL;
-		filter->initialized = false;
 	}
 }

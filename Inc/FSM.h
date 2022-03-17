@@ -29,16 +29,15 @@ typedef struct fsm fsm_t;
  */
 typedef void (*fsm_function)(fsm_t*);
 
-typedef int (*fsm_log_function)(const char* restrict, ...);
+typedef void (*fsm_log_function)(const char *, size_t);
 
 /**
  * @brief FSM state
  */
 struct state {
-	fsm_function enter; /**< State enter function */
-	fsm_function iter; /**< State iterate function */
-	fsm_function exit; /**< State exit function */
-	char *stateName;
+	fsm_function enter;
+	fsm_function body;
+	uint8_t stateID;
 };
 
 /**
@@ -47,6 +46,10 @@ struct state {
 struct fsm {
 	state_t *currentState; /**< Current FSM State */
 	fsm_log_function log;
+
+	// generic callbacks to enter and exit (for debug CAN messages)
+	fsm_function state_enter;
+	fsm_function state_exit;
 };
 
 /**
@@ -54,7 +57,7 @@ struct fsm {
  * @param beginState The inital state to be set for the FSM
  * @return the initialized FSM object
  */
-fsm_t fsm_new(state_t *beginState);
+void fsm_init(fsm_t *fsm, state_t *beginState, fsm_function state_enter, fsm_function state_exit);
 
 /**
  * @brief Iterates the FSM by calling fsm->currentState->iter(fsm)
@@ -70,33 +73,6 @@ void fsm_iterate(fsm_t *fsm);
 void fsm_changeState(fsm_t *fsm, state_t *newState, char* changeReason);
 
 /**
- * @brief Gets a pointer to the current state of the FSM
- * @param fsm A pointer to the FSM object
- * @return A pointer to the current state object
- */
-state_t *fsm_getState_t(fsm_t *fsm);
-
-/**
- * @brief Gets the name of the current state of the FSM
- * @param fsm A pointer to the FSM object
- * @return A string of the name of the current FSM state
- */
-char* fsm_getState(fsm_t *fsm);
-
-/**
- * @brief Resets the FSM to a state without calling exit and enter function
- * @param fsm A pointer to the FSM object
- * @param resetState A pointer to the state to reset to
- */
-void fsm_reset(fsm_t *fsm, state_t *resetState);
-
-/**
- * @brief Delete by memory freeing the FSM object
- * @param fsm A pointer to the FSM object
- */
-void fsm_delete(fsm_t *fsm);
-
-/**
  * @brief Set the function that the fsm will log with
  * @param fsm the fsm object to set the log function for
  * @param func the function that will be called when fsm->log is called
@@ -106,11 +82,11 @@ void fsm_delete(fsm_t *fsm);
 void fsm_setLogFunction(fsm_t *fsm, fsm_log_function func);
 
 /**
- * @brief Logs informaiton based on the user defined log function
+ * @brief Logs information based on the user defined log function
  * @param fsm The fsm object
  * @param msg The message to log
  * @param length The strlen() of the message
  */
-void fsm_log(fsm_t *fsm, char* msg, ...);
+void fsm_log(fsm_t *fsm, char* msg, size_t len);
 
 #endif /* INC_FSM_H_ */
