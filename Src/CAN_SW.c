@@ -8,6 +8,8 @@
 #include "CAN_SW.h"
 #include <QUTMS_can.h>
 
+#ifdef QUTMS_CAN_SW
+
 SW_Heartbeat_t Compose_SW_Heartbeat(SW_HeartbeatState_t *state) {
 	SW_Heartbeat_t msg;
 
@@ -24,3 +26,5 @@ void Parse_SW_Heartbeat(uint8_t data[3], SW_HeartbeatState_t *state) {
 	state->stateID = data[0];
 	state->flags.rawMem = (data[1] | (data[2] << 8));
 }
+
+#endif
