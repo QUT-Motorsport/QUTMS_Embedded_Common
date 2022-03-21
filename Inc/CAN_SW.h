@@ -23,6 +23,7 @@ typedef union SW_Flags {
 		uint8_t HB_VCU_SHDN : 1;
 		uint8_t P_CAN1 : 1;
 		uint8_t P_ADC : 1;
+		uint8_t FAN_ENABLE : 1;
 	};
 } SW_Flags_u;
 
