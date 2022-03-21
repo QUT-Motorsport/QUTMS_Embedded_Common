@@ -13,8 +13,9 @@
 void OD_init(obj_dict_t *obj_dict) {
 	// default values for all variables
 	for (int i = 0; i < OBJECT_COUNT; i++) {
-		obj_dict->variables[i] = 0;
-		obj_dict->update_flag[i] = true;
+		// clear to zero
+		*((uint32_t *)obj_dict->variables[i].variable) = 0;
+		obj_dict->variables[i].update = 1;
 	}
 
 	obj_dict->init = true;
@@ -29,15 +30,17 @@ bool OD_handleCAN(obj_dict_t *obj_dict, uint8_t data[8], uint8_t *output) {
 	uint8_t type = data[0];
 	uint8_t data_size = data[1];
 
-	if (data_size != sizeof(OD_type_t)) {
+	if (data_size != sizeof(uint32_t)) {
 		return false;
 	}
 
 	uint8_t index = data[2];
+	uint8_t value_type = data[3];
 
-	OD_type_t value = 0;
+
+	uint32_t value = 0;
 	for (int i = 0; i < data_size; i++) {
-		value |= (data[3 + i] << (i * 8));
+		value |= (data[4 + i] << (i * 8));
 	}
 
 	if (type == OD_MSG_GET) {
@@ -46,10 +49,10 @@ bool OD_handleCAN(obj_dict_t *obj_dict, uint8_t data[8], uint8_t *output) {
 		if (index < OBJECT_COUNT) {
 			// don't clear the flag upon retrieving here
 			// since this was an external request
-			value = OD_getValue(obj_dict, index, false);
+			OD_getValue(obj_dict, index, false, &value);
 
 			// generate output CAN message with value
-			OD_generateCAN(obj_dict, OD_MSG_VALUE, index, value, output);
+			OD_generateCAN(obj_dict, OD_MSG_VALUE, index, &value, value_type, output);
 
 			// need to send a response, so return true so we can use the CAN output
 			return true;
@@ -61,10 +64,10 @@ bool OD_handleCAN(obj_dict_t *obj_dict, uint8_t data[8], uint8_t *output) {
 		// set value request
 
 		// set the value as request
-		OD_type_t new_value = OD_setValue(obj_dict, index, value);
+		OD_setValue(obj_dict, index, &value);
 
 		// generate output CAN message with value as confirmation
-		OD_generateCAN(obj_dict, OD_MSG_VALUE, index, new_value, output);
+		OD_generateCAN(obj_dict, OD_MSG_VALUE, index, &value, value_type, output);
 
 		// need to send a response, so return true so we can use the CAN output
 		return true;
@@ -85,8 +88,8 @@ bool OD_handleCAN(obj_dict_t *obj_dict, uint8_t data[8], uint8_t *output) {
 }
 
 // generates body for CAN message
-void OD_generateCAN(obj_dict_t *obj_dict, uint8_t type, uint8_t index,
-		OD_type_t value, uint8_t output[8]) {
+void OD_generateCAN(obj_dict_t *obj_dict, uint8_t msg_type, uint8_t index,
+		void *value, uint8_t value_type, uint8_t output[8]) {
 	if (!obj_dict->init) {
 		OD_init(obj_dict);
 	}
@@ -94,26 +97,29 @@ void OD_generateCAN(obj_dict_t *obj_dict, uint8_t type, uint8_t index,
 	// clear output to all zeros
 	memset(output, 0, 8);
 
-	uint8_t data_size = sizeof(OD_type_t);
+	uint8_t data_size = sizeof(uint32_t);
 
 	// 0 - get, 1 - set
 	// output[0 - 3:0] : value size
 	// output[0 - 7:4] : request type
 
-	output[0] = type;
+	output[0] = msg_type;
 	output[1] = data_size;
 
 	// index in dictionary
 	output[2] = index;
+	output[3] = value_type;
+
+	uint32_t data = *((uint32_t *)value);
 
 	// copy value
 	for (int i = 0; i < data_size; i++) {
-		output[3 + i] = (value >> (i * 8)) & 0xff;
+		output[4 + i] = (data >> (i * 8)) & 0xff;
 	}
 }
 
 // retrieves value from object dictionary
-OD_type_t OD_getValue(obj_dict_t *obj_dict, uint8_t index, bool clearFlag) {
+bool OD_getValue(obj_dict_t *obj_dict, uint8_t index, bool clearFlag, void *value) {
 	if (!obj_dict->init) {
 		OD_init(obj_dict);
 	}
@@ -121,32 +127,34 @@ OD_type_t OD_getValue(obj_dict_t *obj_dict, uint8_t index, bool clearFlag) {
 	if (index < OBJECT_COUNT) {
 
 		if (clearFlag) {
-			obj_dict->update_flag[index] = false;
+			obj_dict->variables[index].update = 0;
 		}
 
-		return obj_dict->variables[index];
+		// copy to output value
+		memcpy(value, obj_dict->variables[index].variable, 4);
+
+		return true;
 	} else {
-		return 0;
+		return false;
 	}
 }
 
 // sets value in object dictionary
-OD_type_t OD_setValue(obj_dict_t *obj_dict, uint8_t index, OD_type_t value) {
+bool OD_setValue(obj_dict_t *obj_dict, uint8_t index, void *value) {
 	if (!obj_dict->init) {
 		OD_init(obj_dict);
 	}
 
 	if (index < OBJECT_COUNT) {
 		// update variable in dictionary
-		obj_dict->variables[index] = value;
+		memcpy(obj_dict->variables[index].variable, value, 4);
 
 		// flag this variable as having been updated
-		obj_dict->update_flag[index] = true;
+		obj_dict->variables[index].update = 1;
 
-		// return updated value as confirmation
-		return obj_dict->variables[index];
+		return true;
 	} else {
-		return 0;
+		return false;
 	}
 }
 
@@ -157,7 +165,7 @@ bool OD_flagStatus(obj_dict_t *obj_dict, uint8_t index) {
 	}
 
 	if (index < OBJECT_COUNT) {
-		return obj_dict->update_flag[index];
+		return obj_dict->variables[index].update == 1;
 	} else {
 		return false;
 	}
