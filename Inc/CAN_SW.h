@@ -39,4 +39,10 @@ typedef struct SW_Heartbeat {
 SW_Heartbeat_t Compose_SW_Heartbeat(SW_HeartbeatState_t *state);
 void Parse_SW_Heartbeat(uint8_t data[3], SW_HeartbeatState_t *state);
 
+typedef struct SW_ActivateHorn {
+	uint32_t id;
+} SW_ActivateHorn_t;
+
+SW_ActivateHorn_t Compose_SW_ActivateHorn();
+
 #endif /* COMMON_INC_CAN_SW_H_ */

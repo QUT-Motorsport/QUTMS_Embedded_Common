@@ -27,4 +27,11 @@ void Parse_SW_Heartbeat(uint8_t data[3], SW_HeartbeatState_t *state) {
 	state->flags.rawMem = (data[1] | (data[2] << 8));
 }
 
+SW_ActivateHorn_t Compose_SW_ActivateHorn() {
+	SW_ActivateHorn_t msg;
+	msg.id = SW_ActivateHorn_ID;
+
+	return msg;
+}
+
 #endif
