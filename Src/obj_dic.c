@@ -85,7 +85,7 @@ bool OD_handleCAN(obj_dict_t *obj_dict, uint8_t data[8], uint8_t *output) {
 			OD_getValue(obj_dict, index, false, &value);
 
 			// generate output CAN message with value
-			OD_generateCAN(obj_dict, OD_MSG_VALUE, index, &value, value_type, output);
+			OD_generateCAN(OD_MSG_VALUE, index, &value, value_type, output);
 
 			// need to send a response, so return true so we can use the CAN output
 			return true;
@@ -102,7 +102,7 @@ bool OD_handleCAN(obj_dict_t *obj_dict, uint8_t data[8], uint8_t *output) {
 		OD_setValue(obj_dict, index, &value);
 
 		// generate output CAN message with value as confirmation
-		OD_generateCAN(obj_dict, OD_MSG_VALUE, index, &value, value_type, output);
+		OD_generateCAN(OD_MSG_VALUE, index, &value, value_type, output);
 
 		// need to send a response, so return true so we can use the CAN output
 		return true;
@@ -125,11 +125,8 @@ bool OD_handleCAN(obj_dict_t *obj_dict, uint8_t data[8], uint8_t *output) {
 }
 
 // generates body for CAN message
-void OD_generateCAN(obj_dict_t *obj_dict, uint8_t msg_type, uint8_t index, void *value, uint8_t value_type,
+void OD_generateCAN(uint8_t msg_type, uint8_t index, void *value, uint8_t value_type,
 		uint8_t output[8]) {
-	if (!obj_dict->init) {
-		OD_init(obj_dict);
-	}
 
 	// clear output to all zeros
 	memset(output, 0, 8);

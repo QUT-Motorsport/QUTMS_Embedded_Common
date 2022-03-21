@@ -47,7 +47,7 @@ uint8_t OD_getVariableSize(uint8_t data_type);
 bool OD_handleCAN(obj_dict_t *obj_dict, uint8_t data[8], uint8_t *output);
 
 // generates body for CAN message
-void OD_generateCAN(obj_dict_t *obj_dict, uint8_t msg_type, uint8_t index, void *value, uint8_t value_type,
+void OD_generateCAN(uint8_t msg_type, uint8_t index, void *value, uint8_t value_type,
 		uint8_t output[8]);
 
 bool OD_initValue(obj_dict_t *obj_dict, uint8_t index, uint8_t data_type, void *value);
