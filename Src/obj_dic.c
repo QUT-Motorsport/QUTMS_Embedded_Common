@@ -134,7 +134,7 @@ void OD_generateCAN(obj_dict_t *obj_dict, uint8_t msg_type, uint8_t index, void 
 	// clear output to all zeros
 	memset(output, 0, 8);
 
-	uint8_t data_size = sizeof(uint32_t);
+	uint8_t data_size = OD_getVariableSize(value_type);
 
 	// 0 - get, 1 - set
 	// output[0 - 3:0] : value size
