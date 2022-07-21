@@ -7,7 +7,7 @@
 
 #include <CAN_VCU.h>
 
-#ifdef QUTMS_VCU
+#ifdef QUTMS_CAN_VCU
 
 VCU_Heartbeat_t Compose_VCU_Heartbeat(uint8_t id, VCU_HeartbeatState_t *state) {
 	VCU_Heartbeat_t msg;
