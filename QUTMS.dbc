@@ -1,0 +1,63 @@
+VERSION ""
+
+
+NS_ : 
+	NS_DESC_
+	CM_
+	BA_DEF_
+	BA_
+	VAL_
+	CAT_DEF_
+	CAT_
+	FILTER
+	BA_DEF_DEF_
+	EV_DATA_
+	ENVVAR_DATA_
+	SGTYPE_
+	SGTYPE_VAL_
+	BA_DEF_SGTYPE_
+	BA_SGTYPE_
+	SIG_TYPE_REF_
+	VAL_TABLE_
+	SIG_GROUP_
+	SIG_VALTYPE_
+	SIGTYPE_VALTYPE_
+	BO_TX_BU_
+	BA_DEF_REL_
+	BA_REL_
+	BA_DEF_DEF_REL_
+	BU_SG_REL_
+	BU_EV_REL_
+	BU_BO_REL_
+	SG_MUL_VAL_
+
+BS_:
+
+BU_:
+
+
+BO_ 270843904 BMU_Heartbeat: 8 Vector__XXX
+ SG_ BMU_HB_SOC : 56|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_HB_Voltage : 40|16@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_HB_CMU_STATUS : 24|16@1- (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_HB_Flags : 8|16@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_HB_State : 0|8@1+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 142639216 VCU_IMU_Accel_0: 8 Vector__XXX
+ SG_ IMU_Accel_Scale_0 : 7|16@0- (1,0) [0|0] "" Vector__XXX
+
+BO_ 142639152 VCU_Pedal_Brake: 8 Vector__XXX
+ SG_ Pedal_Brake_ADC_1 : 48|16@1+ (1,0) [0|4095] "" Vector__XXX
+ SG_ Pedal_Brake_ADC_0 : 32|16@1+ (1,0) [0|4095] "" Vector__XXX
+ SG_ Pedal_Brake_1 : 16|16@1+ (1,0) [0|1000] "" Vector__XXX
+ SG_ Pedal_Brake_0 : 0|16@1+ (1,0) [0|1000] "" Vector__XXX
+
+BO_ 142639136 VCU_Pedal_Accel: 4 Vector__XXX
+ SG_ Pedal_Accel_1 : 16|16@1+ (1,0) [0|1000] "" Vector__XXX
+ SG_ Pedal_Accel_0 : 0|16@1+ (1,0) [0|1000] "" Vector__XXX
+
+
+
+BA_DEF_  "BusType" STRING ;
+BA_DEF_DEF_  "BusType" "CAN";
+
