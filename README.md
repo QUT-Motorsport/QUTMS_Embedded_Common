@@ -1,6 +1,37 @@
 # QUTMS_Embedded_Common
 Common libraries to be shared across embedded board source code
 
+# Use with CPP & QUTMS_Driverless
+The embedded common library can be used in ROS & C++ to expose the functionality of Parsing and Composing can messages. Follow these steps to ensure that the libraries are included, compilied and are usable in VSCode.
+1. Add `include_directories(${CMAKE_SOURCE_DIR}/../../hardware/QUTMS_Embedded_Common/Inc)` to the nodes `CmakeLists.txt`
+2. For each required library, add `add_compile_definitions(QUTMS_CAN_[XXX])` where `[XXX]` could be `VCU` or `AMS` etc to the `CMakeLists.txt`.
+3. For each required library, add `${CMAKE_SOURCE_DIR}/../../hardware/QUTMS_Embedded_Common/Src/[XXX].c` to your nodes `CMakeLists.txt`.
+4. Add `SET_SOURCE_FILES_PROPERTIES(${SOURCES} PROPERTIES LANGUAGE CXX)` so `CXX` is used for `C` extension files. 
+5. For each required library, add `QUTMS_CAN_[XXX]` to the `defines` field in the `c_cpp_properties.json` config.
+
+Example:\
+`CMakeLists.txt`:
+```cmake
+add_compile_definitions(QUTMS_CAN_VCU)
+include_directories(${CMAKE_SOURCE_DIR}/../../hardware/QUTMS_Embedded_Common/Inc)
+
+set (SOURCES
+  ${CMAKE_SOURCE_DIR}/../../hardware/QUTMS_Embedded_Common/Src/CAN_VCU.c
+)
+
+SET_SOURCE_FILES_PROPERTIES(${SOURCES} PROPERTIES LANGUAGE CXX )
+```
+`c_cpp_properties`:
+```json
+"defines": [
+	"QUTMS_CAN_VCU"
+],
+```
+`node.cpp`:
+```c++
+#include "CAN_VCU.h"
+#include "QUTMS_can.h"
+```
 # Setup
 1. cd to `Project/Software/Core/`
 2. Run `git submodule add https://github.com/QUT-Motorsport/QUTMS_Embedded_Common.git ./Common/`

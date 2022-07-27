@@ -41,50 +41,49 @@ enum VCU_STATES {
 typedef union VCU_Flags_Core {
 	uint8_t rawMem;
 	struct {
-		uint8_t P_CAN :1;
-		uint8_t P_ADC :1;
-		uint8_t P_ISRC :1;
-		uint8_t P_IMU :1;
+		uint8_t P_CAN : 1;
+		uint8_t P_ADC : 1;
+		uint8_t P_ISRC : 1;
+		uint8_t P_IMU : 1;
 		uint8_t P_Watchdog : 1;
-	};
+	} _VCU_Flags_Core;
 } VCU_Flags_Core_u;
 
 typedef union VCU_Flags_Ctrl {
 	uint16_t rawMem;
 	// 12 bits
 	struct {
-		uint8_t HB_AMS :1;
-		uint8_t HB_MCISO :1;
-		uint8_t HB_INV :1;
-		uint8_t S_Accel0 :1;
-		uint8_t S_Accel1 :1;
-		uint8_t S_Brake0 :1;
-		uint8_t S_Brake1 :1;
-		uint8_t PCHRG_Failed :1;
-		uint8_t SHDN :1;
-		uint8_t IMP_APPS :1; 		// T.4.2.5
-		uint8_t IMP_BSE :1; 		// T.4.3.3
-		uint8_t IMP_Pedal :1; 		// EV.5.7
-
-	};
+		uint8_t HB_AMS : 1;
+		uint8_t HB_MCISO : 1;
+		uint8_t HB_INV : 1;
+		uint8_t S_Accel0 : 1;
+		uint8_t S_Accel1 : 1;
+		uint8_t S_Brake0 : 1;
+		uint8_t S_Brake1 : 1;
+		uint8_t PCHRG_Failed : 1;
+		uint8_t SHDN : 1;
+		uint8_t IMP_APPS : 1;	// T.4.2.5
+		uint8_t IMP_BSE : 1;	// T.4.3.3
+		uint8_t IMP_Pedal : 1;	// EV.5.7
+	} _VCU_Flags_Ctrl;
 } VCU_Flags_Ctrl_u;
 
 typedef union VCU_Flags_Dash {
 	uint16_t rawMem;
 	// 11 bits
 	struct {
-		uint8_t HB_AMS :1;
-		uint8_t HB_VCU_SHDN :1;
-		uint8_t S_Sus_L :1;
-		uint8_t S_Sus_R :1;
-		uint8_t S_Steer0 :1;
-		uint8_t S_Steer1 :1;
-		uint8_t IMP_Steer :1;
-		uint8_t LED_AMS :1;
-		uint8_t LED_IMD :1;
-		uint8_t LED_BSPD :1;
-		uint8_t LED_PDOC :1;
-	};
+		uint8_t HB_AMS : 1;
+		uint8_t HB_VCU_SHDN : 1;
+		uint8_t S_Sus_L : 1;
+		uint8_t S_Sus_R : 1;
+		uint8_t S_Steer0 : 1;
+		uint8_t S_Steer1 : 1;
+		uint8_t IMP_Steer : 1;
+		uint8_t LED_AMS : 1;
+		uint8_t LED_IMD : 1;
+		uint8_t LED_BSPD : 1;
+		uint8_t LED_PDOC : 1;
+	} _VCU_Flags_Dash;
 } VCU_Flags_Dash_u;
 
 typedef union VCU_Flags_SHDN {
@@ -93,7 +92,7 @@ typedef union VCU_Flags_SHDN {
 		uint8_t S_Sus_L : 1;
 		uint8_t S_Sus_R : 1;
 		uint8_t SHDN_Status : 1;
-	};
+	} _VCU_Flags_SHDN;
 } VCU_Flags_SHDN_u;
 
 typedef union VCU_Flags_Other {
@@ -172,9 +171,10 @@ typedef struct VCU_ShutdownStatus_t {
 	uint8_t data[3];
 } VCU_ShutdownStatus_t;
 
-VCU_ShutdownStatus_t Compose_VCU_ShutdownStatus(uint8_t line0, uint8_t line1, uint8_t line2, uint8_t line3, bool status);
+VCU_ShutdownStatus_t Compose_VCU_ShutdownStatus(uint8_t line0, uint8_t line1, uint8_t line2, uint8_t line3,
+												bool status);
 void Parse_VCU_ShutdownStatus(uint8_t *data, uint8_t *line0, uint8_t *line1, uint8_t *line2, uint8_t *line3,
-bool *status);
+							  bool *status);
 
 typedef struct VCU_Pedal_Accel {
 	uint32_t id;

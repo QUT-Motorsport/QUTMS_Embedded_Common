@@ -89,14 +89,14 @@ VCU_LinearTravel_t Compose_VCU_LinearTravel(uint8_t VCU_ID, bool front, uint16_t
 	VCU_LinearTravel_t msg;
 	msg.id = VCU_LinearTravel_ID | VCU_ID;
 
-// position
+	// position
 	msg.data[0] = front ? 0 : 1;
 
-// left
+	// left
 	msg.data[1] = (t0 >> 8) & 0xFF;
 	msg.data[2] = (t0 >> 0) & 0xFF;
 
-// right
+	// right
 	msg.data[3] = (t1 >> 8) & 0xFF;
 	msg.data[4] = (t1 >> 0) & 0xFF;
 
@@ -132,7 +132,8 @@ void Parse_VCU_TransmitSteering(uint8_t *data, int16_t *steering0, int16_t *stee
 	*steering1 = (data[3]) << 8 | data[2];
 }
 
-VCU_ShutdownStatus_t Compose_VCU_ShutdownStatus(uint8_t line0, uint8_t line1, uint8_t line2, uint8_t line3, bool status) {
+VCU_ShutdownStatus_t Compose_VCU_ShutdownStatus(uint8_t line0, uint8_t line1, uint8_t line2, uint8_t line3,
+												bool status) {
 	VCU_ShutdownStatus_t msg;
 	msg.id = VCU_ShutdownStatus_ID;
 
@@ -144,7 +145,7 @@ VCU_ShutdownStatus_t Compose_VCU_ShutdownStatus(uint8_t line0, uint8_t line1, ui
 }
 
 void Parse_VCU_ShutdownStatus(uint8_t *data, uint8_t *line0, uint8_t *line1, uint8_t *line2, uint8_t *line3,
-bool *status) {
+							  bool *status) {
 	*line0 = data[0] & 0xF;
 	*line1 = (data[0] >> 4) & 0xF;
 	*line2 = data[1] & 0xF;
@@ -162,7 +163,6 @@ VCU_Pedal_Accel_t Compose_VCU_Pedal_Accel(uint16_t accel0, uint16_t accel1) {
 	msg.data[3] = (accel1 >> 0) & 0xFF;
 
 	return msg;
-
 }
 
 void Parse_VCU_Pedal_Accel(uint8_t *data, uint16_t *accel0, uint16_t *accel1) {
