@@ -52,9 +52,11 @@ extern "C" {
 #define Compose_VESCCANId(type, vescid) ((((type) << 8) | ((vescid))))
 
 enum CAN_MSG_IDs {
+	// Charge Controller
+#ifdef QUTMS_CAN_CHRG_CTRL
 	CHRGCTRL_Heartbeat_ID =
 		Compose_CANId(CAN_PRIORITY_HEARTBEAT, CAN_SRC_ID_CHRGCTRL, DRIVER, CAN_TYPE_HEARTBEAT, 0x00, 0x0),
-
+#endif
 /** AMS */
 #ifdef QUTMS_CAN_AMS
 	AMS_Heartbeat_ID = Compose_CANId(CAN_PRIORITY_HEARTBEAT, CAN_SRC_ID_AMS, DRIVER, CAN_TYPE_HEARTBEAT, 0x00, 0x0),

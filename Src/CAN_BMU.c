@@ -5,10 +5,9 @@
  *      Author: Calvin Johnson
  */
 
-#include <CAN_BMU.h>
-
-
 #ifdef QUTMS_CAN_BMU
+
+#include <CAN_BMU.h>
 
 BMU_Heartbeat_t Compose_BMU_Heartbeat(BMU_HeartbeatState_t *state) {
 	BMU_Heartbeat_t msg;

@@ -5,6 +5,8 @@
  *      Author: Calvin J
  */
 
+#ifdef QUTMS_CAN_CHRG_CTRL
+
 #include "CAN_ChrgCtrl.h"
 
 CHRGCTRL_Heartbeat_t Compose_CHRG_CTRL_Hearbeat(CHRGCTRL_HeartbeatState_t *state) {
@@ -21,3 +23,5 @@ void Parse_CHRG_CTRL_Hearbeat(uint8_t *data, CHRGCTRL_HeartbeatState_t *state) {
 	state->stateID = data[0];
 	state->flags.rawMem = data[1];
 }
+
+#endif

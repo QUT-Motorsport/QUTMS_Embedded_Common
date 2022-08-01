@@ -1,3 +1,5 @@
+#ifdef QUTMS_CAN_DVL
+
 #include "CAN_DVL.h"
 
 DVL_Heartbeat_t Compose_DVL_Heartbeat(DVL_HeartbeatState_t *state) {
@@ -22,3 +24,5 @@ void Parse_DVL_Heartbeat(uint8_t *data, DVL_HeartbeatState_t *state) {
 	state->flags.rawMem = (data[1] | (data[2] << 8));
 	state->speed = (float)(data[3] | (data[4] << 8)) / (float)INT16_MAX;
 }
+
+#endif

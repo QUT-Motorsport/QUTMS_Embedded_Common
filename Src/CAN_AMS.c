@@ -5,9 +5,9 @@
  ******************************************************************************
  */
 
-#include <CAN_AMS.h>
-
 #ifdef QUTMS_CAN_AMS
+
+#include <CAN_AMS.h>
 
 AMS_Heartbeat_t Compose_AMS_Heartbeat(AMS_HeartbeatState_t *state) {
 	AMS_Heartbeat_t msg;
