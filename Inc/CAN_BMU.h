@@ -34,13 +34,14 @@ enum BMU_STATES {
 
 typedef union BMU_Flags {
 	uint16_t rawMem;
-	// 14 bits
+	// 16 bits
 	struct {
 		uint8_t HB_CMU :1;
 		uint8_t HB_SENDYNE1 :1;
 		uint8_t HB_SENDYNE2 :1;
 		uint8_t HB_VCU_CTRL :1;
 		uint8_t HB_CHRG_CTRL :1;
+		uint8_t P_WATCHDOG : 1;
 		uint8_t P_CAN1 : 1;
 		uint8_t P_CAN2 : 1;
 		uint8_t BMU_SHDN : 1;
