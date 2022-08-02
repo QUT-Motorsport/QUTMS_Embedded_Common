@@ -33,8 +33,8 @@ enum BMU_STATES {
 };
 
 typedef union BMU_Flags {
-	uint16_t rawMem;
-	// 16 bits
+	uint32_t rawMem;
+	// 19 bits
 	struct {
 		uint8_t HB_CMU :1;
 		uint8_t HB_SENDYNE1 :1;
@@ -44,14 +44,17 @@ typedef union BMU_Flags {
 		uint8_t P_WATCHDOG : 1;
 		uint8_t P_CAN1 : 1;
 		uint8_t P_CAN2 : 1;
-		uint8_t BMU_SHDN : 1;
 		uint8_t C_POS : 1;
 		uint8_t C_NEG : 1;
 		uint8_t C_PCHRG : 1;
 		uint8_t PCHRG_TIMEOUT : 1;
-		uint8_t BMS_OVER_VOLT : 1;
-		uint8_t BMS_UNDER_VOLT : 1;
-		uint8_t BMS_BAD_TEMP : 1;
+		uint8_t CMU_OVER_VOLT : 1;
+		uint8_t CMU_UNDER_VOLT : 1;
+		uint8_t CMU_BAD_TEMP : 1;
+		uint8_t SHDN_BMU : 1;
+		uint8_t SHDN_PDOC : 1;
+		uint8_t SHDN_IMD : 1;
+		uint8_t SHDN_INTERLOCK : 1;
 	};
 } BMU_Flags_u;
 
@@ -59,13 +62,12 @@ typedef struct BMU_HeartbeatState {
 	uint8_t stateID;
 	BMU_Flags_u flags;
 	uint16_t cmuStatus;
-	uint16_t voltage;
 	uint8_t SOC;
 } BMU_HeartbeatState_t;
 
 typedef struct BMU_Heartbeat {
 	uint32_t id;
-	uint8_t data[8];
+	uint8_t data[7];
 } BMU_Heartbeat_t;
 
 BMU_Heartbeat_t Compose_BMU_Heartbeat(BMU_HeartbeatState_t *state);

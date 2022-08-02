@@ -16,11 +16,10 @@ BMU_Heartbeat_t Compose_BMU_Heartbeat(BMU_HeartbeatState_t *state) {
 	msg.data[0] = state->stateID;
 	msg.data[1] = (state->flags.rawMem) & 0xFF;
 	msg.data[2] = (state->flags.rawMem >> 8) & 0xFF;
-	msg.data[3] = (state->cmuStatus) & 0xFF;
-	msg.data[4] = (state->cmuStatus >> 8) & 0xFF;
-	msg.data[5] = (state->voltage) & 0xFF;
-	msg.data[6] = (state->voltage >> 8) & 0xFF;
-	msg.data[7] = state->SOC;
+	msg.data[3] = (state->flags.rawMem >> 16) & 0xFF;
+	msg.data[4] = (state->cmuStatus) & 0xFF;
+	msg.data[5] = (state->cmuStatus >> 8) & 0xFF;
+	msg.data[6] = state->SOC;
 
 	return msg;
 }
