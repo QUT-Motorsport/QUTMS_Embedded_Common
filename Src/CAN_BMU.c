@@ -24,4 +24,11 @@ BMU_Heartbeat_t Compose_BMU_Heartbeat(BMU_HeartbeatState_t *state) {
 	return msg;
 }
 
+void Parse_BMU_Heartbeat(uint8_t *data, BMU_HeartbeatState_t *state) {
+	state->stateID = data[0];
+	state->flags.rawMem = data[1] | (data[2] << 8) | (data[3] << 16);
+	state->cmuStatus = data[4] | (data[5] << 8);
+	state->SOC = data[6];
+}
+
 #endif
