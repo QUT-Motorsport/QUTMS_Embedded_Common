@@ -36,11 +36,13 @@ BS_:
 BU_:
 
 
+BO_ 3221225472 VECTOR__INDEPENDENT_SIG_MSG: 0 Vector__XXX
+ SG_ BMU_HB_Voltage : 0|16@1+ (1,0) [0|0] "" Vector__XXX
+
 BO_ 270843904 BMU_Heartbeat: 8 Vector__XXX
- SG_ BMU_HB_SOC : 56|8@1+ (1,0) [0|0] "" Vector__XXX
- SG_ BMU_HB_Voltage : 40|16@1+ (1,0) [0|0] "" Vector__XXX
- SG_ BMU_HB_CMU_STATUS : 24|16@1- (1,0) [0|0] "" Vector__XXX
- SG_ BMU_HB_Flags : 8|16@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_HB_SOC : 48|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_HB_CMU_STATUS : 32|16@1- (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_HB_Flags : 8|24@1+ (1,0) [0|0] "" Vector__XXX
  SG_ BMU_HB_State : 0|8@1+ (1,0) [0|0] "" Vector__XXX
 
 BO_ 142639216 VCU_IMU_Accel_0: 8 Vector__XXX
@@ -58,6 +60,7 @@ BO_ 142639136 VCU_Pedal_Accel: 4 Vector__XXX
 
 
 
+CM_ BO_ 3221225472 "This is a message for not used signals, created by Vector CANdb++ DBC OLE DB Provider.";
 BA_DEF_  "BusType" STRING ;
 BA_DEF_DEF_  "BusType" "CAN";
 
