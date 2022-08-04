@@ -50,7 +50,44 @@ BMU_TransmitVoltage_t Compose_BMU_TransmitVoltage(uint8_t cmuId, uint8_t packId,
 
 void Parse_BMU_TransmitVoltage(uint8_t *data, uint8_t *cmuId, uint8_t *packId,
 		uint16_t voltages[3]) {
+	*cmuId = data[0];
+	*packId = data[1];
+	voltages[0] = data[2] | (data[3] << 8);
+	voltages[1] = data[4] | (data[5] << 8);
+	voltages[2] = data[6] | (data[7] << 8);
+}
+
+BMU_TransmitTemperature_t Compose_BMU_TransmitTemperature(uint8_t cmuId, uint8_t packId,
+		uint8_t temps[6]) {
+	BMU_TransmitTemperature_t msg;
+	msg.id = BMU_TransmitTemperature_ID;
+
+	msg.data[0] = cmuId;
+	msg.data[1] = packId;
+	msg.data[2] = temps[0];
+	msg.data[3] = temps[1];
+	msg.data[4] = temps[2];
+	msg.data[5] = temps[3];
+	msg.data[6] = temps[4];
+	msg.data[7] = temps[5];
+
+	return msg;
+}
+
+void Parse_BMU_TransmitTemperatures(uint8_t *data, uint8_t *cmuId, uint8_t *packId,
+		uint8_t temps[6]) {
+	*cmuId = data[0];
+	*packId = data[1];
+	temps[0] = data[2];
+	temps[1] = data[3];
+	temps[2] = data[4];
+	temps[3] = data[5];
+	temps[4] = data[6];
+	temps[5] = data[7];
+
 
 }
+
+
 
 #endif
