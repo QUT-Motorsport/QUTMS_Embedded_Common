@@ -23,7 +23,7 @@ enum VCU_STATES {
 	VCU_STATE_PERIPHERAL_INIT = 0x01,
 	VCU_STATE_SENSOR_INIT = 0x02,
 	VCU_STATE_BOARD_CHECK = 0x03,
-	VCU_STATE_AMS_CHECK = 0x04,
+	VCU_STATE_BMU_CHECK = 0x04,
 	VCU_STATE_IDLE = 0x05,
 	VCU_STATE_PRECHARGE_REQUEST = 0x06,
 	VCU_STATE_PRECHARGE = 0x07,
@@ -53,7 +53,7 @@ typedef union VCU_Flags_Ctrl {
 	uint16_t rawMem;
 	// 12 bits
 	struct {
-		uint8_t HB_AMS : 1;
+		uint8_t HB_BMU : 1;
 		uint8_t HB_MCISO : 1;
 		uint8_t HB_INV : 1;
 		uint8_t S_Accel0 : 1;
@@ -72,7 +72,7 @@ typedef union VCU_Flags_Dash {
 	uint16_t rawMem;
 	// 11 bits
 	struct {
-		uint8_t HB_AMS : 1;
+		uint8_t HB_BMU : 1;
 		uint8_t HB_VCU_SHDN : 1;
 		uint8_t S_Sus_L : 1;
 		uint8_t S_Sus_R : 1;
