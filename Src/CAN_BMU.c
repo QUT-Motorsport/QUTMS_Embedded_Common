@@ -31,4 +31,26 @@ void Parse_BMU_Heartbeat(uint8_t *data, BMU_HeartbeatState_t *state) {
 	state->SOC = data[6];
 }
 
+BMU_TransmitVoltage_t Compose_BMU_TransmitVoltage(uint8_t cmuId, uint8_t packId,
+		uint16_t voltages[3]) {
+	BMU_TransmitVoltage_t msg;
+	msg.id = BMU_TransmitVoltage_ID;
+
+	msg.data[0] = cmuId;
+	msg.data[1] = packId;
+	msg.data[2] = voltages[0] & 0xFF;
+	msg.data[3] = (voltages[0] >> 8) & 0xFF;
+	msg.data[4] = voltages[1] & 0xFF;
+	msg.data[5] = (voltages[1] >> 8) & 0xFF;
+	msg.data[6] = voltages[2] & 0xFF;
+	msg.data[7] = (voltages[2] >> 8) & 0xFF;
+
+	return msg;
+}
+
+void Parse_BMU_TransmitVoltage(uint8_t *data, uint8_t *cmuId, uint8_t *packId,
+		uint16_t voltages[3]) {
+
+}
+
 #endif

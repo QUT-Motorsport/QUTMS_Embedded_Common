@@ -73,4 +73,17 @@ typedef struct BMU_Heartbeat {
 BMU_Heartbeat_t Compose_BMU_Heartbeat(BMU_HeartbeatState_t *state);
 void Parse_BMU_Heartbeat(uint8_t *data, BMU_HeartbeatState_t *state);
 
+typedef struct BMU_TransmitVoltage {
+	uint32_t id;
+	uint8_t data[8];
+} BMU_TransmitVoltage_t;
+
+typedef struct BMU_TransmitTemperature {
+	uint32_t id;
+	uint8_t data[8];
+} BMU_TransmitTemperature_t;
+
+BMU_TransmitVoltage_t Compose_BMU_TransmitVoltage(uint8_t cmuId, uint8_t packId, uint16_t voltages[3]);
+void Parse_BMU_TransmitVoltage(uint8_t *data, uint8_t *cmuId, uint8_t *packId, uint16_t voltages[3]);
+
 #endif /* INC_CAN_BMU_H_ */
