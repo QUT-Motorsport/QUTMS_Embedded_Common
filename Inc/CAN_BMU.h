@@ -41,20 +41,20 @@ typedef union BMU_Flags {
 		uint8_t HB_SENDYNE2 :1;
 		uint8_t HB_VCU_CTRL :1;
 		uint8_t HB_CHRG_CTRL :1;
-		uint8_t P_WATCHDOG : 1;
-		uint8_t P_CAN1 : 1;
-		uint8_t P_CAN2 : 1;
-		uint8_t C_POS : 1;
-		uint8_t C_NEG : 1;
-		uint8_t C_PCHRG : 1;
-		uint8_t PCHRG_TIMEOUT : 1;
-		uint8_t CMU_OVER_VOLT : 1;
-		uint8_t CMU_UNDER_VOLT : 1;
-		uint8_t CMU_BAD_TEMP : 1;
-		uint8_t SHDN_BMU : 1;
-		uint8_t SHDN_PDOC : 1;
-		uint8_t SHDN_IMD : 1;
-		uint8_t SHDN_INTERLOCK : 1;
+		uint8_t P_WATCHDOG :1;
+		uint8_t P_CAN1 :1;
+		uint8_t P_CAN2 :1;
+		uint8_t C_POS :1;
+		uint8_t C_NEG :1;
+		uint8_t C_PCHRG :1;
+		uint8_t PCHRG_TIMEOUT :1;
+		uint8_t CMU_OVER_VOLT :1;
+		uint8_t CMU_UNDER_VOLT :1;
+		uint8_t CMU_BAD_TEMP :1;
+		uint8_t SHDN_BMU :1;
+		uint8_t SHDN_PDOC :1;
+		uint8_t SHDN_IMD :1;
+		uint8_t SHDN_INTERLOCK :1;
 	};
 } BMU_Flags_u;
 
@@ -78,12 +78,19 @@ typedef struct BMU_TransmitVoltage {
 	uint8_t data[8];
 } BMU_TransmitVoltage_t;
 
+BMU_TransmitVoltage_t Compose_BMU_TransmitVoltage(uint8_t cmuId, uint8_t packId,
+		uint16_t voltages[3]);
+void Parse_BMU_TransmitVoltage(uint8_t *data, uint8_t *cmuId, uint8_t *packId,
+		uint16_t voltages[3]);
+
 typedef struct BMU_TransmitTemperature {
 	uint32_t id;
 	uint8_t data[8];
 } BMU_TransmitTemperature_t;
 
-BMU_TransmitVoltage_t Compose_BMU_TransmitVoltage(uint8_t cmuId, uint8_t packId, uint16_t voltages[3]);
-void Parse_BMU_TransmitVoltage(uint8_t *data, uint8_t *cmuId, uint8_t *packId, uint16_t voltages[3]);
+BMU_TransmitTemperature_t Compose_BMU_TransmitTemperature(uint8_t cmuId,
+		uint8_t packId, uint8_t temps[6]);
+void Parse_BMU_TransmitTemperatures(uint8_t *data, uint8_t *cmuId,
+		uint8_t *packId, uint8_t temps[6]);
 
 #endif /* INC_CAN_BMU_H_ */
