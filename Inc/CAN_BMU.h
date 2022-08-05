@@ -93,4 +93,11 @@ BMU_TransmitTemperature_t Compose_BMU_TransmitTemperature(uint8_t cmuId,
 void Parse_BMU_TransmitTemperatures(uint8_t *data, uint8_t *cmuId,
 		uint8_t *packId, uint8_t temps[6]);
 
+typedef struct BMU_TransmitBalancing {
+	uint32_t id;
+	uint8_t data[3];
+} BMU_TransmitBalancing_t;
+
+BMU_TransmitBalancing_t Compose_BMU_TransmitBalancing(uint8_t cmuId, uint16_t balanceState);
+
 #endif /* INC_CAN_BMU_H_ */

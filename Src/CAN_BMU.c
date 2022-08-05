@@ -88,6 +88,15 @@ void Parse_BMU_TransmitTemperatures(uint8_t *data, uint8_t *cmuId, uint8_t *pack
 
 }
 
+BMU_TransmitBalancing_t Compose_BMU_TransmitBalancing(uint8_t cmuId, uint16_t balanceState) {
+	BMU_TransmitBalancing_t msg;
+	msg.id = BMU_TransmitBalancing_ID;
 
+	msg.data[0] = cmuId;
+	msg.data[1] = balanceState & 0xFF;
+	msg.data[2] = (balanceState >> 8) & 0xFF;
+
+	return msg;
+}
 
 #endif
