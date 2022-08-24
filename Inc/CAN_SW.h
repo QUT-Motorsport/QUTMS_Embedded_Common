@@ -24,6 +24,14 @@ typedef union SW_Flags {
 		uint8_t P_CAN1 : 1;
 		uint8_t P_ADC : 1;
 		uint8_t FAN_ENABLE : 1;
+
+		// DVL Mission Selection Bits
+		uint8_t DVL_MISSION_SKIDPAD : 1;
+		uint8_t DVL_MISSION_AUTOCROSS : 1;
+		uint8_t DVL_MISSION_ACCELERATION : 1;
+		uint8_t DVL_MISSION_TRACKDRIVE : 1;
+		uint8_t DVL_MISSION_SCRUIT : 1;
+		uint8_t DVL_MISSION_MANUAL : 1;
 	};
 } SW_Flags_u;
 
