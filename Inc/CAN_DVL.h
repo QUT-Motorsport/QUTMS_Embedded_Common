@@ -6,6 +6,23 @@
 #include <stdint.h>
 #include <stdlib.h>
 
+enum DVL_STATES {
+	DVL_STATE_START = 0x00,
+	DVL_STATE_SELECT_MISSION = 0x01,
+	DVL_STATE_CHECK_EBS = 0x02,
+	DVL_STATE_READY = 0x03,
+	DVL_STATE_DRIVING = 0x04,
+	DVL_STATE_ACTIVATE_EBS = 0x0A,
+	DVL_STATE_FINISHED = 0x0F,
+	DVL_STATE_EMERGENCY = 0xFF
+};
+
+enum DVL_MISSION {
+	DVL_MISSION_NONE = 0x00,
+	DVL_MISSION_MANUAL = 0x01,
+	DVL_MISSION_SELECTED = 0x02
+};
+
 typedef union DVL_Flags {
 	uint16_t rawMem;
 	struct {
@@ -18,7 +35,7 @@ typedef struct DVL_HeartbeatState {
 	uint8_t stateID;
 	uint8_t missionID;
 	DVL_Flags_u flags;
-	int8_t wheel_speed[4];
+	float torqueRequest;
 } DVL_HeartbeatState_t;
 
 typedef struct DVL_Heartbeat {
