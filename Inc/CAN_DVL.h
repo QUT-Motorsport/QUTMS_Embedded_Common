@@ -16,8 +16,9 @@ typedef union DVL_Flags {
 
 typedef struct DVL_HeartbeatState {
 	uint8_t stateID;
+	uint8_t missionID;
 	DVL_Flags_u flags;
-	float torque;
+	int8_t wheel_speed[4];
 } DVL_HeartbeatState_t;
 
 typedef struct DVL_Heartbeat {
