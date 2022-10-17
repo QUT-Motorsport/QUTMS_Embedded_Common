@@ -14,6 +14,7 @@
 #define VCU_ID_SHDN 0
 #define VCU_ID_CTRL 1
 #define VCU_ID_DASH 2
+#define VCU_ID_EBS 	3
 
 #define VCU_OD_ID_CTRL_REGEN_MAX_CURRENT 0x00
 #define VCU_OD_ID_CTRL_REGEN_DEADZONE 0x01
