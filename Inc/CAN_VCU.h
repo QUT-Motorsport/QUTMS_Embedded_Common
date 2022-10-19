@@ -79,6 +79,8 @@ typedef union VCU_Flags_Core {
 		uint8_t P_ISRC : 1;
 		uint8_t P_IMU : 1;
 		uint8_t P_Watchdog : 1;
+		uint8_t P_CAN1 : 1;
+		uint8_t P_CAN2 : 1;
 	} _VCU_Flags_Core;
 } VCU_Flags_Core_u;
 
@@ -135,6 +137,7 @@ typedef union VCU_Flags_EBS {
 		uint8_t CTRL_SHDN : 1;
 		uint8_t DET_24V : 1;
 		uint8_t DET_PWR_EBS : 1;
+		uint8_t HB_DVL : 1;
 	} _VCU_Flags_EBS;
 } VCU_Flags_EBS_u;
 
