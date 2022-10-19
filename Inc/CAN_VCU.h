@@ -158,7 +158,7 @@ typedef struct VCU_HeartbeatState {
 
 typedef struct VCU_Heartbeat {
 	uint32_t id;
-	uint8_t data[5];
+	uint8_t data[6];
 } VCU_Heartbeat_t;
 
 VCU_Heartbeat_t Compose_VCU_Heartbeat(uint8_t id, VCU_HeartbeatState_t *state);
