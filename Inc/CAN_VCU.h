@@ -15,6 +15,7 @@
 #define VCU_ID_CTRL 1
 #define VCU_ID_DASH 2
 #define VCU_ID_EBS 	3
+#define VCU_ID_ASSI 4
 
 #define VCU_OD_ID_CTRL_REGEN_MAX_CURRENT 0x00
 #define VCU_OD_ID_CTRL_REGEN_DEADZONE 0x01
@@ -40,6 +41,9 @@ enum VCU_STATES {
 
 	// SHDN VCU
 	VCU_STATE_SHDN = 0x13,
+
+	// ASSI VCU
+	VCU_STATE_ASSI = 0x14,
 
 	// EBS VCU
 	VCU_STATE_EBS_PWR = 0x20,
@@ -141,12 +145,20 @@ typedef union VCU_Flags_EBS {
 	} _VCU_Flags_EBS;
 } VCU_Flags_EBS_u;
 
+typedef union VCU_Flags_ASSI {
+	uint16_t rawMem;
+	struct {
+		uint8_t AS_STATE: 3;
+	} _VCU_Flags_ASSI;
+} VCU_Flags_ASSI_u;
+
 typedef union VCU_Flags_Other {
 	uint16_t rawMem;
 	VCU_Flags_Ctrl_u ctrl;
 	VCU_Flags_Dash_u dash;
 	VCU_Flags_SHDN_u shdn;
 	VCU_Flags_EBS_u ebs;
+	VCU_Flags_ASSI_u assi;
 } VCU_Flags_Other_u;
 
 typedef struct VCU_HeartbeatState {

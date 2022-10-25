@@ -6,6 +6,14 @@
 #include <stdint.h>
 #include <stdlib.h>
 
+enum AS_STATE {
+	AS_state_off = 0,
+	AS_state_ready = 1,
+	AS_state_driving = 2,
+	AS_state_emergency_brake = 3,
+	AS_state_finish = 4
+};
+
 enum DVL_STATES {
 	DVL_STATE_START = 0x00,
 	DVL_STATE_SELECT_MISSION = 0x01,
