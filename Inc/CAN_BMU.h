@@ -55,7 +55,7 @@ typedef union BMU_Flags {
 		uint8_t SHDN_PDOC :1;
 		uint8_t SHDN_IMD :1;
 		uint8_t SHDN_INTERLOCK :1;
-	};
+	} _BMU_Flags;
 } BMU_Flags_u;
 
 typedef struct BMU_HeartbeatState {
