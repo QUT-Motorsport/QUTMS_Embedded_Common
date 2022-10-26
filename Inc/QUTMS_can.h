@@ -43,6 +43,8 @@ extern "C" {
 
 #define CAN_MASK_SRC_ID 0x1FF << 18
 
+#define RES_NODE_ID 0x011
+
 // functions
 
 #define Compose_CANId(priority, sourceId, autonomous, type, extra, boardIdx)                              \
@@ -175,6 +177,10 @@ enum CAN_MSG_IDs {
 
 #ifdef QUTMS_CAN_DVL
 	DVL_Heartbeat_ID = Compose_CANId(CAN_PRIORITY_HEARTBEAT, CAN_SRC_ID_DVL, DRIVERLESS, CAN_TYPE_HEARTBEAT, 0x0, 0x0),
+#endif
+
+#ifdef QUTMS_CAN_RES
+	RES_Heartbeat_ID = 0x180 + RES_NODE_ID
 #endif
 };
 
