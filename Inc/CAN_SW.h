@@ -32,7 +32,7 @@ typedef union SW_Flags {
 		uint8_t DVL_MISSION_TRACKDRIVE : 1;
 		uint8_t DVL_MISSION_SCRUIT : 1;
 		uint8_t DVL_MISSION_MANUAL : 1;
-	};
+	} _SW_Flags;
 } SW_Flags_u;
 
 typedef struct SW_HeartbeatState {
