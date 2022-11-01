@@ -115,7 +115,7 @@ VCU_AirPressure_t Compose_VCU_AirPressure(uint8_t VCU_ID, uint16_t pressure_raw,
 	return msg;
 }
 
-VCU_TransmitSteering_t Compose_VCU_TransmitSteering(int16_t steering0, int16_t steering1) {
+VCU_TransmitSteering_t Compose_VCU_TransmitSteering(int16_t steering0, int16_t steering1, uint16_t adc0, uint16_t adc1) {
 	VCU_TransmitSteering_t msg;
 	msg.id = VCU_TransmitSteering_ID;
 
@@ -123,13 +123,20 @@ VCU_TransmitSteering_t Compose_VCU_TransmitSteering(int16_t steering0, int16_t s
 	msg.data[1] = (steering0 >> 8) & 0xff;
 	msg.data[2] = steering1 & 0xff;
 	msg.data[3] = (steering1 >> 8) & 0xff;
+	msg.data[4] = adc0 & 0xff;
+	msg.data[5] = (adc0 >> 8) & 0xff;
+	msg.data[6] = adc1 & 0xff;
+	msg.data[7] = (adc1 >> 8) & 0xff;
 
 	return msg;
 }
 
-void Parse_VCU_TransmitSteering(uint8_t *data, int16_t *steering0, int16_t *steering1) {
+void Parse_VCU_TransmitSteering(uint8_t *data, int16_t *steering0, int16_t *steering1, uint16_t *adc0, uint16_t *adc1) {
 	*steering0 = (data[1]) << 8 | data[0];
 	*steering1 = (data[3]) << 8 | data[2];
+	*adc0 = (data[5] << 8) | data[4];
+	*adc1 = (data[7] << 8) | data[6];
+
 }
 
 VCU_ShutdownStatus_t Compose_VCU_ShutdownStatus(uint8_t line0, uint8_t line1, uint8_t line2, uint8_t line3,

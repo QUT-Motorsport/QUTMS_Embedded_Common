@@ -219,11 +219,11 @@ VCU_AirPressure_t Compose_VCU_AirPressure(uint8_t VCU_ID, uint16_t pressure_raw,
 
 typedef struct VCU_TransmitSteering {
 	uint32_t id;
-	uint8_t data[4];
+	uint8_t data[8];
 } VCU_TransmitSteering_t;
 
-VCU_TransmitSteering_t Compose_VCU_TransmitSteering(int16_t steering0, int16_t steering1);
-void Parse_VCU_TransmitSteering(uint8_t *data, int16_t *steering0, int16_t *steering1);
+VCU_TransmitSteering_t Compose_VCU_TransmitSteering(int16_t steering0, int16_t steering1, uint16_t adc0, uint16_t adc1);
+void Parse_VCU_TransmitSteering(uint8_t *data, int16_t *steering0, int16_t *steering1, uint16_t *adc0, uint16_t *adc1);
 
 typedef struct VCU_ShutdownStatus_t {
 	uint32_t id;
