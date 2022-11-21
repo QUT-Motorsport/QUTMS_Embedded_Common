@@ -13,6 +13,11 @@
 
 #define MCISO_COUNT 2
 
+enum MCISO_STATES {
+	MCISO_STATE_START = 0x00,
+	MCISO_STATE_FORWARD = 0x01
+};
+
 
 typedef union MCISO_Flags {
 	uint8_t rawMem;
@@ -21,6 +26,8 @@ typedef union MCISO_Flags {
 		uint8_t HB_VCU_CTRL : 1;
 		uint8_t HB_INV0 : 1;
 		uint8_t HB_INV1 : 1;
+		uint8_t HB_BMU : 1;
+		uint8_t WATCHDOG : 1;
 	};
 } MCISO_Flags_u;
 
