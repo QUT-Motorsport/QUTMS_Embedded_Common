@@ -122,6 +122,7 @@ typedef union VCU_Flags_Dash {
 		uint8_t LED_IMD : 1;
 		uint8_t LED_BSPD : 1;
 		uint8_t LED_PDOC : 1;
+		uint8_t BRAKE_LIGHT : 1;
 	} _VCU_Flags_Dash;
 } VCU_Flags_Dash_u;
 
