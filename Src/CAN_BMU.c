@@ -99,4 +99,16 @@ BMU_TransmitBalancing_t Compose_BMU_TransmitBalancing(uint8_t cmuId, uint16_t ba
 	return msg;
 }
 
+BMU_TransmitDieTemps_t Compose_BMU_TransmitDieTemps(uint8_t packId, uint8_t temps[7]) {
+	BMU_TransmitDieTemps_t msg;
+	msg.id = BMU_TransmitDieTemps_ID;
+
+	msg.data[0] = packId;
+	for (int i = 0; i < 7; i++) {
+		msg.data[1+i] = temps[i];
+	}
+
+	return msg;
+}
+
 #endif

@@ -34,27 +34,34 @@ enum BMU_STATES {
 
 typedef union BMU_Flags {
 	uint32_t rawMem;
-	// 19 bits
+	// 21 bits
 	struct {
 		uint8_t HB_CMU :1;
 		uint8_t HB_SENDYNE1 :1;
 		uint8_t HB_SENDYNE2 :1;
 		uint8_t HB_VCU_CTRL :1;
+
 		uint8_t HB_CHRG_CTRL :1;
 		uint8_t P_WATCHDOG :1;
 		uint8_t P_CAN1 :1;
 		uint8_t P_CAN2 :1;
+
 		uint8_t C_POS :1;
 		uint8_t C_NEG :1;
 		uint8_t C_PCHRG :1;
 		uint8_t PCHRG_TIMEOUT :1;
+
 		uint8_t CMU_OVER_VOLT :1;
 		uint8_t CMU_UNDER_VOLT :1;
 		uint8_t CMU_BAD_TEMP :1;
 		uint8_t SHDN_BMU :1;
+
 		uint8_t SHDN_PDOC :1;
 		uint8_t SHDN_IMD :1;
 		uint8_t SHDN_INTERLOCK :1;
+		uint8_t BALANCING : 1;
+
+		uint8_t DIE_TEMPS : 1;
 	} _BMU_Flags;
 } BMU_Flags_u;
 
@@ -99,5 +106,12 @@ typedef struct BMU_TransmitBalancing {
 } BMU_TransmitBalancing_t;
 
 BMU_TransmitBalancing_t Compose_BMU_TransmitBalancing(uint8_t cmuId, uint16_t balanceState);
+
+typedef struct BMU_TransmitDieTemps {
+	uint32_t id;
+	uint8_t data[8];
+} BMU_TransmitDieTemps_t;
+
+BMU_TransmitDieTemps_t Compose_BMU_TransmitDieTemps(uint8_t packId, uint8_t temps[7]);
 
 #endif /* INC_CAN_BMU_H_ */
