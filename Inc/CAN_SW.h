@@ -16,6 +16,14 @@ enum SW_STATES {
 	SW_STATE_READY = 0x02
 };
 
+enum DRIVERLESS_MISSIONS {
+	MISSION_NONE = 0x00,
+	MISSION_MANUAL = 0x01,
+	MISSION_INSPECTION = 0x02,
+	MISSION_EBS = 0x03,
+	MISSION_TRACK = 0x04
+};
+
 typedef union SW_Flags {
 	uint16_t rawMem;
 	struct {
@@ -24,19 +32,13 @@ typedef union SW_Flags {
 		uint8_t P_CAN1 : 1;
 		uint8_t P_ADC : 1;
 		uint8_t FAN_ENABLE : 1;
-
-		// DVL Mission Selection Bits
-		uint8_t DVL_MISSION_SKIDPAD : 1;
-		uint8_t DVL_MISSION_AUTOCROSS : 1;
-		uint8_t DVL_MISSION_ACCELERATION : 1;
-		uint8_t DVL_MISSION_TRACKDRIVE : 1;
-		uint8_t DVL_MISSION_SCRUIT : 1;
-		uint8_t DVL_MISSION_MANUAL : 1;
+		uint8_t MISSION_SELECTED : 1;
 	} _SW_Flags;
 } SW_Flags_u;
 
 typedef struct SW_HeartbeatState {
 	uint8_t stateID;
+	uint8_t missionID;
 	SW_Flags_u flags;
 } SW_HeartbeatState_t;
 
