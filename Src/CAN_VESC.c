@@ -300,32 +300,6 @@ void Parse_VESC_CANPacketStatus4(uint8_t* data, float* mosfetTemperature, float*
 	*pidPos /= 50;
 }
 
-VESC_Ping_t Compose_VESC_Ping(VESC_ID id)
-{
-	VESC_Ping_t p;
-	p.id = Compose_VESCCANId(VESC_CAN_PACKET_PING, id);
-
-	return p;
-}
-
-void Parse_VESC_Ping()
-{
-	return; //Hmm how I get ID?
-}
-
-VESC_Pong_t Compose_VESC_Pong(VESC_ID id)
-{
-	VESC_Pong_t p;
-	p.id = Compose_VESCCANId(VESC_CAN_PACKET_PONG, id);
-
-	return p;
-}
-
-void Parse_VESC_Pong(uint8_t* data, VESC_ID* id)
-{
-	*id = data[0];
-}
-
 VESC_SetCurrentLimits_t Compose_VESC_SetCurrentLimits(VESC_ID id, float minCurrentLimit, float maxCurrentLimit)
 {
 	VESC_SetCurrentLimits_t p;
@@ -471,41 +445,6 @@ VESC_Shutdown_t Compose_VESC_Shutdown(VESC_ID id)
 	p.id = Compose_VESCCANId(VESC_CAN_PACKET_SHUTDOWN, id);
 
 	return p;
-}
-
-VESC_DetectApplyAllFOC_t Compose_VESC_DetectApplyAllFOC(VESC_ID id, uint8_t activeStatus, float maxPowerLoss)
-{
-	VESC_DetectApplyAllFOC_t p;
-	p.id = Compose_VESCCANId(VESC_CAN_PACKET_DETECT_APPLY_ALL_FOC, id);
-
-	p.data[0] = id;
-	p.data[1] = activeStatus;
-	p.data[2] = ((uint32_t)(maxPowerLoss)) & 0xFF;
-	p.data[3] = ((uint32_t)(maxPowerLoss) >> 8) & 0xFF;
-	p.data[4] = ((uint32_t)(maxPowerLoss) >> 16) & 0xFF;
-	p.data[5] = ((uint32_t)(maxPowerLoss) >> 24) & 0xFF;
-
-	sb(p.data, 6);
-
-	return p;
-}
-
-void Parse_VESC_DetectApplyAllFOC(uint8_t* data)
-{
-	return; //Hmm how get ID?
-}
-
-VESC_DetectApplyAllFOCRes_t Compose_VESC_DetectApplyAllFOCRes(VESC_ID id)
-{
-	VESC_DetectApplyAllFOCRes_t p;
-	p.id = id;
-	return p;
-}
-
-void Parse_VESC_DetectApplyAllFOCRes(uint8_t* data, int8_t* result)
-{
-	*result = data[0];
-	return; //Hmm how get ID?
 }
 
 #endif

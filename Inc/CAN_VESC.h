@@ -142,24 +142,6 @@ VESC_CANPacketStatus4_t Compose_VESC_CANPacketStatus4(VESC_ID id);
 
 void Parse_VESC_CANPacketStatus4(uint8_t* data, float* mosfetTemperature, float* motorTemperature, float* inputCurrent, float* pidPos);
 
-typedef struct VESC_Ping_t
-{
-	uint32_t id;
-} VESC_Ping_t;
-
-VESC_Ping_t Compose_VESC_Ping(VESC_ID id);
-
-void Parse_VESC_Ping();
-
-typedef struct VESC_Pong_t
-{
-	uint32_t id;
-} VESC_Pong_t;
-
-VESC_Pong_t Compose_VESC_Pong(VESC_ID id);
-
-void Parse_VESC_Pong(uint8_t* data, VESC_ID* id);
-
 typedef struct VESC_SetCurrentLimits_t
 {
 	uint32_t id;
@@ -217,26 +199,6 @@ typedef struct VESC_Shutdown_t
 } VESC_Shutdown_t;
 
 VESC_Shutdown_t Compose_VESC_Shutdown(VESC_ID id);
-
-typedef struct VESC_DetectApplyAllFOC_t
-{
-	uint32_t id;
-	uint8_t data[6];
-} VESC_DetectApplyAllFOC_t;
-
-VESC_DetectApplyAllFOC_t Compose_VESC_DetectApplyAllFOC(VESC_ID id, uint8_t activeStatus, float maxPowerLoss);
-
-void Parse_VESC_DetectApplyAllFOC(uint8_t* data);
-
-typedef struct VESC_DetectApplyAllFOCRes_t
-{
-	uint32_t id;
-	uint8_t data[1];
-} VESC_DetectApplyAllFOCRes_t;
-
-VESC_DetectApplyAllFOCRes_t Compose_VESC_DetectApplyAllFOCRes(VESC_ID id);
-
-void Parse_VESC_DetectApplyAllFOCRes(uint8_t* data, int8_t* result);
 
 
 #endif /* COMMON_INC_CAN_VESC_H_ */
