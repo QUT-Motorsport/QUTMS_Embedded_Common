@@ -141,6 +141,7 @@ typedef union VCU_Flags_SHDN {
 typedef union VCU_Flags_EBS {
 	uint16_t rawMem;
 	struct {
+		uint8_t CTRL_PWR : 1;
 		uint8_t CTRL_EBS : 1;
 		uint8_t CTRL_SHDN : 1;
 		uint8_t DET_24V : 1;
