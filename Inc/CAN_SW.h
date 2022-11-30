@@ -44,7 +44,7 @@ typedef struct SW_HeartbeatState {
 
 typedef struct SW_Heartbeat {
 	uint32_t id;
-	uint8_t data[3];
+	uint8_t data[4];
 } SW_Heartbeat_t;
 
 SW_Heartbeat_t Compose_SW_Heartbeat(SW_HeartbeatState_t *state);

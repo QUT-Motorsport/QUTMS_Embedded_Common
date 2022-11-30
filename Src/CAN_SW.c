@@ -16,15 +16,17 @@ SW_Heartbeat_t Compose_SW_Heartbeat(SW_HeartbeatState_t *state) {
 	msg.id = SW_Heartbeat_ID;
 
 	msg.data[0] = state->stateID;
-	msg.data[1] = (state->flags.rawMem) & 0xFF;
-	msg.data[2] = (state->flags.rawMem >> 8) & 0xFF;
+	msg.data[1] = state->missionID;
+	msg.data[2] = (state->flags.rawMem) & 0xFF;
+	msg.data[3] = (state->flags.rawMem >> 8) & 0xFF;
 
 	return msg;
 }
 
 void Parse_SW_Heartbeat(uint8_t data[3], SW_HeartbeatState_t *state) {
 	state->stateID = data[0];
-	state->flags.rawMem = (data[1] | (data[2] << 8));
+	state->missionID = data[1];
+	state->flags.rawMem = (data[2] | (data[3] << 8));
 }
 
 SW_ActivateHorn_t Compose_SW_ActivateHorn() {
