@@ -16,6 +16,7 @@
 #define VCU_ID_DASH 2
 #define VCU_ID_EBS 	3
 #define VCU_ID_ASSI 4
+#define VCU_ID_EBS_ADC 5
 
 #define VCU_OD_ID_CTRL_REGEN_MAX_CURRENT 0x00
 #define VCU_OD_ID_CTRL_REGEN_DEADZONE 0x01
@@ -44,6 +45,9 @@ enum VCU_STATES {
 
 	// ASSI VCU
 	VCU_STATE_ASSI = 0x14,
+
+	// EBS ADC VCU
+	VCU_STATE_ADC_EBS = 0x15,
 
 	// EBS VCU
 	VCU_STATE_EBS_PWR = 0x20,
@@ -146,7 +150,9 @@ typedef union VCU_Flags_EBS {
 		uint8_t CTRL_SHDN : 1;
 		uint8_t DET_24V : 1;
 		uint8_t DET_PWR_EBS : 1;
+		uint8_t DET_BTN : 1;
 		uint8_t HB_DVL : 1;
+		uint8_t HB_EBS_ADC : 1;
 	} _VCU_Flags_EBS;
 } VCU_Flags_EBS_u;
 
@@ -157,12 +163,22 @@ typedef union VCU_Flags_ASSI {
 	} _VCU_Flags_ASSI;
 } VCU_Flags_ASSI_u;
 
+typedef union VCU_Flags_EBS_ADC {
+	uint16_t rawMem;
+	struct {
+		uint8_t DET_24V : 1;
+		uint8_t DET_PWR_EBS : 1;
+		uint8_t DET_BTN : 1;
+	} _VCU_Flags_EBS_ADC;
+} VCU_Flags_EBS_ADC_u;
+
 typedef union VCU_Flags_Other {
 	uint16_t rawMem;
 	VCU_Flags_Ctrl_u ctrl;
 	VCU_Flags_Dash_u dash;
 	VCU_Flags_SHDN_u shdn;
 	VCU_Flags_EBS_u ebs;
+	VCU_Flags_EBS_ADC_u ebs_adc;
 	VCU_Flags_ASSI_u assi;
 } VCU_Flags_Other_u;
 
