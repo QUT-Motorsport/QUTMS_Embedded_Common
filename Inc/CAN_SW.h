@@ -15,7 +15,7 @@ enum SW_STATES {
 	SW_STATE_INIT_PERIPHERAL = 0x01,
 	SW_STATE_READY = 0x02,
 	SW_STATE_SELECT_MISSION = 0x03,
-	SW_MISSION_ACK = 0x04,
+	SW_STATE_MISSION_ACK = 0x04,
 	SW_STATE_IN_MISSION = 0x05
 };
 
@@ -51,7 +51,7 @@ typedef struct SW_Heartbeat {
 } SW_Heartbeat_t;
 
 SW_Heartbeat_t Compose_SW_Heartbeat(SW_HeartbeatState_t *state);
-void Parse_SW_Heartbeat(uint8_t data[3], SW_HeartbeatState_t *state);
+void Parse_SW_Heartbeat(uint8_t data[4], SW_HeartbeatState_t *state);
 
 typedef struct SW_ActivateHorn {
 	uint32_t id;

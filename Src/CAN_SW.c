@@ -23,7 +23,7 @@ SW_Heartbeat_t Compose_SW_Heartbeat(SW_HeartbeatState_t *state) {
 	return msg;
 }
 
-void Parse_SW_Heartbeat(uint8_t data[3], SW_HeartbeatState_t *state) {
+void Parse_SW_Heartbeat(uint8_t data[4], SW_HeartbeatState_t *state) {
 	state->stateID = data[0];
 	state->missionID = data[1];
 	state->flags.rawMem = (data[2] | (data[3] << 8));
