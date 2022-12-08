@@ -54,4 +54,46 @@ typedef struct DVL_Heartbeat {
 DVL_Heartbeat_t Compose_DVL_Heartbeat(DVL_HeartbeatState_t *state);
 void Parse_DVL_Heartbeat(uint8_t *data, DVL_HeartbeatState_t *state);
 
+typedef union DVL_DrivingDynamics1_Data {
+	uint8_t data[8];
+	struct {
+	uint8_t speed_actual : 8;
+	uint8_t speed_target : 8;
+	int8_t steering_angle_actual : 8;
+	int8_t steering_angle_target : 8;
+	uint8_t brake_hydr_actual : 8;
+	uint8_t brake_hydr_target : 8;
+	int8_t motor_moment_actual : 8;
+	int8_t motor_moment_target : 8;
+	} _fields;
+} DVL_DrivingDynamics1_Data_u;
+
+typedef struct DVL_DrivingDynamics1 {
+	uint32_t id;
+	uint8_t data[8];
+} DVL_DrivingDynamics1_t;
+
+DVL_DrivingDynamics1_t Compose_DVL_DrivingDynamics1(DVL_DrivingDynamics1_Data_u *dynamics);
+
+typedef union DVL_SystemStatus_Data {
+	uint8_t data[5];
+	struct {
+	uint8_t AS_state : 3;
+	uint8_t EBS_state : 2;
+	uint8_t AMI_state : 3;
+	uint8_t steering_state : 1;
+	uint8_t service_brake_state : 2;
+	uint8_t lap_counter : 4;
+	uint8_t cones_count_actual : 8;
+	uint32_t cones_count_all : 17;
+	} _fields;
+} DVL_SystemStatus_Data_u;
+
+typedef struct DVL_SystemStatus_t {
+	uint32_t id;
+	uint8_t data[5];
+} DVL_SystemStatus_t;
+
+DVL_SystemStatus_t Compose_DVL_SystemStatus(DVL_SystemStatus_Data_u *status);
+
 #endif

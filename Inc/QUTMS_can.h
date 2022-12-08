@@ -178,6 +178,11 @@ enum CAN_MSG_IDs {
 
 #ifdef QUTMS_CAN_DVL
 	DVL_Heartbeat_ID = Compose_CANId(CAN_PRIORITY_HEARTBEAT, CAN_SRC_ID_DVL, DRIVERLESS, CAN_TYPE_HEARTBEAT, 0x0, 0x0),
+
+	DVL_DrivingDynamics1_ID = 0x500,
+	DVL_DrivingDynamics2_ID = 0x501,
+	DVL_SystemStatus_ID = 0x502,
+
 #endif
 
 #ifdef QUTMS_CAN_RES

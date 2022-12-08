@@ -29,4 +29,31 @@ void Parse_DVL_Heartbeat(uint8_t *data, DVL_HeartbeatState_t *state) {
 	state->torqueRequest = torqueCommand * 100.0f / INT16_MAX;
 }
 
+DVL_DrivingDynamics1_t Compose_DVL_DrivingDynamics1(DVL_DrivingDynamics1_Data_u *dynamics) {
+	DVL_DrivingDynamics1_t msg;
+	msg.id = DVL_DrivingDynamics1_ID;
+	msg.data[0] = dynamics->data[0];
+	msg.data[1] = dynamics->data[1];
+	msg.data[2] = dynamics->data[2];
+	msg.data[3] = dynamics->data[3];
+	msg.data[4] = dynamics->data[4];
+	msg.data[5] = dynamics->data[5];
+	msg.data[6] = dynamics->data[6];
+	msg.data[7] = dynamics->data[7];
+
+	return msg;
+}
+
+DVL_SystemStatus_t Compose_DVL_SystemStatus(DVL_SystemStatus_Data_u *status) {
+	DVL_SystemStatus_t msg;
+	msg.id = DVL_SystemStatus_ID;
+	msg.data[0] = status->data[0];
+	msg.data[1] = status->data[1];
+	msg.data[2] = status->data[2];
+	msg.data[3] = status->data[3];
+	msg.data[4] = status->data[4];
+
+	return msg;
+}
+
 #endif
