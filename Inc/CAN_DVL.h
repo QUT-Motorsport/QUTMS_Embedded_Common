@@ -105,7 +105,7 @@ enum DVL_SERVICE_BRAKE_State {
 };
 
 typedef union DVL_SystemStatus_Data {
-	uint8_t data[5];
+	uint8_t data[8];
 	struct {
 		uint8_t AS_state : 3;
 		uint8_t EBS_state : 2;
@@ -120,7 +120,7 @@ typedef union DVL_SystemStatus_Data {
 
 typedef struct DVL_SystemStatus_t {
 	uint32_t id;
-	uint8_t data[5];
+	uint8_t data[8];
 } DVL_SystemStatus_t;
 
 DVL_SystemStatus_t Compose_DVL_SystemStatus(DVL_SystemStatus_Data_u *status);

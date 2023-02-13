@@ -74,7 +74,7 @@ typedef struct BMU_HeartbeatState {
 
 typedef struct BMU_Heartbeat {
 	uint32_t id;
-	uint8_t data[7];
+	uint8_t data[8];
 } BMU_Heartbeat_t;
 
 BMU_Heartbeat_t Compose_BMU_Heartbeat(BMU_HeartbeatState_t *state);
@@ -102,7 +102,7 @@ void Parse_BMU_TransmitTemperatures(uint8_t *data, uint8_t *cmuId,
 
 typedef struct BMU_TransmitBalancing {
 	uint32_t id;
-	uint8_t data[3];
+	uint8_t data[8];
 } BMU_TransmitBalancing_t;
 
 BMU_TransmitBalancing_t Compose_BMU_TransmitBalancing(uint8_t cmuId, uint16_t balanceState);

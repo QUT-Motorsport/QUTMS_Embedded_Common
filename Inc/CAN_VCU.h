@@ -192,7 +192,7 @@ typedef struct VCU_HeartbeatState {
 
 typedef struct VCU_Heartbeat {
 	uint32_t id;
-	uint8_t data[6];
+	uint8_t data[8];
 } VCU_Heartbeat_t;
 
 VCU_Heartbeat_t Compose_VCU_Heartbeat(uint8_t id, VCU_HeartbeatState_t *state);
@@ -227,14 +227,14 @@ VCU_IMU_Gyro_t Compose_VCU_IMU_Gyro(uint8_t VCU_ID, uint16_t scale, int16_t x, i
 
 typedef struct VCU_LinearTravel {
 	uint32_t id;
-	uint8_t data[5];
+	uint8_t data[8];
 } VCU_LinearTravel_t;
 
 VCU_LinearTravel_t Compose_VCU_LinearTravel(uint8_t VCU_ID, bool front, uint16_t t0, uint16_t t1);
 
 typedef struct VCU_AirPressure {
 	uint32_t id;
-	uint8_t data[4];
+	uint8_t data[8];
 } VCU_AirPressure_t;
 
 VCU_AirPressure_t Compose_VCU_AirPressure(uint8_t VCU_ID, uint16_t pressure_raw, int16_t pressure);
@@ -249,7 +249,7 @@ void Parse_VCU_TransmitSteering(uint8_t *data, int16_t *steering0, int16_t *stee
 
 typedef struct VCU_ShutdownStatus_t {
 	uint32_t id;
-	uint8_t data[3];
+	uint8_t data[8];
 } VCU_ShutdownStatus_t;
 
 VCU_ShutdownStatus_t Compose_VCU_ShutdownStatus(uint8_t line0, uint8_t line1, uint8_t line2, uint8_t line3,
@@ -259,7 +259,7 @@ void Parse_VCU_ShutdownStatus(uint8_t *data, uint8_t *line0, uint8_t *line1, uin
 
 typedef struct VCU_Pedal_Accel {
 	uint32_t id;
-	uint8_t data[4];
+	uint8_t data[8];
 } VCU_Pedal_Accel_t;
 
 VCU_Pedal_Accel_t Compose_VCU_Pedal_Accel(uint16_t accel0, uint16_t accel1);
@@ -267,7 +267,7 @@ void Parse_VCU_Pedal_Accel(uint8_t *data, uint16_t *accel0, uint16_t *accel1);
 
 typedef struct VCU_Pedal_Brake {
 	uint32_t id;
-	uint8_t data[6];
+	uint8_t data[8];
 } VCU_Pedal_Brake_t;
 
 VCU_Pedal_Brake_t Compose_VCU_Pedal_Brake(uint16_t brake, uint16_t brake_adc0, uint16_t brake_adc1);

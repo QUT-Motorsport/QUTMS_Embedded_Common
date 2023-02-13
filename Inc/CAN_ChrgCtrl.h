@@ -33,7 +33,7 @@ typedef struct CHRGCTRL_HeartbeatState {
 
 typedef struct CHRGCTRL_Heartbeat {
 	uint32_t id;
-	uint8_t data[2];
+	uint8_t data[8];
 } CHRGCTRL_Heartbeat_t;
 
 CHRGCTRL_Heartbeat_t Compose_CHRG_CTRL_Hearbeat(CHRGCTRL_HeartbeatState_t *state);

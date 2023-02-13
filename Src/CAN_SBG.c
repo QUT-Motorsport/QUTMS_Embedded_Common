@@ -186,7 +186,7 @@ SBG_ECAN_MSG_IMU_ACCEL_t Compose_SBG_ECAN_MSG_IMU_ACCEL(uint32_t id, int16_t acc
 
 	// accel_z
 	msg.data[4] = (accel_z >> 0) & 0xFF;
-	msg.data[6] = (accel_z >> 8) & 0xFF;
+	msg.data[5] = (accel_z >> 8) & 0xFF;
 
 	return msg;
 }

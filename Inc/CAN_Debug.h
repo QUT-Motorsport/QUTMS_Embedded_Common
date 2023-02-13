@@ -17,7 +17,7 @@
 
 typedef struct DEBUG_Version {
 	uint32_t id;
-	uint8_t data[4];
+	uint8_t data[8];
 } DEBUG_Version_t;
 
 DEBUG_Version_t Compose_DEBUG_Version (uint8_t boardID, uint8_t boardIndex, uint8_t vMajor, uint8_t vMinor);
@@ -25,7 +25,7 @@ DEBUG_Version_t Compose_DEBUG_Version (uint8_t boardID, uint8_t boardIndex, uint
 typedef struct DEBUG_EnterState
 {
 	uint32_t id;
-	uint8_t data[3];
+	uint8_t data[8];
 } DEBUG_EnterState_t;
 
 DEBUG_EnterState_t Compose_DEBUG_EnterState(uint8_t boardID, uint8_t boardIndex, uint8_t stateID);
@@ -33,7 +33,7 @@ DEBUG_EnterState_t Compose_DEBUG_EnterState(uint8_t boardID, uint8_t boardIndex,
 typedef struct DEBUG_ExitState
 {
 	uint32_t id;
-	uint8_t data[3];
+	uint8_t data[8];
 } DEBUG_ExitState_t;
 
 DEBUG_ExitState_t Compose_DEBUG_ExitState(uint8_t boardID, uint8_t boardIndex, uint8_t stateID);
@@ -41,7 +41,7 @@ DEBUG_ExitState_t Compose_DEBUG_ExitState(uint8_t boardID, uint8_t boardIndex, u
 typedef struct DEBUG_ErrorPresent
 {
 	uint32_t id;
-	uint8_t data[4];
+	uint8_t data[8];
 } DEBUG_ErrorPresent_t;
 
 DEBUG_ErrorPresent_t Compose_DEBUG_ErrorPresent(uint8_t boardID, uint8_t boardIndex, uint16_t errorCode);
