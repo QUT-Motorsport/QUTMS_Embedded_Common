@@ -36,6 +36,14 @@ BS_:
 BU_:
 
 
+BO_ 2290122818 VCU_SuspensionTravel_DASH: 8 Vector__XXX
+ SG_ VCU_SuspensionTravel_ADC_FR : 31|16@0+ (1,0) [0|0] "" Vector__XXX
+ SG_ VCU_SuspensionTravel_ADC_FL : 15|16@0+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 2290122816 VCU_SuspensionTravel_SHDN: 8 Vector__XXX
+ SG_ VCU_SuspensionTravel_ADC_RR : 31|16@0+ (1,0) [0|0] "" Vector__XXX
+ SG_ VCU_SuspensionTravel_ADC_RL : 15|16@0+ (1,0) [0|0] "" Vector__XXX
+
 BO_ 2418327552 BMU_Heartbeat: 7 Vector__XXX
  SG_ BMU_Heartbeat_State : 0|56@1+ (1,0) [0|0] "" Vector__XXX
 
@@ -82,3 +90,4 @@ BA_DEF_  "MultiplexExtEnabled" ENUM  "No","Yes";
 BA_DEF_  "BusType" STRING ;
 BA_DEF_DEF_  "MultiplexExtEnabled" "No";
 BA_DEF_DEF_  "BusType" "CAN";
+
