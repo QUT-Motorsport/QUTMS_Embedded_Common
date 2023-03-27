@@ -15,6 +15,14 @@ MCISO_Heartbeat_t Compose_MCISO_Heartbeat(uint8_t id, MCISO_HeartbeatState_t *st
 	msg.data[0] = state->stateID;
 	msg.data[1] = state->errorFlags.rawMem;
 
+	// set unused to 0
+	msg.data[2] = 0;
+	msg.data[3] = 0;
+	msg.data[4] = 0;
+	msg.data[5] = 0;
+	msg.data[6] = 0;
+	msg.data[7] = 0;
+
 	return msg;
 }
 

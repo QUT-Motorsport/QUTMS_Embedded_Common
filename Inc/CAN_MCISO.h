@@ -40,7 +40,7 @@ typedef struct MCISO_HeartbeatState {
 
 typedef struct MCISO_Heartbeat {
 	uint32_t id;
-	uint8_t data[2];
+	uint8_t data[8];
 } MCISO_Heartbeat_t;
 
 MCISO_Heartbeat_t Compose_MCISO_Heartbeat(uint8_t id, MCISO_HeartbeatState_t *state);

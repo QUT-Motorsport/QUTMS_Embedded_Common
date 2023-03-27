@@ -35,24 +35,25 @@ BS_:
 
 BU_:
 
-BO_ 2290122818 VCU_SuspensionTravel_DASH: 8 Vector__XXX
+
+BO_ 142639170 VCU_SuspensionTravel_DASH: 8 Vector__XXX
  SG_ VCU_SuspensionTravel_ADC_FR : 31|16@0+ (1,0) [0|0] "" Vector__XXX
  SG_ VCU_SuspensionTravel_ADC_FL : 15|16@0+ (1,0) [0|0] "" Vector__XXX
 
-BO_ 2290122816 VCU_SuspensionTravel_SHDN: 8 Vector__XXX
+BO_ 142639168 VCU_SuspensionTravel_SHDN: 8 Vector__XXX
  SG_ VCU_SuspensionTravel_ADC_RR : 31|16@0+ (1,0) [0|0] "" Vector__XXX
  SG_ VCU_SuspensionTravel_ADC_RL : 15|16@0+ (1,0) [0|0] "" Vector__XXX
 
-BO_ 2418327552 BMU_Heartbeat: 7 Vector__XXX
+BO_ 270843904 BMU_Heartbeat: 7 Vector__XXX
  SG_ BMU_Heartbeat_State : 0|56@1+ (1,0) [0|0] "" Vector__XXX
 
-BO_ 2424356864 VCU_Heartbeat_SHDN: 6 Vector__XXX
+BO_ 276873216 VCU_Heartbeat_SHDN: 6 Vector__XXX
  SG_ VCU_HeartbeatState_SHDN : 0|48@1+ (1,0) [0|0] "" Vector__XXX
 
-BO_ 2424356865 VCU_Heartbeat_CTRL: 6 Vector__XXX
+BO_ 276873217 VCU_Heartbeat_CTRL: 6 Vector__XXX
  SG_ VCU_HeartbeatState_CTRL : 0|48@1+ (1,0) [0|0] "" Vector__XXX
 
-BO_ 2424356866 VCU_Heartbeat_DASH: 6 Vector__XXX
+BO_ 276873218 VCU_Heartbeat_DASH: 6 Vector__XXX
  SG_ VCU_HeartbeatState_DASH : 0|48@1+ (1,0) [0|0] "" Vector__XXX
 
 BO_ 2424356867 VCU_Heartbeat_EBS: 6 Vector__XXX
@@ -64,24 +65,24 @@ BO_ 2424356868 VCU_Heartbeat_ASSI: 6 Vector__XXX
 BO_ 2424356869 VCU_Heartbeat_EBS_ADC: 6 Vector__XXX
  SG_ VCU_HeartbeatState_EBS_ADC : 0|48@1+ (1,0) [0|0] "" Vector__XXX
 
-BO_ 2290122752 VCU_ShutdownStatus: 3 Vector__XXX
+BO_ 142639104 VCU_ShutdownStatus: 3 Vector__XXX
  SG_ VCU_ShutdownStatus : 16|8@1+ (1,0) [0|1] "" Vector__XXX
  SG_ VCU_ShutdownLines : 0|16@1+ (1,0) [0|0] "" Vector__XXX
 
-BO_ 2290122784 VCU_Pedal_Accel: 4 Vector__XXX
+BO_ 142639136 VCU_Pedal_Accel: 4 Vector__XXX
  SG_ VCU_Pedal_Accel_1 : 23|16@0+ (1,0) [0|0] "" Vector__XXX
  SG_ VCU_Pedal_Accel_0 : 7|16@0+ (1,0) [0|0] "" Vector__XXX
 
-BO_ 2290122800 VCU_Pedal_Brake: 6 Vector__XXX
+BO_ 142639152 VCU_Pedal_Brake: 6 Vector__XXX
  SG_ VCU_Pedal_Brake_ADC_1 : 39|16@0+ (1,0) [0|0] "" Vector__XXX
  SG_ VCU_Pedal_Brake_ADC_0 : 23|16@0+ (1,0) [0|0] "" Vector__XXX
  SG_ VCU_Pedal_Brake : 7|16@0- (1,0) [0|0] "" Vector__XXX
 
-BO_ 2290122848 VCU_TransmitSteering: 8 Vector__XXX
+BO_ 142639200 VCU_TransmitSteering: 8 Vector__XXX
  SG_ VCU_Steering_ADC_1 : 48|16@1+ (1,0) [0|0] "" Vector__XXX
  SG_ VCU_Steering_ADC_0 : 32|16@1+ (1,0) [0|0] "" Vector__XXX
- SG_ VCU_Steering_1 : 16|16@1- (1,0) [0|0] "" Vector__XXX
- SG_ VCU_Steering_0 : 0|16@1- (1,0) [0|0] "" Vector__XXX
+ SG_ VCU_Steering_1 : 16|16@1- (0.1,0) [0|0] "" Vector__XXX
+ SG_ VCU_Steering_0 : 0|16@1- (0.1,0) [0|0] "" Vector__XXX
 
 
 
