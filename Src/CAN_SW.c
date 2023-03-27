@@ -20,6 +20,12 @@ SW_Heartbeat_t Compose_SW_Heartbeat(SW_HeartbeatState_t *state) {
 	msg.data[2] = (state->flags.rawMem) & 0xFF;
 	msg.data[3] = (state->flags.rawMem >> 8) & 0xFF;
 
+	// clear unused bytes
+	msg.data[4] = 0;
+	msg.data[5] = 0;
+	msg.data[6] = 0;
+	msg.data[7] = 0;
+
 	return msg;
 }
 
