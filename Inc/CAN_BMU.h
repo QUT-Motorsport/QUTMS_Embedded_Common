@@ -86,9 +86,8 @@ typedef struct BMU_TransmitVoltage {
 } BMU_TransmitVoltage_t;
 
 BMU_TransmitVoltage_t Compose_BMU_TransmitVoltage(uint8_t cmuId, uint8_t packId,
-		uint16_t voltages[3]);
-void Parse_BMU_TransmitVoltage(uint8_t *data, uint8_t *cmuId, uint8_t *packId,
-		uint16_t voltages[3]);
+		uint16_t voltages[4]);
+void Parse_BMU_TransmitVoltage(uint8_t *data, uint16_t voltages[4]);
 
 typedef struct BMU_TransmitTemperature {
 	uint32_t id;
@@ -96,9 +95,8 @@ typedef struct BMU_TransmitTemperature {
 } BMU_TransmitTemperature_t;
 
 BMU_TransmitTemperature_t Compose_BMU_TransmitTemperature(uint8_t cmuId,
-		uint8_t packId, uint8_t temps[6]);
-void Parse_BMU_TransmitTemperatures(uint8_t *data, uint8_t *cmuId,
-		uint8_t *packId, uint8_t temps[6]);
+		uint8_t packId, uint8_t temps[8]);
+void Parse_BMU_TransmitTemperatures(uint8_t *data, uint8_t temps[8]);
 
 typedef struct BMU_TransmitBalancing {
 	uint32_t id;
@@ -112,6 +110,6 @@ typedef struct BMU_TransmitDieTemps {
 	uint8_t data[8];
 } BMU_TransmitDieTemps_t;
 
-BMU_TransmitDieTemps_t Compose_BMU_TransmitDieTemps(uint8_t packId, uint8_t temps[7]);
+BMU_TransmitDieTemps_t Compose_BMU_TransmitDieTemps(uint8_t packId, uint8_t temps[8]);
 
 #endif /* INC_CAN_BMU_H_ */
