@@ -42,6 +42,11 @@ BO_ 2420424705 MCISO_Heartbeat_Right: 8 Vector__XXX
 BO_ 2420424704 MCISO_Heartbeat_Left: 8 Vector__XXX
  SG_ MCISO_HeartbeatState_Left : 0|16@1+ (1,0) [0|0] "" Vector__XXX
 
+BO_ 2424619008 SW_Heartbeat: 8 Vector__XXX
+ SG_ SW_Heartbeat_Flags : 16|16@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ SW_Heartbeat_State : 0|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ SW_Heartbeat_MissionID : 8|8@1+ (1,0) [0|0] "" Vector__XXX
+
 BO_ 2290122818 VCU_SuspensionTravel_DASH: 8 Vector__XXX
  SG_ VCU_SuspensionTravel_ADC_FR : 31|16@0+ (1,0) [0|0] "" Vector__XXX
  SG_ VCU_SuspensionTravel_ADC_FL : 15|16@0+ (1,0) [0|0] "" Vector__XXX
