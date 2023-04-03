@@ -35,6 +35,13 @@ BS_:
 
 BU_:
 
+
+BO_ 2420424705 MCISO_Heartbeat_Right: 8 Vector__XXX
+ SG_ MCISO_HeartbeatState_Right : 0|16@1+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 2420424704 MCISO_Heartbeat_Left: 8 Vector__XXX
+ SG_ MCISO_HeartbeatState_Left : 0|16@1+ (1,0) [0|0] "" Vector__XXX
+
 BO_ 2290122818 VCU_SuspensionTravel_DASH: 8 Vector__XXX
  SG_ VCU_SuspensionTravel_ADC_FR : 31|16@0+ (1,0) [0|0] "" Vector__XXX
  SG_ VCU_SuspensionTravel_ADC_FL : 15|16@0+ (1,0) [0|0] "" Vector__XXX
