@@ -74,8 +74,7 @@ BMU_TransmitTemperature_t Compose_BMU_TransmitTemperature(uint8_t cmuId, uint8_t
 	return msg;
 }
 
-void Parse_BMU_TransmitTemperatures(uint8_t *data, uint8_t *cmuId, uint8_t *packId,
-		uint8_t temps[8]) {
+void Parse_BMU_TransmitTemperatures(uint8_t *data, uint8_t temps[8]) {
 	temps[0] = data[0];
 	temps[1] = data[1];
 	temps[2] = data[2];
