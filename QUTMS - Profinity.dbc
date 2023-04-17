@@ -35,6 +35,9 @@ BS_:
 
 BU_:
 
+BO_ 142639184 VCU_AirPressure: 8 Vector__XXX
+ SG_ VCU_AirPressure_ADC : 7|16@0+ (1,0) [0|0] "" Vector__XXX
+
 BO_ 272941057 MCISO_Heartbeat_Right: 8 Vector__XXX
  SG_ MCISO_HeartbeatState_Right : 0|16@1+ (1,0) [0|0] "" Vector__XXX
 

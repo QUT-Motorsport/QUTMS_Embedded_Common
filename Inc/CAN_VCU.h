@@ -237,7 +237,7 @@ typedef struct VCU_AirPressure {
 	uint8_t data[8];
 } VCU_AirPressure_t;
 
-VCU_AirPressure_t Compose_VCU_AirPressure(uint8_t VCU_ID, uint16_t pressure_raw, int16_t pressure);
+VCU_AirPressure_t Compose_VCU_AirPressure(uint8_t VCU_ID, uint16_t pressure_raw);
 
 typedef struct VCU_TransmitSteering {
 	uint32_t id;
