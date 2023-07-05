@@ -103,7 +103,7 @@ typedef struct BMU_TransmitBalancing {
 	uint8_t data[8];
 } BMU_TransmitBalancing_t;
 
-BMU_TransmitBalancing_t Compose_BMU_TransmitBalancing(uint8_t cmuId, uint16_t balanceState);
+BMU_TransmitBalancing_t Compose_BMU_TransmitBalancing(uint8_t cmuId, uint16_t balanceState, uint8_t dieTemp);
 
 typedef struct BMU_TransmitDieTemps {
 	uint32_t id;
