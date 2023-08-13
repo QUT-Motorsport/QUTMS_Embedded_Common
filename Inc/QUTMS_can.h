@@ -41,6 +41,9 @@ extern "C" {
 #define DRIVER 0x00
 #define DRIVERLESS 0x01
 
+#define CAN_ID_BIT_SHIFT_TYPE (14)
+
+#define CAN_MASK_TYPE (0x7 << CAN_ID_BIT_SHIFT_TYPE)
 #define CAN_MASK_SRC_ID 0x1FF << 18
 
 #define RES_NODE_ID 0x011
