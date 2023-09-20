@@ -12,6 +12,7 @@
 #include <memory.h>
 #include <stdio.h>
 #include <stdarg.h>
+#include <stdint.h>
 
 /**
  * @brief Typedef state as state_t
