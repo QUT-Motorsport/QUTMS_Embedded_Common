@@ -10,7 +10,7 @@
 
 #include <stdint.h>
 
-typedef enum {
+typedef enum sw_state {
 	SW_STATE_START = 0x00,
 	SW_STATE_INIT_PERIPHERAL = 0x01,
 	SW_STATE_READY = 0x02,
