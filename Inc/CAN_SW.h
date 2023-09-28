@@ -10,14 +10,14 @@
 
 #include <stdint.h>
 
-enum SW_STATES {
+typedef enum {
 	SW_STATE_START = 0x00,
 	SW_STATE_INIT_PERIPHERAL = 0x01,
 	SW_STATE_READY = 0x02,
 	SW_STATE_SELECT_MISSION = 0x03,
 	SW_STATE_MISSION_ACK = 0x04,
 	SW_STATE_IN_MISSION = 0x05
-};
+} sw_state_t;
 
 enum DRIVERLESS_MISSIONS {
 	MISSION_NONE = 0x00,
