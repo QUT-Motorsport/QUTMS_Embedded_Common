@@ -17,6 +17,7 @@
 #define VCU_ID_EBS 	3
 #define VCU_ID_ASSI 4
 #define VCU_ID_EBS_ADC 5
+#define VCU_ID_ACCU 6
 
 #define VCU_OD_ID_CTRL_REGEN_MAX_CURRENT 0x00
 #define VCU_OD_ID_CTRL_REGEN_DEADZONE 0x01
