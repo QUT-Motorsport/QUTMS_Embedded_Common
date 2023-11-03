@@ -13,7 +13,7 @@
 #include <stdint.h>
 #include <stdlib.h>
 
-enum BMU_STATES {
+typedef enum  {
 	BMU_STATE_START = 0x00,
 	BMU_STATE_INIT_PERIPHERAL = 0x01,
 	BMU_STATE_INIT_CMU = 0x02,
@@ -30,7 +30,7 @@ enum BMU_STATES {
 	BMU_STATE_TRIG_SHDN = 0x0D,
 	BMU_STATE_SHUTDOWN = 0x0F,
 	BMU_STATE_ERROR = 0xFF
-};
+} bmu_state_t;
 
 typedef union BMU_Flags {
 	uint32_t rawMem;
