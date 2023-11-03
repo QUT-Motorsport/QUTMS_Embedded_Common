@@ -50,6 +50,9 @@ typedef enum {
 	// EBS ADC VCU
 	VCU_STATE_ADC_EBS = 0x15,
 
+	// ACCU VCU
+	VCU_STATE_ACCU = 0x16,
+
 	// EBS VCU
 	VCU_STATE_EBS_PWR = 0x20,
 	VCU_STATE_EBS_CHECK_ASMS = 0x21,
@@ -108,11 +111,10 @@ typedef union VCU_Flags_Ctrl {
 		uint8_t S_Accel1 : 1;
 		uint8_t S_Brake0 : 1;
 		uint8_t S_Brake1 : 1;
-		uint8_t PCHRG_Failed : 1;
-		uint8_t SHDN : 1;
 		uint8_t IMP_APPS : 1;	// T.4.2.5
 		uint8_t IMP_BSE : 1;	// T.4.3.3
 		uint8_t IMP_Pedal : 1;	// EV.5.7
+		uint8_t Brake_Pressed : 1;
 	} _VCU_Flags_Ctrl;
 } VCU_Flags_Ctrl_u;
 
@@ -174,6 +176,17 @@ typedef union VCU_Flags_EBS_ADC {
 	} _VCU_Flags_EBS_ADC;
 } VCU_Flags_EBS_ADC_u;
 
+typedef union VCU_Flags_ACCU {
+	uint16_t rawMem;
+	struct {
+		uint8_t S_Sus_L : 1;
+		uint8_t S_Sus_R : 1;
+		uint8_t SHDN_Status : 1;
+		uint8_t FAN_REAR : 1;
+		uint8_t BRAKE_LIGHT : 1;
+	};
+} VCU_Flags_ACCU_u;
+
 typedef union VCU_Flags_Other {
 	uint16_t rawMem;
 	VCU_Flags_Ctrl_u ctrl;
@@ -182,6 +195,7 @@ typedef union VCU_Flags_Other {
 	VCU_Flags_EBS_u ebs;
 	VCU_Flags_EBS_ADC_u ebs_adc;
 	VCU_Flags_ASSI_u assi;
+	VCU_Flags_ACCU_u accu;
 } VCU_Flags_Other_u;
 
 typedef struct VCU_HeartbeatState {
