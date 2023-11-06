@@ -179,12 +179,13 @@ typedef union VCU_Flags_EBS_ADC {
 typedef union VCU_Flags_ACCU {
 	uint16_t rawMem;
 	struct {
+		uint8_t HB_VCU_CTRL : 1;
 		uint8_t S_Sus_L : 1;
 		uint8_t S_Sus_R : 1;
 		uint8_t SHDN_Status : 1;
 		uint8_t FAN_REAR : 1;
 		uint8_t BRAKE_LIGHT : 1;
-	};
+	} _VCU_Flags_ACCU;
 } VCU_Flags_ACCU_u;
 
 typedef union VCU_Flags_Other {
