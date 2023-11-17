@@ -36,6 +36,16 @@ BS_:
 BU_:
 
 
+BO_ 2290122920 VCU_Temp_Gearbox_Right: 8 Vector__XXX
+ SG_ VCU_Gearbox_Temp_Right_Temp : 39|16@0+ (1,0) [0|0] "" Vector__XXX
+ SG_ VCU_Gearbox_Temp_Right_R : 23|16@0+ (1,0) [0|0] "" Vector__XXX
+ SG_ VCU_Gearbox_Temp_Right_ADC : 7|16@0+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 2290122919 VCU_Temp_Gearbox_Left: 8 Vector__XXX
+ SG_ VCU_Gearbox_Temp_Left_Temp : 39|16@0+ (1,0) [0|0] "" Vector__XXX
+ SG_ VCU_Gearbox_Temp_Left_R : 23|16@0+ (1,0) [0|0] "" Vector__XXX
+ SG_ VCU_Gearbox_Temp_Left_ADC : 7|16@0+ (1,0) [0|0] "" Vector__XXX
+
 BO_ 2290122832 VCU_AirPressure: 8 Vector__XXX
  SG_ VCU_AirPressure_ADC : 7|16@0+ (1,0) [0|0] "" Vector__XXX
 

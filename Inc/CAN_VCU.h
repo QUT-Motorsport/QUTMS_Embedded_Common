@@ -18,6 +18,8 @@
 #define VCU_ID_ASSI 4
 #define VCU_ID_EBS_ADC 5
 #define VCU_ID_ACCU 6
+#define VCU_ID_COOL_L 7
+#define VCU_ID_COOL_R 8
 
 #define VCU_OD_ID_CTRL_REGEN_MAX_CURRENT 0x00
 #define VCU_OD_ID_CTRL_REGEN_DEADZONE 0x01
@@ -52,6 +54,9 @@ typedef enum {
 
 	// ACCU VCU
 	VCU_STATE_ACCU = 0x16,
+
+	// COOL VCU
+	VCU_STATE_COOL = 0x17,
 
 	// EBS VCU
 	VCU_STATE_EBS_PWR = 0x20,
@@ -288,6 +293,13 @@ typedef struct VCU_Pedal_Brake {
 
 VCU_Pedal_Brake_t Compose_VCU_Pedal_Brake(uint16_t brake, uint16_t brake_adc0, uint16_t brake_adc1);
 void Parse_VCU_Pedal_Brake(uint8_t *data, uint16_t *brake, uint16_t *brake_adc0, uint16_t *brake_adc1);
+
+typedef struct VCU_Temp_Gearbox {
+	uint32_t id;
+	uint8_t data[8];
+} VCU_Temp_Gearbox_t;
+
+VCU_Temp_Gearbox_t Compose_VCU_Temp_Gearbox(uint8_t VCU_ID, uint16_t adc, uint16_t R, uint16_t temp);
 
 // Object Dictionary
 

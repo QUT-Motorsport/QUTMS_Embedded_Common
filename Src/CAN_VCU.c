@@ -195,6 +195,20 @@ void Parse_VCU_Pedal_Brake(uint8_t *data, uint16_t *brake, uint16_t *brake_adc0,
 	*brake_adc1 = (data[4] << 8) | data[5];
 }
 
+VCU_Temp_Gearbox_t Compose_VCU_Temp_Gearbox(uint8_t VCU_ID, uint16_t adc, uint16_t R, uint16_t temp) {
+	VCU_Temp_Gearbox_t msg;
+	msg.id = VCU_GearboxTemp_ID | VCU_ID;
+
+	msg.data[0] = (adc >> 8) & 0xFF;
+	msg.data[1] = (adc >> 0) & 0xFF;
+	msg.data[2] = (R >> 8) & 0xFF;
+	msg.data[3] = (R >> 0) & 0xFF;
+	msg.data[4] = (temp >> 8) & 0xFF;
+	msg.data[5] = (temp >> 0) & 0xFF;
+
+	return msg;
+}
+
 VCU_OBJ_DICT_t Compose_VCU_OBJ_DICT(uint8_t VCU_ID, uint8_t data[8]) {
 	VCU_OBJ_DICT_t msg;
 	msg.id = VCU_OBJ_DICT_ID | VCU_ID;
