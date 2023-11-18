@@ -36,6 +36,38 @@ BS_:
 BU_:
 
 
+BO_ 2568814450 Sevcon_2_HS5: 8 Vector__XXX
+ SG_ Sevcon_2_EncoderAngle : 0|32@1- (0.00001525,0) [0|0] "" Vector__XXX
+
+BO_ 2568683378 Sevcon_2_HS3: 8 Vector__XXX
+ SG_ Sevcon_2_HeatSinkTemp : 0|16@1- (1,0) [0|0] "" Vector__XXX
+ SG_ Sevcon_2_RemainingTemp : 16|16@1- (1,0) [0|0] "" Vector__XXX
+ SG_ Sevcon_2_CapVoltage : 32|16@1- (0.0625,0) [0|0] "" Vector__XXX
+ 
+BO_ 2568617842 Sevcon_2_HS2: 8 Vector__XXX
+ SG_ Sevcon_2_StatusWord : 32|16@1- (1,0) [0|0] "" Vector__XXX
+
+BO_ 2568552306 Sevcon_2_HS1: 8 Vector__XXX
+ SG_ Sevcon_2_OutputTorque : 0|16@1- (0.0625,0) [0|0] "" Vector__XXX
+ SG_ Sevcon_2_Speed : 16|16@1- (1,0) [0|0] "" Vector__XXX
+ SG_ Sevcon_2_BatteryCurrent : 32|16@1- (1,0) [0|0] "" Vector__XXX
+
+BO_ 2568814449 Sevcon_1_HS5: 8 Vector__XXX
+ SG_ Sevcon_1_EncoderAngle : 0|32@1- (0.00001525,0) [0|0] "" Vector__XXX
+
+BO_ 2568683377 Sevcon_1_HS3: 8 Vector__XXX
+ SG_ Sevcon_1_HeatSinkTemp : 0|16@1- (1,0) [0|0] "" Vector__XXX
+ SG_ Sevcon_1_RemainingTemp : 16|16@1- (1,0) [0|0] "" Vector__XXX
+ SG_ Sevcon_1_CapVoltage : 32|16@1- (0.0625,0) [0|0] "" Vector__XXX
+
+BO_ 2568617841 Sevcon_1_HS2: 8 Vector__XXX
+ SG_ Sevcon_1_StatusWord : 32|16@1- (1,0) [0|0] "" Vector__XXX
+
+BO_ 2568552305 Sevcon_1_HS1: 8 Vector__XXX
+ SG_ Sevcon_1_OutputTorque : 0|16@1- (0.0625,0) [0|0] "" Vector__XXX
+ SG_ Sevcon_1_Speed : 16|16@1- (1,0) [0|0] "" Vector__XXX
+ SG_ Sevcon_1_BatteryCurrent : 32|16@1- (1,0) [0|0] "" Vector__XXX
+
 BO_ 2290122920 VCU_Temp_Gearbox_Right: 8 Vector__XXX
  SG_ VCU_Gearbox_Temp_Right_Temp : 39|16@0+ (1,0) [0|0] "" Vector__XXX
  SG_ VCU_Gearbox_Temp_Right_R : 23|16@0+ (1,0) [0|0] "" Vector__XXX
