@@ -30,7 +30,7 @@ typedef enum {
 } sevcon_cmd_t;
 
 typedef enum {
-	SEVCON_PGN_HS1 = 0x11000U,
+	SEVCON_PGN_HC1 = 0x11000U,
 	SEVCON_PGN_HC2 = 0x11100U,
 	SEVCON_PGN_HC3 = 0x11200U,
 	SEVCON_PGN_HS1 = 0x11800U,
@@ -40,7 +40,14 @@ typedef enum {
 	SEVCON_PGN_HS5 = 0x11C00U,
 } sevcon_pgn_t;
 
-uint32_t sevcon_hc_msg_id(uint32_t pgn, uint32_t dest, uint32_t source);
+uint32_t sevcon_hc_msg_id(sevcon_pgn_t pgn, uint32_t dest, uint32_t source);
+
+typedef struct {
+	uint32_t id;
+	uint8_t data[8];
+} sevcon_hs_t;
+
+sevcon_hs_t Compose_Sevcon_HC1(uint8_t dest, uint8_t source, int16_t torqueDemand, sevcon_cmd_t controlWord, int16_t torqueLimitDrive);
 
 
 #endif /* INC_CAN_SEVCON_H_ */
