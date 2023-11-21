@@ -47,7 +47,14 @@ typedef struct {
 	uint8_t data[8];
 } sevcon_hs_t;
 
-sevcon_hs_t Compose_Sevcon_HC1(uint8_t dest, uint8_t source, int16_t torqueDemand, sevcon_cmd_t controlWord, int16_t torqueLimitDrive);
-
+sevcon_hs_t Compose_Sevcon_HC1(uint8_t dest, uint8_t source,
+		int16_t torqueDemand, sevcon_cmd_t controlWord,
+		int16_t torqueLimitDrive);
+sevcon_hs_t Compose_Sevcon_HC2(uint8_t dest, uint8_t source,
+		int16_t torqueLimitRegen, int16_t speedLimitForward,
+		int16_t speedLimitBackward);
+sevcon_hs_t Compose_Sevcon_HC3(uint8_t dest, uint8_t source,
+		int16_t currentLimitDischarge, int16_t currentLimitCharge,
+		int16_t targetCapVoltage);
 
 #endif /* INC_CAN_SEVCON_H_ */
