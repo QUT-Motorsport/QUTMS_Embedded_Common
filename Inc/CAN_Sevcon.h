@@ -10,6 +10,9 @@
 
 #include <stdint.h>
 
+#define SEV_MASK_COMMON (0x1E00FF00)
+#define SEV_ID_COMMON (0x1800FF00)
+
 typedef enum {
 	SEVCON_STATE_NOT_READY = 0x01,
 	SEVCON_STATE_SHUTDOWN = 0x02,
