@@ -158,7 +158,7 @@ void Parse_VCU_ShutdownStatus(uint8_t *data, uint8_t *line0, uint8_t *line1, uin
 	*status = (data[2] == 1) ? true : false;
 }
 
-VCU_Pedal_Accel_t Compose_VCU_Pedal_Accel(uint16_t accel0, uint16_t accel1) {
+VCU_Pedal_Accel_t Compose_VCU_Pedal_Accel(uint16_t accel0, uint16_t accel1, uint16_t accel_adc0, uint16_t accel_adc1) {
 	VCU_Pedal_Accel_t msg;
 	msg.id = VCU_Pedal_Accel_ID;
 
@@ -166,6 +166,11 @@ VCU_Pedal_Accel_t Compose_VCU_Pedal_Accel(uint16_t accel0, uint16_t accel1) {
 	msg.data[1] = (accel0 >> 0) & 0xFF;
 	msg.data[2] = (accel1 >> 8) & 0xFF;
 	msg.data[3] = (accel1 >> 0) & 0xFF;
+	msg.data[4] = (accel_adc0 >> 8) & 0xFF;
+	msg.data[5] = (accel_adc0 >> 0) & 0xFF;
+	msg.data[6] = (accel_adc1 >> 8) & 0xFF;
+	msg.data[7] = (accel_adc1 >> 0) & 0xFF;
+
 
 	return msg;
 }

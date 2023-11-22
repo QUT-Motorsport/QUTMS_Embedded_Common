@@ -92,6 +92,56 @@ BO_ 2424619008 SW_Heartbeat: 8 Vector__XXX
  SG_ SW_Heartbeat_State : 0|8@1+ (1,0) [0|0] "" Vector__XXX
  SG_ SW_Heartbeat_MissionID : 8|8@1+ (1,0) [0|0] "" Vector__XXX
 
+BO_ 2290122818 VCU_SuspensionTravel_DASH: 8 Vector__XXX
+ SG_ VCU_SuspensionTravel_ADC_FR : 31|16@0+ (1,0) [0|0] "" Vector__XXX
+ SG_ VCU_SuspensionTravel_ADC_FL : 15|16@0+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 2290122816 VCU_SuspensionTravel_SHDN: 8 Vector__XXX
+ SG_ VCU_SuspensionTravel_ADC_RR : 31|16@0+ (1,0) [0|0] "" Vector__XXX
+ SG_ VCU_SuspensionTravel_ADC_RL : 15|16@0+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 2418327552 BMU_Heartbeat: 7 Vector__XXX
+ SG_ BMU_Heartbeat_State : 0|56@1+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 2424356864 VCU_Heartbeat_SHDN: 6 Vector__XXX
+ SG_ VCU_HeartbeatState_SHDN : 0|48@1+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 2424356865 VCU_Heartbeat_CTRL: 6 Vector__XXX
+ SG_ VCU_HeartbeatState_CTRL : 0|48@1+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 2424356866 VCU_Heartbeat_DASH: 6 Vector__XXX
+ SG_ VCU_HeartbeatState_DASH : 0|48@1+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 2424356867 VCU_Heartbeat_EBS: 6 Vector__XXX
+ SG_ VCU_HeartbeatState_EBS : 0|48@1+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 2424356868 VCU_Heartbeat_ASSI: 6 Vector__XXX
+ SG_ VCU_HeartbeatState_ASSI : 0|48@1+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 2424356869 VCU_Heartbeat_EBS_ADC: 6 Vector__XXX
+ SG_ VCU_HeartbeatState_EBS_ADC : 0|48@1+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 2290122752 VCU_ShutdownStatus: 3 Vector__XXX
+ SG_ VCU_ShutdownStatus : 16|8@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ VCU_ShutdownLines : 0|16@1+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 2290122784 VCU_Pedal_Accel: 8 Vector__XXX
+ SG_ VCU_Pedal_Accel_0 : 7|16@0+ (1,0) [0|0] "" Vector__XXX
+ SG_ VCU_Pedal_Accel_1 : 23|16@0+ (1,0) [0|0] "" Vector__XXX
+ SG_ VCU_Pedal_Accel_ADC_0 : 39|16@0+ (1,0) [0|0] "" Vector__XXX
+ SG_ VCU_Pedal_Accel_ADC_1 : 55|16@0+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 2290122800 VCU_Pedal_Brake: 6 Vector__XXX
+ SG_ VCU_Pedal_Brake : 7|16@0- (1,0) [0|0] "" Vector__XXX
+ SG_ VCU_Pedal_Brake_ADC_0 : 23|16@0+ (1,0) [0|0] "" Vector__XXX
+ SG_ VCU_Pedal_Brake_ADC_1 : 39|16@0+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 2290122848 VCU_TransmitSteering: 8 Vector__XXX
+ SG_ VCU_Steering_ADC_1 : 48|16@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ VCU_Steering_ADC_0 : 32|16@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ VCU_Steering_1 : 16|16@1- (1,0) [0|0] "" Vector__XXX
+ SG_ VCU_Steering_0 : 0|16@1- (1,0) [0|0] "" Vector__XXX
+
 BO_ 2284093440 BMU_TransmitVoltage_N_0_P_0: 8 Vector__XXX
  SG_ BMU_Voltage_C0_0 : 0|16@1+ (1,0) [0|0] "" Vector__XXX
  SG_ BMU_Voltage_C0_1 : 16|16@1+ (1,0) [0|0] "" Vector__XXX
@@ -266,6 +316,412 @@ BO_ 2284093524 BMU_TransmitVoltage_N_5_P_4: 8 Vector__XXX
  SG_ BMU_Voltage_C5_13 : 16|16@1+ (1,0) [0|0] "" Vector__XXX
  SG_ BMU_Voltage_Age_C5 : 48|16@1+ (1,0) [0|0] "" Vector__XXX
 
+BO_ 2284093536 BMU_TransmitVoltage_N_6_P_0: 8 Vector__XXX
+ SG_ BMU_Voltage_C6_0 : 0|16@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Voltage_C6_1 : 16|16@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Voltage_C6_2 : 32|16@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Voltage_Age_C6 : 48|16@1+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 2284093537 BMU_TransmitVoltage_N_6_P_1: 8 Vector__XXX
+ SG_ BMU_Voltage_C6_3 : 0|16@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Voltage_C6_4 : 16|16@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Voltage_C6_5 : 32|16@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Voltage_Age_C6 : 48|16@1+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 2284093538 BMU_TransmitVoltage_N_6_P_2: 8 Vector__XXX
+ SG_ BMU_Voltage_C6_6 : 0|16@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Voltage_C6_7 : 16|16@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Voltage_C6_8 : 32|16@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Voltage_Age_C6 : 48|16@1+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 2284093539 BMU_TransmitVoltage_N_6_P_3: 8 Vector__XXX
+ SG_ BMU_Voltage_C6_9 : 0|16@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Voltage_C6_10 : 16|16@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Voltage_C6_11 : 32|16@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Voltage_Age_C6 : 48|16@1+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 2284093540 BMU_TransmitVoltage_N_6_P_4: 8 Vector__XXX
+ SG_ BMU_Voltage_C6_12 : 0|16@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Voltage_C6_13 : 16|16@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Voltage_Age_C6 : 48|16@1+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 2284093552 BMU_TransmitVoltage_N_7_P_0: 8 Vector__XXX
+ SG_ BMU_Voltage_C7_0 : 0|16@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Voltage_C7_1 : 16|16@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Voltage_C7_2 : 32|16@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Voltage_Age_C7 : 48|16@1+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 2284093553 BMU_TransmitVoltage_N_7_P_1: 8 Vector__XXX
+ SG_ BMU_Voltage_C7_3 : 0|16@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Voltage_C7_4 : 16|16@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Voltage_C7_5 : 32|16@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Voltage_Age_C7 : 48|16@1+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 2284093554 BMU_TransmitVoltage_N_7_P_2: 8 Vector__XXX
+ SG_ BMU_Voltage_C7_6 : 0|16@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Voltage_C7_7 : 16|16@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Voltage_C7_8 : 32|16@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Voltage_Age_C7 : 48|16@1+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 2284093555 BMU_TransmitVoltage_N_7_P_3: 8 Vector__XXX
+ SG_ BMU_Voltage_C7_9 : 0|16@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Voltage_C7_10 : 16|16@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Voltage_C7_11 : 32|16@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Voltage_Age_C7 : 48|16@1+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 2284093556 BMU_TransmitVoltage_N_7_P_4: 8 Vector__XXX
+ SG_ BMU_Voltage_C7_12 : 0|16@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Voltage_C7_13 : 16|16@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Voltage_Age_C7 : 48|16@1+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 2284093568 BMU_TransmitVoltage_N_8_P_0: 8 Vector__XXX
+ SG_ BMU_Voltage_C8_0 : 0|16@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Voltage_C8_1 : 16|16@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Voltage_C8_2 : 32|16@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Voltage_Age_C8 : 48|16@1+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 2284093569 BMU_TransmitVoltage_N_8_P_1: 8 Vector__XXX
+ SG_ BMU_Voltage_C8_3 : 0|16@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Voltage_C8_4 : 16|16@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Voltage_C8_5 : 32|16@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Voltage_Age_C8 : 48|16@1+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 2284093570 BMU_TransmitVoltage_N_8_P_2: 8 Vector__XXX
+ SG_ BMU_Voltage_C8_6 : 0|16@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Voltage_C8_7 : 16|16@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Voltage_C8_8 : 32|16@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Voltage_Age_C8 : 48|16@1+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 2284093571 BMU_TransmitVoltage_N_8_P_3: 8 Vector__XXX
+ SG_ BMU_Voltage_C8_9 : 0|16@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Voltage_C8_10 : 16|16@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Voltage_C8_11 : 32|16@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Voltage_Age_C8 : 48|16@1+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 2284093572 BMU_TransmitVoltage_N_8_P_4: 8 Vector__XXX
+ SG_ BMU_Voltage_C8_12 : 0|16@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Voltage_C8_13 : 16|16@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Voltage_Age_C8 : 48|16@1+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 2284093584 BMU_TransmitVoltage_N_9_P_0: 8 Vector__XXX
+ SG_ BMU_Voltage_C9_0 : 0|16@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Voltage_C9_1 : 16|16@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Voltage_C9_2 : 32|16@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Voltage_Age_C9 : 48|16@1+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 2284093585 BMU_TransmitVoltage_N_9_P_1: 8 Vector__XXX
+ SG_ BMU_Voltage_C9_3 : 0|16@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Voltage_C9_4 : 16|16@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Voltage_C9_5 : 32|16@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Voltage_Age_C9 : 48|16@1+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 2284093586 BMU_TransmitVoltage_N_9_P_2: 8 Vector__XXX
+ SG_ BMU_Voltage_C9_6 : 0|16@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Voltage_C9_7 : 16|16@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Voltage_C9_8 : 32|16@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Voltage_Age_C9 : 48|16@1+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 2284093587 BMU_TransmitVoltage_N_9_P_3: 8 Vector__XXX
+ SG_ BMU_Voltage_C9_9 : 0|16@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Voltage_C9_10 : 16|16@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Voltage_C9_11 : 32|16@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Voltage_Age_C9 : 48|16@1+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 2284093588 BMU_TransmitVoltage_N_9_P_4: 8 Vector__XXX
+ SG_ BMU_Voltage_C9_12 : 0|16@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Voltage_C9_13 : 16|16@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Voltage_Age_C9 : 48|16@1+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 2284093600 BMU_TransmitVoltage_N_10_P_0: 8 Vector__XXX
+ SG_ BMU_Voltage_C10_0 : 0|16@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Voltage_C10_1 : 16|16@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Voltage_C10_2 : 32|16@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Voltage_Age_C10 : 48|16@1+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 2284093601 BMU_TransmitVoltage_N_10_P_1: 8 Vector__XXX
+ SG_ BMU_Voltage_C10_3 : 0|16@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Voltage_C10_4 : 16|16@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Voltage_C10_5 : 32|16@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Voltage_Age_C10 : 48|16@1+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 2284093602 BMU_TransmitVoltage_N_10_P_2: 8 Vector__XXX
+ SG_ BMU_Voltage_C10_6 : 0|16@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Voltage_C10_7 : 16|16@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Voltage_C10_8 : 32|16@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Voltage_Age_C10 : 48|16@1+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 2284093603 BMU_TransmitVoltage_N_10_P_3: 8 Vector__XXX
+ SG_ BMU_Voltage_C10_9 : 0|16@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Voltage_C10_10 : 16|16@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Voltage_C10_11 : 32|16@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Voltage_Age_C10 : 48|16@1+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 2284093604 BMU_TransmitVoltage_N_10_P_4: 8 Vector__XXX
+ SG_ BMU_Voltage_C10_12 : 0|16@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Voltage_C10_13 : 16|16@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Voltage_Age_C10 : 48|16@1+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 2284093616 BMU_TransmitVoltage_N_11_P_0: 8 Vector__XXX
+ SG_ BMU_Voltage_C11_0 : 0|16@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Voltage_C11_1 : 16|16@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Voltage_C11_2 : 32|16@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Voltage_Age_C11 : 48|16@1+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 2284093617 BMU_TransmitVoltage_N_11_P_1: 8 Vector__XXX
+ SG_ BMU_Voltage_C11_3 : 0|16@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Voltage_C11_4 : 16|16@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Voltage_C11_5 : 32|16@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Voltage_Age_C11 : 48|16@1+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 2284093618 BMU_TransmitVoltage_N_11_P_2: 8 Vector__XXX
+ SG_ BMU_Voltage_C11_6 : 0|16@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Voltage_C11_7 : 16|16@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Voltage_C11_8 : 32|16@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Voltage_Age_C11 : 48|16@1+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 2284093619 BMU_TransmitVoltage_N_11_P_3: 8 Vector__XXX
+ SG_ BMU_Voltage_C11_9 : 0|16@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Voltage_C11_10 : 16|16@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Voltage_C11_11 : 32|16@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Voltage_Age_C11 : 48|16@1+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 2284093620 BMU_TransmitVoltage_N_11_P_4: 8 Vector__XXX
+ SG_ BMU_Voltage_C11_12 : 0|16@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Voltage_C11_13 : 16|16@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Voltage_Age_C11 : 48|16@1+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 2284093632 BMU_TransmitVoltage_N_12_P_0: 8 Vector__XXX
+ SG_ BMU_Voltage_C12_0 : 0|16@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Voltage_C12_1 : 16|16@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Voltage_C12_2 : 32|16@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Voltage_Age_C12 : 48|16@1+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 2284093633 BMU_TransmitVoltage_N_12_P_1: 8 Vector__XXX
+ SG_ BMU_Voltage_C12_3 : 0|16@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Voltage_C12_4 : 16|16@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Voltage_C12_5 : 32|16@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Voltage_Age_C12 : 48|16@1+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 2284093634 BMU_TransmitVoltage_N_12_P_2: 8 Vector__XXX
+ SG_ BMU_Voltage_C12_6 : 0|16@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Voltage_C12_7 : 16|16@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Voltage_C12_8 : 32|16@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Voltage_Age_C12 : 48|16@1+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 2284093635 BMU_TransmitVoltage_N_12_P_3: 8 Vector__XXX
+ SG_ BMU_Voltage_C12_9 : 0|16@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Voltage_C12_10 : 16|16@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Voltage_C12_11 : 32|16@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Voltage_Age_C12 : 48|16@1+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 2284093636 BMU_TransmitVoltage_N_12_P_4: 8 Vector__XXX
+ SG_ BMU_Voltage_C12_12 : 0|16@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Voltage_C12_13 : 16|16@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Voltage_Age_C12 : 48|16@1+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 2284093648 BMU_TransmitVoltage_N_13_P_0: 8 Vector__XXX
+ SG_ BMU_Voltage_C13_0 : 0|16@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Voltage_C13_1 : 16|16@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Voltage_C13_2 : 32|16@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Voltage_Age_C13 : 48|16@1+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 2284093649 BMU_TransmitVoltage_N_13_P_1: 8 Vector__XXX
+ SG_ BMU_Voltage_C13_3 : 0|16@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Voltage_C13_4 : 16|16@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Voltage_C13_5 : 32|16@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Voltage_Age_C13 : 48|16@1+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 2284093650 BMU_TransmitVoltage_N_13_P_2: 8 Vector__XXX
+ SG_ BMU_Voltage_C13_6 : 0|16@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Voltage_C13_7 : 16|16@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Voltage_C13_8 : 32|16@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Voltage_Age_C13 : 48|16@1+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 2284093651 BMU_TransmitVoltage_N_13_P_3: 8 Vector__XXX
+ SG_ BMU_Voltage_C13_9 : 0|16@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Voltage_C13_10 : 16|16@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Voltage_C13_11 : 32|16@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Voltage_Age_C13 : 48|16@1+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 2284093652 BMU_TransmitVoltage_N_13_P_4: 8 Vector__XXX
+ SG_ BMU_Voltage_C13_12 : 0|16@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Voltage_C13_13 : 16|16@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Voltage_Age_C13 : 48|16@1+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 2284093664 BMU_TransmitVoltage_N_14_P_0: 8 Vector__XXX
+ SG_ BMU_Voltage_C14_0 : 0|16@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Voltage_C14_1 : 16|16@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Voltage_C14_2 : 32|16@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Voltage_Age_C14 : 48|16@1+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 2284093665 BMU_TransmitVoltage_N_14_P_1: 8 Vector__XXX
+ SG_ BMU_Voltage_C14_3 : 0|16@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Voltage_C14_4 : 16|16@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Voltage_C14_5 : 32|16@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Voltage_Age_C14 : 48|16@1+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 2284093666 BMU_TransmitVoltage_N_14_P_2: 8 Vector__XXX
+ SG_ BMU_Voltage_C14_6 : 0|16@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Voltage_C14_7 : 16|16@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Voltage_C14_8 : 32|16@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Voltage_Age_C14 : 48|16@1+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 2284093667 BMU_TransmitVoltage_N_14_P_3: 8 Vector__XXX
+ SG_ BMU_Voltage_C14_9 : 0|16@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Voltage_C14_10 : 16|16@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Voltage_C14_11 : 32|16@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Voltage_Age_C14 : 48|16@1+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 2284093668 BMU_TransmitVoltage_N_14_P_4: 8 Vector__XXX
+ SG_ BMU_Voltage_C14_12 : 0|16@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Voltage_C14_13 : 16|16@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Voltage_Age_C14 : 48|16@1+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 2284093680 BMU_TransmitVoltage_N_15_P_0: 8 Vector__XXX
+ SG_ BMU_Voltage_C15_0 : 0|16@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Voltage_C15_1 : 16|16@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Voltage_C15_2 : 32|16@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Voltage_Age_C15 : 48|16@1+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 2284093681 BMU_TransmitVoltage_N_15_P_1: 8 Vector__XXX
+ SG_ BMU_Voltage_C15_3 : 0|16@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Voltage_C15_4 : 16|16@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Voltage_C15_5 : 32|16@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Voltage_Age_C15 : 48|16@1+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 2284093682 BMU_TransmitVoltage_N_15_P_2: 8 Vector__XXX
+ SG_ BMU_Voltage_C15_6 : 0|16@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Voltage_C15_7 : 16|16@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Voltage_C15_8 : 32|16@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Voltage_Age_C15 : 48|16@1+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 2284093683 BMU_TransmitVoltage_N_15_P_3: 8 Vector__XXX
+ SG_ BMU_Voltage_C15_9 : 0|16@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Voltage_C15_10 : 16|16@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Voltage_C15_11 : 32|16@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Voltage_Age_C15 : 48|16@1+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 2284093684 BMU_TransmitVoltage_N_15_P_4: 8 Vector__XXX
+ SG_ BMU_Voltage_C15_12 : 0|16@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Voltage_C15_13 : 16|16@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Voltage_Age_C15 : 48|16@1+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 2284093696 BMU_TransmitVoltage_N_16_P_0: 8 Vector__XXX
+ SG_ BMU_Voltage_C16_0 : 0|16@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Voltage_C16_1 : 16|16@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Voltage_C16_2 : 32|16@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Voltage_Age_C16 : 48|16@1+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 2284093697 BMU_TransmitVoltage_N_16_P_1: 8 Vector__XXX
+ SG_ BMU_Voltage_C16_3 : 0|16@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Voltage_C16_4 : 16|16@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Voltage_C16_5 : 32|16@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Voltage_Age_C16 : 48|16@1+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 2284093698 BMU_TransmitVoltage_N_16_P_2: 8 Vector__XXX
+ SG_ BMU_Voltage_C16_6 : 0|16@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Voltage_C16_7 : 16|16@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Voltage_C16_8 : 32|16@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Voltage_Age_C16 : 48|16@1+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 2284093699 BMU_TransmitVoltage_N_16_P_3: 8 Vector__XXX
+ SG_ BMU_Voltage_C16_9 : 0|16@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Voltage_C16_10 : 16|16@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Voltage_C16_11 : 32|16@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Voltage_Age_C16 : 48|16@1+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 2284093700 BMU_TransmitVoltage_N_16_P_4: 8 Vector__XXX
+ SG_ BMU_Voltage_C16_12 : 0|16@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Voltage_C16_13 : 16|16@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Voltage_Age_C16 : 48|16@1+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 2284093712 BMU_TransmitVoltage_N_17_P_0: 8 Vector__XXX
+ SG_ BMU_Voltage_C17_0 : 0|16@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Voltage_C17_1 : 16|16@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Voltage_C17_2 : 32|16@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Voltage_Age_C17 : 48|16@1+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 2284093713 BMU_TransmitVoltage_N_17_P_1: 8 Vector__XXX
+ SG_ BMU_Voltage_C17_3 : 0|16@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Voltage_C17_4 : 16|16@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Voltage_C17_5 : 32|16@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Voltage_Age_C17 : 48|16@1+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 2284093714 BMU_TransmitVoltage_N_17_P_2: 8 Vector__XXX
+ SG_ BMU_Voltage_C17_6 : 0|16@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Voltage_C17_7 : 16|16@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Voltage_C17_8 : 32|16@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Voltage_Age_C17 : 48|16@1+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 2284093715 BMU_TransmitVoltage_N_17_P_3: 8 Vector__XXX
+ SG_ BMU_Voltage_C17_9 : 0|16@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Voltage_C17_10 : 16|16@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Voltage_C17_11 : 32|16@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Voltage_Age_C17 : 48|16@1+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 2284093716 BMU_TransmitVoltage_N_17_P_4: 8 Vector__XXX
+ SG_ BMU_Voltage_C17_12 : 0|16@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Voltage_C17_13 : 16|16@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Voltage_Age_C17 : 48|16@1+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 2284093728 BMU_TransmitVoltage_N_18_P_0: 8 Vector__XXX
+ SG_ BMU_Voltage_C18_0 : 0|16@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Voltage_C18_1 : 16|16@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Voltage_C18_2 : 32|16@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Voltage_Age_C18 : 48|16@1+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 2284093729 BMU_TransmitVoltage_N_18_P_1: 8 Vector__XXX
+ SG_ BMU_Voltage_C18_3 : 0|16@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Voltage_C18_4 : 16|16@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Voltage_C18_5 : 32|16@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Voltage_Age_C18 : 48|16@1+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 2284093730 BMU_TransmitVoltage_N_18_P_2: 8 Vector__XXX
+ SG_ BMU_Voltage_C18_6 : 0|16@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Voltage_C18_7 : 16|16@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Voltage_C18_8 : 32|16@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Voltage_Age_C18 : 48|16@1+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 2284093731 BMU_TransmitVoltage_N_18_P_3: 8 Vector__XXX
+ SG_ BMU_Voltage_C18_9 : 0|16@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Voltage_C18_10 : 16|16@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Voltage_C18_11 : 32|16@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Voltage_Age_C18 : 48|16@1+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 2284093732 BMU_TransmitVoltage_N_18_P_4: 8 Vector__XXX
+ SG_ BMU_Voltage_C18_12 : 0|16@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Voltage_C18_13 : 16|16@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Voltage_Age_C18 : 48|16@1+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 2284093744 BMU_TransmitVoltage_N_19_P_0: 8 Vector__XXX
+ SG_ BMU_Voltage_C19_0 : 0|16@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Voltage_C19_1 : 16|16@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Voltage_C19_2 : 32|16@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Voltage_Age_C19 : 48|16@1+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 2284093745 BMU_TransmitVoltage_N_19_P_1: 8 Vector__XXX
+ SG_ BMU_Voltage_C19_3 : 0|16@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Voltage_C19_4 : 16|16@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Voltage_C19_5 : 32|16@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Voltage_Age_C19 : 48|16@1+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 2284093746 BMU_TransmitVoltage_N_19_P_2: 8 Vector__XXX
+ SG_ BMU_Voltage_C19_6 : 0|16@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Voltage_C19_7 : 16|16@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Voltage_C19_8 : 32|16@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Voltage_Age_C19 : 48|16@1+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 2284093747 BMU_TransmitVoltage_N_19_P_3: 8 Vector__XXX
+ SG_ BMU_Voltage_C19_9 : 0|16@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Voltage_C19_10 : 16|16@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Voltage_C19_11 : 32|16@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Voltage_Age_C19 : 48|16@1+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 2284093748 BMU_TransmitVoltage_N_19_P_4: 8 Vector__XXX
+ SG_ BMU_Voltage_C19_12 : 0|16@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Voltage_C19_13 : 16|16@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Voltage_Age_C19 : 48|16@1+ (1,0) [0|0] "" Vector__XXX
+
 BO_ 2284094464 BMU_TransmitTemperature_N_0_P_0: 8 Vector__XXX
  SG_ BMU_Temperature_C0_0 : 0|8@1+ (1,0) [0|0] "" Vector__XXX
  SG_ BMU_Temperature_C0_1 : 8|8@1+ (1,0) [0|0] "" Vector__XXX
@@ -416,55 +872,355 @@ BO_ 2284094546 BMU_TransmitTemperature_N_5_P_2: 8 Vector__XXX
  SG_ BMU_Temperature_C5_15 : 24|8@1+ (1,0) [0|0] "" Vector__XXX
  SG_ BMU_Temperature_Age_C5 : 48|16@1+ (1,0) [0|0] "" Vector__XXX
 
-BO_ 2290122818 VCU_SuspensionTravel_DASH: 8 Vector__XXX
- SG_ VCU_SuspensionTravel_ADC_FR : 31|16@0+ (1,0) [0|0] "" Vector__XXX
- SG_ VCU_SuspensionTravel_ADC_FL : 15|16@0+ (1,0) [0|0] "" Vector__XXX
+BO_ 2284094560 BMU_TransmitTemperature_N_6_P_0: 8 Vector__XXX
+ SG_ BMU_Temperature_C6_0 : 0|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Temperature_C6_1 : 8|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Temperature_C6_2 : 16|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Temperature_C6_3 : 24|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Temperature_C6_4 : 32|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Temperature_C6_5 : 40|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Temperature_Age_C6 : 48|16@1+ (1,0) [0|0] "" Vector__XXX
 
-BO_ 2290122816 VCU_SuspensionTravel_SHDN: 8 Vector__XXX
- SG_ VCU_SuspensionTravel_ADC_RR : 31|16@0+ (1,0) [0|0] "" Vector__XXX
- SG_ VCU_SuspensionTravel_ADC_RL : 15|16@0+ (1,0) [0|0] "" Vector__XXX
+BO_ 2284094561 BMU_TransmitTemperature_N_6_P_1: 8 Vector__XXX
+ SG_ BMU_Temperature_C6_6 : 0|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Temperature_C6_7 : 8|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Temperature_C6_8 : 16|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Temperature_C6_9 : 24|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Temperature_C6_10 : 32|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Temperature_C6_11 : 40|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Temperature_Age_C6 : 48|16@1+ (1,0) [0|0] "" Vector__XXX
 
-BO_ 2418327552 BMU_Heartbeat: 7 Vector__XXX
- SG_ BMU_Heartbeat_State : 0|56@1+ (1,0) [0|0] "" Vector__XXX
+BO_ 2284094562 BMU_TransmitTemperature_N_6_P_2: 8 Vector__XXX
+ SG_ BMU_Temperature_C6_12 : 0|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Temperature_C6_13 : 8|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Temperature_C6_14 : 16|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Temperature_C6_15 : 24|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Temperature_Age_C6 : 48|16@1+ (1,0) [0|0] "" Vector__XXX
 
-BO_ 2424356864 VCU_Heartbeat_SHDN: 6 Vector__XXX
- SG_ VCU_HeartbeatState_SHDN : 0|48@1+ (1,0) [0|0] "" Vector__XXX
+BO_ 2284094576 BMU_TransmitTemperature_N_7_P_0: 8 Vector__XXX
+ SG_ BMU_Temperature_C7_0 : 0|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Temperature_C7_1 : 8|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Temperature_C7_2 : 16|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Temperature_C7_3 : 24|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Temperature_C7_4 : 32|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Temperature_C7_5 : 40|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Temperature_Age_C7 : 48|16@1+ (1,0) [0|0] "" Vector__XXX
 
-BO_ 2424356865 VCU_Heartbeat_CTRL: 6 Vector__XXX
- SG_ VCU_HeartbeatState_CTRL : 0|48@1+ (1,0) [0|0] "" Vector__XXX
+BO_ 2284094577 BMU_TransmitTemperature_N_7_P_1: 8 Vector__XXX
+ SG_ BMU_Temperature_C7_6 : 0|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Temperature_C7_7 : 8|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Temperature_C7_8 : 16|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Temperature_C7_9 : 24|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Temperature_C7_10 : 32|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Temperature_C7_11 : 40|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Temperature_Age_C7 : 48|16@1+ (1,0) [0|0] "" Vector__XXX
 
-BO_ 2424356866 VCU_Heartbeat_DASH: 6 Vector__XXX
- SG_ VCU_HeartbeatState_DASH : 0|48@1+ (1,0) [0|0] "" Vector__XXX
+BO_ 2284094578 BMU_TransmitTemperature_N_7_P_2: 8 Vector__XXX
+ SG_ BMU_Temperature_C7_12 : 0|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Temperature_C7_13 : 8|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Temperature_C7_14 : 16|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Temperature_C7_15 : 24|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Temperature_Age_C7 : 48|16@1+ (1,0) [0|0] "" Vector__XXX
 
-BO_ 2424356867 VCU_Heartbeat_EBS: 6 Vector__XXX
- SG_ VCU_HeartbeatState_EBS : 0|48@1+ (1,0) [0|0] "" Vector__XXX
+BO_ 2284094592 BMU_TransmitTemperature_N_8_P_0: 8 Vector__XXX
+ SG_ BMU_Temperature_C8_0 : 0|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Temperature_C8_1 : 8|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Temperature_C8_2 : 16|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Temperature_C8_3 : 24|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Temperature_C8_4 : 32|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Temperature_C8_5 : 40|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Temperature_Age_C8 : 48|16@1+ (1,0) [0|0] "" Vector__XXX
 
-BO_ 2424356868 VCU_Heartbeat_ASSI: 6 Vector__XXX
- SG_ VCU_HeartbeatState_ASSI : 0|48@1+ (1,0) [0|0] "" Vector__XXX
+BO_ 2284094593 BMU_TransmitTemperature_N_8_P_1: 8 Vector__XXX
+ SG_ BMU_Temperature_C8_6 : 0|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Temperature_C8_7 : 8|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Temperature_C8_8 : 16|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Temperature_C8_9 : 24|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Temperature_C8_10 : 32|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Temperature_C8_11 : 40|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Temperature_Age_C8 : 48|16@1+ (1,0) [0|0] "" Vector__XXX
 
-BO_ 2424356869 VCU_Heartbeat_EBS_ADC: 6 Vector__XXX
- SG_ VCU_HeartbeatState_EBS_ADC : 0|48@1+ (1,0) [0|0] "" Vector__XXX
+BO_ 2284094594 BMU_TransmitTemperature_N_8_P_2: 8 Vector__XXX
+ SG_ BMU_Temperature_C8_12 : 0|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Temperature_C8_13 : 8|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Temperature_C8_14 : 16|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Temperature_C8_15 : 24|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Temperature_Age_C8 : 48|16@1+ (1,0) [0|0] "" Vector__XXX
 
-BO_ 2290122752 VCU_ShutdownStatus: 3 Vector__XXX
- SG_ VCU_ShutdownStatus : 16|8@1+ (1,0) [0|1] "" Vector__XXX
- SG_ VCU_ShutdownLines : 0|16@1+ (1,0) [0|0] "" Vector__XXX
+BO_ 2284094608 BMU_TransmitTemperature_N_9_P_0: 8 Vector__XXX
+ SG_ BMU_Temperature_C9_0 : 0|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Temperature_C9_1 : 8|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Temperature_C9_2 : 16|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Temperature_C9_3 : 24|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Temperature_C9_4 : 32|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Temperature_C9_5 : 40|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Temperature_Age_C9 : 48|16@1+ (1,0) [0|0] "" Vector__XXX
 
-BO_ 2290122784 VCU_Pedal_Accel: 4 Vector__XXX
- SG_ VCU_Pedal_Accel_1 : 23|16@0+ (1,0) [0|0] "" Vector__XXX
- SG_ VCU_Pedal_Accel_0 : 7|16@0+ (1,0) [0|0] "" Vector__XXX
+BO_ 2284094609 BMU_TransmitTemperature_N_9_P_1: 8 Vector__XXX
+ SG_ BMU_Temperature_C9_6 : 0|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Temperature_C9_7 : 8|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Temperature_C9_8 : 16|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Temperature_C9_9 : 24|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Temperature_C9_10 : 32|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Temperature_C9_11 : 40|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Temperature_Age_C9 : 48|16@1+ (1,0) [0|0] "" Vector__XXX
 
-BO_ 2290122800 VCU_Pedal_Brake: 6 Vector__XXX
- SG_ VCU_Pedal_Brake_ADC_1 : 39|16@0+ (1,0) [0|0] "" Vector__XXX
- SG_ VCU_Pedal_Brake_ADC_0 : 23|16@0+ (1,0) [0|0] "" Vector__XXX
- SG_ VCU_Pedal_Brake : 7|16@0- (1,0) [0|0] "" Vector__XXX
+BO_ 2284094610 BMU_TransmitTemperature_N_9_P_2: 8 Vector__XXX
+ SG_ BMU_Temperature_C9_12 : 0|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Temperature_C9_13 : 8|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Temperature_C9_14 : 16|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Temperature_C9_15 : 24|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Temperature_Age_C9 : 48|16@1+ (1,0) [0|0] "" Vector__XXX
 
-BO_ 2290122848 VCU_TransmitSteering: 8 Vector__XXX
- SG_ VCU_Steering_ADC_1 : 48|16@1+ (1,0) [0|0] "" Vector__XXX
- SG_ VCU_Steering_ADC_0 : 32|16@1+ (1,0) [0|0] "" Vector__XXX
- SG_ VCU_Steering_1 : 16|16@1- (1,0) [0|0] "" Vector__XXX
- SG_ VCU_Steering_0 : 0|16@1- (1,0) [0|0] "" Vector__XXX
+BO_ 2284094624 BMU_TransmitTemperature_N_10_P_0: 8 Vector__XXX
+ SG_ BMU_Temperature_C10_0 : 0|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Temperature_C10_1 : 8|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Temperature_C10_2 : 16|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Temperature_C10_3 : 24|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Temperature_C10_4 : 32|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Temperature_C10_5 : 40|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Temperature_Age_C10 : 48|16@1+ (1,0) [0|0] "" Vector__XXX
 
+BO_ 2284094625 BMU_TransmitTemperature_N_10_P_1: 8 Vector__XXX
+ SG_ BMU_Temperature_C10_6 : 0|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Temperature_C10_7 : 8|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Temperature_C10_8 : 16|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Temperature_C10_9 : 24|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Temperature_C10_10 : 32|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Temperature_C10_11 : 40|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Temperature_Age_C10 : 48|16@1+ (1,0) [0|0] "" Vector__XXX
 
+BO_ 2284094626 BMU_TransmitTemperature_N_10_P_2: 8 Vector__XXX
+ SG_ BMU_Temperature_C10_12 : 0|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Temperature_C10_13 : 8|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Temperature_C10_14 : 16|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Temperature_C10_15 : 24|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Temperature_Age_C10 : 48|16@1+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 2284094640 BMU_TransmitTemperature_N_11_P_0: 8 Vector__XXX
+ SG_ BMU_Temperature_C11_0 : 0|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Temperature_C11_1 : 8|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Temperature_C11_2 : 16|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Temperature_C11_3 : 24|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Temperature_C11_4 : 32|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Temperature_C11_5 : 40|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Temperature_Age_C11 : 48|16@1+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 2284094641 BMU_TransmitTemperature_N_11_P_1: 8 Vector__XXX
+ SG_ BMU_Temperature_C11_6 : 0|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Temperature_C11_7 : 8|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Temperature_C11_8 : 16|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Temperature_C11_9 : 24|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Temperature_C11_10 : 32|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Temperature_C11_11 : 40|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Temperature_Age_C11 : 48|16@1+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 2284094642 BMU_TransmitTemperature_N_11_P_2: 8 Vector__XXX
+ SG_ BMU_Temperature_C11_12 : 0|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Temperature_C11_13 : 8|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Temperature_C11_14 : 16|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Temperature_C11_15 : 24|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Temperature_Age_C11 : 48|16@1+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 2284094656 BMU_TransmitTemperature_N_12_P_0: 8 Vector__XXX
+ SG_ BMU_Temperature_C12_0 : 0|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Temperature_C12_1 : 8|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Temperature_C12_2 : 16|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Temperature_C12_3 : 24|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Temperature_C12_4 : 32|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Temperature_C12_5 : 40|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Temperature_Age_C12 : 48|16@1+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 2284094657 BMU_TransmitTemperature_N_12_P_1: 8 Vector__XXX
+ SG_ BMU_Temperature_C12_6 : 0|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Temperature_C12_7 : 8|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Temperature_C12_8 : 16|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Temperature_C12_9 : 24|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Temperature_C12_10 : 32|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Temperature_C12_11 : 40|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Temperature_Age_C12 : 48|16@1+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 2284094658 BMU_TransmitTemperature_N_12_P_2: 8 Vector__XXX
+ SG_ BMU_Temperature_C12_12 : 0|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Temperature_C12_13 : 8|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Temperature_C12_14 : 16|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Temperature_C12_15 : 24|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Temperature_Age_C12 : 48|16@1+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 2284094672 BMU_TransmitTemperature_N_13_P_0: 8 Vector__XXX
+ SG_ BMU_Temperature_C13_0 : 0|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Temperature_C13_1 : 8|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Temperature_C13_2 : 16|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Temperature_C13_3 : 24|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Temperature_C13_4 : 32|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Temperature_C13_5 : 40|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Temperature_Age_C13 : 48|16@1+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 2284094673 BMU_TransmitTemperature_N_13_P_1: 8 Vector__XXX
+ SG_ BMU_Temperature_C13_6 : 0|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Temperature_C13_7 : 8|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Temperature_C13_8 : 16|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Temperature_C13_9 : 24|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Temperature_C13_10 : 32|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Temperature_C13_11 : 40|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Temperature_Age_C13 : 48|16@1+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 2284094674 BMU_TransmitTemperature_N_13_P_2: 8 Vector__XXX
+ SG_ BMU_Temperature_C13_12 : 0|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Temperature_C13_13 : 8|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Temperature_C13_14 : 16|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Temperature_C13_15 : 24|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Temperature_Age_C13 : 48|16@1+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 2284094688 BMU_TransmitTemperature_N_14_P_0: 8 Vector__XXX
+ SG_ BMU_Temperature_C14_0 : 0|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Temperature_C14_1 : 8|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Temperature_C14_2 : 16|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Temperature_C14_3 : 24|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Temperature_C14_4 : 32|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Temperature_C14_5 : 40|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Temperature_Age_C14 : 48|16@1+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 2284094689 BMU_TransmitTemperature_N_14_P_1: 8 Vector__XXX
+ SG_ BMU_Temperature_C14_6 : 0|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Temperature_C14_7 : 8|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Temperature_C14_8 : 16|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Temperature_C14_9 : 24|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Temperature_C14_10 : 32|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Temperature_C14_11 : 40|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Temperature_Age_C14 : 48|16@1+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 2284094690 BMU_TransmitTemperature_N_14_P_2: 8 Vector__XXX
+ SG_ BMU_Temperature_C14_12 : 0|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Temperature_C14_13 : 8|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Temperature_C14_14 : 16|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Temperature_C14_15 : 24|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Temperature_Age_C14 : 48|16@1+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 2284094704 BMU_TransmitTemperature_N_15_P_0: 8 Vector__XXX
+ SG_ BMU_Temperature_C15_0 : 0|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Temperature_C15_1 : 8|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Temperature_C15_2 : 16|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Temperature_C15_3 : 24|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Temperature_C15_4 : 32|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Temperature_C15_5 : 40|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Temperature_Age_C15 : 48|16@1+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 2284094705 BMU_TransmitTemperature_N_15_P_1: 8 Vector__XXX
+ SG_ BMU_Temperature_C15_6 : 0|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Temperature_C15_7 : 8|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Temperature_C15_8 : 16|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Temperature_C15_9 : 24|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Temperature_C15_10 : 32|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Temperature_C15_11 : 40|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Temperature_Age_C15 : 48|16@1+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 2284094706 BMU_TransmitTemperature_N_15_P_2: 8 Vector__XXX
+ SG_ BMU_Temperature_C15_12 : 0|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Temperature_C15_13 : 8|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Temperature_C15_14 : 16|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Temperature_C15_15 : 24|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Temperature_Age_C15 : 48|16@1+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 2284094720 BMU_TransmitTemperature_N_16_P_0: 8 Vector__XXX
+ SG_ BMU_Temperature_C16_0 : 0|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Temperature_C16_1 : 8|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Temperature_C16_2 : 16|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Temperature_C16_3 : 24|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Temperature_C16_4 : 32|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Temperature_C16_5 : 40|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Temperature_Age_C16 : 48|16@1+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 2284094721 BMU_TransmitTemperature_N_16_P_1: 8 Vector__XXX
+ SG_ BMU_Temperature_C16_6 : 0|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Temperature_C16_7 : 8|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Temperature_C16_8 : 16|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Temperature_C16_9 : 24|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Temperature_C16_10 : 32|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Temperature_C16_11 : 40|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Temperature_Age_C16 : 48|16@1+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 2284094722 BMU_TransmitTemperature_N_16_P_2: 8 Vector__XXX
+ SG_ BMU_Temperature_C16_12 : 0|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Temperature_C16_13 : 8|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Temperature_C16_14 : 16|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Temperature_C16_15 : 24|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Temperature_Age_C16 : 48|16@1+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 2284094736 BMU_TransmitTemperature_N_17_P_0: 8 Vector__XXX
+ SG_ BMU_Temperature_C17_0 : 0|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Temperature_C17_1 : 8|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Temperature_C17_2 : 16|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Temperature_C17_3 : 24|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Temperature_C17_4 : 32|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Temperature_C17_5 : 40|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Temperature_Age_C17 : 48|16@1+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 2284094737 BMU_TransmitTemperature_N_17_P_1: 8 Vector__XXX
+ SG_ BMU_Temperature_C17_6 : 0|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Temperature_C17_7 : 8|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Temperature_C17_8 : 16|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Temperature_C17_9 : 24|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Temperature_C17_10 : 32|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Temperature_C17_11 : 40|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Temperature_Age_C17 : 48|16@1+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 2284094738 BMU_TransmitTemperature_N_17_P_2: 8 Vector__XXX
+ SG_ BMU_Temperature_C17_12 : 0|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Temperature_C17_13 : 8|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Temperature_C17_14 : 16|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Temperature_C17_15 : 24|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Temperature_Age_C17 : 48|16@1+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 2284094752 BMU_TransmitTemperature_N_18_P_0: 8 Vector__XXX
+ SG_ BMU_Temperature_C18_0 : 0|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Temperature_C18_1 : 8|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Temperature_C18_2 : 16|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Temperature_C18_3 : 24|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Temperature_C18_4 : 32|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Temperature_C18_5 : 40|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Temperature_Age_C18 : 48|16@1+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 2284094753 BMU_TransmitTemperature_N_18_P_1: 8 Vector__XXX
+ SG_ BMU_Temperature_C18_6 : 0|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Temperature_C18_7 : 8|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Temperature_C18_8 : 16|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Temperature_C18_9 : 24|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Temperature_C18_10 : 32|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Temperature_C18_11 : 40|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Temperature_Age_C18 : 48|16@1+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 2284094754 BMU_TransmitTemperature_N_18_P_2: 8 Vector__XXX
+ SG_ BMU_Temperature_C18_12 : 0|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Temperature_C18_13 : 8|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Temperature_C18_14 : 16|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Temperature_C18_15 : 24|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Temperature_Age_C18 : 48|16@1+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 2284094768 BMU_TransmitTemperature_N_19_P_0: 8 Vector__XXX
+ SG_ BMU_Temperature_C19_0 : 0|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Temperature_C19_1 : 8|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Temperature_C19_2 : 16|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Temperature_C19_3 : 24|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Temperature_C19_4 : 32|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Temperature_C19_5 : 40|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Temperature_Age_C19 : 48|16@1+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 2284094769 BMU_TransmitTemperature_N_19_P_1: 8 Vector__XXX
+ SG_ BMU_Temperature_C19_6 : 0|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Temperature_C19_7 : 8|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Temperature_C19_8 : 16|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Temperature_C19_9 : 24|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Temperature_C19_10 : 32|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Temperature_C19_11 : 40|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Temperature_Age_C19 : 48|16@1+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 2284094770 BMU_TransmitTemperature_N_19_P_2: 8 Vector__XXX
+ SG_ BMU_Temperature_C19_12 : 0|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Temperature_C19_13 : 8|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Temperature_C19_14 : 16|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Temperature_C19_15 : 24|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Temperature_Age_C19 : 48|16@1+ (1,0) [0|0] "" Vector__XXX
 
 BA_DEF_  "MultiplexExtEnabled" ENUM  "No","Yes";
 BA_DEF_  "BusType" STRING ;

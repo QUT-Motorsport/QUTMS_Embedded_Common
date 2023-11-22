@@ -283,7 +283,7 @@ typedef struct VCU_Pedal_Accel {
 	uint8_t data[8];
 } VCU_Pedal_Accel_t;
 
-VCU_Pedal_Accel_t Compose_VCU_Pedal_Accel(uint16_t accel0, uint16_t accel1);
+VCU_Pedal_Accel_t Compose_VCU_Pedal_Accel(uint16_t accel0, uint16_t accel1, uint16_t accel_adc0, uint16_t accel_adc1);
 void Parse_VCU_Pedal_Accel(uint8_t *data, uint16_t *accel0, uint16_t *accel1);
 
 typedef struct VCU_Pedal_Brake {

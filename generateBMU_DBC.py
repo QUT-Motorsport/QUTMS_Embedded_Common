@@ -2,7 +2,7 @@ import math
 
 output = 'BMU_DBC.txt'
 
-num_cmu = 6
+num_cmu = 20
 num_volt = 14
 num_temp = 16
 
