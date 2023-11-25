@@ -36,14 +36,26 @@ BS_:
 BU_:
 
 
+BO_ 2290122937 VCU_Suspension_Rot_Front: 8 Vector__XXX
+ SG_ VCU_Suspension_Rot_FL_ADC : 7|16@0+ (1,0) [0|0] "" Vector__XXX
+ SG_ VCU_Suspension_Rot_FR_ADC : 23|16@0+ (1,0) [0|0] "" Vector__XXX
+ SG_ VCU_Suspension_Rot_FL : 39|16@0- (0.001,0) [0|0] "" Vector__XXX
+ SG_ VCU_Suspension_Rot_FR : 55|16@0- (0.001,0) [0|0] "" Vector__XXX
+
+BO_ 2290122934 VCU_Suspension_Rot_Rear: 8 Vector__XXX
+ SG_ VCU_Suspension_Rot_RL_ADC : 7|16@0+ (1,0) [0|0] "" Vector__XXX
+ SG_ VCU_Suspension_Rot_RR_ADC : 23|16@0+ (1,0) [0|0] "" Vector__XXX
+ SG_ VCU_Suspension_Rot_RL : 39|16@0- (0.001,0) [0|0] "" Vector__XXX
+ SG_ VCU_Suspension_Rot_RR : 55|16@0- (0.001,0) [0|0] "" Vector__XXX
+
 BO_ 2165338729 Sevcon_2_HC1: 8 Vector__XXX
  SG_ Sevcon_2_TorqueDemand : 0|16@1- (0.0625,0) [0|0] "" Vector__XXX
  SG_ Sevcon_2_ControlWord : 16|16@1+ (1,0) [0|0] "" Vector__XXX
- 
+
 BO_ 2165338473 Sevcon_1_HC1: 8 Vector__XXX
  SG_ Sevcon_1_TorqueDemand : 0|16@1- (0.0625,0) [0|0] "" Vector__XXX
  SG_ Sevcon_1_ControlWord : 16|16@1+ (1,0) [0|0] "" Vector__XXX
- 
+
 BO_ 2568814450 Sevcon_2_HS5: 8 Vector__XXX
  SG_ Sevcon_2_EncoderAngle : 0|32@1- (1.525E-005,0) [0|0] "" Vector__XXX
 

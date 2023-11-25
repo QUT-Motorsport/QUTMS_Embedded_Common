@@ -20,6 +20,7 @@
 #define VCU_ID_ACCU 6
 #define VCU_ID_COOL_L 7
 #define VCU_ID_COOL_R 8
+#define VCU_ID_SENSOR 9
 
 #define VCU_OD_ID_CTRL_REGEN_MAX_CURRENT 0x00
 #define VCU_OD_ID_CTRL_REGEN_DEADZONE 0x01
@@ -301,6 +302,13 @@ typedef struct VCU_Temp_Gearbox {
 } VCU_Temp_Gearbox_t;
 
 VCU_Temp_Gearbox_t Compose_VCU_Temp_Gearbox(uint8_t VCU_ID, uint16_t adc, uint16_t R, uint16_t temp);
+
+typedef struct VCU_Suspension_Rot {
+	uint32_t id;
+	uint8_t data[8];
+} VCU_Suspension_Rot_t;
+
+VCU_Suspension_Rot_t Compose_VCU_Suspension_Rot(uint8_t VCU_ID, uint16_t adcL, uint16_t adcR, int16_t degL, int16_t degR);
 
 // Object Dictionary
 
