@@ -21,10 +21,12 @@ sevcon_hs_t Compose_Sevcon_HC1(uint8_t dest, uint8_t source,
 	sevcon_hs_t msg;
 	msg.id = sevcon_hc_msg_id(SEVCON_PGN_HC1, dest, source);
 
+	uint16_t control_word = controlWord;
+
 	msg.data[0] = torqueDemand & 0xFF;
 	msg.data[1] = (torqueDemand >> 8) & 0xFF;
-	msg.data[2] = controlWord & 0xFF;
-	msg.data[3] = 0;
+	msg.data[2] = control_word & 0xFF;
+	msg.data[3] = (control_word >> 8) & 0xFF;
 	msg.data[4] = torqueLimitDrive & 0xFF;
 	msg.data[5] = (torqueLimitDrive >> 8) & 0xFF;
 	msg.data[6] = 0;
