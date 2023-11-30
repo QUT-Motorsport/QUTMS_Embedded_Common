@@ -188,23 +188,25 @@ void Parse_VCU_Pedal_Accel(uint8_t *data, uint16_t *accel0, uint16_t *accel1) {
 	*accel1 = (data[2] << 8) | data[3];
 }
 
-VCU_Pedal_Brake_t Compose_VCU_Pedal_Brake(uint16_t brake, uint16_t brake_adc0,
-		uint16_t brake_adc1) {
+VCU_Pedal_Brake_t Compose_VCU_Pedal_Brake(uint16_t brake_adc0,
+		uint16_t brake_adc1, int16_t brake_psi0, int16_t brake_psi1) {
 	VCU_Pedal_Brake_t msg;
 	msg.id = VCU_Pedal_Brake_ID;
 
-	msg.data[0] = (brake >> 8) & 0xFF;
-	msg.data[1] = (brake >> 0) & 0xFF;
-	msg.data[2] = (brake_adc0 >> 8) & 0xFF;
-	msg.data[3] = (brake_adc0 >> 0) & 0xFF;
-	msg.data[4] = (brake_adc1 >> 8) & 0xFF;
-	msg.data[5] = (brake_adc1 >> 0) & 0xFF;
+	msg.data[0] = (brake_adc0 >> 8) & 0xFF;
+	msg.data[1] = (brake_adc0 >> 0) & 0xFF;
+	msg.data[2] = (brake_adc1 >> 8) & 0xFF;
+	msg.data[3] = (brake_adc1 >> 0) & 0xFF;
+	msg.data[4] = (brake_psi0 >> 8) & 0xFF;
+	msg.data[5] = (brake_psi0 >> 0) & 0xFF;
+	msg.data[6] = (brake_psi1 >> 8) & 0xFF;
+	msg.data[7] = (brake_psi1 >> 0) & 0xFF;
 
 	return msg;
 }
 
-void Parse_VCU_Pedal_Brake(uint8_t *data, uint16_t *brake, uint16_t *brake_adc0,
-		uint16_t *brake_adc1) {
+void Parse_VCU_Pedal_Brake(uint8_t *data, uint16_t *brake_adc0,
+		uint16_t *brake_adc1, int16_t *brake_psi0, int16_t *brake_psi1) {
 	*brake = (data[0] << 8) | data[1];
 	*brake_adc0 = (data[2] << 8) | data[3];
 	*brake_adc1 = (data[4] << 8) | data[5];

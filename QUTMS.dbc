@@ -35,7 +35,6 @@ BS_:
 
 BU_:
 
-
 BO_ 2290122937 VCU_Suspension_Rot_Front: 8 Vector__XXX
  SG_ VCU_Suspension_Rot_FL_ADC : 7|16@0+ (1,0) [0|0] "" Vector__XXX
  SG_ VCU_Suspension_Rot_FR_ADC : 23|16@0+ (1,0) [0|0] "" Vector__XXX
@@ -151,10 +150,11 @@ BO_ 2290122784 VCU_Pedal_Accel: 8 Vector__XXX
  SG_ VCU_Pedal_Accel_ADC_0 : 39|16@0+ (1,0) [0|0] "" Vector__XXX
  SG_ VCU_Pedal_Accel_ADC_1 : 55|16@0+ (1,0) [0|0] "" Vector__XXX
 
-BO_ 2290122800 VCU_Pedal_Brake: 6 Vector__XXX
- SG_ VCU_Pedal_Brake : 7|16@0- (1,0) [0|0] "" Vector__XXX
- SG_ VCU_Pedal_Brake_ADC_0 : 23|16@0+ (1,0) [0|0] "" Vector__XXX
- SG_ VCU_Pedal_Brake_ADC_1 : 39|16@0+ (1,0) [0|0] "" Vector__XXX
+BO_ 2290122800 VCU_Pedal_Brake: 8 Vector__XXX
+ SG_ VCU_Pedal_Brake_ADC_0 : 7|16@0+ (1,0) [0|0] "" Vector__XXX
+ SG_ VCU_Pedal_Brake_ADC_1 : 23|16@0+ (1,0) [0|0] "" Vector__XXX
+ SG_ VCU_Pedal_Brake_PSI_0 : 39|16@0- (0.015625,0) [0|0] "" Vector__XXX
+ SG_ VCU_Pedal_Brake_PSI_1 : 55|16@0- (0.015625,0) [0|0] "" Vector__XXX
 
 BO_ 2290122848 VCU_TransmitSteering: 8 Vector__XXX
  SG_ VCU_Steering_ADC_1 : 48|16@1+ (1,0) [0|0] "" Vector__XXX
@@ -1241,8 +1241,6 @@ BO_ 2284094770 BMU_TransmitTemperature_N_19_P_2: 8 Vector__XXX
  SG_ BMU_Temperature_C19_14 : 16|8@1+ (1,0) [0|0] "" Vector__XXX
  SG_ BMU_Temperature_C19_15 : 24|8@1+ (1,0) [0|0] "" Vector__XXX
  SG_ BMU_Temperature_Age_C19 : 48|16@1+ (1,0) [0|0] "" Vector__XXX
-
-
 
 BA_DEF_  "MultiplexExtEnabled" ENUM  "No","Yes";
 BA_DEF_  "BusType" STRING ;
