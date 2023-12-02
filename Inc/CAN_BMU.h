@@ -68,6 +68,7 @@ typedef union BMU_Flags {
 		uint8_t BALANCING : 1;
 
 		uint8_t DIE_TEMPS : 1;
+		uint8_t HV_KEY : 1;
 	} _BMU_Flags;
 } BMU_Flags_u;
 
