@@ -195,6 +195,17 @@ typedef union VCU_Flags_ACCU {
 	} _VCU_Flags_ACCU;
 } VCU_Flags_ACCU_u;
 
+typedef union VCU_Flags_COOL {
+	uint16_t rawMem;
+	struct {
+		uint8_t HB_VCU_CTRL :1;
+		uint8_t TEMP_RAD : 1;
+		uint8_t TEMP_BRAKE : 1;
+		uint8_t SIDE_FAN :1;
+		uint8_t SIDE_PUMP :1;
+	} _VCU_Flags_COOL;
+} VCU_Flags_COOL_u;
+
 typedef union VCU_Flags_Other {
 	uint16_t rawMem;
 	VCU_Flags_Ctrl_u ctrl;
@@ -204,6 +215,7 @@ typedef union VCU_Flags_Other {
 	VCU_Flags_EBS_ADC_u ebs_adc;
 	VCU_Flags_ASSI_u assi;
 	VCU_Flags_ACCU_u accu;
+	VCU_Flags_COOL_u cool;
 } VCU_Flags_Other_u;
 
 typedef struct VCU_HeartbeatState {
