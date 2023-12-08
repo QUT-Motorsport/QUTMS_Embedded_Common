@@ -13,6 +13,7 @@ print(num_cmu, num_volt, num_temp, pc_volt, pc_temp)
 
 id_TxV_N0P0 = 136609792
 id_TxT_N0P0 = 136610816
+id_TxB_N0P0 = 136611840
 
 print(hex(id_TxV_N0P0), hex(id_TxT_N0P0))
 
@@ -65,4 +66,24 @@ for i in range(0, num_cmu):
         f.write('\n')
         print(hex(id), line)
         f.write('\n')
+        
+# balancing        
+for i in range(0, num_cmu):
+    id = (id_TxB_N0P0 | (i << 4)) | (1 << 31)
+    line = f'BO_ {id} BMU_TransmitBalancing_N_{i}: 8 Vector__XXX'
+    f.write(line)
+    f.write('\n')
+    print(hex(id), line)
+    
+    line = f' SG_ BMU_BalanceState_C{i} : {0}|16@1+ (1,0) [0|0] "" Vector__XXX'
+    f.write(line)
+    f.write('\n')
+    print(hex(id), line)
+    
+    line = f' SG_ BMU_DieTemp_C{i} : {16}|8@1+ (1,0) [0|0] "" Vector__XXX'
+    f.write(line)
+    f.write('\n')
+    print(hex(id), line)
+    f.write('\n')
+    
 f.close()

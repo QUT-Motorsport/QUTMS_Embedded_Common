@@ -1248,6 +1248,86 @@ BO_ 2284094770 BMU_TransmitTemperature_N_19_P_2: 8 Vector__XXX
  SG_ BMU_Temperature_C19_15 : 24|8@1+ (1,0) [0|0] "" Vector__XXX
  SG_ BMU_Temperature_Age_C19 : 48|16@1+ (1,0) [0|0] "" Vector__XXX
 
+BO_ 2284095488 BMU_TransmitBalancing_N_0: 8 Vector__XXX
+ SG_ BMU_BalanceState_C0 : 0|16@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_DieTemp_C0 : 16|8@1+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 2284095504 BMU_TransmitBalancing_N_1: 8 Vector__XXX
+ SG_ BMU_BalanceState_C1 : 0|16@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_DieTemp_C1 : 16|8@1+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 2284095520 BMU_TransmitBalancing_N_2: 8 Vector__XXX
+ SG_ BMU_BalanceState_C2 : 0|16@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_DieTemp_C2 : 16|8@1+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 2284095536 BMU_TransmitBalancing_N_3: 8 Vector__XXX
+ SG_ BMU_BalanceState_C3 : 0|16@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_DieTemp_C3 : 16|8@1+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 2284095552 BMU_TransmitBalancing_N_4: 8 Vector__XXX
+ SG_ BMU_BalanceState_C4 : 0|16@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_DieTemp_C4 : 16|8@1+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 2284095568 BMU_TransmitBalancing_N_5: 8 Vector__XXX
+ SG_ BMU_BalanceState_C5 : 0|16@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_DieTemp_C5 : 16|8@1+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 2284095584 BMU_TransmitBalancing_N_6: 8 Vector__XXX
+ SG_ BMU_BalanceState_C6 : 0|16@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_DieTemp_C6 : 16|8@1+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 2284095600 BMU_TransmitBalancing_N_7: 8 Vector__XXX
+ SG_ BMU_BalanceState_C7 : 0|16@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_DieTemp_C7 : 16|8@1+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 2284095616 BMU_TransmitBalancing_N_8: 8 Vector__XXX
+ SG_ BMU_BalanceState_C8 : 0|16@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_DieTemp_C8 : 16|8@1+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 2284095632 BMU_TransmitBalancing_N_9: 8 Vector__XXX
+ SG_ BMU_BalanceState_C9 : 0|16@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_DieTemp_C9 : 16|8@1+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 2284095648 BMU_TransmitBalancing_N_10: 8 Vector__XXX
+ SG_ BMU_BalanceState_C10 : 0|16@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_DieTemp_C10 : 16|8@1+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 2284095664 BMU_TransmitBalancing_N_11: 8 Vector__XXX
+ SG_ BMU_BalanceState_C11 : 0|16@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_DieTemp_C11 : 16|8@1+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 2284095680 BMU_TransmitBalancing_N_12: 8 Vector__XXX
+ SG_ BMU_BalanceState_C12 : 0|16@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_DieTemp_C12 : 16|8@1+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 2284095696 BMU_TransmitBalancing_N_13: 8 Vector__XXX
+ SG_ BMU_BalanceState_C13 : 0|16@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_DieTemp_C13 : 16|8@1+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 2284095712 BMU_TransmitBalancing_N_14: 8 Vector__XXX
+ SG_ BMU_BalanceState_C14 : 0|16@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_DieTemp_C14 : 16|8@1+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 2284095728 BMU_TransmitBalancing_N_15: 8 Vector__XXX
+ SG_ BMU_BalanceState_C15 : 0|16@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_DieTemp_C15 : 16|8@1+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 2284095744 BMU_TransmitBalancing_N_16: 8 Vector__XXX
+ SG_ BMU_BalanceState_C16 : 0|16@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_DieTemp_C16 : 16|8@1+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 2284095760 BMU_TransmitBalancing_N_17: 8 Vector__XXX
+ SG_ BMU_BalanceState_C17 : 0|16@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_DieTemp_C17 : 16|8@1+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 2284095776 BMU_TransmitBalancing_N_18: 8 Vector__XXX
+ SG_ BMU_BalanceState_C18 : 0|16@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_DieTemp_C18 : 16|8@1+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 2284095792 BMU_TransmitBalancing_N_19: 8 Vector__XXX
+ SG_ BMU_BalanceState_C19 : 0|16@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_DieTemp_C19 : 16|8@1+ (1,0) [0|0] "" Vector__XXX
+
 BO_ 544 SBG_ECAN_MSG_AUTO_SLIP_CURV: 7 Vector__XXX
  SG_ AUTO_STATUS : 48|8@1+ (1,0) [0|255] "" Vector__XXX
  SG_ CURVATURE_RADIUS : 32|16@1+ (0.01,0) [0|655.35] "m" Vector__XXX
