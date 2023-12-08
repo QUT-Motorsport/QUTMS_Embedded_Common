@@ -36,6 +36,10 @@ BS_:
 BU_:
 
 
+BO_ 2284096768 BMU_TransmitPackInfo: 8 Vector__XXX
+ SG_ BMU_PackVoltage : 32|32@1- (1E-006,0) [0|0] "" Vector__XXX
+ SG_ BMU_PackCurrent : 0|32@1- (1E-006,0) [0|0] "" Vector__XXX
+
 BO_ 2290122937 VCU_Suspension_Rot_Front: 8 Vector__XXX
  SG_ VCU_Suspension_Rot_FL_ADC : 7|16@0+ (1,0) [0|0] "" Vector__XXX
  SG_ VCU_Suspension_Rot_FR_ADC : 23|16@0+ (1,0) [0|0] "" Vector__XXX
@@ -89,12 +93,12 @@ BO_ 2568552305 Sevcon_1_HS1: 8 Vector__XXX
  SG_ Sevcon_1_BatteryCurrent : 32|16@1- (1,0) [0|0] "" Vector__XXX
 
 BO_ 2290122920 VCU_Temp_Gearbox_Right: 8 Vector__XXX
- SG_ VCU_Gearbox_Temp_Right_Temp : 39|16@0+ (0.00390625,0) [0|0] "" Vector__XXX
+ SG_ VCU_Gearbox_Temp_Right_Temp : 39|16@0+ (0.1,0) [0|0] "" Vector__XXX
  SG_ VCU_Gearbox_Temp_Right_R : 23|16@0+ (1,0) [0|0] "" Vector__XXX
  SG_ VCU_Gearbox_Temp_Right_ADC : 7|16@0+ (1,0) [0|0] "" Vector__XXX
 
 BO_ 2290122919 VCU_Temp_Gearbox_Left: 8 Vector__XXX
- SG_ VCU_Gearbox_Temp_Left_Temp : 39|16@0+ (0.00390625,0) [0|0] "" Vector__XXX
+ SG_ VCU_Gearbox_Temp_Left_Temp : 39|16@0+ (0.1,0) [0|0] "" Vector__XXX
  SG_ VCU_Gearbox_Temp_Left_R : 23|16@0+ (1,0) [0|0] "" Vector__XXX
  SG_ VCU_Gearbox_Temp_Left_ADC : 7|16@0+ (1,0) [0|0] "" Vector__XXX
 
@@ -121,7 +125,8 @@ BO_ 2290122816 VCU_SuspensionTravel_SHDN: 8 Vector__XXX
  SG_ VCU_SuspensionTravel_ADC_RL : 15|16@0+ (1,0) [0|0] "" Vector__XXX
 
 BO_ 2418327552 BMU_Heartbeat: 7 Vector__XXX
- SG_ BMU_Heartbeat_State : 0|56@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Heartbeat_Flags : 8|32@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BMU_Heartbeat_State : 0|8@1+ (1,0) [0|0] "" Vector__XXX
 
 BO_ 2424356864 VCU_Heartbeat_SHDN: 6 Vector__XXX
  SG_ VCU_HeartbeatState_SHDN : 0|48@1+ (1,0) [0|0] "" Vector__XXX

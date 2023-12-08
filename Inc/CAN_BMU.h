@@ -121,4 +121,11 @@ typedef struct BMU_TransmitDieTemps {
 
 BMU_TransmitDieTemps_t Compose_BMU_TransmitDieTemps(uint8_t packId, uint8_t temps[8]);
 
+typedef struct BMU_TransmitPackInfo {
+	uint32_t id;
+	uint8_t data[8];
+} BMU_TransmitPackInfo_t;
+
+BMU_TransmitPackInfo_t Compose_BMU_TransmitPackInfo(int32_t current, int32_t voltage_pack);
+
 #endif /* INC_CAN_BMU_H_ */
