@@ -16,7 +16,7 @@
 #define VCU_ID_DASH 2
 #define VCU_ID_EBS 	3
 #define VCU_ID_ASSI 4
-#define VCU_ID_EBS_ADC 5
+#define VCU_ID_EBS_BTN 5
 #define VCU_ID_ACCU 6
 #define VCU_ID_COOL_L 7
 #define VCU_ID_COOL_R 8
@@ -52,7 +52,7 @@ typedef enum {
 	VCU_STATE_ASSI = 0x14,
 
 	// EBS ADC VCU
-	VCU_STATE_ADC_EBS = 0x15,
+	VCU_STATE_EBS_BTN = 0x15,
 
 	// ACCU VCU
 	VCU_STATE_ACCU = 0x16,
@@ -177,14 +177,12 @@ typedef union VCU_Flags_ASSI {
 	} _VCU_Flags_ASSI;
 } VCU_Flags_ASSI_u;
 
-typedef union VCU_Flags_EBS_ADC {
+typedef union VCU_Flags_EBS_BTN {
 	uint16_t rawMem;
 	struct {
-		uint8_t DET_24V :1;
-		uint8_t DET_PWR_EBS :1;
-		uint8_t DET_BTN :1;
+		uint8_t BTN_PRESSED :1;
 	} _VCU_Flags_EBS_ADC;
-} VCU_Flags_EBS_ADC_u;
+} VCU_Flags_EBS_BTN_u;
 
 typedef union VCU_Flags_ACCU {
 	uint16_t rawMem;
@@ -215,7 +213,7 @@ typedef union VCU_Flags_Other {
 	VCU_Flags_Dash_u dash;
 	VCU_Flags_SHDN_u shdn;
 	VCU_Flags_EBS_u ebs;
-	VCU_Flags_EBS_ADC_u ebs_adc;
+	VCU_Flags_EBS_BTN_u ebs_btn;
 	VCU_Flags_ASSI_u assi;
 	VCU_Flags_ACCU_u accu;
 	VCU_Flags_COOL_u cool;
