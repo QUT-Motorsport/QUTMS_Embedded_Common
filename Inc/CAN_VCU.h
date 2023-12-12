@@ -112,7 +112,7 @@ typedef union VCU_Flags_Core {
 
 typedef union VCU_Flags_Ctrl {
 	uint16_t rawMem;
-	// 12 bits
+	// 13 bits
 	struct {
 		uint8_t HB_BMU :1;
 		uint8_t HB_MCISO :1;
@@ -122,9 +122,11 @@ typedef union VCU_Flags_Ctrl {
 		uint8_t S_Brake0 :1;
 		uint8_t S_Brake1 :1;
 		uint8_t IMP_APPS :1;	// T.4.2.5
-		uint8_t IMP_BSE :1;	// T.4.3.3
+		uint8_t IMP_BSE :1;		// T.4.3.3
 		uint8_t IMP_Pedal :1;	// EV.5.7
 		uint8_t Brake_Pressed :1;
+		uint8_t HB_EBS : 1;
+		uint8_t HB_DVL : 1;
 	} _VCU_Flags_Ctrl;
 } VCU_Flags_Ctrl_u;
 
