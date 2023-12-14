@@ -38,6 +38,7 @@ typedef union EBS_CTRL_Flags {
 	uint16_t rawMem;
 	struct {
 		uint8_t HB_VCU_CTRL : 1;
+		uint8_t HB_VCU_EBS_BTN : 1;
 		uint8_t HB_DVL : 1;
 		uint8_t WATCHDOG : 1;
 		uint8_t SOL_A : 1;
