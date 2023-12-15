@@ -183,7 +183,7 @@ typedef union VCU_Flags_EBS_BTN {
 	uint16_t rawMem;
 	struct {
 		uint8_t BTN_PRESSED :1;
-	} _VCU_Flags_EBS_ADC;
+	} _VCU_Flags_EBS_BTN;
 } VCU_Flags_EBS_BTN_u;
 
 typedef union VCU_Flags_ACCU {
