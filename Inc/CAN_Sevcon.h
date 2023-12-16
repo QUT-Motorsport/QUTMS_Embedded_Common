@@ -60,6 +60,8 @@ sevcon_hs_t Compose_Sevcon_HC3(uint8_t dest, uint8_t source,
 		int16_t currentLimitDischarge, int16_t currentLimitCharge,
 		int16_t targetCapVoltage);
 
+void Parse_Sevcon_HS1(uint8_t data[8], int16_t *outputTorque,
+		int16_t *motorSpeed, int16_t *batteryCurrent);
 void Parse_Sevcon_HS2(uint8_t data[8], int16_t *availableTorqueF,
 		int16_t *availableTorqueR, sevcon_state_t *statusWord);
 

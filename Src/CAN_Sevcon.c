@@ -71,6 +71,15 @@ sevcon_hs_t Compose_Sevcon_HC3(uint8_t dest, uint8_t source,
 	return msg;
 }
 
+void Parse_Sevcon_HS1(uint8_t data[8], int16_t *outputTorque,
+		int16_t *motorSpeed, int16_t *batteryCurrent) {
+	*outputTorque = data[0] | (data[1] << 8);
+	*motorSpeed = data[2] | (data[3] << 8);
+	*batteryCurrent = data[4] | (data[5] << 8);
+
+
+}
+
 void Parse_Sevcon_HS2(uint8_t data[8], int16_t *availableTorqueF,
 		int16_t *availableTorqueR, sevcon_state_t *statusWord) {
 	*availableTorqueF = data[0] | (data[1] << 8);
