@@ -128,4 +128,11 @@ typedef struct BMU_TransmitPackInfo {
 
 BMU_TransmitPackInfo_t Compose_BMU_TransmitPackInfo(int32_t current, int32_t voltage_pack);
 
+typedef struct BMU_TransmitPower {
+	uint32_t id;
+	uint8_t data[8];
+} BMU_TransmitPower_t;
+
+BMU_TransmitPower_t Compose_BMU_TransmitPower(int32_t power);
+
 #endif /* INC_CAN_BMU_H_ */

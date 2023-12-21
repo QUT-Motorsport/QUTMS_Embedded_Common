@@ -126,4 +126,15 @@ BMU_TransmitPackInfo_t Compose_BMU_TransmitPackInfo(int32_t current, int32_t vol
 	return msg;
 }
 
+BMU_TransmitPower_t Compose_BMU_TransmitPower(int32_t power) {
+	BMU_TransmitPower_t msg;
+	msg.id = BMU_TransmitPower_ID;
+	msg.data[0] = power & 0xFF;
+	msg.data[1] = (power >> 8) & 0xFF;
+	msg.data[2] = (power >> 16) & 0xFF;
+	msg.data[3] = (power >> 24) & 0xFF;
+
+	return msg;
+}
+
 #endif
