@@ -37,7 +37,8 @@ VCU_RTD_t Compose_VCU_RTD() {
 	return msg;
 }
 
-VCU_MotorTemp_t Compose_VCU_MotorTemp(uint8_t VCU_ID, uint32_t temp0, uint32_t temp1) {
+VCU_MotorTemp_t Compose_VCU_MotorTemp(uint8_t VCU_ID, uint32_t temp0,
+		uint32_t temp1) {
 	VCU_MotorTemp_t msg;
 	msg.id = VCU_MotorTemp_ID | VCU_ID;
 
@@ -53,7 +54,8 @@ VCU_MotorTemp_t Compose_VCU_MotorTemp(uint8_t VCU_ID, uint32_t temp0, uint32_t t
 	return msg;
 }
 
-VCU_IMU_Accel_t Compose_VCU_IMU_Accel(uint8_t VCU_ID, uint16_t scale, int16_t x, int16_t y, int16_t z) {
+VCU_IMU_Accel_t Compose_VCU_IMU_Accel(uint8_t VCU_ID, uint16_t scale, int16_t x,
+		int16_t y, int16_t z) {
 	VCU_IMU_Accel_t msg;
 	msg.id = VCU_IMU_Accel_ID | VCU_ID;
 
@@ -69,7 +71,8 @@ VCU_IMU_Accel_t Compose_VCU_IMU_Accel(uint8_t VCU_ID, uint16_t scale, int16_t x,
 	return msg;
 }
 
-VCU_IMU_Gyro_t Compose_VCU_IMU_Gyro(uint8_t VCU_ID, uint16_t scale, int16_t x, int16_t y, int16_t z) {
+VCU_IMU_Gyro_t Compose_VCU_IMU_Gyro(uint8_t VCU_ID, uint16_t scale, int16_t x,
+		int16_t y, int16_t z) {
 	VCU_IMU_Gyro_t msg;
 	msg.id = VCU_IMU_Gyro_ID | VCU_ID;
 
@@ -85,7 +88,8 @@ VCU_IMU_Gyro_t Compose_VCU_IMU_Gyro(uint8_t VCU_ID, uint16_t scale, int16_t x, i
 	return msg;
 }
 
-VCU_LinearTravel_t Compose_VCU_LinearTravel(uint8_t VCU_ID, bool front, uint16_t t0, uint16_t t1) {
+VCU_LinearTravel_t Compose_VCU_LinearTravel(uint8_t VCU_ID, bool front,
+		uint16_t t0, uint16_t t1) {
 	VCU_LinearTravel_t msg;
 	msg.id = VCU_LinearTravel_ID | VCU_ID;
 
@@ -113,7 +117,8 @@ VCU_AirPressure_t Compose_VCU_AirPressure(uint8_t VCU_ID, uint16_t pressure_raw)
 	return msg;
 }
 
-VCU_TransmitSteering_t Compose_VCU_TransmitSteering(int16_t steering0, int16_t steering1, uint16_t adc0, uint16_t adc1) {
+VCU_TransmitSteering_t Compose_VCU_TransmitSteering(int16_t steering0,
+		int16_t steering1, uint16_t adc0, uint16_t adc1) {
 	VCU_TransmitSteering_t msg;
 	msg.id = VCU_TransmitSteering_ID;
 
@@ -129,7 +134,8 @@ VCU_TransmitSteering_t Compose_VCU_TransmitSteering(int16_t steering0, int16_t s
 	return msg;
 }
 
-void Parse_VCU_TransmitSteering(uint8_t *data, int16_t *steering0, int16_t *steering1, uint16_t *adc0, uint16_t *adc1) {
+void Parse_VCU_TransmitSteering(uint8_t *data, int16_t *steering0,
+		int16_t *steering1, uint16_t *adc0, uint16_t *adc1) {
 	*steering0 = (data[1]) << 8 | data[0];
 	*steering1 = (data[3]) << 8 | data[2];
 	*adc0 = (data[5] << 8) | data[4];
@@ -137,8 +143,9 @@ void Parse_VCU_TransmitSteering(uint8_t *data, int16_t *steering0, int16_t *stee
 
 }
 
-VCU_ShutdownStatus_t Compose_VCU_ShutdownStatus(uint8_t line0, uint8_t line1, uint8_t line2, uint8_t line3,
-												bool status) {
+VCU_ShutdownStatus_t Compose_VCU_ShutdownStatus(uint8_t line0, uint8_t line1,
+		uint8_t line2, uint8_t line3,
+		bool status) {
 	VCU_ShutdownStatus_t msg;
 	msg.id = VCU_ShutdownStatus_ID;
 
@@ -149,8 +156,9 @@ VCU_ShutdownStatus_t Compose_VCU_ShutdownStatus(uint8_t line0, uint8_t line1, ui
 	return msg;
 }
 
-void Parse_VCU_ShutdownStatus(uint8_t *data, uint8_t *line0, uint8_t *line1, uint8_t *line2, uint8_t *line3,
-							  bool *status) {
+void Parse_VCU_ShutdownStatus(uint8_t *data, uint8_t *line0, uint8_t *line1,
+		uint8_t *line2, uint8_t *line3,
+		bool *status) {
 	*line0 = data[0] & 0xF;
 	*line1 = (data[0] >> 4) & 0xF;
 	*line2 = data[1] & 0xF;
@@ -158,7 +166,8 @@ void Parse_VCU_ShutdownStatus(uint8_t *data, uint8_t *line0, uint8_t *line1, uin
 	*status = (data[2] == 1) ? true : false;
 }
 
-VCU_Pedal_Accel_t Compose_VCU_Pedal_Accel(uint16_t accel0, uint16_t accel1) {
+VCU_Pedal_Accel_t Compose_VCU_Pedal_Accel(uint16_t accel0, uint16_t accel1,
+		uint16_t accel_adc0, uint16_t accel_adc1) {
 	VCU_Pedal_Accel_t msg;
 	msg.id = VCU_Pedal_Accel_ID;
 
@@ -166,6 +175,10 @@ VCU_Pedal_Accel_t Compose_VCU_Pedal_Accel(uint16_t accel0, uint16_t accel1) {
 	msg.data[1] = (accel0 >> 0) & 0xFF;
 	msg.data[2] = (accel1 >> 8) & 0xFF;
 	msg.data[3] = (accel1 >> 0) & 0xFF;
+	msg.data[4] = (accel_adc0 >> 8) & 0xFF;
+	msg.data[5] = (accel_adc0 >> 0) & 0xFF;
+	msg.data[6] = (accel_adc1 >> 8) & 0xFF;
+	msg.data[7] = (accel_adc1 >> 0) & 0xFF;
 
 	return msg;
 }
@@ -175,24 +188,61 @@ void Parse_VCU_Pedal_Accel(uint8_t *data, uint16_t *accel0, uint16_t *accel1) {
 	*accel1 = (data[2] << 8) | data[3];
 }
 
-VCU_Pedal_Brake_t Compose_VCU_Pedal_Brake(uint16_t brake, uint16_t brake_adc0, uint16_t brake_adc1) {
+VCU_Pedal_Brake_t Compose_VCU_Pedal_Brake(uint16_t brake_adc0,
+		uint16_t brake_adc1, int16_t brake_psi0, int16_t brake_psi1) {
 	VCU_Pedal_Brake_t msg;
 	msg.id = VCU_Pedal_Brake_ID;
 
-	msg.data[0] = (brake >> 8) & 0xFF;
-	msg.data[1] = (brake >> 0) & 0xFF;
-	msg.data[2] = (brake_adc0 >> 8) & 0xFF;
-	msg.data[3] = (brake_adc0 >> 0) & 0xFF;
-	msg.data[4] = (brake_adc1 >> 8) & 0xFF;
-	msg.data[5] = (brake_adc1 >> 0) & 0xFF;
+	msg.data[0] = (brake_adc0 >> 8) & 0xFF;
+	msg.data[1] = (brake_adc0 >> 0) & 0xFF;
+	msg.data[2] = (brake_adc1 >> 8) & 0xFF;
+	msg.data[3] = (brake_adc1 >> 0) & 0xFF;
+	msg.data[4] = (brake_psi0 >> 8) & 0xFF;
+	msg.data[5] = (brake_psi0 >> 0) & 0xFF;
+	msg.data[6] = (brake_psi1 >> 8) & 0xFF;
+	msg.data[7] = (brake_psi1 >> 0) & 0xFF;
 
 	return msg;
 }
 
-void Parse_VCU_Pedal_Brake(uint8_t *data, uint16_t *brake, uint16_t *brake_adc0, uint16_t *brake_adc1) {
-	*brake = (data[0] << 8) | data[1];
-	*brake_adc0 = (data[2] << 8) | data[3];
-	*brake_adc1 = (data[4] << 8) | data[5];
+void Parse_VCU_Pedal_Brake(uint8_t *data, uint16_t *brake_adc0,
+		uint16_t *brake_adc1, int16_t *brake_psi0, int16_t *brake_psi1) {
+	*brake_adc0 = (data[0] << 8) | data[1];
+	*brake_adc1 = (data[2] << 8) | data[3];
+	*brake_psi0 = (data[4] << 8) | data[5];
+	*brake_psi1 = (data[6] << 8) | data[7];
+}
+
+VCU_Temp_Gearbox_t Compose_VCU_Temp_Gearbox(uint8_t VCU_ID, uint16_t adc,
+		uint16_t R, uint16_t temp) {
+	VCU_Temp_Gearbox_t msg;
+	msg.id = VCU_GearboxTemp_ID | VCU_ID;
+
+	msg.data[0] = (adc >> 8) & 0xFF;
+	msg.data[1] = (adc >> 0) & 0xFF;
+	msg.data[2] = (R >> 8) & 0xFF;
+	msg.data[3] = (R >> 0) & 0xFF;
+	msg.data[4] = (temp >> 8) & 0xFF;
+	msg.data[5] = (temp >> 0) & 0xFF;
+
+	return msg;
+}
+
+VCU_Suspension_Rot_t Compose_VCU_Suspension_Rot(uint8_t VCU_ID, uint16_t adcL,
+		uint16_t adcR, int16_t degL, int16_t degR) {
+	VCU_Suspension_Rot_t msg;
+	msg.id = VCU_Suspension_Rot_ID | VCU_ID;
+
+	msg.data[0] = (adcL >> 8) & 0xFF;
+	msg.data[1] = (adcL >> 0) & 0xFF;
+	msg.data[2] = (adcR >> 8) & 0xFF;
+	msg.data[3] = (adcR >> 0) & 0xFF;
+	msg.data[4] = (degL >> 8) & 0xFF;
+	msg.data[5] = (degL >> 0) & 0xFF;
+	msg.data[6] = (degR >> 8) & 0xFF;
+	msg.data[7] = (degR >> 0) & 0xFF;
+
+	return msg;
 }
 
 VCU_OBJ_DICT_t Compose_VCU_OBJ_DICT(uint8_t VCU_ID, uint8_t data[8]) {
@@ -206,7 +256,8 @@ VCU_OBJ_DICT_t Compose_VCU_OBJ_DICT(uint8_t VCU_ID, uint8_t data[8]) {
 	return msg;
 }
 
-void Parse_VCU_OBJ_DICT(uint8_t *data, uint8_t *type, uint8_t *data_size, uint8_t *index, uint32_t *value) {
+void Parse_VCU_OBJ_DICT(uint8_t *data, uint8_t *type, uint8_t *data_size,
+		uint8_t *index, uint32_t *value) {
 	*type = data[0];
 	*data_size = data[1];
 	*index = data[2];

@@ -16,8 +16,11 @@
 #define VCU_ID_DASH 2
 #define VCU_ID_EBS 	3
 #define VCU_ID_ASSI 4
-#define VCU_ID_EBS_ADC 5
+#define VCU_ID_EBS_BTN 5
 #define VCU_ID_ACCU 6
+#define VCU_ID_COOL_L 7
+#define VCU_ID_COOL_R 8
+#define VCU_ID_SENSOR 9
 
 #define VCU_OD_ID_CTRL_REGEN_MAX_CURRENT 0x00
 #define VCU_OD_ID_CTRL_REGEN_DEADZONE 0x01
@@ -34,6 +37,7 @@ typedef enum {
 	VCU_STATE_PRECHARGE_REQUEST = 0x06,
 	VCU_STATE_PRECHARGE = 0x07,
 	VCU_STATE_INVERTER_CHECK = 0x08,
+	VCU_STATE_INVERTER_ENERGIZE = 0x18,
 	VCU_STATE_RTD_RDY = 0x09,
 	VCU_STATE_RTD_BTN = 0x10,
 	VCU_STATE_DRIVING = 0x11,
@@ -48,7 +52,16 @@ typedef enum {
 	VCU_STATE_ASSI = 0x14,
 
 	// EBS ADC VCU
-	VCU_STATE_ADC_EBS = 0x15,
+	VCU_STATE_EBS_BTN = 0x15,
+
+	// ACCU VCU
+	VCU_STATE_ACCU = 0x16,
+
+	// COOL VCU
+	VCU_STATE_COOL = 0x17,
+
+	// SENSOR VCU
+	VCU_STATE_SENSOR = 0x18,
 
 	// EBS VCU
 	VCU_STATE_EBS_PWR = 0x20,
@@ -87,32 +100,34 @@ typedef enum {
 typedef union VCU_Flags_Core {
 	uint8_t rawMem;
 	struct {
-		uint8_t P_CAN : 1;
-		uint8_t P_ADC : 1;
-		uint8_t P_ISRC : 1;
-		uint8_t P_IMU : 1;
-		uint8_t P_Watchdog : 1;
-		uint8_t P_CAN1 : 1;
-		uint8_t P_CAN2 : 1;
+		uint8_t P_CAN :1;
+		uint8_t P_ADC :1;
+		uint8_t P_ISRC :1;
+		uint8_t P_IMU :1;
+		uint8_t P_Watchdog :1;
+		uint8_t P_CAN1 :1;
+		uint8_t P_CAN2 :1;
 	} _VCU_Flags_Core;
 } VCU_Flags_Core_u;
 
 typedef union VCU_Flags_Ctrl {
 	uint16_t rawMem;
-	// 12 bits
+	// 13 bits
 	struct {
-		uint8_t HB_BMU : 1;
-		uint8_t HB_MCISO : 1;
-		uint8_t HB_INV : 1;
-		uint8_t S_Accel0 : 1;
-		uint8_t S_Accel1 : 1;
-		uint8_t S_Brake0 : 1;
-		uint8_t S_Brake1 : 1;
-		uint8_t PCHRG_Failed : 1;
-		uint8_t SHDN : 1;
-		uint8_t IMP_APPS : 1;	// T.4.2.5
-		uint8_t IMP_BSE : 1;	// T.4.3.3
-		uint8_t IMP_Pedal : 1;	// EV.5.7
+		uint8_t HB_BMU :1;
+		uint8_t HB_MCISO :1;
+		uint8_t HB_INV :1;
+		uint8_t S_Accel0 :1;
+		uint8_t S_Accel1 :1;
+		uint8_t S_Brake0 :1;
+		uint8_t S_Brake1 :1;
+		uint8_t IMP_APPS :1;	// T.4.2.5
+		uint8_t IMP_BSE :1;		// T.4.3.3
+		uint8_t IMP_Pedal :1;	// EV.5.7
+		uint8_t Brake_Pressed :1;
+		uint8_t HB_EBS : 1;
+		uint8_t HB_VCU_EBS_BTN : 1;
+		uint8_t HB_DVL : 1;
 	} _VCU_Flags_Ctrl;
 } VCU_Flags_Ctrl_u;
 
@@ -120,59 +135,80 @@ typedef union VCU_Flags_Dash {
 	uint16_t rawMem;
 	// 11 bits
 	struct {
-		uint8_t HB_BMU : 1;
-		uint8_t HB_VCU_SHDN : 1;
-		uint8_t S_Sus_L : 1;
-		uint8_t S_Sus_R : 1;
-		uint8_t S_Steer0 : 1;
-		uint8_t S_Steer1 : 1;
-		uint8_t IMP_Steer : 1;
-		uint8_t LED_AMS : 1;
-		uint8_t LED_IMD : 1;
-		uint8_t LED_BSPD : 1;
-		uint8_t LED_PDOC : 1;
-		uint8_t BRAKE_LIGHT : 1;
+		uint8_t HB_BMU :1;
+		uint8_t HB_VCU_SHDN :1;
+		uint8_t S_Sus_L :1;
+		uint8_t S_Sus_R :1;
+		uint8_t S_Steer0 :1;
+		uint8_t S_Steer1 :1;
+		uint8_t IMP_Steer :1;
+		uint8_t LED_AMS :1;
+		uint8_t LED_IMD :1;
+		uint8_t LED_BSPD :1;
+		uint8_t LED_PDOC :1;
+		uint8_t BRAKE_LIGHT :1;
 	} _VCU_Flags_Dash;
 } VCU_Flags_Dash_u;
 
 typedef union VCU_Flags_SHDN {
 	uint16_t rawMem;
 	struct {
-		uint8_t S_Sus_L : 1;
-		uint8_t S_Sus_R : 1;
-		uint8_t SHDN_Status : 1;
+		uint8_t S_Sus_L :1;
+		uint8_t S_Sus_R :1;
+		uint8_t SHDN_Status :1;
 	} _VCU_Flags_SHDN;
 } VCU_Flags_SHDN_u;
 
 typedef union VCU_Flags_EBS {
 	uint16_t rawMem;
 	struct {
-		uint8_t CTRL_PWR : 1;
-		uint8_t CTRL_EBS : 1;
-		uint8_t CTRL_SHDN : 1;
-		uint8_t DET_24V : 1;
-		uint8_t DET_PWR_EBS : 1;
-		uint8_t DET_BTN : 1;
-		uint8_t HB_DVL : 1;
-		uint8_t HB_EBS_ADC : 1;
+		uint8_t CTRL_PWR :1;
+		uint8_t CTRL_EBS :1;
+		uint8_t CTRL_SHDN :1;
+		uint8_t DET_24V :1;
+		uint8_t DET_PWR_EBS :1;
+		uint8_t DET_BTN :1;
+		uint8_t HB_DVL :1;
+		uint8_t HB_EBS_ADC :1;
 	} _VCU_Flags_EBS;
 } VCU_Flags_EBS_u;
 
 typedef union VCU_Flags_ASSI {
 	uint16_t rawMem;
 	struct {
-		uint8_t AS_STATE: 3;
+		uint8_t AS_STATE :3;
 	} _VCU_Flags_ASSI;
 } VCU_Flags_ASSI_u;
 
-typedef union VCU_Flags_EBS_ADC {
+typedef union VCU_Flags_EBS_BTN {
 	uint16_t rawMem;
 	struct {
-		uint8_t DET_24V : 1;
-		uint8_t DET_PWR_EBS : 1;
-		uint8_t DET_BTN : 1;
-	} _VCU_Flags_EBS_ADC;
-} VCU_Flags_EBS_ADC_u;
+		uint8_t BTN_PRESSED :1;
+	} _VCU_Flags_EBS_BTN;
+} VCU_Flags_EBS_BTN_u;
+
+typedef union VCU_Flags_ACCU {
+	uint16_t rawMem;
+	struct {
+		uint8_t HB_VCU_CTRL :1;
+		uint8_t S_Sus_L :1;
+		uint8_t S_Sus_R :1;
+		uint8_t SHDN_Status :1;
+		uint8_t FAN_REAR :1;
+		uint8_t BRAKE_LIGHT :1;
+	} _VCU_Flags_ACCU;
+} VCU_Flags_ACCU_u;
+
+typedef union VCU_Flags_COOL {
+	uint16_t rawMem;
+	struct {
+		uint8_t HB_VCU_CTRL :1;
+		uint8_t TEMP_RAD : 1;
+		uint8_t TEMP_BRAKE : 1;
+		uint8_t SIDE_FAN :1;
+		uint8_t SIDE_PUMP :1;
+	} _VCU_Flags_COOL;
+} VCU_Flags_COOL_u;
 
 typedef union VCU_Flags_Other {
 	uint16_t rawMem;
@@ -180,8 +216,10 @@ typedef union VCU_Flags_Other {
 	VCU_Flags_Dash_u dash;
 	VCU_Flags_SHDN_u shdn;
 	VCU_Flags_EBS_u ebs;
-	VCU_Flags_EBS_ADC_u ebs_adc;
+	VCU_Flags_EBS_BTN_u ebs_btn;
 	VCU_Flags_ASSI_u assi;
+	VCU_Flags_ACCU_u accu;
+	VCU_Flags_COOL_u cool;
 } VCU_Flags_Other_u;
 
 typedef struct VCU_HeartbeatState {
@@ -210,28 +248,32 @@ typedef struct VCU_MotorTemp {
 	uint8_t data[8];
 } VCU_MotorTemp_t;
 
-VCU_MotorTemp_t Compose_VCU_MotorTemp(uint8_t VCU_ID, uint32_t temp0, uint32_t temp1);
+VCU_MotorTemp_t Compose_VCU_MotorTemp(uint8_t VCU_ID, uint32_t temp0,
+		uint32_t temp1);
 
 typedef struct VCU_IMU_Accel {
 	uint32_t id;
 	uint8_t data[8];
 } VCU_IMU_Accel_t;
 
-VCU_IMU_Accel_t Compose_VCU_IMU_Accel(uint8_t VCU_ID, uint16_t scale, int16_t x, int16_t y, int16_t z);
+VCU_IMU_Accel_t Compose_VCU_IMU_Accel(uint8_t VCU_ID, uint16_t scale, int16_t x,
+		int16_t y, int16_t z);
 
 typedef struct VCU_IMU_Gyro {
 	uint32_t id;
 	uint8_t data[8];
 } VCU_IMU_Gyro_t;
 
-VCU_IMU_Gyro_t Compose_VCU_IMU_Gyro(uint8_t VCU_ID, uint16_t scale, int16_t x, int16_t y, int16_t z);
+VCU_IMU_Gyro_t Compose_VCU_IMU_Gyro(uint8_t VCU_ID, uint16_t scale, int16_t x,
+		int16_t y, int16_t z);
 
 typedef struct VCU_LinearTravel {
 	uint32_t id;
 	uint8_t data[8];
 } VCU_LinearTravel_t;
 
-VCU_LinearTravel_t Compose_VCU_LinearTravel(uint8_t VCU_ID, bool front, uint16_t t0, uint16_t t1);
+VCU_LinearTravel_t Compose_VCU_LinearTravel(uint8_t VCU_ID, bool front,
+		uint16_t t0, uint16_t t1);
 
 typedef struct VCU_AirPressure {
 	uint32_t id;
@@ -245,25 +287,30 @@ typedef struct VCU_TransmitSteering {
 	uint8_t data[8];
 } VCU_TransmitSteering_t;
 
-VCU_TransmitSteering_t Compose_VCU_TransmitSteering(int16_t steering0, int16_t steering1, uint16_t adc0, uint16_t adc1);
-void Parse_VCU_TransmitSteering(uint8_t *data, int16_t *steering0, int16_t *steering1, uint16_t *adc0, uint16_t *adc1);
+VCU_TransmitSteering_t Compose_VCU_TransmitSteering(int16_t steering0,
+		int16_t steering1, uint16_t adc0, uint16_t adc1);
+void Parse_VCU_TransmitSteering(uint8_t *data, int16_t *steering0,
+		int16_t *steering1, uint16_t *adc0, uint16_t *adc1);
 
 typedef struct VCU_ShutdownStatus_t {
 	uint32_t id;
 	uint8_t data[8];
 } VCU_ShutdownStatus_t;
 
-VCU_ShutdownStatus_t Compose_VCU_ShutdownStatus(uint8_t line0, uint8_t line1, uint8_t line2, uint8_t line3,
-												bool status);
-void Parse_VCU_ShutdownStatus(uint8_t *data, uint8_t *line0, uint8_t *line1, uint8_t *line2, uint8_t *line3,
-							  bool *status);
+VCU_ShutdownStatus_t Compose_VCU_ShutdownStatus(uint8_t line0, uint8_t line1,
+		uint8_t line2, uint8_t line3,
+		bool status);
+void Parse_VCU_ShutdownStatus(uint8_t *data, uint8_t *line0, uint8_t *line1,
+		uint8_t *line2, uint8_t *line3,
+		bool *status);
 
 typedef struct VCU_Pedal_Accel {
 	uint32_t id;
 	uint8_t data[8];
 } VCU_Pedal_Accel_t;
 
-VCU_Pedal_Accel_t Compose_VCU_Pedal_Accel(uint16_t accel0, uint16_t accel1);
+VCU_Pedal_Accel_t Compose_VCU_Pedal_Accel(uint16_t accel0, uint16_t accel1,
+		uint16_t accel_adc0, uint16_t accel_adc1);
 void Parse_VCU_Pedal_Accel(uint8_t *data, uint16_t *accel0, uint16_t *accel1);
 
 typedef struct VCU_Pedal_Brake {
@@ -271,8 +318,26 @@ typedef struct VCU_Pedal_Brake {
 	uint8_t data[8];
 } VCU_Pedal_Brake_t;
 
-VCU_Pedal_Brake_t Compose_VCU_Pedal_Brake(uint16_t brake, uint16_t brake_adc0, uint16_t brake_adc1);
-void Parse_VCU_Pedal_Brake(uint8_t *data, uint16_t *brake, uint16_t *brake_adc0, uint16_t *brake_adc1);
+VCU_Pedal_Brake_t Compose_VCU_Pedal_Brake(uint16_t brake_adc0,
+		uint16_t brake_adc1, int16_t brake_psi0, int16_t brake_psi1);
+void Parse_VCU_Pedal_Brake(uint8_t *data, uint16_t *brake_adc0,
+		uint16_t *brake_adc1, int16_t *brake_psi0, int16_t *brake_psi1);
+
+typedef struct VCU_Temp_Gearbox {
+	uint32_t id;
+	uint8_t data[8];
+} VCU_Temp_Gearbox_t;
+
+VCU_Temp_Gearbox_t Compose_VCU_Temp_Gearbox(uint8_t VCU_ID, uint16_t adc,
+		uint16_t R, uint16_t temp);
+
+typedef struct VCU_Suspension_Rot {
+	uint32_t id;
+	uint8_t data[8];
+} VCU_Suspension_Rot_t;
+
+VCU_Suspension_Rot_t Compose_VCU_Suspension_Rot(uint8_t VCU_ID, uint16_t adcL,
+		uint16_t adcR, int16_t degL, int16_t degR);
 
 // Object Dictionary
 
@@ -282,6 +347,7 @@ typedef struct VCU_OBJ_DICT {
 } VCU_OBJ_DICT_t;
 
 VCU_OBJ_DICT_t Compose_VCU_OBJ_DICT(uint8_t VCU_ID, uint8_t data[8]);
-void Parse_VCU_OBJ_DICT(uint8_t *data, uint8_t *type, uint8_t *data_size, uint8_t *index, uint32_t *value);
+void Parse_VCU_OBJ_DICT(uint8_t *data, uint8_t *type, uint8_t *data_size,
+		uint8_t *index, uint32_t *value);
 
 #endif /* COMMON_INC_CAN_VCU_H_ */

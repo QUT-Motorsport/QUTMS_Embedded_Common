@@ -110,4 +110,31 @@ BMU_TransmitDieTemps_t Compose_BMU_TransmitDieTemps(uint8_t packId, uint8_t temp
 	return msg;
 }
 
+BMU_TransmitPackInfo_t Compose_BMU_TransmitPackInfo(int32_t current, int32_t voltage_pack) {
+	BMU_TransmitPackInfo_t msg;
+	msg.id = BMU_TransmitPackInfo_ID;
+
+	msg.data[0] = current & 0xFF;
+	msg.data[1] = (current >> 8) & 0xFF;
+	msg.data[2] = (current >> 16) & 0xFF;
+	msg.data[3] = (current >> 24) & 0xFF;
+	msg.data[4] = voltage_pack & 0xFF;
+	msg.data[5] = (voltage_pack >> 8) & 0xFF;
+	msg.data[6] = (voltage_pack >> 16) & 0xFF;
+	msg.data[7] = (voltage_pack >> 24) & 0xFF;
+
+	return msg;
+}
+
+BMU_TransmitPower_t Compose_BMU_TransmitPower(int32_t power) {
+	BMU_TransmitPower_t msg;
+	msg.id = BMU_TransmitPower_ID;
+	msg.data[0] = power & 0xFF;
+	msg.data[1] = (power >> 8) & 0xFF;
+	msg.data[2] = (power >> 16) & 0xFF;
+	msg.data[3] = (power >> 24) & 0xFF;
+
+	return msg;
+}
+
 #endif

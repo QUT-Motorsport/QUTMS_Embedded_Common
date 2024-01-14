@@ -13,7 +13,7 @@
 #include <stdint.h>
 #include <stdlib.h>
 
-enum BMU_STATES {
+typedef enum  {
 	BMU_STATE_START = 0x00,
 	BMU_STATE_INIT_PERIPHERAL = 0x01,
 	BMU_STATE_INIT_CMU = 0x02,
@@ -27,14 +27,15 @@ enum BMU_STATES {
 	BMU_STATE_CHRG_READY = 0x17,
 	BMU_STATE_CHRG_PRECHARGE = 0x18,
 	BMU_STATE_CHRG_TS_ACTIVE = 0x19,
+	BMU_STATE_CHRG_FAIL = 0x1A,
 	BMU_STATE_TRIG_SHDN = 0x0D,
 	BMU_STATE_SHUTDOWN = 0x0F,
 	BMU_STATE_ERROR = 0xFF
-};
+} bmu_state_t;
 
 typedef union BMU_Flags {
 	uint32_t rawMem;
-	// 25 bits
+	// 28 bits
 	struct {
 		uint8_t HB_CMU :1;
 		uint8_t HB_SENDYNE1 :1;
@@ -67,6 +68,9 @@ typedef union BMU_Flags {
 		uint8_t BALANCING : 1;
 
 		uint8_t DIE_TEMPS : 1;
+		uint8_t HV_KEY : 1;
+		uint8_t CHRG_DET : 1;
+		uint8_t CHRG_CTRL : 1;
 	} _BMU_Flags;
 } BMU_Flags_u;
 
@@ -116,5 +120,19 @@ typedef struct BMU_TransmitDieTemps {
 } BMU_TransmitDieTemps_t;
 
 BMU_TransmitDieTemps_t Compose_BMU_TransmitDieTemps(uint8_t packId, uint8_t temps[8]);
+
+typedef struct BMU_TransmitPackInfo {
+	uint32_t id;
+	uint8_t data[8];
+} BMU_TransmitPackInfo_t;
+
+BMU_TransmitPackInfo_t Compose_BMU_TransmitPackInfo(int32_t current, int32_t voltage_pack);
+
+typedef struct BMU_TransmitPower {
+	uint32_t id;
+	uint8_t data[8];
+} BMU_TransmitPower_t;
+
+BMU_TransmitPower_t Compose_BMU_TransmitPower(int32_t power);
 
 #endif /* INC_CAN_BMU_H_ */
