@@ -277,10 +277,21 @@ VCU_Suspension_Rot_t Compose_VCU_Suspension_Rot(
     return msg;
 }
 
-VCU_OBJ_DICT_t Compose_VCU_OBJ_DICT(uint8_t VCU_ID, uint8_t data[8])
-{
-    VCU_OBJ_DICT_t msg;
-    msg.id = VCU_OBJ_DICT_ID | VCU_ID;
+VCU_Flow_Rate_t Compose_VCU_Flow_Rate(uint16_t lpm, uint16_t freq) {
+	VCU_Flow_Rate_t msg;
+	msg.id = VCU_Flow_Rate_ID;
+
+	msg.data[0] = (lpm >> 8) & 0xFF;
+	msg.data[1] = (lpm >> 0) & 0xFF;
+	msg.data[2] = (freq >> 8) & 0xFF;
+	msg.data[3] = (freq >> 0) & 0xFF;
+
+	return msg;
+}
+
+VCU_OBJ_DICT_t Compose_VCU_OBJ_DICT(uint8_t VCU_ID, uint8_t data[8]) {
+	VCU_OBJ_DICT_t msg;
+	msg.id = VCU_OBJ_DICT_ID | VCU_ID;
 
     for (int i = 0; i < 8; i++)
     {

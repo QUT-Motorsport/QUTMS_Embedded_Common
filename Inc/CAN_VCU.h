@@ -389,6 +389,14 @@ VCU_Suspension_Rot_t Compose_VCU_Suspension_Rot(
     uint8_t VCU_ID, uint16_t adcL, uint16_t adcR, int16_t degL, int16_t degR
 );
 
+typedef struct VCU_Flow_Rate {
+	uint32_t id;
+	uint8_t data[8];
+} VCU_Flow_Rate_t;
+
+VCU_Flow_Rate_t Compose_VCU_Flow_Rate(uint16_t lpm, uint16_t freq);
+
+
 // Object Dictionary
 
 typedef struct VCU_OBJ_DICT
