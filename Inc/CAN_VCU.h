@@ -396,6 +396,12 @@ typedef struct VCU_Flow_Rate {
 
 VCU_Flow_Rate_t Compose_VCU_Flow_Rate(uint16_t lpm, uint16_t freq);
 
+typedef struct VCU_Wheel_Speed {
+	uint32_t id;
+	uint8_t data[8];
+} VCU_Wheel_Speed_t;
+
+VCU_Wheel_Speed_t Compose_VCU_Wheel_Speed(uint16_t freq_fl, uint16_t freq_fr, uint16_t rpm_fl, uint16_t rpm_fr);
 
 // Object Dictionary
 
