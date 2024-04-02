@@ -394,7 +394,7 @@ typedef struct VCU_Flow_Rate {
 	uint8_t data[8];
 } VCU_Flow_Rate_t;
 
-VCU_Flow_Rate_t Compose_VCU_Flow_Rate(uint16_t lpm, uint16_t freq);
+VCU_Flow_Rate_t Compose_VCU_Flow_Rate(uint8_t vcu_id, uint16_t lpm, uint16_t freq);
 
 typedef struct VCU_Wheel_Speed {
 	uint32_t id;

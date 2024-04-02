@@ -277,9 +277,9 @@ VCU_Suspension_Rot_t Compose_VCU_Suspension_Rot(
     return msg;
 }
 
-VCU_Flow_Rate_t Compose_VCU_Flow_Rate(uint16_t lpm, uint16_t freq) {
+VCU_Flow_Rate_t Compose_VCU_Flow_Rate(uint8_t VCU_ID, uint16_t lpm, uint16_t freq) {
 	VCU_Flow_Rate_t msg;
-	msg.id = VCU_Flow_Rate_ID;
+	msg.id = VCU_Flow_Rate_ID | VCU_ID;
 
 	msg.data[0] = (lpm >> 8) & 0xFF;
 	msg.data[1] = (lpm >> 0) & 0xFF;
