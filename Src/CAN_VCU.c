@@ -277,10 +277,41 @@ VCU_Suspension_Rot_t Compose_VCU_Suspension_Rot(
     return msg;
 }
 
-VCU_OBJ_DICT_t Compose_VCU_OBJ_DICT(uint8_t VCU_ID, uint8_t data[8])
-{
-    VCU_OBJ_DICT_t msg;
-    msg.id = VCU_OBJ_DICT_ID | VCU_ID;
+VCU_Flow_Rate_t Compose_VCU_Flow_Rate(uint8_t VCU_ID, uint16_t lpm, uint16_t freq) {
+	VCU_Flow_Rate_t msg;
+	msg.id = VCU_Flow_Rate_ID | VCU_ID;
+
+	msg.data[0] = (lpm >> 8) & 0xFF;
+	msg.data[1] = (lpm >> 0) & 0xFF;
+	msg.data[2] = (freq >> 8) & 0xFF;
+	msg.data[3] = (freq >> 0) & 0xFF;
+	msg.data[4] = 0;
+	msg.data[5] = 0;
+	msg.data[6] = 0;
+	msg.data[7] = 0;
+
+	return msg;
+}
+
+VCU_Wheel_Speed_t Compose_VCU_Wheel_Speed(uint16_t freq_fl, uint16_t freq_fr, uint16_t rpm_fl, uint16_t rpm_fr) {
+	VCU_Wheel_Speed_t msg;
+	msg.id = VCU_Wheel_Speed_ID;
+
+	msg.data[0] = (freq_fl >> 8) & 0xFF;
+	msg.data[1] = (freq_fl >> 0) & 0xFF;
+	msg.data[2] = (freq_fr >> 8) & 0xFF;
+	msg.data[3] = (freq_fr >> 0) & 0xFF;
+	msg.data[4] = (rpm_fl >> 8) & 0xFF;
+	msg.data[5] = (rpm_fl >> 0) & 0xFF;
+	msg.data[6] = (rpm_fr >> 8) & 0xFF;
+	msg.data[7] = (rpm_fr >> 0) & 0xFF;
+
+	return msg;
+}
+
+VCU_OBJ_DICT_t Compose_VCU_OBJ_DICT(uint8_t VCU_ID, uint8_t data[8]) {
+	VCU_OBJ_DICT_t msg;
+	msg.id = VCU_OBJ_DICT_ID | VCU_ID;
 
     for (int i = 0; i < 8; i++)
     {
