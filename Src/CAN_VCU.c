@@ -285,6 +285,10 @@ VCU_Flow_Rate_t Compose_VCU_Flow_Rate(uint8_t VCU_ID, uint16_t lpm, uint16_t fre
 	msg.data[1] = (lpm >> 0) & 0xFF;
 	msg.data[2] = (freq >> 8) & 0xFF;
 	msg.data[3] = (freq >> 0) & 0xFF;
+	msg.data[4] = 0;
+	msg.data[5] = 0;
+	msg.data[6] = 0;
+	msg.data[7] = 0;
 
 	return msg;
 }
