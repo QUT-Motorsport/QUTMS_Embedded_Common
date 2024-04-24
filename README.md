@@ -41,13 +41,12 @@ SET_SOURCE_FILES_PROPERTIES(${SOURCES} PROPERTIES LANGUAGE CXX )
 
 # First Time Usage
 1. cd to the repository
-2. Run `git submodule init`
-3. Run `git submodule update`
-4. Run `git submodules update foreach git pull origin master`
+2. Run `git submodule update --init --recursive` to initalise the submodules.
+3. Run `git submodule update --recursive` or `git submodule foreach git pull origin master`to update the submodules.
 
 # Updating
 To update to the latest version of the submodule in a parent repo:
-1. Run `git submodule foreach git pull origin master`
+1. Run `git submodule update --recursive`
 2. Have a beer, you did a good job.
 
 # FSM
