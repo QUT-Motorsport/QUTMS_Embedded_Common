@@ -309,6 +309,19 @@ VCU_Wheel_Speed_t Compose_VCU_Wheel_Speed(uint16_t freq_fl, uint16_t freq_fr, ui
 	return msg;
 }
 
+VCU_Linear_Potentiometer_t Compose_VCU_Linear_Potentiometer(uint8_t VCU_ID,
+		uint16_t map, uint16_t adc) {
+	VCU_Linear_Suspension_t msg;
+	msg.id = VCU_Linear_Potentiometer_ID | VCU_ID;
+
+	msg.data[0] = (adc >> 8) & 0xFF;
+	msg.data[1] = (adc >> 0) & 0xFF;
+	msg.data[2] = (map >> 8) & 0xFF;
+	msg.data[3] = (map >> 0) & 0xFF;
+
+	return msg;
+}
+
 VCU_OBJ_DICT_t Compose_VCU_OBJ_DICT(uint8_t VCU_ID, uint8_t data[8]) {
 	VCU_OBJ_DICT_t msg;
 	msg.id = VCU_OBJ_DICT_ID | VCU_ID;
