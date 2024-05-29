@@ -408,7 +408,7 @@ typedef struct VCU_Linear_Potentiometer {
 	uint8_t data[8];
 } VCU_Linear_Potentiometer_t;
 
-VCU_Linear_Suspension_t Compose_VCU_Linear_Potentiometer(uint8_t VCU_ID,
+VCU_Linear_Potentiometer_t Compose_VCU_Linear_Potentiometer(uint8_t VCU_ID,
 		uint16_t map, uint16_t adc);
 
 // Object Dictionary

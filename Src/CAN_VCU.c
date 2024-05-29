@@ -311,7 +311,7 @@ VCU_Wheel_Speed_t Compose_VCU_Wheel_Speed(uint16_t freq_fl, uint16_t freq_fr, ui
 
 VCU_Linear_Potentiometer_t Compose_VCU_Linear_Potentiometer(uint8_t VCU_ID,
 		uint16_t map, uint16_t adc) {
-	VCU_Linear_Suspension_t msg;
+	VCU_Linear_Potentiometer_t msg;
 	msg.id = VCU_Linear_Potentiometer_ID | VCU_ID;
 
 	msg.data[0] = (adc >> 8) & 0xFF;
