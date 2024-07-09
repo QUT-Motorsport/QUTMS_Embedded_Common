@@ -35,7 +35,7 @@ typedef enum  {
 
 typedef union BMU_Flags {
 	uint32_t rawMem;
-	// 28 bits
+	// 30 bits
 	struct {
 		uint8_t HB_CMU :1;
 		uint8_t HB_SENDYNE1 :1;
@@ -71,6 +71,8 @@ typedef union BMU_Flags {
 		uint8_t HV_KEY : 1;
 		uint8_t CHRG_DET : 1;
 		uint8_t CHRG_CTRL : 1;
+
+		uint8_t CAN_REGEN : 1;
 	} _BMU_Flags;
 } BMU_Flags_u;
 
