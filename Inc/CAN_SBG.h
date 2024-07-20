@@ -185,8 +185,8 @@ typedef struct SBG_ECAN_MSG_EKF_VEL_BODY {
 
 SBG_ECAN_MSG_EKF_VEL_BODY_t Compose_SBG_ECAN_MSG_EKF_VEL_BODY(uint32_t id, int16_t velocity_x, int16_t velocity_y,
 															  int16_t velocity_z);
-void Parse_SBG_ECAN_MSG_EKF_VEL_BODY(uint8_t* data, uint32_t* id, int16_t* velocity_x, int16_t* velocity_y,
-									 int16_t* velocity_z);
+void Parse_SBG_ECAN_MSG_EKF_VEL_BODY(uint8_t* data, uint32_t* id, float* velocity_x, float* velocity_y,
+									 float* velocity_z);
 
 // Vehicle
 typedef struct SBG_ECAN_MSG_AUTO_TRACK_SLIP_CURV {
