@@ -116,7 +116,7 @@ typedef union VCU_Flags_Core
 typedef union VCU_Flags_Ctrl
 {
     uint16_t rawMem;
-    // 13 bits
+    // 16 bits
     struct
     {
         uint8_t HB_BMU : 1;
@@ -133,6 +133,8 @@ typedef union VCU_Flags_Ctrl
         uint8_t HB_EBS : 1;
         uint8_t HB_VCU_EBS_BTN : 1;
         uint8_t HB_DVL : 1;
+        uint8_t TC_LEFT : 1;
+        uint8_t TC_RIGHT : 1;
     } _VCU_Flags_Ctrl;
 } VCU_Flags_Ctrl_u;
 
