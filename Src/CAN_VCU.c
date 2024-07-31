@@ -24,6 +24,23 @@ VCU_Heartbeat_t Compose_VCU_Heartbeat(uint8_t id, VCU_HeartbeatState_t *state)
     return msg;
 }
 
+VCU_GIT_Hash_t Compose_VCU_GIT_Hash(uint8_t id, char *hash, uint8_t dirty_flag)
+{
+    VCU_GIT_Hash_t msg;
+    msg.id = VCU_GIT_Hash_ID | id;
+
+    for (int i = 0; i < 8; i++)
+    {
+        msg.data[i] = hash[i];
+    }
+
+    msg.data[8] = dirty_flag;
+
+    return msg;
+}
+
+
+
 void Parse_VCU_Heartbeat(const uint8_t *data, VCU_HeartbeatState_t *state)
 {
     state->stateID = data[0];

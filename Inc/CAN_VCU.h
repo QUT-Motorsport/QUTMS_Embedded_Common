@@ -285,6 +285,14 @@ VCU_IMU_Accel_t Compose_VCU_IMU_Accel(
     uint8_t VCU_ID, uint16_t scale, int16_t x, int16_t y, int16_t z
 );
 
+typdef struct VCU_GIT_Hash
+{
+    uint32_t id;
+    uint8_t data[8];
+} VCU_GIT_Hash_t;
+
+VCU_GIT_Hash_t Compose_VCU_GIT_Hash(uint8_t VCU_ID, const char *hash, bool dirty);
+
 typedef struct VCU_IMU_Gyro
 {
     uint32_t id;
