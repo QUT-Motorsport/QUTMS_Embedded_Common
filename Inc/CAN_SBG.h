@@ -198,8 +198,8 @@ SBG_ECAN_MSG_AUTO_TRACK_SLIP_CURV_t Compose_SBG_ECAN_MSG_AUTO_TRACK_SLIP_CURV(ui
 																			  int16_t angle_slip,
 																			  uint16_t curvature_radius,
 																			  uint8_t auto_status);
-void Parse_SBG_ECAN_MSG_AUTO_TRACK_SLIP_CURV(uint8_t* data, uint32_t* id, int16_t* angle_track, int16_t* angle_slip,
-											 uint16_t* curvature_radius, uint8_t* auto_status);
+void Parse_SBG_ECAN_MSG_AUTO_TRACK_SLIP_CURV(uint8_t* data, uint32_t* id, float* angle_track, float* angle_slip,
+											 float* curvature_radius, uint8_t* auto_status);
 
 // Magnetic
 typedef struct SBG_ECAN_MSG_MAG_0 {
