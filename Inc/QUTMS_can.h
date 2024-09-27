@@ -31,6 +31,7 @@ extern "C" {
 #define CAN_SRC_ID_SW 0x21
 #define CAN_SRC_ID_DEBUG 0x22
 #define CAN_SRC_ID_DVL 0x23
+#define CAN_SRC_ID_AV 0x24
 
 #define CAN_TYPE_ERROR 0x0
 #define CAN_TYPE_RECEIVE 0x1
@@ -208,6 +209,10 @@ enum CAN_MSG_IDs {
 	RES_Heartbeat_ID = 0x180 + RES_NODE_ID
 #endif
 };
+
+#ifdef QUTMS_CAN_AV
+	AV_STATE_HEARTBEAT_ID = Compose_CANId(CAN_PRIORITY_HEARTBEAT, CAN_SRC_ID_AV, DRIVERLESS, CAN_TYPE_HEARTBEAT, 0x0, 0x0),
+#endif
 
 // uint32_t Compose_CANId(uint8_t priority, uint16_t sourceId, uint8_t autonomous, uint8_t type, uint16_t extra, uint8_t
 // BMSId);
