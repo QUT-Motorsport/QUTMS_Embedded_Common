@@ -209,12 +209,12 @@ enum CAN_MSG_IDs {
 #ifdef QUTMS_CAN_RES
 	RES_Heartbeat_ID = 0x180 + RES_NODE_ID
 #endif
-};
 
 #ifdef QUTMS_CAN_AV
 	AV_STATE_Heartbeat_ID = Compose_CANId(CAN_PRIORITY_HEARTBEAT, CAN_SRC_ID_AV, DRIVERLESS, CAN_TYPE_HEARTBEAT, 0x0, 0x0),
 	ROS_STATE_Heartbeat_ID = Compose_CANId(CAN_PRIORITY_HEARTBEAT, CAN_SRC_ID_ROS, DRIVERLESS, CAN_TYPE_HEARTBEAT, 0x0, 0x0),
 #endif
+};
 
 // uint32_t Compose_CANId(uint8_t priority, uint16_t sourceId, uint8_t autonomous, uint8_t type, uint16_t extra, uint8_t
 // BMSId);
