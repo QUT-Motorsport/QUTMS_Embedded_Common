@@ -35,7 +35,36 @@ typedef struct AV_STATE_Heartbeat {
 	uint8_t data[8];
 } AV_STATE_Heartbeat_t;
 
+typedef union ROS_Flags
+{
+    uint8_t rawMem;
+    struct
+    {
+        uint8_t STEERING_CTRL : 1;
+        uint8_t SBG_OPERATIONAL : 1;
+        uint8_t LIDAR_OPERATIONAL : 1;
+        uint8_t PLANNING : 1;
+        uint8_t GOOD_TO_GO : 1;
+	uint8_t FINISHED : 1;
+    } _ROS_Flags;
+} ROS_Flags_u;
+
+typedef struct ROS_STATE_HeartbeatState {
+	ROS_Flags_u rosFlags;
+	uint8_t identifiedCones;
+	uint8_t mappedCones;
+	uint8_t lap;
+} ROS_STATE_HeartbeatState_t;
+
+typedef struct ROS_STATE_Heartbeat {
+	uint32_t id;
+	uint8_t data[8];
+} ROS_STATE_Heartbeat_t;
+
 AV_STATE_Heartbeat_t Compose_AV_STATE_Heartbeat(AV_STATE_HeartbeatState_t *state);
 void Parse_AV_STATE_Heartbeat(uint8_t *data, AV_STATE_HeartbeatState_t *state);
+
+ROS_STATE_Heartbeat_t Compose_ROS_STATE_Heartbeat(ROS_STATE_HeartbeatState_t *state);
+void Parse_ROS_STATE_Heartbeat(uint8_t *data, ROS_STATE_HeartbeatState_t *state);
 
 #endif
