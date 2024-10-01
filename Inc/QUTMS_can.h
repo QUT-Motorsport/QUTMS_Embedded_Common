@@ -33,6 +33,7 @@ extern "C" {
 #define CAN_SRC_ID_DVL 0x23
 #define CAN_SRC_ID_AV 0x24
 #define CAN_SRC_ID_ROS 0x25
+#define CAN_SRC_ID_ACM 0x26
 
 #define CAN_TYPE_ERROR 0x0
 #define CAN_TYPE_RECEIVE 0x1
@@ -124,6 +125,10 @@ enum CAN_MSG_IDs {
 
 #ifdef QUTMS_CAN_EBS
 		EBS_CTRL_Heartbeat_ID = Compose_CANId(CAN_PRIORITY_HEARTBEAT, CAN_SRC_ID_EBS_CTRL, DRIVER, CAN_TYPE_HEARTBEAT, 0x0, 0x0),
+#endif
+
+#ifdef QUTMS_CAN_ACM
+		ACM_Heartbeat_ID = Compose_CANId(CAN_PRIORITY_HEARTBEAT, CAN_SRC_ID_ACM, DRIVER, CAN_TYPE_HEARTBEAT, 0x0, 0x0),
 #endif
 
 /** CC */
