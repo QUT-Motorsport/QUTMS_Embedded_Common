@@ -212,7 +212,7 @@ enum CAN_MSG_IDs {
 #endif
 
 #ifdef QUTMS_CAN_RES
-	RES_Heartbeat_ID = 0x180 + RES_NODE_ID
+	RES_Heartbeat_ID = 0x180 + RES_NODE_ID,
 #endif
 
 #ifdef QUTMS_CAN_AV
