@@ -11,7 +11,7 @@
 
 EBS_CTRL_Heartbeat_t Compose_EBS_CTRL_Heartbeat(EBS_CTRL_HeartbeatState_t *state)
 {
-	EBS_CTRL_Heartbeat_t msg = {0};
+	EBS_CTRL_Heartbeat_t msg = {};
 	msg.id = EBS_CTRL_Heartbeat_ID;
 
 	msg.data[0] = state->stateID;
