@@ -36,8 +36,9 @@ typedef enum  {
 typedef union ACM_Flags {
 	uint16_t rawMem;
 	struct {
+		uint8_t HB_RES : 1;
 		uint8_t HB_VCU_CTRL : 1;
-		uint8_t HB_DVL : 1;
+		uint8_t HB_ROS : 1;
 		uint8_t WATCHDOG : 1;
 		uint8_t SOL_A : 1;
 		uint8_t SOL_B : 1;
