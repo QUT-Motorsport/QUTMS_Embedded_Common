@@ -82,15 +82,13 @@ typedef enum
     VCU_STATE_EBS_BRAKING = 0x2F,
 
     // 0xA- for Autonomous
-    VCU_STATE_DVL_EBS_CHECK = 0xA0,
-    VCU_STATE_DVL_RQST_MISSION = 0xA1,
-    VCU_STATE_DVL_IDLE = 0xA2,
-    VCU_STATE_DVL_PRECHARGE_REQUEST = 0xA6,
-    VCU_STATE_DVL_PRECHARGE = 0xA7,
-    VCU_STATE_DVL_INVERTER_CHECK = 0xA8,
-    VCU_STATE_DVL_RTD = 0xA9,
-    VCU_STATE_DVL_DRIVING = 0xAA,
-    VCU_STATE_DVL_EMERGENCY = 0xAF,
+    VCU_STATE_AV_IDLE = 0xA0,
+    VCU_STATE_AV_PRECHARGE_REQUEST = 0xA1,
+    VCU_STATE_AV_PRECHARGE = 0xA2,
+    VCU_STATE_AV_INVERTER_CHECK = 0xA3,
+    VCU_STATE_AV_RTD = 0xA4,
+    VCU_STATE_AV_DRIVING = 0xA5,
+    VCU_STATE_AV_EMERGENCY = 0xAF,
 
     // Error states
     VCU_STATE_TS_ERROR = 0xFE,
@@ -130,9 +128,9 @@ typedef union VCU_Flags_Ctrl
         uint8_t IMP_BSE : 1;   // T.4.3.3
         uint8_t IMP_Pedal : 1; // EV.5.7
         uint8_t Brake_Pressed : 1;
-        uint8_t HB_EBS : 1;
-        uint8_t HB_VCU_EBS_BTN : 1;
-        uint8_t HB_DVL : 1;
+        uint8_t HB_ACM : 1;
+        uint8_t HB_Torque : 1;
+        uint8_t AV_ACTIVE : 1;
     } _VCU_Flags_Ctrl;
 } VCU_Flags_Ctrl_u;
 

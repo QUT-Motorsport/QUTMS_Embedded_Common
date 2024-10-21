@@ -42,4 +42,24 @@ void Parse_ROS_STATE_Heartbeat(uint8_t *data, ROS_STATE_HeartbeatState_t *state)
 	state->lap = data[3];
 }
 
+Torque_Request_Heartbeat_t Compose_Torque_Request_Heartbeat(Torque_Request_t *state)
+{
+	Torque_Request_Heartbeat_t msg;
+	msg.id = Torque_Request_ID;
+
+	// state->torque in range -100 -> 100.
+	int16_t torqueCommand = (int16_t)(INT16_MAX / 100.0f * state->torque);
+
+	msg.data[0] = torqueCommand & 0xFF;
+	msg.data[1] = (torqueCommand >> 8) & 0xFF;
+
+	return msg;
+}
+
+void Parse_Torque_Request_Heartbeat(uint8_t *data, Torque_Request_t *state)
+{
+	int16_t torqueCommand = data[0] | (data[1] << 8);
+	state->torque= torqueCommand * 100.0f / INT16_MAX;
+}
+
 #endif

@@ -61,10 +61,22 @@ typedef struct ROS_STATE_Heartbeat {
 	uint8_t data[8];
 } ROS_STATE_Heartbeat_t;
 
+typedef struct Torque_Request_Heartbeat{
+	uint32_t id;
+	uint8_t data[8];
+} Torque_Request_Heartbeat_t;
+
+typedef struct Torque_Request{
+	float torque;
+} Torque_Request_t;
+
 AV_STATE_Heartbeat_t Compose_AV_STATE_Heartbeat(AV_STATE_HeartbeatState_t *state);
 void Parse_AV_STATE_Heartbeat(uint8_t *data, AV_STATE_HeartbeatState_t *state);
 
 ROS_STATE_Heartbeat_t Compose_ROS_STATE_Heartbeat(ROS_STATE_HeartbeatState_t *state);
 void Parse_ROS_STATE_Heartbeat(uint8_t *data, ROS_STATE_HeartbeatState_t *state);
+
+Torque_Request_Heartbeat_t Compose_Torque_Request_Heartbeat(Torque_Request_t *state);
+void Parse_Torque_Request_Heartbeat(uint8_t *data, Torque_Request_t *state);
 
 #endif
