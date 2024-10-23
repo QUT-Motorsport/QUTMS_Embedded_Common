@@ -25,6 +25,13 @@ typedef struct RES_Heartbeat {
 	uint8_t data[8];
 } RES_Heartbeat_t;
 
+typedef struct RES_NMT_Boot {
+	uint32_t id;
+	uint8_t data[8];
+} RES_NMT_Boot_t;
+
 void Parse_RES_Heartbeat(uint8_t *data, RES_Status_t *status);
+
+RES_NMT_Boot_t Compose_RES_NMT_Boot(uint8_t msg_type);
 
 #endif /* COMMON_INC_CAN_RES_H_ */

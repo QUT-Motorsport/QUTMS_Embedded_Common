@@ -18,4 +18,14 @@ void Parse_RES_Heartbeat(uint8_t *data, RES_Status_t *status) {
     status->loss_of_signal_shutdown_notice = data[7] & (1 << 6);  // LoSSN = PDO 2007 Bi
 }
 
+RES_NMT_Boot_t Compose_RES_NMT_Boot(uint8_t msg_type) {
+	RES_NMT_Boot_t msg = {};
+	msg.id = 0x0;
+
+	msg.data[0] = msg_type;
+	msg.data[1] = RES_NODE_ID;
+
+	return msg;
+}
+
 #endif
