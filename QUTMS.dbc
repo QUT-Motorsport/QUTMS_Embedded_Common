@@ -126,8 +126,8 @@ BO_ 2291580928 ROS_State: 8 Vector__XXX
  SG_ ROS_State_Finished : 5|1@1+ (1,0) [0|0] "" Vector__XXX
 
  SG_ ROS_State_Cones_Identified : 8|8@1+ (1,0) [0|0] "" Vector__XXX
- SG_ ROS_State_Cones_Mapped : 16|8@1+ (1,0) [0|0] "" Vector__XXX
- SG_ ROS_State_Laps : 24|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ ROS_State_Cones_Mapped : 16|16@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ ROS_State_Laps : 32|8@1+ (1,0) [0|0] "" Vector__XXX
 
 
 BO_ 2424340665 VCU_Suspension_Rot_Front: 8 Vector__XXX
