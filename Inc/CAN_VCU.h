@@ -411,6 +411,13 @@ typedef struct VCU_Linear_Potentiometer {
 VCU_Linear_Potentiometer_t Compose_VCU_Linear_Potentiometer(uint8_t VCU_ID,
 		uint16_t map, uint16_t adc);
 
+typedef struct VCU_Pitot_Tube {
+	uint32_t id;
+	uint8_t data[8];
+} VCU_Pitot_Tube_t;
+
+VCU_Pitot_Tube_t Compose_VCU_Pitot_Tube(uint8_t VCU_ID, uint16_t adc, uint16_t kPa);
+
 // Object Dictionary
 
 typedef struct VCU_OBJ_DICT
