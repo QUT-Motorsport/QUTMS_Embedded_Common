@@ -637,3 +637,27 @@ void Parse_SBG_ECAN_MSG_GPS1_POS(uint8_t* data, uint32_t* id, float* latitude, f
 	*latitude *= 0.0000001;
 	*longitude *= 0.0000001;
 }
+
+void Parse_SBG_ECAN_MSG_EKF_VEL_BODY(uint8_t* data, uint32_t* id, float* vel_x, float* vel_y, float* vel_z) {
+	*id = SBG_ECAN_MSG_EKF_VEL_BODY_ID;
+	*vel_x = (int16_t)((data[0] << 0) | (data[1] << 8));
+	*vel_y = (int16_t)((data[2] << 0) | (data[3] << 8));
+	*vel_z = (int16_t)((data[4] << 0) | (data[5] << 8));
+
+	*vel_x *= 0.01;
+	*vel_y *= 0.01;
+	*vel_z *= 0.01;
+}
+
+void Parse_SBG_ECAN_MSG_AUTO_TRACK_SLIP_CURV(uint8_t* data, uint32_t* id, float* angle_track, float* angle_slip,
+											 float* curvature_radius, uint8_t* auto_status) {
+	*id = SBG_ECAN_MSG_AUTO_TRACK_SLIP_CURV_ID;
+	*angle_track = (int16_t) ((data[0] << 0) | (data[1] << 8));
+	*angle_slip = (int16_t) ((data[2] << 0) | (data[3] << 8));
+	*curvature_radius = (uint16_t) ((data[4] << 0) | (data[5] << 8));
+	*auto_status = (uint8_t) ((data[6] <<0 | data[6] << 8));
+
+	*angle_track *= 0.0001;
+	*angle_slip *= 0.0001;
+	*curvature_radius *= 0.01;
+}
