@@ -42,24 +42,34 @@ void Parse_ROS_Heartbeat(uint8_t *data, ROS_Status_t *state)
 	state->lap = data[3];
 }
 
-Torque_Request_Heartbeat_t Compose_Torque_Request_Heartbeat(Torque_Request_t *state)
+Request_Heartbeat_t Compose_Request_Heartbeat(Request_t *state)
 {
-	Torque_Request_Heartbeat_t msg;
-	msg.id = Torque_Request_ID;
+	Request_Heartbeat_t msg;
+	msg.id = Request_ID;
 
 	// state->torque in range -100 -> 100.
 	int16_t torqueCommand = (int16_t)(INT16_MAX / 100.0f * state->torque);
+	int16_t steeringCommand = (int16_t)(INT16_MAX / 100.0f * state->steering);
+	int16_t speedCommand = (int16_t)(INT16_MAX / 100.0f * state->speed);
 
 	msg.data[0] = torqueCommand & 0xFF;
 	msg.data[1] = (torqueCommand >> 8) & 0xFF;
+	msg.data[2] = steeringCommand & 0xFF;
+	msg.data[3] = (steeringCommand >> 8) & 0xFF;
+	msg.data[4] = speedCommand & 0xFF;
+	msg.data[5] = (speedCommand >> 8) & 0xFF;
 
 	return msg;
 }
 
-void Parse_Torque_Request_Heartbeat(uint8_t *data, Torque_Request_t *state)
+void Parse_Request_Heartbeat(uint8_t *data, Request_t *state)
 {
 	int16_t torqueCommand = data[0] | (data[1] << 8);
 	state->torque= torqueCommand * 100.0f / INT16_MAX;
+	int16_t steeringCommand = data[2] | (data[3] << 8);
+	state->torque= steeringCommand * 100.0f / INT16_MAX;
+	int16_t speedCommand = data[4] | (data[5] << 8);
+	state->torque= speedCommand * 100.0f / INT16_MAX;
 }
 
 #endif

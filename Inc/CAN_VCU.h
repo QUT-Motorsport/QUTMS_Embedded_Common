@@ -129,7 +129,7 @@ typedef union VCU_Flags_Ctrl
         uint8_t IMP_Pedal : 1; // EV.5.7
         uint8_t Brake_Pressed : 1;
         uint8_t HB_ACM : 1;
-        uint8_t HB_Torque : 1;
+        uint8_t HB_AV_Request : 1;
         uint8_t AV_ACTIVE : 1;
     } _VCU_Flags_Ctrl;
 } VCU_Flags_Ctrl_u;
