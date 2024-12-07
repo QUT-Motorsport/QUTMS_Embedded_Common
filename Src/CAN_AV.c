@@ -67,9 +67,9 @@ void Parse_Request_Heartbeat(uint8_t *data, Request_t *state)
 	int16_t torqueCommand = data[0] | (data[1] << 8);
 	state->torque= torqueCommand * 100.0f / INT16_MAX;
 	int16_t steeringCommand = data[2] | (data[3] << 8);
-	state->torque= steeringCommand * 100.0f / INT16_MAX;
+	state->steering= steeringCommand * 100.0f / INT16_MAX;
 	int16_t speedCommand = data[4] | (data[5] << 8);
-	state->torque= speedCommand * 100.0f / INT16_MAX;
+	state->speed= speedCommand * 100.0f / INT16_MAX;
 }
 
 #endif
