@@ -58,6 +58,13 @@ Compose_VCU_MotorTemp(uint8_t VCU_ID, uint32_t temp0, uint32_t temp1)
     return msg;
 }
 
+void Parse_VCU_MotorTemp(const uint8_t *data, uint32_t *temp0, uint32_t *temp1);
+{
+    *temp0 = (data[3]) << 24 | (data[2]) << 16 | (data[1]) << 8 | data[0];
+    *temp1 = (data[7]) << 24 | (data[6]) << 16 | (data[5]) << 8 | data[4];
+}
+
+
 VCU_IMU_Accel_t Compose_VCU_IMU_Accel(
     uint8_t VCU_ID, uint16_t scale, int16_t x, int16_t y, int16_t z
 )
