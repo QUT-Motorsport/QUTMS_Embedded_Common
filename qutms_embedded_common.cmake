@@ -3,6 +3,7 @@ message("QUTMS_Embedded_Common component is included.")
 
 target_sources(${PROJECT_NAME} PRIVATE
     ${CMAKE_CURRENT_LIST_DIR}/Src/CAN_AMS.c
+    ${CMAKE_CURRENT_LIST_DIR}/Src/CAN_AV.c
     ${CMAKE_CURRENT_LIST_DIR}/Src/CAN_BMS.c
     ${CMAKE_CURRENT_LIST_DIR}/Src/CAN_BMU.c
     ${CMAKE_CURRENT_LIST_DIR}/Src/CAN_CC.c
