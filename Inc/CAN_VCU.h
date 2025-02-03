@@ -273,6 +273,8 @@ typedef struct VCU_MotorTemp
 VCU_MotorTemp_t
 Compose_VCU_MotorTemp(uint8_t VCU_ID, uint32_t temp0, uint32_t temp1);
 
+void Parse_VCU_MotorTemp(const uint8_t *data, uint32_t *temp0, uint32_t *temp1);
+
 typedef struct VCU_IMU_Accel
 {
     uint32_t id;
