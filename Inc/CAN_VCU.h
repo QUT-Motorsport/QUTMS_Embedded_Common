@@ -403,6 +403,8 @@ typedef struct VCU_Wheel_Speed {
 
 VCU_Wheel_Speed_t Compose_VCU_Wheel_Speed(uint16_t freq_fl, uint16_t freq_fr, uint16_t rpm_fl, uint16_t rpm_fr);
 
+void Parse_VCU_Wheel_Speed(const uint8_t *data, uint16_t *freq_fl, uint16_t *freq_fr, uint16_t *rpm_fl, uint16_t *rpm_fr);
+
 typedef struct VCU_Linear_Potentiometer {
 	uint32_t id;
 	uint8_t data[8];
