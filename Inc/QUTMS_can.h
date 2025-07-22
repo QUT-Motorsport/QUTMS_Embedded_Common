@@ -19,15 +19,15 @@ extern "C" {
 #define CAN_PRIORITY_DEBUG 0x3
 
 // sourceIDs (pcbs)
-#define CAN_SRC_ID_VCU_Front 0x01
+#define CAN_SRC_ID_VCU_FRONT 0x01
 #define CAN_SRC_ID_ACM 0x02
 #define CAN_SRC_ID_MISCO 0x03
 #define CAN_SRC_ID_ROS 0x04
 #define CAN_SRC_ID_BMU 0x05
-#define CAN_SRC_ID_Shutdown 0x06
-#define CAN_SRC_ID_VCU_Rear 0x07
+#define CAN_SRC_ID_SHUTDOWN 0x06
+#define CAN_SRC_ID_VCU_REAR 0x07
 #define CAN_SRC_ID_SW 0x08
-#define CAN_SRC_ID_ChrgCtrl 0x09
+#define CAN_SRC_ID_CHRGCTRL 0x09
 
 // Message Types
 #define CAN_TYPE_ERROR 0x0
@@ -65,13 +65,12 @@ extern "C" {
      (((CANtype)        & 0x1)   << 16) |                                                                \
      (((crypto)         & 0xF)   << 12) |                                                                \
      (((boardDependant) & 0xFFF) << 0))
-	 
+
 //IDK NOTE
 enum CAN_MSG_IDs {
 	/* Front_VCU */
 	#ifdef QUTMS_CAN_FRONT_VCU
 		Front_VCU_Heartbeat_ID = Compose_CANId()
-		//VCU shutdown status???
 		Front_VCU_Pedals = Compose_CANId()
 		Front_VCU_Steering_Sus = Compose_CANId()
 		Front_VCU_Wheels = Compose_CANId()
