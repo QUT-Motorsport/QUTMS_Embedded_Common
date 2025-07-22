@@ -59,9 +59,9 @@ extern "C" {
 // function to compose the canID
 #define Compose_CANId(priority, sourceID, type, vehicle, CANtype, crypto, boardDependant)                \
     ((((priority)       & 0x7)   << 26) |                                                                \
-     (((sourceID)       & 0x1F)  << 21) |                                                                \                                                              \
-     (((type)           & 0x7)   << 18) |                                                               \
-	 (((vehicle)        & 0x1)   << 17) |                                                             \
+     (((sourceID)       & 0x1F)  << 21) |                                                                \
+     (((type)           & 0x7)   << 18) |                                                                \
+	 (((vehicle)        & 0x1)   << 17) |                                                                \
      (((CANtype)        & 0x1)   << 16) |                                                                \
      (((crypto)         & 0xF)   << 12) |                                                                \
      (((boardDependant) & 0xFFF) << 0))
