@@ -94,7 +94,7 @@ enum CAN_MSG_IDs {
 
 	#endif
 	/* Shutdown */
-	#ifdef QUTMS_CAN_Shutdown
+	#ifdef QUTMS_CAN_SHUTDOWN
 
 	#endif
 	/* Rear_VCU */
@@ -110,7 +110,7 @@ enum CAN_MSG_IDs {
 
 	#endif
 	/* Charge Control */
-	#ifdef QUTMS_CAN_ChrgControl
+	#ifdef QUTMS_CAN_CHRGCTRL
 
 	#endif
 };
