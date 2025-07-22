@@ -4,27 +4,30 @@
 /* USER CODE BEGIN 0 */
 
 /* CANId */
-//uint32_t Compose_CANId(uint8_t priority, uint16_t sourceId, uint8_t autonomous, uint8_t type, uint16_t extra, uint8_t BMSId)
-//{
-//	uint32_t id = (priority & 0x3) << 27
-//				| (sourceId & 0x1FF) << 18
-//				| (autonomous & 0x1) << 17
-//				| (type & 0x7) << 14
-//				| (extra & 0x3FF) << 4
-//				| (BMSId & 0xF);
-//	return id;
-//}
-void Parse_CANId(uint32_t CANId, uint8_t* priority, uint16_t* sourceId, uint8_t* autonomous, uint8_t* type, uint16_t* extra, uint8_t* BMSId)
+// #define Compose_CANId(priority, sourceID, type, vehicle, CANtype, crypto, boardDependant)                \
+//     ((((priority)       & 0x7)   << 26) |                                                                \
+//      (((sourceID)       & 0x1F)  << 21) |                                                               \
+//      (((type)           & 0x7)   << 18) |    
+//      (((vehicle)        & 0x1)   << 17) |                                                                 \
+//      (((CANtype)        & 0x1)   << 16) |                                                                \
+//      (((crypto)         & 0xF)   << 12) |                                                                \
+//      (((boardDependant) & 0xFFF) << 0))
+
+//FIX THIS -> in the brackets
+void Parse_CANId(uint32_t CANId, uint8_t* priority, uint16_t* sourceID, uint8_t* type, uint8_t* vehicle, uint16_t* C, uint8_t* BMSId)
 {
-	*priority = (CANId >> 27) & 0x3;
-	*sourceId = (CANId >> 18) & 0x1FF;
-	*autonomous = (CANId >> 17) & 0x1;
-	*type = (CANId >> 14) & 0x7;
-	*extra = (CANId >> 4) & 0x3FF;
-	*BMSId = (CANId & 0xF);
+	*priority = (CANId >> 26) & 0x7;
+	*sourceID = (CANId >> 21) & 0x1F;
+	*type = (CANId >> 18) & 0x7;
+	*vehicle = (CANId >> 17) & 0x1;
+	*CANtype = (CANId >> 16) & 0x1;
+	*crypto = (CANId >> 12) & 0xF;
+	*boardDependant = (CANId >> 0) & 0xFFF;
+	
 	return;
 }
 
+// FIX???
 CAN_LOG_t Compose_CAN_LOG(uint8_t dataType, uint8_t dataLength, uint8_t* data)
 {
 	CAN_LOG_t p;
@@ -38,6 +41,7 @@ CAN_LOG_t Compose_CAN_LOG(uint8_t dataType, uint8_t dataLength, uint8_t* data)
 	return p;
 }
 
+// FIX??
 void Parse_CAN_LOG(uint8_t *data, uint8_t *dataType, uint8_t* dataLength, uint8_t *rdata)
 {
 	*dataType = (data[0] >> 3) & 0x1F;
