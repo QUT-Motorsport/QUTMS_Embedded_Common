@@ -11,7 +11,7 @@ extern "C" {
 #include "VESC_CAN_Datatypes.h"
 #endif
 
-/* defines */
+/* DEFINES */
 // Priorities 
 #define CAN_PRIORITY_ERROR 0x0
 #define CAN_PRIORITY_HEARTBEAT 0x1
@@ -52,7 +52,7 @@ extern "C" {
 #define CAN_MASK_TYPE (0x7 << CAN_ID_BIT_SHIFT_TYPE)
 #define CAN_MASK_SRC_ID 0x1FF << 18
 
-//change??
+//AV
 #define RES_NODE_ID 0x011
 
 /* functions */
@@ -66,7 +66,7 @@ extern "C" {
      (((crypto)         & 0xF)   << 12) |                                                                \
      (((boardDependant) & 0xFFF) << 0))
 
-//IDK NOTE
+//MesssageIDs
 enum CAN_MSG_IDs {
 	/* Front_VCU */
 	#ifdef QUTMS_CAN_FRONT_VCU
