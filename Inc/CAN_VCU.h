@@ -1,8 +1,10 @@
 /*
  * CAN_VCU.h
  *
- *  Created on: Sep 22, 2021
- *      Author: Calvin
+ *  Original Created on: Sep 22, 2021
+ *      Original By: Calvin
+ * Revised on: July 23, 2025
+ * Revised By: Chloe B
  */
 
 #ifndef COMMON_INC_CAN_VCU_H_
