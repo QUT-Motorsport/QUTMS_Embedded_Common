@@ -13,8 +13,8 @@
 //      (((crypto)         & 0xF)   << 12) |                                                                \
 //      (((boardDependant) & 0xFFF) << 0))
 
-//FIX THIS -> in the brackets
-void Parse_CANId(uint32_t CANId, uint8_t* priority, uint16_t* sourceID, uint8_t* type, uint8_t* vehicle, uint16_t* C, uint8_t* BMSId)
+//Are the uints I've chosen good???
+void Parse_CANId(uint32_t CANId, uint8_t* priority, uint16_t* sourceID, uint8_t* type, uint8_t* vehicle, uint8_t* CANtype, uint16_t* crypto, uint16_t* boardDependant)
 {
 	*priority = (CANId >> 26) & 0x7;
 	*sourceID = (CANId >> 21) & 0x1F;
