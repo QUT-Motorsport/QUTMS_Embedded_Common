@@ -1,8 +1,8 @@
 /*
  * CAN_VCU.h
  *
- *  Original Created on: Sep 22, 2021
- *      Original By: Calvin
+ * Original Created on: Sep 22, 2021
+ * Original By: Calvin
  * Revised on: July 23, 2025
  * Revised By: Chloe B
  */
@@ -98,6 +98,9 @@ typedef enum
     VCU_STATE_ERROR = 0xFF
 } VCU_STATE;
 
+/* FLAGS */
+
+// Shared VCU Flags -> core, brake calliper, sus
 typedef union VCU_Flags_Core
 {
     uint8_t rawMem;
@@ -112,6 +115,64 @@ typedef union VCU_Flags_Core
         uint8_t P_CAN2 : 1;
     } _VCU_Flags_Core;
 } VCU_Flags_Core_u;
+
+// Front VCU Flags (controller?, sensors, Dash) -> wheel freq, pedals, steering, pitot
+typedef union VCU_Flags_WheelFreq{
+    uint8_t rawMem;
+    struct{
+
+    } _VCU_Flags_WheelFreq
+} VCU_Flags_WheelFreq_u;
+
+typedef union VCU_Flags_Pedals{
+    uint8_t rawMem;
+    struct{
+
+    } _VCU_Flags_Pedals
+} VCU_Flags_Pedals_u;
+
+typedef union VCU_Flags_Steering{
+    uint8_t rawMem;
+    struct{
+
+    } _VCU_Flags_Steering
+} VCU_Flags_Steering_u;
+
+typedef union VCU_Flags_Pitot{
+    uint8_t rawMem;
+    struct{
+
+    } _VCU_Flags_Pitot
+} VCU_Flags_Pitot_u;
+
+
+// Rear VCU Flags (cooling, accu) -> Fans, Cooling, gearbox
+typedef union VCU_Flags_Fans{
+    uint8_t rawMem;
+    struct{
+
+    } _VCU_Flags_Fans
+} VCU_Flags_Fans_u;
+
+typedef union VCU_Flags_Cooling{
+    uint8_t rawMem;
+    struct{
+
+    } _VCU_Flags_Cooling
+} VCU_Flags_Cooling_u;
+
+typedef union VCU_Flags_GearBox{
+    uint8_t rawMem;
+    struct{
+
+    } _VCU_Flags_GearBox
+} VCU_Flags_GearBox_u;
+// AV Flags
+
+
+/* Delete or Move Up from here down */
+
+
 
 typedef union VCU_Flags_Ctrl
 {
@@ -157,6 +218,7 @@ typedef union VCU_Flags_Dash
     } _VCU_Flags_Dash;
 } VCU_Flags_Dash_u;
 
+// delete
 typedef union VCU_Flags_SHDN
 {
     uint16_t rawMem;
@@ -168,6 +230,7 @@ typedef union VCU_Flags_SHDN
     } _VCU_Flags_SHDN;
 } VCU_Flags_SHDN_u;
 
+// idk
 typedef union VCU_Flags_EBS
 {
     uint16_t rawMem;

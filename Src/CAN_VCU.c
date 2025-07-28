@@ -1,8 +1,10 @@
 /*
  * CAN_VCU.c
  *
- *  Created on: Sep 22, 2021
- *      Author: Calvin
+ * Original Created on: Sep 22, 2021
+ * Original By: Calvin
+ * Revised on: July 23, 2025
+ * Revised By: Chloe B
  */
 
 #include <CAN_VCU.h>
