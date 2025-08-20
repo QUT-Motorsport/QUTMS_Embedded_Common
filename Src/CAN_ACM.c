@@ -21,6 +21,19 @@ ACM_Heartbeat_t Compose_ACM_Heartbeat(ACM_HeartbeatState_t *state)
 	return msg;
 }
 
+// Overloaded function for selecting states and rate over CAN
+ACM_Heartbeat_t Compose_ACM_Heartbeat(ACM_HeartbeatState_t *state, uint8 rate)
+{
+	ACM_Heartbeat_t msg = {};
+	msg.id = ACM_Heartbeat_ID;
+
+	msg.data[0] = state->stateID;
+	msg.data[1] = (rate);
+	msg.data[2] = ((state->flags.rawMem >> 8) & 0xFF);
+
+	return msg;
+}
+
 void Parse_ACM_Heartbeat(uint8_t *data, ACM_HeartbeatState_t *state)
 {
 	state->stateID = data[0];
