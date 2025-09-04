@@ -21,6 +21,24 @@ ACM_Heartbeat_t Compose_ACM_Heartbeat(ACM_HeartbeatState_t *state)
 	return msg;
 }
 
+// overload for sending a message with a different body
+ACM_Heartbeat_t Compose_ACM_Heartbeat(ACM_HeartbeatState_t *state, uint8_t data)
+{
+	ACM_Heartbeat_t msg = {};
+	msg.id = ACM_Heartbeat_ID;
+
+	msg.data[0] = state->stateID;
+	
+	// not sure how necessary this rawMem stuff is but it's not hurting anyone so it can stay
+	msg.data[1] = (state->flags.rawMem & 0xFF);
+	msg.data[2] = ((state->flags.rawMem >> 8) & 0xFF);
+
+	// for the blinking light test, the rate will be stored here
+	msg.data[3] = data;
+
+	return msg;
+}
+
 void Parse_ACM_Heartbeat(uint8_t *data, ACM_HeartbeatState_t *state)
 {
 	state->stateID = data[0];
