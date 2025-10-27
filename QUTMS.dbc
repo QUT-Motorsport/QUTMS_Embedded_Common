@@ -31,6 +31,14 @@ NS_ :
 	BU_BO_REL_
 	SG_MUL_VAL_
 
+CM_ "#file:heartbeat.h";
+CM_ "#file:VCU_heartbeat_state.h";
+CM_ "#file:vcu_state_machine.c";
+
+VAL_ 2418327552 BMU_Heartbeat_State 0 "BMU_UNKNOWN" 1 "BMU_READY" 2 "BMU_PRECHARGE" 3 "BMU_TS_ACTIVE" 4 "BMU_ERROR";
+
+VAL_ 2424619008 SW_Heartbeat_State 0 "START" 1 "PERIPHERAL_INIT" 2 "SENSOR_INIT" 3 "BOARD_CHECK" 10 "IDLE" 11 "PEDAL_CHECK" 15 "BMU_CHECK" 20 "EBS_PWR" 21 "EBS_CHECK_ASMS" 22 "EBS_CHECK_PRESSURE" 23 "EBS_CHECK_PRESSURE_BTN" 24 "EBS_CHECK_PRESSURE_LOW" 25 "EBS_CHECK_PRESSURE_HIGH" 26 "EBS_CTRL_ACK" 27 "EBS_IDLE" 28 "EBS_PCHRG_PRESSED" 29 "EBS_CHECK_TS" 30 "EBS_CHECK_COMPUTE" 31 "EBS_READY" 32 "EBS_RELEASE_BRAKE" 33 "EBS_DRIVE" 34 "EBS_BRAKING" 40 "PRECHARGE_REQUEST" 41 "PRECHARGE" 42 "INVERTER_CHECK" 43 "INVERTER_ENERGIZE" 60 "RTD_RDY" 61 "RTD_BTN" 100 "DRIVING" 150 "AV_IDLE" 151 "AV_PRECHARGE_REQUEST" 152 "AV_PRECHARGE" 153 "AV_INVERTER_CHECK" 154 "AV_RTD" 155 "AV_DRIVING" 156 "AV_EMERGENCY" 240 "TS_ERROR" 250 "SHUTDOWN" 251 "ERROR";
+
 BS_:
 
 BU_:
@@ -73,6 +81,31 @@ BO_ 2424356873 VCU_Heartbeat_SENSOR: 6 Vector__XXX
 BO_ 2290122752 VCU_ShutdownStatus: 3 Vector__XXX
  SG_ VCU_ShutdownStatus : 16|8@1+ (1,0) [0|1] "" Vector__XXX
  SG_ VCU_ShutdownLines : 0|16@1+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 2449473537 VCU_RTD: 8 Vector__XXX
+ SG_ VCU_RTD_Front : 0|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ VCU_RTD_Rear : 1|1@1+ (1,0) [0|1] "" Vector__XXX
+
+BO_ 2449473538 VCU_MotorTemp: 8 Vector__XXX
+ SG_ VCU_MotorTemp_FL : 0|16@1+ (0.1,0) [0|100] "" Vector__XXX
+ SG_ VCU_MotorTemp_FR : 16|16@1+ (0.1,0) [0|100] "" Vector__XXX
+ SG_ VCU_MotorTemp_RL : 32|16@1+ (0.1,0) [0|100] "" Vector__XXX
+ SG_ VCU_MotorTemp_RR : 48|16@1+ (0.1,0) [0|100] "" Vector__XXX
+
+BO_ 2449473539 VCU_IMU_Accel: 8 Vector__XXX
+ SG_ VCU_IMU_Accel_X : 0|16@1+ (0.01,-10) [-10|10] "" Vector__XXX
+ SG_ VCU_IMU_Accel_Y : 16|16@1+ (0.01,-10) [-10|10] "" Vector__XXX
+ SG_ VCU_IMU_Accel_Z : 32|16@1+ (0.01,-10) [-10|10] "" Vector__XXX
+
+BO_ 2449473540 VCU_IMU_Gyro: 8 Vector__XXX
+ SG_ VCU_IMU_Gyro_X : 0|16@1+ (0.01,-500) [-500|500] "" Vector__XXX
+ SG_ VCU_IMU_Gyro_Y : 16|16@1+ (0.01,-500) [-500|500] "" Vector__XXX
+ SG_ VCU_IMU_Gyro_Z : 32|16@1+ (0.01,-500) [-500|500] "" Vector__XXX
+
+BO_ 2449473541 VCU_OBJ_DICT: 8 Vector__XXX
+ SG_ VCU_OBJ_DICT_Index : 0|16@1+ (1,0) [0|65535] "" Vector__XXX
+ SG_ VCU_OBJ_DICT_SubIndex : 16|8@1+ (1,0) [0|255] "" Vector__XXX
+ SG_ VCU_OBJ_DICT_Data : 24|40@1+ (1,0) [0|0] "" Vector__XXX
 
 BO_ 401 RES_Heartbeat: 8 Vector__XXX
  SG_ ESTOP : 0|1@1- (1,0) [0|1] "" Vector__XXX
