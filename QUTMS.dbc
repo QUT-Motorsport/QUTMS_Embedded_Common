@@ -48,35 +48,11 @@ BO_ 2418327552 BMU_Heartbeat: 7 Vector__XXX
  SG_ BMU_Heartbeat_Flags : 8|32@1+ (1,0) [0|0] "" Vector__XXX
  SG_ BMU_Heartbeat_State : 0|8@1+ (1,0) [0|0] "" Vector__XXX
 
-BO_ 2424356864 VCU_Heartbeat_SHDN: 6 Vector__XXX
- SG_ VCU_HeartbeatState_SHDN : 0|48@1+ (1,0) [0|0] "" Vector__XXX
+BO_ 2424356864 VCU_Heartbeat_FRONT: 8 Vector__XXX
+ SG_ VCU_HeartbeatState_FRONT : 0|64@1+ (1,0) [0|0] "" Vector__XXX
 
-BO_ 2424356865 VCU_Heartbeat_CTRL: 6 Vector__XXX
- SG_ VCU_HeartbeatState_CTRL : 0|48@1+ (1,0) [0|0] "" Vector__XXX
-
-BO_ 2424356866 VCU_Heartbeat_DASH: 6 Vector__XXX
- SG_ VCU_HeartbeatState_DASH : 0|48@1+ (1,0) [0|0] "" Vector__XXX
-
-BO_ 2424356867 VCU_Heartbeat_EBS: 6 Vector__XXX
- SG_ VCU_HeartbeatState_EBS : 0|48@1+ (1,0) [0|0] "" Vector__XXX
-
-BO_ 2424356868 VCU_Heartbeat_ASSI: 6 Vector__XXX
- SG_ VCU_HeartbeatState_ASSI : 0|48@1+ (1,0) [0|0] "" Vector__XXX
-
-BO_ 2424356869 VCU_Heartbeat_EBS_ADC: 6 Vector__XXX
- SG_ VCU_HeartbeatState_EBS_ADC : 0|48@1+ (1,0) [0|0] "" Vector__XXX
-
-BO_ 2424356870 VCU_Heartbeat_ACCU: 6 Vector__XXX
- SG_ VCU_Heartbeat_ACCU : 0|48@1+ (1,0) [0|0] "" Vector__XXX
-
-BO_ 2424356871 VCU_Heartbeat_COOL_L: 6 Vector__XXX
- SG_ VCU_Heartbeat_COOL_L : 0|48@1+ (1,0) [0|0] "" Vector__XXX
-
-BO_ 2424356872 VCU_Heartbeat_COOL_R: 6 Vector__XXX
- SG_ VCU_Heartbeat_COOL_R : 0|48@1+ (1,0) [0|0] "" Vector__XXX
-
-BO_ 2424356873 VCU_Heartbeat_SENSOR: 6 Vector__XXX
- SG_ VCU_Heartbeat_SENSOR : 0|48@1+ (1,0) [0|0] "" Vector__XXX
+BO_ 2424356865 VCU_Heartbeat_REAR: 8 Vector__XXX
+ SG_ VCU_HeartbeatState_REAR : 0|64@1+ (1,0) [0|0] "" Vector__XXX
 
 BO_ 2290122752 VCU_ShutdownStatus: 3 Vector__XXX
  SG_ VCU_ShutdownStatus : 16|8@1+ (1,0) [0|1] "" Vector__XXX
@@ -90,7 +66,7 @@ BO_ 2449473538 VCU_MotorTemp: 8 Vector__XXX
  SG_ VCU_MotorTemp_FL : 0|16@1+ (0.1,0) [0|100] "" Vector__XXX
  SG_ VCU_MotorTemp_FR : 16|16@1+ (0.1,0) [0|100] "" Vector__XXX
  SG_ VCU_MotorTemp_RL : 32|16@1+ (0.1,0) [0|100] "" Vector__XXX
- SG_ VCU_MotorTemp_RR : 48|16@1+ (0.1,0) [0|100] "" Vector__XXX
+ SG_ VCU_MotorTemp_RR : 48|16@1+ (0.1,0) [0|100] "" Vector__XXXd
 
 BO_ 2449473539 VCU_IMU_Accel: 8 Vector__XXX
  SG_ VCU_IMU_Accel_X : 0|16@1+ (0.01,-10) [-10|10] "" Vector__XXX
