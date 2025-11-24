@@ -137,4 +137,29 @@ BMU_TransmitPower_t Compose_BMU_TransmitPower(int32_t power) {
 	return msg;
 }
 
+BMU_TransmitPackSummary_t Compose_BMU_TransmitPackSummary(uint16_t min_cell_mv, uint32_t pack_total_mv,
+														   uint8_t total_valid_cells, uint8_t max_temp) {
+	BMU_TransmitPackSummary_t msg;
+
+	msg.id = BMU_TransmitPackSummary_ID;
+
+	// New payload layout (8 bytes):
+	// data[0..1] = min_cell_mv (uint16 little-endian)
+	// data[2..5] = pack_total_mv (uint32 little-endian)
+	// data[6] = total_valid_cells (uint8)
+	// data[7] = max_temp (uint8)
+	msg.data[0] = min_cell_mv & 0xFF;
+	msg.data[1] = (min_cell_mv >> 8) & 0xFF;
+
+	msg.data[2] = (pack_total_mv >> 0) & 0xFF;
+	msg.data[3] = (pack_total_mv >> 8) & 0xFF;
+	msg.data[4] = (pack_total_mv >> 16) & 0xFF;
+	msg.data[5] = (pack_total_mv >> 24) & 0xFF;
+
+	msg.data[6] = total_valid_cells;
+	msg.data[7] = max_temp;
+
+	return msg;
+}
+
 #endif

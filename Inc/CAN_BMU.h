@@ -128,6 +128,19 @@ typedef struct BMU_TransmitPackInfo {
 
 BMU_TransmitPackInfo_t Compose_BMU_TransmitPackInfo(int32_t current, int32_t voltage_pack);
 
+typedef struct BMU_TransmitPackSummary {
+	uint32_t id;
+	uint8_t data[8];
+} BMU_TransmitPackSummary_t;
+
+// min_cell_mv: minimum cell voltage in mV
+// max_temp: maximum temperature in degrees C
+// total_valid_cells: count of valid cells in pack
+// age: age of readings in ms (lower 16 bits)
+// New layout: data[0..1]=min_cell_mv (uint16), data[2..5]=pack_total_mv (uint32), data[6]=total_valid_cells, data[7]=max_temp
+BMU_TransmitPackSummary_t Compose_BMU_TransmitPackSummary(uint16_t min_cell_mv, uint32_t pack_total_mv,
+														uint8_t total_valid_cells, uint8_t max_temp);
+
 typedef struct BMU_TransmitPower {
 	uint32_t id;
 	uint8_t data[8];
