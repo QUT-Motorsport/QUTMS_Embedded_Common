@@ -206,6 +206,18 @@ BO_ 2284096768 BMU_TransmitPackInfo: 8 Vector__XXX
  SG_ BMU_PackCurrent : 0|32@1- (1E-006,0) [0|0] "" Vector__XXX
 
 
+BO_ 2284096769 BMU_TransmitSOC: 8 Vector__XXX
+ SG_ BMU_SOC_Percent : 0|8@1+ (1,0) [0|100] "%" Vector__XXX
+ SG_ BMU_SOC_Flags : 8|8@1+ (1,0) [0|255] "" Vector__XXX
+ SG_ BMU_SOC_Coulomb_uAh : 16|32@1- (1,0) [0|0] "uAh" Vector__XXX
+
+BO_ 2284096770 BMU_TransmitPackSummary: 8 Vector__XXX
+ SG_ BMU_PackSummary_MinCell_mV : 0|16@1+ (1,0) [0|5000] "mV" Vector__XXX
+ SG_ BMU_PackSummary_Total_mV : 16|32@1+ (1,0) [0|0] "mV" Vector__XXX
+ SG_ BMU_PackSummary_ValidCells : 48|8@1+ (1,0) [0|255] "" Vector__XXX
+ SG_ BMU_PackSummary_MaxTemp : 56|8@1+ (1,0) [0|255] "C" Vector__XXX
+
+ 
 BO_ 2284093440 BMU_TransmitVoltage_N_0_P_0: 8 Vector__XXX
  SG_ BMU_Voltage_C0_0 : 0|16@1+ (1,0) [0|0] "" Vector__XXX
  SG_ BMU_Voltage_C0_1 : 16|16@1+ (1,0) [0|0] "" Vector__XXX
@@ -1806,6 +1818,62 @@ BO_ 2569797489 Sevcon_1_HD4: 8 Vector__XXX
  SG_ Sevcon_1_FastCapTemp : 0|8@1+ (1,0) [0|0] "" Vector__XXX
  SG_ Sevcon_1_TrackTemp : 8|8@1+ (1,0) [0|0] "degC" Vector__XXX
  SG_ Sevcon_1_SlowCapTemp : 16|8@1+ (1,0) [0|0] "degC" Vector__XXX
+ SG_ Sevcon_1_HeatsinkTemp : 24|8@1+ (1,0) [0|0] "degC" Vector__XXX
+ SG_ Sevcon_1_DeltaTj : 32|8@1+ (1,0) [0|0] "degC" Vector__XXX
+ SG_ Sevcon_1_OverallTemp : 40|8@1+ (1,0) [0|0] "degC" Vector__XXX
+ SG_ Sevcon_1_CoolantTemp : 48|8@1+ (1,0) [0|0] "degC" Vector__XXX
+ SG_ Sevcon_1_WindingTemp : 56|8@1+ (1,0) [0|0] "degC" Vector__XXX
+
+BO_ 2569863025 Sevcon_1_HD5: 8 Vector__XXX
+ SG_ Sevcon_1_MaxFlux : 0|16@1- (1,0) [0|0] "A" Vector__XXX
+ SG_ Sevcon_1_IvLim : 16|16@1- (1,0) [0|0] "A" Vector__XXX
+ SG_ Sevcon_1_IqMax : 32|16@1- (1,0) [0|0] "A" Vector__XXX
+ SG_ Sevcon_1_Ls : 48|16@1+ (0.05960464498,0) [0|0] "uH" Vector__XXX
+
+
+BO_ 2569600882 Sevcon_2_HD1: 8 Vector__XXX
+ SG_ Sevcon_2_IdActual : 0|16@1- (0.0625,0) [0|0] "A" Vector__XXX
+ SG_ Sevcon_2_IqActual : 16|16@1- (0.0625,0) [0|0] "A" Vector__XXX
+ SG_ Sevcon_2_IdRef : 32|16@1- (0.0625,0) [0|0] "A" Vector__XXX
+ SG_ Sevcon_2_IqRef : 48|16@1- (0.0625,0) [0|0] "A" Vector__XXX
+
+BO_ 2569666418 Sevcon_2_HD2: 8 Vector__XXX
+ SG_ Sevcon_2_Ud : 0|16@1- (0.0625,0) [0|0] "V" Vector__XXX
+ SG_ Sevcon_2_Uq : 16|16@1- (0.0625,0) [0|0] "V" Vector__XXX
+ SG_ Sevcon_2_ModIndex : 32|16@1+ (0.0030517578125,0) [0|0] "%" Vector__XXX
+ SG_ Sevcon_2_TargetTorque : 48|16@1- (0.0625,0) [0|0] "Nm" Vector__XXX
+
+BO_ 2569731954 Sevcon_2_HD3: 8 Vector__XXX
+ SG_ Sevcon_2_Junction0Temp : 0|8@1+ (1,0) [0|0] "degC" Vector__XXX
+ SG_ Sevcon_2_Junction1Temp : 8|8@1+ (1,0) [0|0] "degC" Vector__XXX
+ SG_ Sevcon_2_Junction2Temp : 16|8@1+ (1,0) [0|0] "degC" Vector__XXX
+ SG_ Sevcon_2_Junction3Temp : 24|8@1+ (1,0) [0|0] "degC" Vector__XXX
+ SG_ Sevcon_2_Junction4Temp : 32|8@1+ (1,0) [0|0] "degC" Vector__XXX
+ SG_ Sevcon_2_Junction5Temp : 40|8@1+ (1,0) [0|0] "degC" Vector__XXX
+ SG_ Sevcon_2_EstMotorTemp : 48|8@1+ (1,0) [0|0] "degC" Vector__XXX
+ SG_ Sevcon_2_MotorTemp : 56|8@1+ (1,0) [0|0] "degC" Vector__XXX
+
+BO_ 2569797490 Sevcon_2_HD4: 8 Vector__XXX
+ SG_ Sevcon_2_FastCapTemp : 0|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ Sevcon_2_TrackTemp : 8|8@1+ (1,0) [0|0] "degC" Vector__XXX
+ SG_ Sevcon_2_SlowCapTemp : 16|8@1+ (1,0) [0|0] "degC" Vector__XXX
+ SG_ Sevcon_2_HeatsinkTemp : 24|8@1+ (1,0) [0|0] "degC" Vector__XXX
+ SG_ Sevcon_2_DeltaTj : 32|8@1+ (1,0) [0|0] "degC" Vector__XXX
+ SG_ Sevcon_2_OverallTemp : 40|8@1+ (1,0) [0|0] "degC" Vector__XXX
+ SG_ Sevcon_2_CoolantTemp : 48|8@1+ (1,0) [0|0] "degC" Vector__XXX
+ SG_ Sevcon_2_WindingTemp : 56|8@1+ (1,0) [0|0] "degC" Vector__XXX
+
+BO_ 2569863026 Sevcon_2_HD5: 8 Vector__XXX
+ SG_ Sevcon_2_MaxFlux : 0|16@1- (1,0) [0|0] "A" Vector__XXX
+ SG_ Sevcon_2_IvLim : 16|16@1- (1,0) [0|0] "A" Vector__XXX
+ SG_ Sevcon_2_IqMax : 32|16@1- (1,0) [0|0] "A" Vector__XXX
+ SG_ Sevcon_2_Ls : 48|16@1+ (0.05960464498,0) [0|0] "uH" Vector__XXX
+
+
+BA_DEF_  "MultiplexExtEnabled" ENUM  "No","Yes";
+BA_DEF_  "BusType" STRING ;
+BA_DEF_DEF_  "MultiplexExtEnabled" "No";
+BA_DEF_DEF_  "BusType" "CAN";6|8@1+ (1,0) [0|0] "degC" Vector__XXX
  SG_ Sevcon_1_HeatsinkTemp : 24|8@1+ (1,0) [0|0] "degC" Vector__XXX
  SG_ Sevcon_1_DeltaTj : 32|8@1+ (1,0) [0|0] "degC" Vector__XXX
  SG_ Sevcon_1_OverallTemp : 40|8@1+ (1,0) [0|0] "degC" Vector__XXX
