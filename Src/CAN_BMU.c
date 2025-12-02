@@ -137,6 +137,26 @@ BMU_TransmitPower_t Compose_BMU_TransmitPower(int32_t power) {
 	return msg;
 }
 
+BMU_TransmitSOC_t Compose_BMU_TransmitSOC(uint8_t soc_percent, uint8_t flags, int32_t coulomb_uAh) {
+	BMU_TransmitSOC_t msg;
+	msg.id = BMU_TransmitSOC_ID;
+
+	// data[0] = SOC percent (0..100)
+	msg.data[0] = soc_percent;
+	// data[1] = flags (bit0 = valid, bit1 = calibrated)
+	msg.data[1] = flags;
+	// data[2..5] = signed int32 coulomb accumulation in microamp-hours (µAh), little-endian
+	msg.data[2] = (uint8_t)(coulomb_uAh & 0xFF);
+	msg.data[3] = (uint8_t)((coulomb_uAh >> 8) & 0xFF);
+	msg.data[4] = (uint8_t)((coulomb_uAh >> 16) & 0xFF);
+	msg.data[5] = (uint8_t)((coulomb_uAh >> 24) & 0xFF);
+	// reserved
+	msg.data[6] = 0;
+	msg.data[7] = 0;
+
+	return msg;
+}
+
 BMU_TransmitPackSummary_t Compose_BMU_TransmitPackSummary(uint16_t min_cell_mv, uint32_t pack_total_mv,
 														   uint8_t total_valid_cells, uint8_t max_temp) {
 	BMU_TransmitPackSummary_t msg;

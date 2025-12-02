@@ -148,4 +148,11 @@ typedef struct BMU_TransmitPower {
 
 BMU_TransmitPower_t Compose_BMU_TransmitPower(int32_t power);
 
+typedef struct BMU_TransmitSOC {
+    uint32_t id;
+    uint8_t data[8];
+} BMU_TransmitSOC_t;
+
+BMU_TransmitSOC_t Compose_BMU_TransmitSOC(uint8_t soc_percent, uint8_t flags, int32_t coulomb_uAh);
+
 #endif /* INC_CAN_BMU_H_ */
