@@ -1868,3 +1868,32 @@ BA_DEF_  "MultiplexExtEnabled" ENUM  "No","Yes";
 BA_DEF_  "BusType" STRING ;
 BA_DEF_DEF_  "MultiplexExtEnabled" "No";
 BA_DEF_DEF_  "BusType" "CAN";
+BO_ 2424356880 VCU_Output_Status_FRONT: 8 Vector__XXX
+ SG_ VCU_Out_F_Status_0 : 0|4@1+ (1,0) [0|15] "" Vector__XXX
+ SG_ VCU_Out_F_Status_1 : 4|4@1+ (1,0) [0|15] "" Vector__XXX
+ SG_ VCU_Out_F_Status_2 : 8|4@1+ (1,0) [0|15] "" Vector__XXX
+ SG_ VCU_Out_F_Status_3 : 12|4@1+ (1,0) [0|15] "" Vector__XXX
+ SG_ VCU_Out_F_Status_4 : 16|4@1+ (1,0) [0|15] "" Vector__XXX
+ SG_ VCU_Out_F_Status_5 : 20|4@1+ (1,0) [0|15] "" Vector__XXX
+ SG_ VCU_Out_F_Status_6 : 24|4@1+ (1,0) [0|15] "" Vector__XXX
+ SG_ VCU_Out_F_Status_7 : 28|4@1+ (1,0) [0|15] "" Vector__XXX
+ SG_ VCU_Out_F_Status_8 : 32|4@1+ (1,0) [0|15] "" Vector__XXX
+ SG_ VCU_Out_F_Status_9 : 36|4@1+ (1,0) [0|15] "" Vector__XXX
+ SG_ VCU_Out_F_Status_10 : 40|4@1+ (1,0) [0|15] "" Vector__XXX
+ SG_ VCU_Out_F_Status_11 : 44|4@1+ (1,0) [0|15] "" Vector__XXX
+ SG_ VCU_Out_F_Reserved : 48|16@1+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 2424356881 VCU_Output_Status_REAR: 8 Vector__XXX
+ SG_ VCU_Out_R_Status_0 : 0|4@1+ (1,0) [0|15] "" Vector__XXX
+ SG_ VCU_Out_R_Status_1 : 4|4@1+ (1,0) [0|15] "" Vector__XXX
+ SG_ VCU_Out_R_Status_2 : 8|4@1+ (1,0) [0|15] "" Vector__XXX
+ SG_ VCU_Out_R_Status_3 : 12|4@1+ (1,0) [0|15] "" Vector__XXX
+ SG_ VCU_Out_R_Status_4 : 16|4@1+ (1,0) [0|15] "" Vector__XXX
+ SG_ VCU_Out_R_Status_5 : 20|4@1+ (1,0) [0|15] "" Vector__XXX
+ SG_ VCU_Out_R_Status_6 : 24|4@1+ (1,0) [0|15] "" Vector__XXX
+ SG_ VCU_Out_R_Status_7 : 28|4@1+ (1,0) [0|15] "" Vector__XXX
+ SG_ VCU_Out_R_Status_8 : 32|4@1+ (1,0) [0|15] "" Vector__XXX
+ SG_ VCU_Out_R_Status_9 : 36|4@1+ (1,0) [0|15] "" Vector__XXX
+ SG_ VCU_Out_R_Status_10 : 40|4@1+ (1,0) [0|15] "" Vector__XXX
+ SG_ VCU_Out_R_Status_11 : 44|4@1+ (1,0) [0|15] "" Vector__XXX
+ SG_ VCU_Out_R_Reserved : 48|16@1+ (1,0) [0|0] "" Vector__XXX
