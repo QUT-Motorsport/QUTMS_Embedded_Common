@@ -174,17 +174,17 @@ BO_ 2290122993 VCU_Pitot_Tube: 8 Vector___XXX
  SG_ VCU_Pitot_Tube_ADC : 7|16@0+ (1,0) [0|0] "" Vector___XXX
  SG_ VCU_Pitot_Tube_Pressure : 23|16@0+ (0.01,0) [0|0] "kPa" Vector___XXX
 
-BO_ 2424340672 VCU_CoolingLoop_Sensor1: 8 Vector__XXX
- SG_ VCU_Pump1_Pressure_ADC : 7|16@0+ (1,0) [0|4095] "" Vector__XXX
- SG_ VCU_Pump1_Temp_ADC : 23|16@0+ (1,0) [0|4095] "" Vector__XXX
- SG_ VCU_Pump1_Pressure_PSI : 39|16@0+ (0.01,0) [0|655.35] "PSI" Vector__XXX
- SG_ VCU_Pump1_Temp_Celsius : 55|16@0- (0.1,0) [-3276.8|3276.7] "°C" Vector__XXX
+BO_ 2424340672 VCU_Cooling_L_In: 8 Vector__XXX
+ SG_ VCU_L_In_Pressure_kPa : 7|16@0+ (0.1,0) [0|6553.5] "kPa" Vector__XXX
+ SG_ VCU_L_In_Temp_ADC : 23|16@0+ (1,0) [0|4095] "" Vector__XXX
+ SG_ VCU_L_In_Pressure_PSI : 39|16@0+ (0.01,0) [0|655.35] "PSI" Vector__XXX
+ SG_ VCU_L_In_Temp_Celsius : 55|16@0- (0.1,0) [-3276.8|3276.7] "°C" Vector__XXX
 
-BO_ 2424340673 VCU_CoolingLoop_Sensor2: 8 Vector__XXX
- SG_ VCU_Pump2_Pressure_ADC : 7|16@0+ (1,0) [0|4095] "" Vector__XXX
- SG_ VCU_Pump2_Temp_ADC : 23|16@0+ (1,0) [0|4095] "" Vector__XXX
- SG_ VCU_Pump2_Pressure_PSI : 39|16@0+ (0.01,0) [0|655.35] "PSI" Vector__XXX
- SG_ VCU_Pump2_Temp_Celsius : 55|16@0- (0.1,0) [-3276.8|3276.7] "°C" Vector__XXX
+BO_ 2424340673 VCU_Cooling_R_In: 8 Vector__XXX
+ SG_ VCU_R_In_Pressure_kPa : 7|16@0+ (0.1,0) [0|6553.5] "kPa" Vector__XXX
+ SG_ VCU_R_In_Temp_ADC : 23|16@0+ (1,0) [0|4095] "" Vector__XXX
+ SG_ VCU_R_In_Pressure_PSI : 39|16@0+ (0.01,0) [0|655.35] "PSI" Vector__XXX
+ SG_ VCU_R_In_Temp_Celsius : 55|16@0- (0.1,0) [-3276.8|3276.7] "°C" Vector__XXX
 
 BO_ 2424340674 VCU_CoolingLoop_Status: 8 Vector__XXX
  SG_ VCU_Pump1_Pressure_Filtered : 7|16@0+ (1,0) [0|65535] "mV" Vector__XXX
@@ -196,6 +196,18 @@ BO_ 2424340675 VCU_CoolingLoop_Pressure_Bar: 8 Vector__XXX
  SG_ VCU_Pump1_Pressure_Bar : 7|16@0+ (0.001,0) [0|65.535] "bar" Vector__XXX
  SG_ VCU_Pump2_Pressure_Bar : 23|16@0+ (0.001,0) [0|65.535] "bar" Vector__XXX
  SG_ VCU_Sensor_Status : 39|8@0+ (1,0) [0|255] "" Vector__XXX
+
+BO_ 2424340676 VCU_Cooling_L_Out: 8 Vector__XXX
+ SG_ VCU_L_Out_Pressure_kPa : 7|16@0+ (0.1,0) [0|6553.5] "kPa" Vector__XXX
+ SG_ VCU_L_Out_Temp_ADC : 23|16@0+ (1,0) [0|4095] "" Vector__XXX
+ SG_ VCU_L_Out_Pressure_PSI : 39|16@0+ (0.01,0) [0|655.35] "PSI" Vector__XXX
+ SG_ VCU_L_Out_Temp_Celsius : 55|16@0- (0.1,0) [-3276.8|3276.7] "°C" Vector__XXX
+
+BO_ 2424340677 VCU_Cooling_R_Out: 8 Vector__XXX
+ SG_ VCU_R_Out_Pressure_kPa : 7|16@0+ (0.1,0) [0|6553.5] "kPa" Vector__XXX
+ SG_ VCU_R_Out_Temp_ADC : 23|16@0+ (1,0) [0|4095] "" Vector__XXX
+ SG_ VCU_R_Out_Pressure_PSI : 39|16@0+ (0.01,0) [0|655.35] "PSI" Vector__XXX
+ SG_ VCU_R_Out_Temp_Celsius : 55|16@0- (0.1,0) [-3276.8|3276.7] "°C" Vector__XXX
 
 
 BO_ 2284097024 BMU_TransmitPower: 8 Vector__XXX
@@ -1873,12 +1885,7 @@ BO_ 2569863026 Sevcon_2_HD5: 8 Vector__XXX
 BA_DEF_  "MultiplexExtEnabled" ENUM  "No","Yes";
 BA_DEF_  "BusType" STRING ;
 BA_DEF_DEF_  "MultiplexExtEnabled" "No";
-BA_DEF_DEF_  "BusType" "CAN";6|8@1+ (1,0) [0|0] "degC" Vector__XXX
- SG_ Sevcon_1_HeatsinkTemp : 24|8@1+ (1,0) [0|0] "degC" Vector__XXX
- SG_ Sevcon_1_DeltaTj : 32|8@1+ (1,0) [0|0] "degC" Vector__XXX
- SG_ Sevcon_1_OverallTemp : 40|8@1+ (1,0) [0|0] "degC" Vector__XXX
- SG_ Sevcon_1_CoolantTemp : 48|8@1+ (1,0) [0|0] "degC" Vector__XXX
- SG_ Sevcon_1_WindingTemp : 56|8@1+ (1,0) [0|0] "degC" Vector__XXX
+BA_DEF_DEF_  "BusType" "CAN";
 
 BO_ 2569863025 Sevcon_1_HD5: 8 Vector__XXX
  SG_ Sevcon_1_MaxFlux : 0|16@1- (1,0) [0|0] "A" Vector__XXX
