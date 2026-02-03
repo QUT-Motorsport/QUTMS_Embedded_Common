@@ -1,4 +1,5 @@
 #!/bin/bash
+set -x # Enable debug mode to print commands as they execute
 
 # --- Configuration ---
 # Path to your DBC file
@@ -29,8 +30,22 @@ mkdir -p "$TEMP_DIR"
 
 # Generate the C code using cantools
 echo "Generating C code from $DBC_FILE..."
-cantools generate_c_source --database-name "$DATABASE_NAME" --output-directory "$TEMP_DIR" "$DBC_FILE"
 
+# Try running cantools directly, or fallback to python module
+if command -v cantools &> /dev/null; then
+    cantools generate_c_source --database-name "$DATABASE_NAME" --output-directory "$TEMP_DIR" "$DBC_FILE"
+elif command -v python3 &> /dev/null; then
+    echo "cantools binary not found, trying python3 -m cantools..."
+    python3 -m cantools generate_c_source --database-name "$DATABASE_NAME" --output-directory "$TEMP_DIR" "$DBC_FILE"
+elif command -v python &> /dev/null; then
+    echo "cantools/python3 not found, trying python -m cantools..."
+    python -m cantools generate_c_source --database-name "$DATABASE_NAME" --output-directory "$TEMP_DIR" "$DBC_FILE"
+else
+    echo "Error: Could not find 'cantools', 'python3', or 'python'. Please install cantools."
+    echo "Troubleshooting: pip install cantools"
+    rm -rf "$TEMP_DIR"
+    exit 1
+fi
 
 # Check if code generation was successful
 if [ ! -f "$TEMP_DIR/$DATABASE_NAME.c" ]; then
