@@ -48,14 +48,14 @@ BO_ 2418327552 BMU_Heartbeat: 7 Vector__XXX
  SG_ BMU_Heartbeat_Flags : 8|32@1+ (1,0) [0|0] "" Vector__XXX
  SG_ BMU_Heartbeat_State : 0|8@1+ (1,0) [0|0] "" Vector__XXX
 
-BO_ 2424356864 VCU_Heartbeat_FRONT: 8 Vector__XXX
+BO_ 2424356864 VCU_Heartbeat_CTRL: 8 Vector__XXX
  SG_ VCU_Heartbeat_StateID : 0|8@1+ (1,0) [0|0] "" Vector__XXX
  SG_ VCU_Heartbeat_Flags : 32|16@1+ (1,0) [0|0] "" Vector__XXX
  SG_ VCU_WARN_PedalPolarity : 48|1@1+ (1,0) [0|1] "" Vector__XXX
  SG_ VCU_Heartbeat_Reserved : 49|15@1+ (1,0) [0|0] "" Vector__XXX
 
-BO_ 2424356865 VCU_Heartbeat_REAR: 8 Vector__XXX
- SG_ VCU_HeartbeatState_REAR : 0|64@1+ (1,0) [0|0] "" Vector__XXX
+BO_ 2424356865 VCU_Heartbeat_PERIPH: 8 Vector__XXX
+ SG_ VCU_HeartbeatState_PERIPH : 0|64@1+ (1,0) [0|0] "" Vector__XXX
 
 BO_ 1285 VCU_Sync: 4 Vector__XXX
  SG_ VCU_Timestamp : 0|32@1+ (1,0) [0|4294967295] "ms" Vector__XXX
