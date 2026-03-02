@@ -180,17 +180,29 @@ BO_ 2290122993 VCU_Pitot_Tube: 8 Vector___XXX
  SG_ VCU_Pitot_Tube_ADC : 7|16@0+ (1,0) [0|0] "" Vector___XXX
  SG_ VCU_Pitot_Tube_Pressure : 23|16@0+ (0.01,0) [0|0] "kPa" Vector___XXX
 
-BO_ 2424340672 VCU_CoolingLoop_Sensor1: 8 Vector__XXX
- SG_ VCU_Pump1_Pressure_ADC : 7|16@0+ (1,0) [0|4095] "" Vector__XXX
- SG_ VCU_Pump1_Temp_ADC : 23|16@0+ (1,0) [0|4095] "" Vector__XXX
- SG_ VCU_Pump1_Pressure_PSI : 39|16@0+ (0.01,0) [0|655.35] "PSI" Vector__XXX
- SG_ VCU_Pump1_Temp_Celsius : 55|16@0- (0.1,0) [-3276.8|3276.7] "°C" Vector__XXX
+BO_ 2424340672 VCU_Cooling_R_In: 8 Vector__XXX
+ SG_ VCU_CoolR_In_Pressure_kPa : 7|16@0+ (0.1,0) [0|1000] "kPa" Vector__XXX
+ SG_ VCU_CoolR_In_Temp_mV : 23|16@0+ (1,0) [0|5000] "mV" Vector__XXX
+ SG_ VCU_CoolR_In_Pressure_PSI : 39|16@0+ (0.01,0) [0|150] "PSI" Vector__XXX
+ SG_ VCU_CoolR_In_Temp_Celsius : 55|16@0- (0.1,0) [-40|150] "degC" Vector__XXX
 
-BO_ 2424340673 VCU_CoolingLoop_Sensor2: 8 Vector__XXX
- SG_ VCU_Pump2_Pressure_ADC : 7|16@0+ (1,0) [0|4095] "" Vector__XXX
- SG_ VCU_Pump2_Temp_ADC : 23|16@0+ (1,0) [0|4095] "" Vector__XXX
- SG_ VCU_Pump2_Pressure_PSI : 39|16@0+ (0.01,0) [0|655.35] "PSI" Vector__XXX
- SG_ VCU_Pump2_Temp_Celsius : 55|16@0- (0.1,0) [-3276.8|3276.7] "°C" Vector__XXX
+BO_ 2424340673 VCU_Cooling_L_In: 8 Vector__XXX
+ SG_ VCU_CoolL_In_Pressure_kPa : 7|16@0+ (0.1,0) [0|1000] "kPa" Vector__XXX
+ SG_ VCU_CoolL_In_Temp_mV : 23|16@0+ (1,0) [0|5000] "mV" Vector__XXX
+ SG_ VCU_CoolL_In_Pressure_PSI : 39|16@0+ (0.01,0) [0|150] "PSI" Vector__XXX
+ SG_ VCU_CoolL_In_Temp_Celsius : 55|16@0- (0.1,0) [-40|150] "degC" Vector__XXX
+
+BO_ 2424340676 VCU_Cooling_R_Out: 8 Vector__XXX
+ SG_ VCU_CoolR_Out_Pressure_kPa : 7|16@0+ (0.1,0) [0|1000] "kPa" Vector__XXX
+ SG_ VCU_CoolR_Out_Temp_mV : 23|16@0+ (1,0) [0|5000] "mV" Vector__XXX
+ SG_ VCU_CoolR_Out_Pressure_PSI : 39|16@0+ (0.01,0) [0|150] "PSI" Vector__XXX
+ SG_ VCU_CoolR_Out_Temp_Celsius : 55|16@0- (0.1,0) [-40|150] "degC" Vector__XXX
+
+BO_ 2424340677 VCU_Cooling_L_Out: 8 Vector__XXX
+ SG_ VCU_CoolL_Out_Pressure_kPa : 7|16@0+ (0.1,0) [0|1000] "kPa" Vector__XXX
+ SG_ VCU_CoolL_Out_Temp_mV : 23|16@0+ (1,0) [0|5000] "mV" Vector__XXX
+ SG_ VCU_CoolL_Out_Pressure_PSI : 39|16@0+ (0.01,0) [0|150] "PSI" Vector__XXX
+ SG_ VCU_CoolL_Out_Temp_Celsius : 55|16@0- (0.1,0) [-40|150] "degC" Vector__XXX
 
 BO_ 2424340674 VCU_CoolingLoop_Status: 8 Vector__XXX
  SG_ VCU_Pump1_Pressure_Filtered : 7|16@0+ (1,0) [0|65535] "mV" Vector__XXX
