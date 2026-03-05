@@ -4,8 +4,7 @@ VERSION ""
 NS_ : 
 	NS_DESC_
 	CM_
-
-BA_DEF_
+	BA_DEF_
 	BA_
 	VAL_
 	CAT_DEF_
@@ -181,17 +180,29 @@ BO_ 2290122993 VCU_Pitot_Tube: 8 Vector___XXX
  SG_ VCU_Pitot_Tube_ADC : 7|16@0+ (1,0) [0|0] "" Vector___XXX
  SG_ VCU_Pitot_Tube_Pressure : 23|16@0+ (0.01,0) [0|0] "kPa" Vector___XXX
 
-BO_ 2424340672 VCU_CoolingLoop_Sensor1: 8 Vector__XXX
- SG_ VCU_Pump1_Pressure_ADC : 7|16@0+ (1,0) [0|4095] "" Vector__XXX
- SG_ VCU_Pump1_Temp_ADC : 23|16@0+ (1,0) [0|4095] "" Vector__XXX
- SG_ VCU_Pump1_Pressure_PSI : 39|16@0+ (0.01,0) [0|655.35] "PSI" Vector__XXX
- SG_ VCU_Pump1_Temp_Celsius : 55|16@0- (0.1,0) [-3276.8|3276.7] "°C" Vector__XXX
+BO_ 2424340672 VCU_Cooling_R_In: 8 Vector__XXX
+ SG_ VCU_CoolR_In_Pressure_kPa : 7|16@0+ (0.1,0) [0|1000] "kPa" Vector__XXX
+ SG_ VCU_CoolR_In_Temp_mV : 23|16@0+ (1,0) [0|5000] "mV" Vector__XXX
+ SG_ VCU_CoolR_In_Pressure_PSI : 39|16@0+ (0.01,0) [0|150] "PSI" Vector__XXX
+ SG_ VCU_CoolR_In_Temp_Celsius : 55|16@0- (0.1,0) [-40|150] "degC" Vector__XXX
 
-BO_ 2424340673 VCU_CoolingLoop_Sensor2: 8 Vector__XXX
- SG_ VCU_Pump2_Pressure_ADC : 7|16@0+ (1,0) [0|4095] "" Vector__XXX
- SG_ VCU_Pump2_Temp_ADC : 23|16@0+ (1,0) [0|4095] "" Vector__XXX
- SG_ VCU_Pump2_Pressure_PSI : 39|16@0+ (0.01,0) [0|655.35] "PSI" Vector__XXX
- SG_ VCU_Pump2_Temp_Celsius : 55|16@0- (0.1,0) [-3276.8|3276.7] "°C" Vector__XXX
+BO_ 2424340673 VCU_Cooling_L_In: 8 Vector__XXX
+ SG_ VCU_CoolL_In_Pressure_kPa : 7|16@0+ (0.1,0) [0|1000] "kPa" Vector__XXX
+ SG_ VCU_CoolL_In_Temp_mV : 23|16@0+ (1,0) [0|5000] "mV" Vector__XXX
+ SG_ VCU_CoolL_In_Pressure_PSI : 39|16@0+ (0.01,0) [0|150] "PSI" Vector__XXX
+ SG_ VCU_CoolL_In_Temp_Celsius : 55|16@0- (0.1,0) [-40|150] "degC" Vector__XXX
+
+BO_ 2424340676 VCU_Cooling_R_Out: 8 Vector__XXX
+ SG_ VCU_CoolR_Out_Pressure_kPa : 7|16@0+ (0.1,0) [0|1000] "kPa" Vector__XXX
+ SG_ VCU_CoolR_Out_Temp_mV : 23|16@0+ (1,0) [0|5000] "mV" Vector__XXX
+ SG_ VCU_CoolR_Out_Pressure_PSI : 39|16@0+ (0.01,0) [0|150] "PSI" Vector__XXX
+ SG_ VCU_CoolR_Out_Temp_Celsius : 55|16@0- (0.1,0) [-40|150] "degC" Vector__XXX
+
+BO_ 2424340677 VCU_Cooling_L_Out: 8 Vector__XXX
+ SG_ VCU_CoolL_Out_Pressure_kPa : 7|16@0+ (0.1,0) [0|1000] "kPa" Vector__XXX
+ SG_ VCU_CoolL_Out_Temp_mV : 23|16@0+ (1,0) [0|5000] "mV" Vector__XXX
+ SG_ VCU_CoolL_Out_Pressure_PSI : 39|16@0+ (0.01,0) [0|150] "PSI" Vector__XXX
+ SG_ VCU_CoolL_Out_Temp_Celsius : 55|16@0- (0.1,0) [-40|150] "degC" Vector__XXX
 
 BO_ 2424340674 VCU_CoolingLoop_Status: 8 Vector__XXX
  SG_ VCU_Pump1_Pressure_Filtered : 7|16@0+ (1,0) [0|65535] "mV" Vector__XXX
@@ -204,320 +215,6 @@ BO_ 2424340675 VCU_CoolingLoop_Pressure_Bar: 8 Vector__XXX
  SG_ VCU_Pump2_Pressure_Bar : 23|16@0+ (0.001,0) [0|65.535] "bar" Vector__XXX
  SG_ VCU_Sensor_Status : 39|8@0+ (1,0) [0|255] "" Vector__XXX
 
-
-
-
-BO_ 2424340800 VCU_Dbg_TaskTiming_CTRL: 8 VCU
- SG_ TaskId : 0|4@1+ (1,0) [0|0] "" Vector__XXX
- SG_ ExecAvgUs : 4|16@1+ (1,0) [0|0] "" Vector__XXX
- SG_ ExecMaxUs : 20|13@1+ (1,0) [0|0] "" Vector__XXX
- SG_ ExecMinUs : 33|13@1+ (1,0) [0|0] "" Vector__XXX
- SG_ JitterUs : 46|13@1+ (1,0) [0|0] "" Vector__XXX
- SG_ DeadlineLoad : 59|2@1+ (1,0) [0|0] "" Vector__XXX
- SG_ OverrunFlag : 61|1@1+ (1,0) [0|0] "" Vector__XXX
-
-BO_ 2424340801 VCU_Dbg_TaskTiming_PERIPH0: 8 VCU
- SG_ TaskId : 0|4@1+ (1,0) [0|0] "" Vector__XXX
- SG_ ExecAvgUs : 4|16@1+ (1,0) [0|0] "" Vector__XXX
- SG_ ExecMaxUs : 20|13@1+ (1,0) [0|0] "" Vector__XXX
- SG_ ExecMinUs : 33|13@1+ (1,0) [0|0] "" Vector__XXX
- SG_ JitterUs : 46|13@1+ (1,0) [0|0] "" Vector__XXX
- SG_ DeadlineLoad : 59|2@1+ (1,0) [0|0] "" Vector__XXX
- SG_ OverrunFlag : 61|1@1+ (1,0) [0|0] "" Vector__XXX
-
-BO_ 2424340802 VCU_Dbg_TaskTiming_PERIPH1: 8 VCU
- SG_ TaskId : 0|4@1+ (1,0) [0|0] "" Vector__XXX
- SG_ ExecAvgUs : 4|16@1+ (1,0) [0|0] "" Vector__XXX
- SG_ ExecMaxUs : 20|13@1+ (1,0) [0|0] "" Vector__XXX
- SG_ ExecMinUs : 33|13@1+ (1,0) [0|0] "" Vector__XXX
- SG_ JitterUs : 46|13@1+ (1,0) [0|0] "" Vector__XXX
- SG_ DeadlineLoad : 59|2@1+ (1,0) [0|0] "" Vector__XXX
- SG_ OverrunFlag : 61|1@1+ (1,0) [0|0] "" Vector__XXX
-
-BO_ 2424340803 VCU_Dbg_TaskTiming_FC: 8 VCU
- SG_ TaskId : 0|4@1+ (1,0) [0|0] "" Vector__XXX
- SG_ ExecAvgUs : 4|16@1+ (1,0) [0|0] "" Vector__XXX
- SG_ ExecMaxUs : 20|13@1+ (1,0) [0|0] "" Vector__XXX
- SG_ ExecMinUs : 33|13@1+ (1,0) [0|0] "" Vector__XXX
- SG_ JitterUs : 46|13@1+ (1,0) [0|0] "" Vector__XXX
- SG_ DeadlineLoad : 59|2@1+ (1,0) [0|0] "" Vector__XXX
- SG_ OverrunFlag : 61|1@1+ (1,0) [0|0] "" Vector__XXX
-
-BO_ 2424340804 VCU_Dbg_TaskHealth_CTRL: 8 VCU
- SG_ TaskId : 0|4@1+ (1,0) [0|0] "" Vector__XXX
- SG_ MissCount : 4|8@1+ (1,0) [0|0] "" Vector__XXX
- SG_ ConsecMisses : 12|4@1+ (1,0) [0|0] "" Vector__XXX
- SG_ Classification : 16|2@1+ (1,0) [0|0] "" Vector__XXX
- SG_ BlockedMs : 18|13@1+ (1,0) [0|0] "" Vector__XXX
- SG_ HolderId : 31|3@1+ (1,0) [0|0] "" Vector__XXX
- SG_ TotalMissLife : 34|10@1+ (1,0) [0|0] "" Vector__XXX
- SG_ LastMissAgeMs : 44|12@1+ (1,0) [0|0] "" Vector__XXX
- SG_ PreemptCount : 56|8@1+ (1,0) [0|0] "" Vector__XXX
-
-BO_ 2424340805 VCU_Dbg_TaskHealth_PERIPH0: 8 VCU
- SG_ TaskId : 0|4@1+ (1,0) [0|0] "" Vector__XXX
- SG_ MissCount : 4|8@1+ (1,0) [0|0] "" Vector__XXX
- SG_ ConsecMisses : 12|4@1+ (1,0) [0|0] "" Vector__XXX
- SG_ Classification : 16|2@1+ (1,0) [0|0] "" Vector__XXX
- SG_ BlockedMs : 18|13@1+ (1,0) [0|0] "" Vector__XXX
- SG_ HolderId : 31|3@1+ (1,0) [0|0] "" Vector__XXX
- SG_ TotalMissLife : 34|10@1+ (1,0) [0|0] "" Vector__XXX
- SG_ LastMissAgeMs : 44|12@1+ (1,0) [0|0] "" Vector__XXX
- SG_ PreemptCount : 56|8@1+ (1,0) [0|0] "" Vector__XXX
-
-BO_ 2424340806 VCU_Dbg_TaskHealth_PERIPH1: 8 VCU
- SG_ TaskId : 0|4@1+ (1,0) [0|0] "" Vector__XXX
- SG_ MissCount : 4|8@1+ (1,0) [0|0] "" Vector__XXX
- SG_ ConsecMisses : 12|4@1+ (1,0) [0|0] "" Vector__XXX
- SG_ Classification : 16|2@1+ (1,0) [0|0] "" Vector__XXX
- SG_ BlockedMs : 18|13@1+ (1,0) [0|0] "" Vector__XXX
- SG_ HolderId : 31|3@1+ (1,0) [0|0] "" Vector__XXX
- SG_ TotalMissLife : 34|10@1+ (1,0) [0|0] "" Vector__XXX
- SG_ LastMissAgeMs : 44|12@1+ (1,0) [0|0] "" Vector__XXX
- SG_ PreemptCount : 56|8@1+ (1,0) [0|0] "" Vector__XXX
-
-BO_ 2424340807 VCU_Dbg_TaskHealth_FC: 8 VCU
- SG_ TaskId : 0|4@1+ (1,0) [0|0] "" Vector__XXX
- SG_ MissCount : 4|8@1+ (1,0) [0|0] "" Vector__XXX
- SG_ ConsecMisses : 12|4@1+ (1,0) [0|0] "" Vector__XXX
- SG_ Classification : 16|2@1+ (1,0) [0|0] "" Vector__XXX
- SG_ BlockedMs : 18|13@1+ (1,0) [0|0] "" Vector__XXX
- SG_ HolderId : 31|3@1+ (1,0) [0|0] "" Vector__XXX
- SG_ TotalMissLife : 34|10@1+ (1,0) [0|0] "" Vector__XXX
- SG_ LastMissAgeMs : 44|12@1+ (1,0) [0|0] "" Vector__XXX
- SG_ PreemptCount : 56|8@1+ (1,0) [0|0] "" Vector__XXX
-
-BO_ 2424340808 VCU_Dbg_CpuLoad_CTRL: 8 VCU
- SG_ IdlePct1s : 0|8@1+ (1,0) [0|0] "" Vector__XXX
- SG_ IdlePct10s : 8|8@1+ (1,0) [0|0] "" Vector__XXX
- SG_ BusyRtPct : 16|8@1+ (1,0) [0|0] "" Vector__XXX
- SG_ BusyNormPct : 24|8@1+ (1,0) [0|0] "" Vector__XXX
- SG_ IsrOverheadPct : 32|8@1+ (1,0) [0|0] "" Vector__XXX
- SG_ CtxSwitchPerSec : 40|8@1+ (1,0) [0|0] "" Vector__XXX
- SG_ BusyRtPct10s : 48|8@1+ (1,0) [0|0] "" Vector__XXX
- SG_ BusyNormPct10s : 56|8@1+ (1,0) [0|0] "" Vector__XXX
-
-BO_ 2424340809 VCU_Dbg_CpuLoad_PERIPH0: 8 VCU
- SG_ IdlePct1s : 0|8@1+ (1,0) [0|0] "" Vector__XXX
- SG_ IdlePct10s : 8|8@1+ (1,0) [0|0] "" Vector__XXX
- SG_ BusyRtPct : 16|8@1+ (1,0) [0|0] "" Vector__XXX
- SG_ BusyNormPct : 24|8@1+ (1,0) [0|0] "" Vector__XXX
- SG_ IsrOverheadPct : 32|8@1+ (1,0) [0|0] "" Vector__XXX
- SG_ CtxSwitchPerSec : 40|8@1+ (1,0) [0|0] "" Vector__XXX
- SG_ BusyRtPct10s : 48|8@1+ (1,0) [0|0] "" Vector__XXX
- SG_ BusyNormPct10s : 56|8@1+ (1,0) [0|0] "" Vector__XXX
-
-BO_ 2424340810 VCU_Dbg_CpuLoad_PERIPH1: 8 VCU
- SG_ IdlePct1s : 0|8@1+ (1,0) [0|0] "" Vector__XXX
- SG_ IdlePct10s : 8|8@1+ (1,0) [0|0] "" Vector__XXX
- SG_ BusyRtPct : 16|8@1+ (1,0) [0|0] "" Vector__XXX
- SG_ BusyNormPct : 24|8@1+ (1,0) [0|0] "" Vector__XXX
- SG_ IsrOverheadPct : 32|8@1+ (1,0) [0|0] "" Vector__XXX
- SG_ CtxSwitchPerSec : 40|8@1+ (1,0) [0|0] "" Vector__XXX
- SG_ BusyRtPct10s : 48|8@1+ (1,0) [0|0] "" Vector__XXX
- SG_ BusyNormPct10s : 56|8@1+ (1,0) [0|0] "" Vector__XXX
-
-BO_ 2424340811 VCU_Dbg_CpuLoad_FC: 8 VCU
- SG_ IdlePct1s : 0|8@1+ (1,0) [0|0] "" Vector__XXX
- SG_ IdlePct10s : 8|8@1+ (1,0) [0|0] "" Vector__XXX
- SG_ BusyRtPct : 16|8@1+ (1,0) [0|0] "" Vector__XXX
- SG_ BusyNormPct : 24|8@1+ (1,0) [0|0] "" Vector__XXX
- SG_ IsrOverheadPct : 32|8@1+ (1,0) [0|0] "" Vector__XXX
- SG_ CtxSwitchPerSec : 40|8@1+ (1,0) [0|0] "" Vector__XXX
- SG_ BusyRtPct10s : 48|8@1+ (1,0) [0|0] "" Vector__XXX
- SG_ BusyNormPct10s : 56|8@1+ (1,0) [0|0] "" Vector__XXX
-
-BO_ 2424340812 VCU_Dbg_SchedDist_CTRL: 8 VCU
- SG_ BurstScore : 0|8@1+ (1,0) [0|0] "" Vector__XXX
- SG_ SimultWakeups : 8|8@1+ (1,0) [0|0] "" Vector__XXX
- SG_ MaxBinTasks : 16|4@1+ (1,0) [0|0] "" Vector__XXX
- SG_ CopairA : 20|4@1+ (1,0) [0|0] "" Vector__XXX
- SG_ CopairB : 24|4@1+ (1,0) [0|0] "" Vector__XXX
- SG_ CopairC : 28|4@1+ (1,0) [0|0] "" Vector__XXX
- SG_ BurstDurMs : 32|8@1+ (1,0) [0|0] "" Vector__XXX
- SG_ MaxBurstEver : 40|8@1+ (1,0) [0|0] "" Vector__XXX
- SG_ SpreadScore : 48|8@1+ (1,0) [0|0] "" Vector__XXX
- SG_ WindowIndex : 56|8@1+ (1,0) [0|0] "" Vector__XXX
-
-BO_ 2424340813 VCU_Dbg_SchedDist_PERIPH0: 8 VCU
- SG_ BurstScore : 0|8@1+ (1,0) [0|0] "" Vector__XXX
- SG_ SimultWakeups : 8|8@1+ (1,0) [0|0] "" Vector__XXX
- SG_ MaxBinTasks : 16|4@1+ (1,0) [0|0] "" Vector__XXX
- SG_ CopairA : 20|4@1+ (1,0) [0|0] "" Vector__XXX
- SG_ CopairB : 24|4@1+ (1,0) [0|0] "" Vector__XXX
- SG_ CopairC : 28|4@1+ (1,0) [0|0] "" Vector__XXX
- SG_ BurstDurMs : 32|8@1+ (1,0) [0|0] "" Vector__XXX
- SG_ MaxBurstEver : 40|8@1+ (1,0) [0|0] "" Vector__XXX
- SG_ SpreadScore : 48|8@1+ (1,0) [0|0] "" Vector__XXX
- SG_ WindowIndex : 56|8@1+ (1,0) [0|0] "" Vector__XXX
-
-BO_ 2424340814 VCU_Dbg_SchedDist_PERIPH1: 8 VCU
- SG_ BurstScore : 0|8@1+ (1,0) [0|0] "" Vector__XXX
- SG_ SimultWakeups : 8|8@1+ (1,0) [0|0] "" Vector__XXX
- SG_ MaxBinTasks : 16|4@1+ (1,0) [0|0] "" Vector__XXX
- SG_ CopairA : 20|4@1+ (1,0) [0|0] "" Vector__XXX
- SG_ CopairB : 24|4@1+ (1,0) [0|0] "" Vector__XXX
- SG_ CopairC : 28|4@1+ (1,0) [0|0] "" Vector__XXX
- SG_ BurstDurMs : 32|8@1+ (1,0) [0|0] "" Vector__XXX
- SG_ MaxBurstEver : 40|8@1+ (1,0) [0|0] "" Vector__XXX
- SG_ SpreadScore : 48|8@1+ (1,0) [0|0] "" Vector__XXX
- SG_ WindowIndex : 56|8@1+ (1,0) [0|0] "" Vector__XXX
-
-BO_ 2424340815 VCU_Dbg_SchedDist_FC: 8 VCU
- SG_ BurstScore : 0|8@1+ (1,0) [0|0] "" Vector__XXX
- SG_ SimultWakeups : 8|8@1+ (1,0) [0|0] "" Vector__XXX
- SG_ MaxBinTasks : 16|4@1+ (1,0) [0|0] "" Vector__XXX
- SG_ CopairA : 20|4@1+ (1,0) [0|0] "" Vector__XXX
- SG_ CopairB : 24|4@1+ (1,0) [0|0] "" Vector__XXX
- SG_ CopairC : 28|4@1+ (1,0) [0|0] "" Vector__XXX
- SG_ BurstDurMs : 32|8@1+ (1,0) [0|0] "" Vector__XXX
- SG_ MaxBurstEver : 40|8@1+ (1,0) [0|0] "" Vector__XXX
- SG_ SpreadScore : 48|8@1+ (1,0) [0|0] "" Vector__XXX
- SG_ WindowIndex : 56|8@1+ (1,0) [0|0] "" Vector__XXX
-
-BO_ 2424340816 VCU_Dbg_HeapStatus_CTRL: 8 VCU
- SG_ HeapFreeKb : 0|8@1+ (1,0) [0|0] "" Vector__XXX
- SG_ HeapMinEverKb : 8|8@1+ (1,0) [0|0] "" Vector__XXX
- SG_ UsedPct : 16|8@1+ (1,0) [0|0] "" Vector__XXX
- SG_ StackCritMask : 24|16@1+ (1,0) [0|0] "" Vector__XXX
- SG_ AllocFailCount : 40|8@1+ (1,0) [0|0] "" Vector__XXX
- SG_ WatermarkPct : 48|8@1+ (1,0) [0|0] "" Vector__XXX
- SG_ TotalStackUsedPct : 56|8@1+ (1,0) [0|0] "" Vector__XXX
-
-BO_ 2424340817 VCU_Dbg_HeapStatus_PERIPH0: 8 VCU
- SG_ HeapFreeKb : 0|8@1+ (1,0) [0|0] "" Vector__XXX
- SG_ HeapMinEverKb : 8|8@1+ (1,0) [0|0] "" Vector__XXX
- SG_ UsedPct : 16|8@1+ (1,0) [0|0] "" Vector__XXX
- SG_ StackCritMask : 24|16@1+ (1,0) [0|0] "" Vector__XXX
- SG_ AllocFailCount : 40|8@1+ (1,0) [0|0] "" Vector__XXX
- SG_ WatermarkPct : 48|8@1+ (1,0) [0|0] "" Vector__XXX
- SG_ TotalStackUsedPct : 56|8@1+ (1,0) [0|0] "" Vector__XXX
-
-BO_ 2424340818 VCU_Dbg_HeapStatus_PERIPH1: 8 VCU
- SG_ HeapFreeKb : 0|8@1+ (1,0) [0|0] "" Vector__XXX
- SG_ HeapMinEverKb : 8|8@1+ (1,0) [0|0] "" Vector__XXX
- SG_ UsedPct : 16|8@1+ (1,0) [0|0] "" Vector__XXX
- SG_ StackCritMask : 24|16@1+ (1,0) [0|0] "" Vector__XXX
- SG_ AllocFailCount : 40|8@1+ (1,0) [0|0] "" Vector__XXX
- SG_ WatermarkPct : 48|8@1+ (1,0) [0|0] "" Vector__XXX
- SG_ TotalStackUsedPct : 56|8@1+ (1,0) [0|0] "" Vector__XXX
-
-BO_ 2424340819 VCU_Dbg_HeapStatus_FC: 8 VCU
- SG_ HeapFreeKb : 0|8@1+ (1,0) [0|0] "" Vector__XXX
- SG_ HeapMinEverKb : 8|8@1+ (1,0) [0|0] "" Vector__XXX
- SG_ UsedPct : 16|8@1+ (1,0) [0|0] "" Vector__XXX
- SG_ StackCritMask : 24|16@1+ (1,0) [0|0] "" Vector__XXX
- SG_ AllocFailCount : 40|8@1+ (1,0) [0|0] "" Vector__XXX
- SG_ WatermarkPct : 48|8@1+ (1,0) [0|0] "" Vector__XXX
- SG_ TotalStackUsedPct : 56|8@1+ (1,0) [0|0] "" Vector__XXX
-
-BO_ 2424340820 VCU_Dbg_StackHwm_CTRL: 8 VCU
- SG_ TaskId : 0|4@1+ (1,0) [0|0] "" Vector__XXX
- SG_ HwmWords : 4|9@1+ (1,0) [0|0] "" Vector__XXX
- SG_ HwmPct : 13|8@1+ (1,0) [0|0] "" Vector__XXX
- SG_ CritFlag : 21|1@1+ (1,0) [0|0] "" Vector__XXX
- SG_ TaskPriority : 22|5@1+ (1,0) [0|0] "" Vector__XXX
- SG_ TaskState : 27|3@1+ (1,0) [0|0] "" Vector__XXX
- SG_ StackAllocWords : 30|10@1+ (1,0) [0|0] "" Vector__XXX
- SG_ CpuPctSampled : 40|7@1+ (1,0) [0|0] "" Vector__XXX
- SG_ RunCountWindow : 47|8@1+ (1,0) [0|0] "" Vector__XXX
-
-BO_ 2424340821 VCU_Dbg_StackHwm_PERIPH0: 8 VCU
- SG_ TaskId : 0|4@1+ (1,0) [0|0] "" Vector__XXX
- SG_ HwmWords : 4|9@1+ (1,0) [0|0] "" Vector__XXX
- SG_ HwmPct : 13|8@1+ (1,0) [0|0] "" Vector__XXX
- SG_ CritFlag : 21|1@1+ (1,0) [0|0] "" Vector__XXX
- SG_ TaskPriority : 22|5@1+ (1,0) [0|0] "" Vector__XXX
- SG_ TaskState : 27|3@1+ (1,0) [0|0] "" Vector__XXX
- SG_ StackAllocWords : 30|10@1+ (1,0) [0|0] "" Vector__XXX
- SG_ CpuPctSampled : 40|7@1+ (1,0) [0|0] "" Vector__XXX
- SG_ RunCountWindow : 47|8@1+ (1,0) [0|0] "" Vector__XXX
-
-BO_ 2424340822 VCU_Dbg_StackHwm_PERIPH1: 8 VCU
- SG_ TaskId : 0|4@1+ (1,0) [0|0] "" Vector__XXX
- SG_ HwmWords : 4|9@1+ (1,0) [0|0] "" Vector__XXX
- SG_ HwmPct : 13|8@1+ (1,0) [0|0] "" Vector__XXX
- SG_ CritFlag : 21|1@1+ (1,0) [0|0] "" Vector__XXX
- SG_ TaskPriority : 22|5@1+ (1,0) [0|0] "" Vector__XXX
- SG_ TaskState : 27|3@1+ (1,0) [0|0] "" Vector__XXX
- SG_ StackAllocWords : 30|10@1+ (1,0) [0|0] "" Vector__XXX
- SG_ CpuPctSampled : 40|7@1+ (1,0) [0|0] "" Vector__XXX
- SG_ RunCountWindow : 47|8@1+ (1,0) [0|0] "" Vector__XXX
-
-BO_ 2424340823 VCU_Dbg_StackHwm_FC: 8 VCU
- SG_ TaskId : 0|4@1+ (1,0) [0|0] "" Vector__XXX
- SG_ HwmWords : 4|9@1+ (1,0) [0|0] "" Vector__XXX
- SG_ HwmPct : 13|8@1+ (1,0) [0|0] "" Vector__XXX
- SG_ CritFlag : 21|1@1+ (1,0) [0|0] "" Vector__XXX
- SG_ TaskPriority : 22|5@1+ (1,0) [0|0] "" Vector__XXX
- SG_ TaskState : 27|3@1+ (1,0) [0|0] "" Vector__XXX
- SG_ StackAllocWords : 30|10@1+ (1,0) [0|0] "" Vector__XXX
- SG_ CpuPctSampled : 40|7@1+ (1,0) [0|0] "" Vector__XXX
- SG_ RunCountWindow : 47|8@1+ (1,0) [0|0] "" Vector__XXX
-
-BO_ 2424340824 VCU_Dbg_Meta_CTRL: 8 VCU
- SG_ ProfilerEnabled : 0|1@1+ (1,0) [0|0] "" Vector__XXX
- SG_ ReportHz : 1|4@1+ (1,0) [0|0] "" Vector__XXX
- SG_ TaskCount : 5|4@1+ (1,0) [0|0] "" Vector__XXX
- SG_ FwHash16 : 9|16@1+ (1,0) [0|0] "" Vector__XXX
- SG_ UptimeSec : 25|16@1+ (1,0) [0|0] "" Vector__XXX
- SG_ ResetCause : 41|4@1+ (1,0) [0|0] "" Vector__XXX
- SG_ ProfilerOvhdPct : 45|7@1+ (1,0) [0|0] "" Vector__XXX
- SG_ ActiveTaskCount : 52|4@1+ (1,0) [0|0] "" Vector__XXX
- SG_ CanTxDropCount : 56|8@1+ (1,0) [0|0] "" Vector__XXX
-
-BO_ 2424340825 VCU_Dbg_Meta_PERIPH0: 8 VCU
- SG_ ProfilerEnabled : 0|1@1+ (1,0) [0|0] "" Vector__XXX
- SG_ ReportHz : 1|4@1+ (1,0) [0|0] "" Vector__XXX
- SG_ TaskCount : 5|4@1+ (1,0) [0|0] "" Vector__XXX
- SG_ FwHash16 : 9|16@1+ (1,0) [0|0] "" Vector__XXX
- SG_ UptimeSec : 25|16@1+ (1,0) [0|0] "" Vector__XXX
- SG_ ResetCause : 41|4@1+ (1,0) [0|0] "" Vector__XXX
- SG_ ProfilerOvhdPct : 45|7@1+ (1,0) [0|0] "" Vector__XXX
- SG_ ActiveTaskCount : 52|4@1+ (1,0) [0|0] "" Vector__XXX
- SG_ CanTxDropCount : 56|8@1+ (1,0) [0|0] "" Vector__XXX
-
-BO_ 2424340826 VCU_Dbg_Meta_PERIPH1: 8 VCU
- SG_ ProfilerEnabled : 0|1@1+ (1,0) [0|0] "" Vector__XXX
- SG_ ReportHz : 1|4@1+ (1,0) [0|0] "" Vector__XXX
- SG_ TaskCount : 5|4@1+ (1,0) [0|0] "" Vector__XXX
- SG_ FwHash16 : 9|16@1+ (1,0) [0|0] "" Vector__XXX
- SG_ UptimeSec : 25|16@1+ (1,0) [0|0] "" Vector__XXX
- SG_ ResetCause : 41|4@1+ (1,0) [0|0] "" Vector__XXX
- SG_ ProfilerOvhdPct : 45|7@1+ (1,0) [0|0] "" Vector__XXX
- SG_ ActiveTaskCount : 52|4@1+ (1,0) [0|0] "" Vector__XXX
- SG_ CanTxDropCount : 56|8@1+ (1,0) [0|0] "" Vector__XXX
-
-BO_ 2424340827 VCU_Dbg_Meta_FC: 8 VCU
- SG_ ProfilerEnabled : 0|1@1+ (1,0) [0|0] "" Vector__XXX
- SG_ ReportHz : 1|4@1+ (1,0) [0|0] "" Vector__XXX
- SG_ TaskCount : 5|4@1+ (1,0) [0|0] "" Vector__XXX
- SG_ FwHash16 : 9|16@1+ (1,0) [0|0] "" Vector__XXX
- SG_ UptimeSec : 25|16@1+ (1,0) [0|0] "" Vector__XXX
- SG_ ResetCause : 41|4@1+ (1,0) [0|0] "" Vector__XXX
- SG_ ProfilerOvhdPct : 45|7@1+ (1,0) [0|0] "" Vector__XXX
- SG_ ActiveTaskCount : 52|4@1+ (1,0) [0|0] "" Vector__XXX
- SG_ CanTxDropCount : 56|8@1+ (1,0) [0|0] "" Vector__XXX
-
-VAL_ 2424340800 DeadlineLoad 0 "LT25PCT" 1 "LT50PCT" 2 "LT75PCT" 3 "GT75PCT" ;
-VAL_ 2424340801 DeadlineLoad 0 "LT25PCT" 1 "LT50PCT" 2 "LT75PCT" 3 "GT75PCT" ;
-VAL_ 2424340802 DeadlineLoad 0 "LT25PCT" 1 "LT50PCT" 2 "LT75PCT" 3 "GT75PCT" ;
-VAL_ 2424340803 DeadlineLoad 0 "LT25PCT" 1 "LT50PCT" 2 "LT75PCT" 3 "GT75PCT" ;
-
-VAL_ 2424340804 Classification 0 "NONE" 1 "ONE_OFF" 2 "RECURRING" 3 "DEADLOCK_SUSPECTED" ;
-VAL_ 2424340805 Classification 0 "NONE" 1 "ONE_OFF" 2 "RECURRING" 3 "DEADLOCK_SUSPECTED" ;
-VAL_ 2424340806 Classification 0 "NONE" 1 "ONE_OFF" 2 "RECURRING" 3 "DEADLOCK_SUSPECTED" ;
-VAL_ 2424340807 Classification 0 "NONE" 1 "ONE_OFF" 2 "RECURRING" 3 "DEADLOCK_SUSPECTED" ;
-
-VAL_ 2424340820 TaskState 0 "eRunning" 1 "eReady" 2 "eBlocked" 3 "eSuspended" 4 "eDeleted" 5 "eInvalid" ;
-VAL_ 2424340821 TaskState 0 "eRunning" 1 "eReady" 2 "eBlocked" 3 "eSuspended" 4 "eDeleted" 5 "eInvalid" ;
-VAL_ 2424340822 TaskState 0 "eRunning" 1 "eReady" 2 "eBlocked" 3 "eSuspended" 4 "eDeleted" 5 "eInvalid" ;
-VAL_ 2424340823 TaskState 0 "eRunning" 1 "eReady" 2 "eBlocked" 3 "eSuspended" 4 "eDeleted" 5 "eInvalid" ;
-
-VAL_ 2424340824 ResetCause 0 "POR" 1 "IWDG" 2 "SW_RESET" 3 "PIN_RESET" 4 "BOR" 5 "LPWR" ;
-VAL_ 2424340825 ResetCause 0 "POR" 1 "IWDG" 2 "SW_RESET" 3 "PIN_RESET" 4 "BOR" 5 "LPWR" ;
-VAL_ 2424340826 ResetCause 0 "POR" 1 "IWDG" 2 "SW_RESET" 3 "PIN_RESET" 4 "BOR" 5 "LPWR" ;
-VAL_ 2424340827 ResetCause 0 "POR" 1 "IWDG" 2 "SW_RESET" 3 "PIN_RESET" 4 "BOR" 5 "LPWR" ;
 
 BO_ 2284097024 BMU_TransmitPower: 8 Vector__XXX
  SG_ BMU_Power : 0|4@1- (0.001,0) [0|0] "" Vector__XXX
@@ -2183,3 +1880,315 @@ BA_DEF_  "MultiplexExtEnabled" ENUM  "No","Yes";
 BA_DEF_  "BusType" STRING ;
 BA_DEF_DEF_  "MultiplexExtEnabled" "No";
 BA_DEF_DEF_  "BusType" "CAN";
+
+BO_ 2424340800 VCU_Dbg_TaskTiming_CTRL: 8 VCU
+ SG_ TaskId : 0|4@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ ExecAvgUs : 4|16@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ ExecMaxUs : 20|13@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ ExecMinUs : 33|13@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ JitterUs : 46|13@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ DeadlineLoad : 59|2@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ OverrunFlag : 61|1@1+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 2424340801 VCU_Dbg_TaskTiming_PERIPH0: 8 VCU
+ SG_ TaskId : 0|4@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ ExecAvgUs : 4|16@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ ExecMaxUs : 20|13@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ ExecMinUs : 33|13@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ JitterUs : 46|13@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ DeadlineLoad : 59|2@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ OverrunFlag : 61|1@1+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 2424340802 VCU_Dbg_TaskTiming_PERIPH1: 8 VCU
+ SG_ TaskId : 0|4@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ ExecAvgUs : 4|16@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ ExecMaxUs : 20|13@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ ExecMinUs : 33|13@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ JitterUs : 46|13@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ DeadlineLoad : 59|2@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ OverrunFlag : 61|1@1+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 2424340803 VCU_Dbg_TaskTiming_FC: 8 VCU
+ SG_ TaskId : 0|4@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ ExecAvgUs : 4|16@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ ExecMaxUs : 20|13@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ ExecMinUs : 33|13@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ JitterUs : 46|13@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ DeadlineLoad : 59|2@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ OverrunFlag : 61|1@1+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 2424340804 VCU_Dbg_TaskHealth_CTRL: 8 VCU
+ SG_ TaskId : 0|4@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ MissCount : 4|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ ConsecMisses : 12|4@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ Classification : 16|2@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BlockedMs : 18|13@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ HolderId : 31|3@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ TotalMissLife : 34|10@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ LastMissAgeMs : 44|12@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ PreemptCount : 56|8@1+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 2424340805 VCU_Dbg_TaskHealth_PERIPH0: 8 VCU
+ SG_ TaskId : 0|4@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ MissCount : 4|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ ConsecMisses : 12|4@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ Classification : 16|2@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BlockedMs : 18|13@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ HolderId : 31|3@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ TotalMissLife : 34|10@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ LastMissAgeMs : 44|12@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ PreemptCount : 56|8@1+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 2424340806 VCU_Dbg_TaskHealth_PERIPH1: 8 VCU
+ SG_ TaskId : 0|4@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ MissCount : 4|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ ConsecMisses : 12|4@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ Classification : 16|2@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BlockedMs : 18|13@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ HolderId : 31|3@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ TotalMissLife : 34|10@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ LastMissAgeMs : 44|12@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ PreemptCount : 56|8@1+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 2424340807 VCU_Dbg_TaskHealth_FC: 8 VCU
+ SG_ TaskId : 0|4@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ MissCount : 4|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ ConsecMisses : 12|4@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ Classification : 16|2@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BlockedMs : 18|13@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ HolderId : 31|3@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ TotalMissLife : 34|10@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ LastMissAgeMs : 44|12@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ PreemptCount : 56|8@1+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 2424340808 VCU_Dbg_CpuLoad_CTRL: 8 VCU
+ SG_ IdlePct1s : 0|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ IdlePct10s : 8|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BusyRtPct : 16|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BusyNormPct : 24|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ IsrOverheadPct : 32|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ CtxSwitchPerSec : 40|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BusyRtPct10s : 48|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BusyNormPct10s : 56|8@1+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 2424340809 VCU_Dbg_CpuLoad_PERIPH0: 8 VCU
+ SG_ IdlePct1s : 0|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ IdlePct10s : 8|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BusyRtPct : 16|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BusyNormPct : 24|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ IsrOverheadPct : 32|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ CtxSwitchPerSec : 40|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BusyRtPct10s : 48|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BusyNormPct10s : 56|8@1+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 2424340810 VCU_Dbg_CpuLoad_PERIPH1: 8 VCU
+ SG_ IdlePct1s : 0|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ IdlePct10s : 8|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BusyRtPct : 16|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BusyNormPct : 24|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ IsrOverheadPct : 32|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ CtxSwitchPerSec : 40|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BusyRtPct10s : 48|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BusyNormPct10s : 56|8@1+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 2424340811 VCU_Dbg_CpuLoad_FC: 8 VCU
+ SG_ IdlePct1s : 0|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ IdlePct10s : 8|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BusyRtPct : 16|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BusyNormPct : 24|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ IsrOverheadPct : 32|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ CtxSwitchPerSec : 40|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BusyRtPct10s : 48|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BusyNormPct10s : 56|8@1+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 2424340812 VCU_Dbg_SchedDist_CTRL: 8 VCU
+ SG_ BurstScore : 0|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ SimultWakeups : 8|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ MaxBinTasks : 16|4@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ CopairA : 20|4@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ CopairB : 24|4@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ CopairC : 28|4@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BurstDurMs : 32|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ MaxBurstEver : 40|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ SpreadScore : 48|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ WindowIndex : 56|8@1+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 2424340813 VCU_Dbg_SchedDist_PERIPH0: 8 VCU
+ SG_ BurstScore : 0|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ SimultWakeups : 8|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ MaxBinTasks : 16|4@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ CopairA : 20|4@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ CopairB : 24|4@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ CopairC : 28|4@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BurstDurMs : 32|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ MaxBurstEver : 40|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ SpreadScore : 48|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ WindowIndex : 56|8@1+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 2424340814 VCU_Dbg_SchedDist_PERIPH1: 8 VCU
+ SG_ BurstScore : 0|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ SimultWakeups : 8|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ MaxBinTasks : 16|4@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ CopairA : 20|4@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ CopairB : 24|4@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ CopairC : 28|4@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BurstDurMs : 32|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ MaxBurstEver : 40|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ SpreadScore : 48|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ WindowIndex : 56|8@1+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 2424340815 VCU_Dbg_SchedDist_FC: 8 VCU
+ SG_ BurstScore : 0|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ SimultWakeups : 8|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ MaxBinTasks : 16|4@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ CopairA : 20|4@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ CopairB : 24|4@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ CopairC : 28|4@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ BurstDurMs : 32|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ MaxBurstEver : 40|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ SpreadScore : 48|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ WindowIndex : 56|8@1+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 2424340816 VCU_Dbg_HeapStatus_CTRL: 8 VCU
+ SG_ HeapFreeKb : 0|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ HeapMinEverKb : 8|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ UsedPct : 16|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ StackCritMask : 24|16@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ AllocFailCount : 40|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ WatermarkPct : 48|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ TotalStackUsedPct : 56|8@1+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 2424340817 VCU_Dbg_HeapStatus_PERIPH0: 8 VCU
+ SG_ HeapFreeKb : 0|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ HeapMinEverKb : 8|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ UsedPct : 16|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ StackCritMask : 24|16@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ AllocFailCount : 40|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ WatermarkPct : 48|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ TotalStackUsedPct : 56|8@1+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 2424340818 VCU_Dbg_HeapStatus_PERIPH1: 8 VCU
+ SG_ HeapFreeKb : 0|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ HeapMinEverKb : 8|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ UsedPct : 16|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ StackCritMask : 24|16@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ AllocFailCount : 40|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ WatermarkPct : 48|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ TotalStackUsedPct : 56|8@1+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 2424340819 VCU_Dbg_HeapStatus_FC: 8 VCU
+ SG_ HeapFreeKb : 0|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ HeapMinEverKb : 8|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ UsedPct : 16|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ StackCritMask : 24|16@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ AllocFailCount : 40|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ WatermarkPct : 48|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ TotalStackUsedPct : 56|8@1+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 2424340820 VCU_Dbg_StackHwm_CTRL: 8 VCU
+ SG_ TaskId : 0|4@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ HwmWords : 4|9@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ HwmPct : 13|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ CritFlag : 21|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ TaskPriority : 22|5@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ TaskState : 27|3@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ StackAllocWords : 30|10@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ CpuPctSampled : 40|7@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ RunCountWindow : 47|8@1+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 2424340821 VCU_Dbg_StackHwm_PERIPH0: 8 VCU
+ SG_ TaskId : 0|4@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ HwmWords : 4|9@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ HwmPct : 13|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ CritFlag : 21|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ TaskPriority : 22|5@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ TaskState : 27|3@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ StackAllocWords : 30|10@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ CpuPctSampled : 40|7@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ RunCountWindow : 47|8@1+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 2424340822 VCU_Dbg_StackHwm_PERIPH1: 8 VCU
+ SG_ TaskId : 0|4@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ HwmWords : 4|9@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ HwmPct : 13|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ CritFlag : 21|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ TaskPriority : 22|5@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ TaskState : 27|3@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ StackAllocWords : 30|10@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ CpuPctSampled : 40|7@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ RunCountWindow : 47|8@1+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 2424340823 VCU_Dbg_StackHwm_FC: 8 VCU
+ SG_ TaskId : 0|4@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ HwmWords : 4|9@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ HwmPct : 13|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ CritFlag : 21|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ TaskPriority : 22|5@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ TaskState : 27|3@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ StackAllocWords : 30|10@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ CpuPctSampled : 40|7@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ RunCountWindow : 47|8@1+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 2424340824 VCU_Dbg_Meta_CTRL: 8 VCU
+ SG_ ProfilerEnabled : 0|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ ReportHz : 1|4@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ TaskCount : 5|4@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ FwHash16 : 9|16@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ UptimeSec : 25|16@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ ResetCause : 41|4@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ ProfilerOvhdPct : 45|7@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ ActiveTaskCount : 52|4@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ CanTxDropCount : 56|8@1+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 2424340825 VCU_Dbg_Meta_PERIPH0: 8 VCU
+ SG_ ProfilerEnabled : 0|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ ReportHz : 1|4@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ TaskCount : 5|4@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ FwHash16 : 9|16@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ UptimeSec : 25|16@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ ResetCause : 41|4@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ ProfilerOvhdPct : 45|7@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ ActiveTaskCount : 52|4@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ CanTxDropCount : 56|8@1+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 2424340826 VCU_Dbg_Meta_PERIPH1: 8 VCU
+ SG_ ProfilerEnabled : 0|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ ReportHz : 1|4@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ TaskCount : 5|4@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ FwHash16 : 9|16@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ UptimeSec : 25|16@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ ResetCause : 41|4@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ ProfilerOvhdPct : 45|7@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ ActiveTaskCount : 52|4@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ CanTxDropCount : 56|8@1+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 2424340827 VCU_Dbg_Meta_FC: 8 VCU
+ SG_ ProfilerEnabled : 0|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ ReportHz : 1|4@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ TaskCount : 5|4@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ FwHash16 : 9|16@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ UptimeSec : 25|16@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ ResetCause : 41|4@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ ProfilerOvhdPct : 45|7@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ ActiveTaskCount : 52|4@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ CanTxDropCount : 56|8@1+ (1,0) [0|0] "" Vector__XXX
+
+VAL_ 2424340800 DeadlineLoad 0 "LT25PCT" 1 "LT50PCT" 2 "LT75PCT" 3 "GT75PCT" ;
+VAL_ 2424340801 DeadlineLoad 0 "LT25PCT" 1 "LT50PCT" 2 "LT75PCT" 3 "GT75PCT" ;
+VAL_ 2424340802 DeadlineLoad 0 "LT25PCT" 1 "LT50PCT" 2 "LT75PCT" 3 "GT75PCT" ;
+VAL_ 2424340803 DeadlineLoad 0 "LT25PCT" 1 "LT50PCT" 2 "LT75PCT" 3 "GT75PCT" ;
+
+VAL_ 2424340804 Classification 0 "NONE" 1 "ONE_OFF" 2 "RECURRING" 3 "DEADLOCK_SUSPECTED" ;
+VAL_ 2424340805 Classification 0 "NONE" 1 "ONE_OFF" 2 "RECURRING" 3 "DEADLOCK_SUSPECTED" ;
+VAL_ 2424340806 Classification 0 "NONE" 1 "ONE_OFF" 2 "RECURRING" 3 "DEADLOCK_SUSPECTED" ;
+VAL_ 2424340807 Classification 0 "NONE" 1 "ONE_OFF" 2 "RECURRING" 3 "DEADLOCK_SUSPECTED" ;
+
+VAL_ 2424340820 TaskState 0 "eRunning" 1 "eReady" 2 "eBlocked" 3 "eSuspended" 4 "eDeleted" 5 "eInvalid" ;
+VAL_ 2424340821 TaskState 0 "eRunning" 1 "eReady" 2 "eBlocked" 3 "eSuspended" 4 "eDeleted" 5 "eInvalid" ;
+VAL_ 2424340822 TaskState 0 "eRunning" 1 "eReady" 2 "eBlocked" 3 "eSuspended" 4 "eDeleted" 5 "eInvalid" ;
+VAL_ 2424340823 TaskState 0 "eRunning" 1 "eReady" 2 "eBlocked" 3 "eSuspended" 4 "eDeleted" 5 "eInvalid" ;
+
+VAL_ 2424340824 ResetCause 0 "POR" 1 "IWDG" 2 "SW_RESET" 3 "PIN_RESET" 4 "BOR" 5 "LPWR" ;
+VAL_ 2424340825 ResetCause 0 "POR" 1 "IWDG" 2 "SW_RESET" 3 "PIN_RESET" 4 "BOR" 5 "LPWR" ;
+VAL_ 2424340826 ResetCause 0 "POR" 1 "IWDG" 2 "SW_RESET" 3 "PIN_RESET" 4 "BOR" 5 "LPWR" ;
+VAL_ 2424340827 ResetCause 0 "POR" 1 "IWDG" 2 "SW_RESET" 3 "PIN_RESET" 4 "BOR" 5 "LPWR" ;
