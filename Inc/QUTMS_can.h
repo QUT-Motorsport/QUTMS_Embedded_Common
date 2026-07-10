@@ -41,8 +41,8 @@ extern "C" {
 /* Type */
 #define QUTMS_TYPE_ERROR      0x00
 #define QUTMS_TYPE_HEARTBEAT  0x01
-#define QUTMS_TYPE_RECEIVE    0x02
-#define QUTMS_TYPE_TRANSMIT    0x03
+#define QUTMS_TYPE_TRANSMIT    0x02
+#define QUTMS_TYPE_RECIEVE    0x03
 #define QUTMS_TYPE_OBJ_DICT   0x04
 #define QUTMS_TYPE_STREAM     0x05
 
