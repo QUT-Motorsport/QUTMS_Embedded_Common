@@ -7,3 +7,5 @@ SHDN_SHUTDOWN_TRIGGERED_t Compose_SHDN_SHUTDOWN_TRIGGERED() {
     msg.id - QUTMS_SHDN_SHUTDOWN_TRIGGERED;
     return msg;
 }
+
+#endif 
