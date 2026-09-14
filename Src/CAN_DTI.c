@@ -273,29 +273,29 @@ void Parse_S6(uint8_t data[8], int8_t *throttleSig, int8_t *brakeSig, int8_t *di
     int8_t *digOut4, int8_t *driveEnable, int8_t *capTempLim, int8_t *DCcurrLim, int8_t *driveEnableLim, 
     int8_t *IGBTaccelLim, int8_t *IGBTtempLim, int8_t *inputVoltLim, int8_t *motAccTempLim, int8_t *motTempLim,
     int8_t *RPMminLim, int8_t *RPMmaxLim, int8_t *powerLim, int8_t *CANver) {
-    *throttleSig = 
-    *brakeSig =
-    *digIn1 =
-    *digIn2 =   
-    *digIn3 = 
-    *digIn4 =
-    *digOut1 =
-    *digOut2 =   
-    *digOut3 = 
-    *digOut4 =
-    *driveEnable =
-    *capTempLim = 
-    *DCcurrLim = 
-    *driveEnableLim =
-    *IGBTaccelLim =
-    *IGBTtempLim = 
-    *inputVoltLim =
-    *motAccTempLim = 
-    *motTempLim = 
-    *RPMminLim =
-    *RPMmaxLim =
-    *powerLim = 
-    *CANver = 
+    *throttleSig = (int8_t)data[0];
+    *brakeSig = (int8_t)data[1];
+    *digIn1  = (data[2] >> 0);
+    *digIn2  = (data[2] >> 1);
+    *digIn3  = (data[2] >> 2);
+    *digIn4  = (data[2] >> 3);
+    *digOut1 = (data[2] >> 4);
+    *digOut2 = (data[2] >> 5);
+    *digOut3 = (data[2] >> 6);
+    *digOut4 = (data[2] >> 7);
+    *driveEnable = (data[3] >> 0);
+    *capTempLim     = (data[4] >> 0);
+    *DCcurrLim      = (data[4] >> 1);
+    *driveEnableLim = (data[4] >> 2);
+    *IGBTaccelLim   = (data[4] >> 3);
+    *IGBTtempLim    = (data[4] >> 4);
+    *inputVoltLim   = (data[4] >> 5);
+    *motAccTempLim  = (data[4] >> 6);
+    *motTempLim     = (data[4] >> 7);
+    *RPMminLim = (data[5] >> 0);
+    *RPMmaxLim = (data[5] >> 1);
+    *powerLim  = (data[5] >> 2);
+    *CANver = data[7];
 }
 // AC_SET
 void Parse_S7(uint8_t data[8], int16_t *maxACcur, int16_t *availMaxAC, int16_t minACcurr, int16_t availMinAC){
