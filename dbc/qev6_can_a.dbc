@@ -1,0 +1,509 @@
+VERSION ""
+
+
+NS_ :
+	CM_
+	BA_DEF_
+	BA_
+	VAL_
+	BA_DEF_DEF_
+
+BS_:
+
+BU_: ECU BMU SHDN CHRG TOOL LOGGER C125
+
+
+BO_ 2286157824 ECU_HEARTBEAT: 8 ECU
+ SG_ ECU_State : 0|8@1+ (1,0) [0|255] "" BMU,SHDN,C125
+ SG_ ECU_F_PedalPolarity : 8|1@1+ (1,0) [0|1] "" BMU,SHDN,C125
+ SG_ ECU_F_BmuAlive : 9|1@1+ (1,0) [0|1] "" BMU,SHDN,C125
+ SG_ ECU_F_InvAlive : 10|1@1+ (1,0) [0|1] "" BMU,SHDN,C125
+ SG_ ECU_F_ShdnClosed : 11|1@1+ (1,0) [0|1] "" BMU,SHDN,C125
+ SG_ ECU_F_PedalOk : 12|1@1+ (1,0) [0|1] "" BMU,SHDN,C125
+ SG_ ECU_F_BrakePressed : 13|1@1+ (1,0) [0|1] "" BMU,SHDN,C125
+ SG_ ECU_F_PrechargeReq : 14|1@1+ (1,0) [0|1] "" BMU,SHDN,C125
+ SG_ ECU_F_TorqueAllowed : 15|1@1+ (1,0) [0|1] "" BMU,SHDN,C125
+ SG_ ECU_F_OutputFault : 16|1@1+ (1,0) [0|1] "" BMU,SHDN,C125
+ SG_ ECU_F_CanAOk : 17|1@1+ (1,0) [0|1] "" BMU,SHDN,C125
+ SG_ ECU_F_CanBOk : 18|1@1+ (1,0) [0|1] "" BMU,SHDN,C125
+ SG_ ECU_F_Warning : 19|1@1+ (1,0) [0|1] "" BMU,SHDN,C125
+ SG_ ECU_F_EepromOk : 20|1@1+ (1,0) [0|1] "" BMU,SHDN,C125
+ SG_ ECU_F_Calibrated : 21|1@1+ (1,0) [0|1] "" BMU,SHDN,C125
+ SG_ ECU_F_HvOffReq : 22|1@1+ (1,0) [0|1] "" BMU,SHDN,C125
+ SG_ ECU_FaultCode : 24|16@1+ (1,0) [0|65535] "" BMU,SHDN,C125
+ SG_ ECU_FaultSeverity : 40|8@1+ (1,0) [0|255] "" BMU,SHDN,C125
+ SG_ ECU_Uptime : 48|16@1+ (1,0) [0|65535] "s" BMU,SHDN,C125
+
+BO_ 2424356865 ECU_BMU_COMP25_HEARTBEAT: 8 ECU
+ SG_ ECU_C25_State : 0|8@1+ (1,0) [0|255] "" BMU
+
+BO_ 2281963520 BMU_HEARTBEAT: 8 BMU
+ SG_ BMU_State : 0|8@1+ (1,0) [0|255] "" ECU,CHRG,C125
+ SG_ BMU_F_HbCmu : 8|1@1+ (1,0) [0|1] "" ECU,CHRG,C125
+ SG_ BMU_F_HbSendyne1 : 9|1@1+ (1,0) [0|1] "" ECU,CHRG,C125
+ SG_ BMU_F_HbSendyne2 : 10|1@1+ (1,0) [0|1] "" ECU,CHRG,C125
+ SG_ BMU_F_HbEcu : 11|1@1+ (1,0) [0|1] "" ECU,CHRG,C125
+ SG_ BMU_F_HbChrgCtrl : 12|1@1+ (1,0) [0|1] "" ECU,CHRG,C125
+ SG_ BMU_F_Watchdog : 13|1@1+ (1,0) [0|1] "" ECU,CHRG,C125
+ SG_ BMU_F_Can1 : 14|1@1+ (1,0) [0|1] "" ECU,CHRG,C125
+ SG_ BMU_F_Can2 : 15|1@1+ (1,0) [0|1] "" ECU,CHRG,C125
+ SG_ BMU_F_ContactorPos : 16|1@1+ (1,0) [0|1] "" ECU,CHRG,C125
+ SG_ BMU_F_ContactorNeg : 17|1@1+ (1,0) [0|1] "" ECU,CHRG,C125
+ SG_ BMU_F_ContactorPchrg : 18|1@1+ (1,0) [0|1] "" ECU,CHRG,C125
+ SG_ BMU_F_PrechargeTimeout : 19|1@1+ (1,0) [0|1] "" ECU,CHRG,C125
+ SG_ BMU_F_CmuOverVolt : 20|1@1+ (1,0) [0|1] "" ECU,CHRG,C125
+ SG_ BMU_F_CmuUnderVolt : 21|1@1+ (1,0) [0|1] "" ECU,CHRG,C125
+ SG_ BMU_F_CmuBadTemp : 22|1@1+ (1,0) [0|1] "" ECU,CHRG,C125
+ SG_ BMU_F_CmuOpenVolt : 23|1@1+ (1,0) [0|1] "" ECU,CHRG,C125
+ SG_ BMU_F_CmuOpenTemp : 24|1@1+ (1,0) [0|1] "" ECU,CHRG,C125
+ SG_ BMU_F_CmuMissingVolt : 25|1@1+ (1,0) [0|1] "" ECU,CHRG,C125
+ SG_ BMU_F_CmuMissingTemp : 26|1@1+ (1,0) [0|1] "" ECU,CHRG,C125
+ SG_ BMU_F_ShdnBmu : 27|1@1+ (1,0) [0|1] "" ECU,CHRG,C125
+ SG_ BMU_F_ShdnPdoc : 28|1@1+ (1,0) [0|1] "" ECU,CHRG,C125
+ SG_ BMU_F_ShdnImd : 29|1@1+ (1,0) [0|1] "" ECU,CHRG,C125
+ SG_ BMU_F_ShdnInterlock : 30|1@1+ (1,0) [0|1] "" ECU,CHRG,C125
+ SG_ BMU_F_Balancing : 31|1@1+ (1,0) [0|1] "" ECU,CHRG,C125
+ SG_ BMU_F_DieTemps : 32|1@1+ (1,0) [0|1] "" ECU,CHRG,C125
+ SG_ BMU_F_HvKey : 33|1@1+ (1,0) [0|1] "" ECU,CHRG,C125
+ SG_ BMU_F_ChrgDetect : 34|1@1+ (1,0) [0|1] "" ECU,CHRG,C125
+ SG_ BMU_F_ChrgCtrl : 35|1@1+ (1,0) [0|1] "" ECU,CHRG,C125
+ SG_ BMU_PackState : 40|8@1+ (1,0) [0|255] "" ECU,CHRG
+ SG_ BMU_SOC : 48|8@1+ (1,0) [0|255] "%" ECU,CHRG
+
+BO_ 2416446720 BMU_TRANSMIT_PACKINFO: 8 BMU
+ SG_ BMU_PackCurrent : 0|32@1- (0.001,0) [-2147483.648|2147483.6469999999] "A" ECU,C125
+ SG_ BMU_PackVoltage : 32|32@1- (0.001,0) [-2147483.648|2147483.6469999999] "V" ECU,C125
+
+BO_ 2416446736 BMU_TRANSMIT_PACKSUMMARY: 8 BMU
+ SG_ BMU_MinCell : 0|16@1+ (1,0) [0|65535] "mV" ECU,C125
+ SG_ BMU_CellSum : 16|32@1+ (1,0) [0|4294967295] "mV" ECU,C125
+ SG_ BMU_ValidCells : 48|8@1+ (1,0) [0|255] "" ECU,C125
+ SG_ BMU_MaxCellTemp : 56|8@1+ (1,0) [0|255] "degC" ECU,C125
+
+BO_ 2416446768 BMU_TRANSMIT_CELL_EXTREMES: 8 BMU
+ SG_ BMU_MaxCell : 0|16@1+ (1,0) [0|65535] "mV" C125
+ SG_ BMU_AvgCell : 16|16@1+ (1,0) [0|65535] "mV" C125
+ SG_ BMU_MinCellTemp : 32|8@1+ (1,0) [0|255] "degC" C125
+ SG_ BMU_AvgCellTemp : 40|8@1+ (1,0) [0|255] "degC" C125
+ SG_ BMU_MinCellIdx : 48|8@1+ (1,0) [0|255] "" C125
+ SG_ BMU_MaxCellIdx : 56|8@1+ (1,0) [0|255] "" C125
+
+BO_ 2416446752 BMU_TRANSMIT_SOC: 8 BMU
+ SG_ BMU_SocPct : 0|8@1+ (1,0) [0|255] "%" C125
+ SG_ BMU_SocValid : 8|1@1+ (1,0) [0|1] "" C125
+ SG_ BMU_SocCalibrated : 9|1@1+ (1,0) [0|1] "" C125
+ SG_ BMU_Charge : 16|32@1- (0.000001,0) [-2147.483648|2147.483647] "Ah" C125
+
+BO_ 2416446976 BMU_TRANSMIT_POWER: 8 BMU
+ SG_ BMU_PackPower : 0|32@1- (1,0) [-2147483648|2147483647] "W" Vector__XXX
+
+BO_ 2416446464 BMU_TRANSMIT_DIETEMPS: 8 BMU
+ SG_ BMU_Die0Temp : 0|8@1+ (1,0) [0|255] "degC" LOGGER
+ SG_ BMU_Die1Temp : 8|8@1+ (1,0) [0|255] "degC" LOGGER
+ SG_ BMU_Die2Temp : 16|8@1+ (1,0) [0|255] "degC" LOGGER
+ SG_ BMU_Die3Temp : 24|8@1+ (1,0) [0|255] "degC" LOGGER
+ SG_ BMU_Die4Temp : 32|8@1+ (1,0) [0|255] "degC" LOGGER
+ SG_ BMU_Die5Temp : 40|8@1+ (1,0) [0|255] "degC" LOGGER
+ SG_ BMU_Die6Temp : 48|8@1+ (1,0) [0|255] "degC" LOGGER
+ SG_ BMU_Die7Temp : 56|8@1+ (1,0) [0|255] "degC" LOGGER
+
+BO_ 2418327552 BMU25_Heartbeat: 8 BMU
+ SG_ BMU_State : 0|8@1+ (1,0) [0|255] "" ECU,C125
+ SG_ BMU_F_HbCmu : 8|1@1+ (1,0) [0|1] "" ECU,C125
+ SG_ BMU_F_HbSendyne1 : 9|1@1+ (1,0) [0|1] "" ECU,C125
+ SG_ BMU_F_HbSendyne2 : 10|1@1+ (1,0) [0|1] "" ECU,C125
+ SG_ BMU_F_HbEcu : 11|1@1+ (1,0) [0|1] "" ECU,C125
+ SG_ BMU_F_HbChrgCtrl : 12|1@1+ (1,0) [0|1] "" ECU,C125
+ SG_ BMU_F_Watchdog : 13|1@1+ (1,0) [0|1] "" ECU,C125
+ SG_ BMU_F_Can1 : 14|1@1+ (1,0) [0|1] "" ECU,C125
+ SG_ BMU_F_Can2 : 15|1@1+ (1,0) [0|1] "" ECU,C125
+ SG_ BMU_F_ContactorPos : 16|1@1+ (1,0) [0|1] "" ECU,C125
+ SG_ BMU_F_ContactorNeg : 17|1@1+ (1,0) [0|1] "" ECU,C125
+ SG_ BMU_F_ContactorPchrg : 18|1@1+ (1,0) [0|1] "" ECU,C125
+ SG_ BMU_F_PrechargeTimeout : 19|1@1+ (1,0) [0|1] "" ECU,C125
+ SG_ BMU_F_CmuOverVolt : 20|1@1+ (1,0) [0|1] "" ECU,C125
+ SG_ BMU_F_CmuUnderVolt : 21|1@1+ (1,0) [0|1] "" ECU,C125
+ SG_ BMU_F_CmuBadTemp : 22|1@1+ (1,0) [0|1] "" ECU,C125
+ SG_ BMU_F_CmuOpenVolt : 23|1@1+ (1,0) [0|1] "" ECU,C125
+ SG_ BMU_F_CmuOpenTemp : 24|1@1+ (1,0) [0|1] "" ECU,C125
+ SG_ BMU_F_CmuMissingVolt : 25|1@1+ (1,0) [0|1] "" ECU,C125
+ SG_ BMU_F_CmuMissingTemp : 26|1@1+ (1,0) [0|1] "" ECU,C125
+ SG_ BMU_F_ShdnBmu : 27|1@1+ (1,0) [0|1] "" ECU,C125
+ SG_ BMU_F_ShdnPdoc : 28|1@1+ (1,0) [0|1] "" ECU,C125
+ SG_ BMU_F_ShdnImd : 29|1@1+ (1,0) [0|1] "" ECU,C125
+ SG_ BMU_F_ShdnInterlock : 30|1@1+ (1,0) [0|1] "" ECU,C125
+ SG_ BMU_F_Balancing : 31|1@1+ (1,0) [0|1] "" ECU,C125
+ SG_ BMU_F_DieTemps : 32|1@1+ (1,0) [0|1] "" ECU,C125
+ SG_ BMU_F_HvKey : 33|1@1+ (1,0) [0|1] "" ECU,C125
+ SG_ BMU_F_ChrgDetect : 34|1@1+ (1,0) [0|1] "" ECU,C125
+ SG_ BMU_F_ChrgCtrl : 35|1@1+ (1,0) [0|1] "" ECU,C125
+ SG_ BMU_PackState : 40|8@1+ (1,0) [0|255] "" ECU
+ SG_ BMU_SOC : 48|8@1+ (1,0) [0|255] "%" ECU
+
+BO_ 2284096768 BMU25_TransmitPackInfo: 8 BMU
+ SG_ BMU_PackCurrent : 0|32@1- (0.000001,0) [-2147.483648|2147.483647] "A" ECU,C125
+ SG_ BMU_PackVoltage : 32|32@1- (0.000001,0) [-2147.483648|2147.483647] "V" ECU,C125
+
+BO_ 2284096784 BMU25_TransmitPackSummary: 8 BMU
+ SG_ BMU_MinCell : 0|16@1+ (1,0) [0|65535] "mV" C125
+ SG_ BMU_ValidCells : 16|16@1+ (1,0) [0|65535] "" C125
+ SG_ BMU_MaxCellTemp : 32|8@1+ (1,0) [0|255] "degC" C125
+
+BO_ 2284096800 BMU25_TransmitSOC: 8 BMU
+ SG_ BMU_SocPct : 0|8@1+ (1,0) [0|255] "%" C125
+ SG_ BMU_SocValid : 8|1@1+ (1,0) [0|1] "" C125
+ SG_ BMU_SocCalibrated : 9|1@1+ (1,0) [0|1] "" C125
+ SG_ BMU_Charge : 16|32@1- (0.000001,0) [-2147.483648|2147.483647] "Ah" C125
+
+BO_ 2284097024 BMU25_TransmitPower: 8 BMU
+ SG_ BMU_PackPower : 0|32@1- (1,0) [-2147483648|2147483647] "W" Vector__XXX
+
+BO_ 2316304896 BMU25_SendyneForward: 8 BMU
+
+BO_ 2298740736 SHDN_STATUS: 8 SHDN
+ SG_ SHDN_Seg1Open : 0|1@1+ (1,0) [0|1] "" ECU,BMU,C125
+ SG_ SHDN_Seg2Open : 1|1@1+ (1,0) [0|1] "" ECU,BMU,C125
+ SG_ SHDN_Seg3Open : 2|1@1+ (1,0) [0|1] "" ECU,BMU,C125
+ SG_ SHDN_Seg4Open : 3|1@1+ (1,0) [0|1] "" ECU,BMU,C125
+ SG_ SHDN_Seg5Open : 4|1@1+ (1,0) [0|1] "" ECU,BMU,C125
+ SG_ SHDN_Seg6Open : 5|1@1+ (1,0) [0|1] "" ECU,BMU,C125
+ SG_ SHDN_Seg7Open : 6|1@1+ (1,0) [0|1] "" ECU,BMU,C125
+ SG_ SHDN_Seg8Open : 7|1@1+ (1,0) [0|1] "" ECU,BMU,C125
+ SG_ SHDN_Seg9Open : 8|1@1+ (1,0) [0|1] "" ECU,BMU,C125
+ SG_ SHDN_Seg10Open : 9|1@1+ (1,0) [0|1] "" ECU,BMU,C125
+ SG_ SHDN_LoopClosed : 16|8@1+ (1,0) [0|255] "" ECU,BMU,C125
+ SG_ SHDN_FirstOpen : 24|8@1+ (1,0) [0|255] "" ECU,BMU,C125
+
+BO_ 2164260864 SHDN_SHUTDOWN_TRIGGERED: 3 SHDN
+ SG_ SHDN_TrigSegment : 0|8@1+ (1,0) [0|255] "" ECU,BMU
+ SG_ SHDN_TrigOpenMask : 8|16@1+ (1,0) [0|65535] "" ECU,BMU
+
+BO_ 2290122752 VCU_ShutdownStatus: 8 SHDN
+ SG_ SHDN_OldLines : 0|16@1+ (1,0) [0|65535] "" ECU,BMU
+ SG_ SHDN_OldFirstFault : 16|8@1+ (1,0) [0|255] "" ECU,BMU
+
+BO_ 2307129344 CHARGE_CONTROL_HEARTBEAT: 8 CHRG
+ SG_ CHRG_State : 0|8@1+ (1,0) [0|255] "" BMU
+ SG_ CHRG_F_HbAms : 8|1@1+ (1,0) [0|1] "" BMU
+
+BO_ 2555117568 ECU_DEBUG_REQ: 8 TOOL
+ SG_ DBG_ReqCmd : 0|8@1+ (1,0) [0|255] "" ECU
+ SG_ DBG_ReqIndex : 8|8@1+ (1,0) [0|255] "" ECU
+ SG_ DBG_ReqArg : 16|32@1+ (1,0) [0|4294967295] "" ECU
+
+BO_ 2554855424 ECU_DEBUG_RESP: 8 ECU
+ SG_ DBG_RespCmd : 0|8@1+ (1,0) [0|255] "" TOOL
+ SG_ DBG_RespIndex : 8|8@1+ (1,0) [0|255] "" TOOL
+ SG_ DBG_RespStatus : 16|8@1+ (1,0) [0|255] "" TOOL
+ SG_ DBG_RespValue : 24|32@1+ (1,0) [0|4294967295] "" TOOL
+ SG_ DBG_RespExtra : 56|8@1+ (1,0) [0|255] "" TOOL
+
+BO_ 2424357104 ECU_DEBUG_REQ_OLD: 8 TOOL
+ SG_ DBG_ReqCmd : 0|8@1+ (1,0) [0|255] "" ECU
+ SG_ DBG_ReqIndex : 8|8@1+ (1,0) [0|255] "" ECU
+ SG_ DBG_ReqArg : 16|32@1+ (1,0) [0|4294967295] "" ECU
+
+BO_ 2424357105 ECU_DEBUG_RESP_OLD: 8 ECU
+ SG_ DBG_RespCmd : 0|8@1+ (1,0) [0|255] "" TOOL
+ SG_ DBG_RespIndex : 8|8@1+ (1,0) [0|255] "" TOOL
+ SG_ DBG_RespStatus : 16|8@1+ (1,0) [0|255] "" TOOL
+ SG_ DBG_RespValue : 24|32@1+ (1,0) [0|4294967295] "" TOOL
+ SG_ DBG_RespExtra : 56|8@1+ (1,0) [0|255] "" TOOL
+
+BO_ 2424356864 VCU_Heartbeat_CTRL: 8 ECU
+ SG_ VCU_Heartbeat_StateID : 0|8@1+ (1,0) [0|255] "" Vector__XXX
+ SG_ fault_code : 8|16@1+ (1,0) [0|65535] "" Vector__XXX
+ SG_ active_profile : 24|8@1+ (1,0) [0|255] "" Vector__XXX
+ SG_ HB_FLAG_BMU_ALIVE : 32|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ HB_FLAG_INV_ALIVE : 33|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ HB_FLAG_SHDN_CLOSED : 34|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ HB_FLAG_PEDAL_OK : 35|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ HB_FLAG_BRAKE_PRESSED : 36|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ HB_FLAG_PRECHARGE_REQ : 37|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ HB_FLAG_TORQUE_ALLOWED : 38|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ HB_FLAG_OUTPUT_FAULT : 39|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ HB_FLAG_CAN_B_OK : 40|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ HB_FLAG_WARNING : 41|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ HB_FLAG_EEPROM_OK : 42|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ HB_FLAG_CALIBRATED : 43|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ VCU_Heartbeat_Flags_spare : 44|4@1+ (1,0) [0|15] "" Vector__XXX
+ SG_ VCU_WARN_PedalPolarity : 48|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ VCU_Heartbeat_Reserved : 49|15@1+ (1,0) [0|32767] "s" Vector__XXX
+
+BO_ 2290122784 VCU_Pedal_Accel: 8 ECU
+ SG_ VCU_Pedal_Accel_0 : 7|16@0+ (0.1,0) [0|6553.5] "%" Vector__XXX
+ SG_ VCU_Pedal_Accel_1 : 23|16@0+ (0.1,0) [0|6553.5] "%" Vector__XXX
+ SG_ VCU_Pedal_Accel_ADC_0 : 39|16@0+ (1,0) [0|65535] "mV" Vector__XXX
+ SG_ VCU_Pedal_Accel_ADC_1 : 55|16@0+ (1,0) [0|65535] "mV" Vector__XXX
+
+BO_ 2290122800 VCU_Pedal_Brake: 8 ECU
+ SG_ VCU_Pedal_Brake_ADC_0 : 7|16@0+ (1,0) [0|65535] "mV" Vector__XXX
+ SG_ VCU_Pedal_Brake_ADC_1 : 23|16@0+ (1,0) [0|65535] "mV" Vector__XXX
+ SG_ VCU_Pedal_Brake_PSI_0 : 39|16@0- (0.0625,0) [-2048|2047.9375] "psi" Vector__XXX
+ SG_ VCU_Pedal_Brake_PSI_1 : 55|16@0- (0.0625,0) [-2048|2047.9375] "psi" Vector__XXX
+
+
+CM_ BO_ 2286157824 "Miss this for 1 s and the BMU drops HV";
+CM_ SG_ 2286157824 ECU_F_PrechargeReq "The comp25 BMU doesn't look at this, it only reads 0x1080C001";
+CM_ SG_ 2286157824 ECU_F_HvOffReq "Spare, always 0 till the rules side is sorted";
+CM_ SG_ 2286157824 ECU_Uptime "Goes back to 0 on a reset so you can spot it in the log";
+CM_ SG_ 2424356865 ECU_C25_State "40 is what makes the comp25 BMU precharge";
+CM_ SG_ 2281963520 BMU_F_HbEcu "BMU can't hear our heartbeat";
+CM_ SG_ 2281963520 BMU_F_PrechargeTimeout "comp25 sets this on any trip with the contactors shut, not just a slow precharge";
+CM_ SG_ 2281963520 BMU_PackState "comp25 never fills this";
+CM_ SG_ 2281963520 BMU_SOC "comp25 never fills this";
+CM_ SG_ 2418327552 BMU_F_HbEcu "BMU can't hear our heartbeat";
+CM_ SG_ 2418327552 BMU_F_PrechargeTimeout "comp25 sets this on any trip with the contactors shut, not just a slow precharge";
+CM_ SG_ 2418327552 BMU_PackState "comp25 never fills this";
+CM_ SG_ 2418327552 BMU_SOC "comp25 never fills this";
+CM_ BO_ 2298740736 "Only LoopClosed decides anything, the segment bits are for humans";
+CM_ BO_ 2164260864 "Error priority so it beats everything else onto the bus";
+CM_ SG_ 2290122752 SHDN_OldLines "Always 0, the old firmware's union is really a struct";
+CM_ BO_ 2307129344 "Only on the bus when charging";
+CM_ BO_ 2555117568 "Anything that touches outputs, cal or params is refused while DRIVING. Reply goes back on whichever bus asked";
+CM_ SG_ 2555117568 DBG_ReqArg "Float bits for PARAM_SET, OUTPUT_DUTY and the CAL_ ones";
+CM_ BO_ 2554855424 "Anything that touches outputs, cal or params is refused while DRIVING. Reply goes back on whichever bus asked";
+CM_ SG_ 2424357104 DBG_ReqArg "Float bits for PARAM_SET, OUTPUT_DUTY and the CAL_ ones";
+BA_DEF_  "BusType" STRING ;
+BA_DEF_  "DBName" STRING ;
+BA_DEF_ BO_  "GenMsgCycleTime" INT 0 65535;
+BA_DEF_ BO_  "SendType" STRING;
+BA_DEF_ BO_  "RxTimeoutMs" INT 0 65535;
+BA_DEF_ BO_  "MoTeC" STRING;
+BA_DEF_ SG_  "MoTeCLog" STRING;
+BA_DEF_ SG_  "MoTeCGroup" STRING;
+BA_DEF_ BO_  "Status" STRING;
+BA_DEF_ BO_  "Variant" STRING;
+BA_DEF_ BO_  "VFrameFormat" ENUM "StandardCAN","ExtendedCAN";
+BA_DEF_DEF_  "BusType" "CAN";
+BA_DEF_DEF_  "DBName" "";
+BA_DEF_DEF_  "GenMsgCycleTime" 0;
+BA_DEF_DEF_  "SendType" "Cyclic";
+BA_DEF_DEF_  "RxTimeoutMs" 0;
+BA_DEF_DEF_  "MoTeC" "No";
+BA_DEF_DEF_  "MoTeCLog" "";
+BA_DEF_DEF_  "MoTeCGroup" "";
+BA_DEF_DEF_  "Status" "Current";
+BA_DEF_DEF_  "Variant" "";
+BA_DEF_DEF_  "VFrameFormat" "StandardCAN";
+BA_ "BusType" "CAN";
+BA_ "DBName" "qev6_can_a";
+BA_ "GenMsgCycleTime" BO_ 2286157824 100;
+BA_ "RxTimeoutMs" BO_ 2286157824 1000;
+BA_ "MoTeC" BO_ 2286157824 "Yes";
+BA_ "Status" BO_ 2286157824 "Planned";
+BA_ "VFrameFormat" BO_ 2286157824 1;
+BA_ "MoTeCGroup" SG_ 2286157824 ECU_F_PedalPolarity "ECU_Flags";
+BA_ "MoTeCGroup" SG_ 2286157824 ECU_F_BmuAlive "ECU_Flags";
+BA_ "MoTeCGroup" SG_ 2286157824 ECU_F_InvAlive "ECU_Flags";
+BA_ "MoTeCGroup" SG_ 2286157824 ECU_F_ShdnClosed "ECU_Flags";
+BA_ "MoTeCGroup" SG_ 2286157824 ECU_F_PedalOk "ECU_Flags";
+BA_ "MoTeCGroup" SG_ 2286157824 ECU_F_BrakePressed "ECU_Flags";
+BA_ "MoTeCGroup" SG_ 2286157824 ECU_F_PrechargeReq "ECU_Flags";
+BA_ "MoTeCGroup" SG_ 2286157824 ECU_F_TorqueAllowed "ECU_Flags";
+BA_ "MoTeCGroup" SG_ 2286157824 ECU_F_OutputFault "ECU_Flags";
+BA_ "MoTeCGroup" SG_ 2286157824 ECU_F_CanAOk "ECU_Flags";
+BA_ "MoTeCGroup" SG_ 2286157824 ECU_F_CanBOk "ECU_Flags";
+BA_ "MoTeCGroup" SG_ 2286157824 ECU_F_Warning "ECU_Flags";
+BA_ "MoTeCGroup" SG_ 2286157824 ECU_F_EepromOk "ECU_Flags";
+BA_ "MoTeCGroup" SG_ 2286157824 ECU_F_Calibrated "ECU_Flags";
+BA_ "MoTeCGroup" SG_ 2286157824 ECU_F_HvOffReq "ECU_Flags";
+BA_ "GenMsgCycleTime" BO_ 2424356865 100;
+BA_ "RxTimeoutMs" BO_ 2424356865 1000;
+BA_ "Status" BO_ 2424356865 "Planned";
+BA_ "Variant" BO_ 2424356865 "bmu_comp25";
+BA_ "VFrameFormat" BO_ 2424356865 1;
+BA_ "GenMsgCycleTime" BO_ 2281963520 100;
+BA_ "RxTimeoutMs" BO_ 2281963520 1000;
+BA_ "MoTeC" BO_ 2281963520 "Yes";
+BA_ "Status" BO_ 2281963520 "Planned";
+BA_ "Variant" BO_ 2281963520 "bmu_qev6";
+BA_ "VFrameFormat" BO_ 2281963520 1;
+BA_ "MoTeCGroup" SG_ 2281963520 BMU_F_HbCmu "BMU_Flags";
+BA_ "MoTeCGroup" SG_ 2281963520 BMU_F_HbSendyne1 "BMU_Flags";
+BA_ "MoTeCGroup" SG_ 2281963520 BMU_F_HbSendyne2 "BMU_Flags";
+BA_ "MoTeCGroup" SG_ 2281963520 BMU_F_HbEcu "BMU_Flags";
+BA_ "MoTeCGroup" SG_ 2281963520 BMU_F_HbChrgCtrl "BMU_Flags";
+BA_ "MoTeCGroup" SG_ 2281963520 BMU_F_Watchdog "BMU_Flags";
+BA_ "MoTeCGroup" SG_ 2281963520 BMU_F_Can1 "BMU_Flags";
+BA_ "MoTeCGroup" SG_ 2281963520 BMU_F_Can2 "BMU_Flags";
+BA_ "MoTeCGroup" SG_ 2281963520 BMU_F_ContactorPos "BMU_Flags";
+BA_ "MoTeCGroup" SG_ 2281963520 BMU_F_ContactorNeg "BMU_Flags";
+BA_ "MoTeCGroup" SG_ 2281963520 BMU_F_ContactorPchrg "BMU_Flags";
+BA_ "MoTeCGroup" SG_ 2281963520 BMU_F_PrechargeTimeout "BMU_Flags";
+BA_ "MoTeCGroup" SG_ 2281963520 BMU_F_CmuOverVolt "BMU_Flags";
+BA_ "MoTeCGroup" SG_ 2281963520 BMU_F_CmuUnderVolt "BMU_Flags";
+BA_ "MoTeCGroup" SG_ 2281963520 BMU_F_CmuBadTemp "BMU_Flags";
+BA_ "MoTeCGroup" SG_ 2281963520 BMU_F_CmuOpenVolt "BMU_Flags";
+BA_ "MoTeCGroup" SG_ 2281963520 BMU_F_CmuOpenTemp "BMU_Flags";
+BA_ "MoTeCGroup" SG_ 2281963520 BMU_F_CmuMissingVolt "BMU_Flags";
+BA_ "MoTeCGroup" SG_ 2281963520 BMU_F_CmuMissingTemp "BMU_Flags";
+BA_ "MoTeCGroup" SG_ 2281963520 BMU_F_ShdnBmu "BMU_Flags";
+BA_ "MoTeCGroup" SG_ 2281963520 BMU_F_ShdnPdoc "BMU_Flags";
+BA_ "MoTeCGroup" SG_ 2281963520 BMU_F_ShdnImd "BMU_Flags";
+BA_ "MoTeCGroup" SG_ 2281963520 BMU_F_ShdnInterlock "BMU_Flags";
+BA_ "MoTeCGroup" SG_ 2281963520 BMU_F_Balancing "BMU_Flags";
+BA_ "MoTeCGroup" SG_ 2281963520 BMU_F_DieTemps "BMU_Flags";
+BA_ "MoTeCGroup" SG_ 2281963520 BMU_F_HvKey "BMU_Flags";
+BA_ "MoTeCGroup" SG_ 2281963520 BMU_F_ChrgDetect "BMU_Flags";
+BA_ "MoTeCGroup" SG_ 2281963520 BMU_F_ChrgCtrl "BMU_Flags";
+BA_ "MoTeCLog" SG_ 2281963520 BMU_PackState "No";
+BA_ "MoTeCLog" SG_ 2281963520 BMU_SOC "No";
+BA_ "GenMsgCycleTime" BO_ 2416446720 100;
+BA_ "RxTimeoutMs" BO_ 2416446720 500;
+BA_ "MoTeC" BO_ 2416446720 "Yes";
+BA_ "Status" BO_ 2416446720 "Planned";
+BA_ "Variant" BO_ 2416446720 "bmu_qev6";
+BA_ "VFrameFormat" BO_ 2416446720 1;
+BA_ "GenMsgCycleTime" BO_ 2416446736 500;
+BA_ "RxTimeoutMs" BO_ 2416446736 2000;
+BA_ "MoTeC" BO_ 2416446736 "Yes";
+BA_ "Status" BO_ 2416446736 "Planned";
+BA_ "Variant" BO_ 2416446736 "bmu_qev6";
+BA_ "VFrameFormat" BO_ 2416446736 1;
+BA_ "GenMsgCycleTime" BO_ 2416446768 500;
+BA_ "RxTimeoutMs" BO_ 2416446768 2000;
+BA_ "MoTeC" BO_ 2416446768 "Yes";
+BA_ "Status" BO_ 2416446768 "Proposed";
+BA_ "Variant" BO_ 2416446768 "bmu_qev6";
+BA_ "VFrameFormat" BO_ 2416446768 1;
+BA_ "GenMsgCycleTime" BO_ 2416446752 1000;
+BA_ "RxTimeoutMs" BO_ 2416446752 3000;
+BA_ "MoTeC" BO_ 2416446752 "Yes";
+BA_ "Status" BO_ 2416446752 "Planned";
+BA_ "Variant" BO_ 2416446752 "bmu_qev6";
+BA_ "VFrameFormat" BO_ 2416446752 1;
+BA_ "MoTeCGroup" SG_ 2416446752 BMU_SocValid "BMU_SocFlags";
+BA_ "MoTeCGroup" SG_ 2416446752 BMU_SocCalibrated "BMU_SocFlags";
+BA_ "GenMsgCycleTime" BO_ 2416446976 100;
+BA_ "Status" BO_ 2416446976 "Planned";
+BA_ "Variant" BO_ 2416446976 "bmu_qev6";
+BA_ "VFrameFormat" BO_ 2416446976 1;
+BA_ "GenMsgCycleTime" BO_ 2416446464 3300;
+BA_ "SendType" BO_ 2416446464 "Burst";
+BA_ "Status" BO_ 2416446464 "Planned";
+BA_ "Variant" BO_ 2416446464 "bmu_qev6";
+BA_ "VFrameFormat" BO_ 2416446464 1;
+BA_ "GenMsgCycleTime" BO_ 2418327552 100;
+BA_ "RxTimeoutMs" BO_ 2418327552 1000;
+BA_ "MoTeC" BO_ 2418327552 "Yes";
+BA_ "Variant" BO_ 2418327552 "bmu_comp25";
+BA_ "VFrameFormat" BO_ 2418327552 1;
+BA_ "MoTeCGroup" SG_ 2418327552 BMU_F_HbCmu "BMU_Flags";
+BA_ "MoTeCGroup" SG_ 2418327552 BMU_F_HbSendyne1 "BMU_Flags";
+BA_ "MoTeCGroup" SG_ 2418327552 BMU_F_HbSendyne2 "BMU_Flags";
+BA_ "MoTeCGroup" SG_ 2418327552 BMU_F_HbEcu "BMU_Flags";
+BA_ "MoTeCGroup" SG_ 2418327552 BMU_F_HbChrgCtrl "BMU_Flags";
+BA_ "MoTeCGroup" SG_ 2418327552 BMU_F_Watchdog "BMU_Flags";
+BA_ "MoTeCGroup" SG_ 2418327552 BMU_F_Can1 "BMU_Flags";
+BA_ "MoTeCGroup" SG_ 2418327552 BMU_F_Can2 "BMU_Flags";
+BA_ "MoTeCGroup" SG_ 2418327552 BMU_F_ContactorPos "BMU_Flags";
+BA_ "MoTeCGroup" SG_ 2418327552 BMU_F_ContactorNeg "BMU_Flags";
+BA_ "MoTeCGroup" SG_ 2418327552 BMU_F_ContactorPchrg "BMU_Flags";
+BA_ "MoTeCGroup" SG_ 2418327552 BMU_F_PrechargeTimeout "BMU_Flags";
+BA_ "MoTeCGroup" SG_ 2418327552 BMU_F_CmuOverVolt "BMU_Flags";
+BA_ "MoTeCGroup" SG_ 2418327552 BMU_F_CmuUnderVolt "BMU_Flags";
+BA_ "MoTeCGroup" SG_ 2418327552 BMU_F_CmuBadTemp "BMU_Flags";
+BA_ "MoTeCGroup" SG_ 2418327552 BMU_F_CmuOpenVolt "BMU_Flags";
+BA_ "MoTeCGroup" SG_ 2418327552 BMU_F_CmuOpenTemp "BMU_Flags";
+BA_ "MoTeCGroup" SG_ 2418327552 BMU_F_CmuMissingVolt "BMU_Flags";
+BA_ "MoTeCGroup" SG_ 2418327552 BMU_F_CmuMissingTemp "BMU_Flags";
+BA_ "MoTeCGroup" SG_ 2418327552 BMU_F_ShdnBmu "BMU_Flags";
+BA_ "MoTeCGroup" SG_ 2418327552 BMU_F_ShdnPdoc "BMU_Flags";
+BA_ "MoTeCGroup" SG_ 2418327552 BMU_F_ShdnImd "BMU_Flags";
+BA_ "MoTeCGroup" SG_ 2418327552 BMU_F_ShdnInterlock "BMU_Flags";
+BA_ "MoTeCGroup" SG_ 2418327552 BMU_F_Balancing "BMU_Flags";
+BA_ "MoTeCGroup" SG_ 2418327552 BMU_F_DieTemps "BMU_Flags";
+BA_ "MoTeCGroup" SG_ 2418327552 BMU_F_HvKey "BMU_Flags";
+BA_ "MoTeCGroup" SG_ 2418327552 BMU_F_ChrgDetect "BMU_Flags";
+BA_ "MoTeCGroup" SG_ 2418327552 BMU_F_ChrgCtrl "BMU_Flags";
+BA_ "MoTeCLog" SG_ 2418327552 BMU_PackState "No";
+BA_ "MoTeCLog" SG_ 2418327552 BMU_SOC "No";
+BA_ "GenMsgCycleTime" BO_ 2284096768 100;
+BA_ "RxTimeoutMs" BO_ 2284096768 500;
+BA_ "MoTeC" BO_ 2284096768 "Yes";
+BA_ "Variant" BO_ 2284096768 "bmu_comp25";
+BA_ "VFrameFormat" BO_ 2284096768 1;
+BA_ "GenMsgCycleTime" BO_ 2284096784 3300;
+BA_ "SendType" BO_ 2284096784 "Burst";
+BA_ "RxTimeoutMs" BO_ 2284096784 7000;
+BA_ "MoTeC" BO_ 2284096784 "Yes";
+BA_ "Variant" BO_ 2284096784 "bmu_comp25";
+BA_ "VFrameFormat" BO_ 2284096784 1;
+BA_ "GenMsgCycleTime" BO_ 2284096800 1020;
+BA_ "RxTimeoutMs" BO_ 2284096800 3000;
+BA_ "MoTeC" BO_ 2284096800 "Yes";
+BA_ "Variant" BO_ 2284096800 "bmu_comp25";
+BA_ "VFrameFormat" BO_ 2284096800 1;
+BA_ "MoTeCGroup" SG_ 2284096800 BMU_SocValid "BMU_SocFlags";
+BA_ "MoTeCGroup" SG_ 2284096800 BMU_SocCalibrated "BMU_SocFlags";
+BA_ "GenMsgCycleTime" BO_ 2284097024 100;
+BA_ "Variant" BO_ 2284097024 "bmu_comp25";
+BA_ "VFrameFormat" BO_ 2284097024 1;
+BA_ "SendType" BO_ 2316304896 "Event";
+BA_ "Variant" BO_ 2316304896 "bmu_comp25";
+BA_ "VFrameFormat" BO_ 2316304896 1;
+BA_ "GenMsgCycleTime" BO_ 2298740736 100;
+BA_ "RxTimeoutMs" BO_ 2298740736 500;
+BA_ "MoTeC" BO_ 2298740736 "Yes";
+BA_ "Status" BO_ 2298740736 "Planned";
+BA_ "VFrameFormat" BO_ 2298740736 1;
+BA_ "MoTeCGroup" SG_ 2298740736 SHDN_Seg1Open "SHDN_OpenSegs";
+BA_ "MoTeCGroup" SG_ 2298740736 SHDN_Seg2Open "SHDN_OpenSegs";
+BA_ "MoTeCGroup" SG_ 2298740736 SHDN_Seg3Open "SHDN_OpenSegs";
+BA_ "MoTeCGroup" SG_ 2298740736 SHDN_Seg4Open "SHDN_OpenSegs";
+BA_ "MoTeCGroup" SG_ 2298740736 SHDN_Seg5Open "SHDN_OpenSegs";
+BA_ "MoTeCGroup" SG_ 2298740736 SHDN_Seg6Open "SHDN_OpenSegs";
+BA_ "MoTeCGroup" SG_ 2298740736 SHDN_Seg7Open "SHDN_OpenSegs";
+BA_ "MoTeCGroup" SG_ 2298740736 SHDN_Seg8Open "SHDN_OpenSegs";
+BA_ "MoTeCGroup" SG_ 2298740736 SHDN_Seg9Open "SHDN_OpenSegs";
+BA_ "MoTeCGroup" SG_ 2298740736 SHDN_Seg10Open "SHDN_OpenSegs";
+BA_ "SendType" BO_ 2164260864 "Event";
+BA_ "Status" BO_ 2164260864 "Planned";
+BA_ "VFrameFormat" BO_ 2164260864 1;
+BA_ "GenMsgCycleTime" BO_ 2290122752 100;
+BA_ "Status" BO_ 2290122752 "Legacy";
+BA_ "VFrameFormat" BO_ 2290122752 1;
+BA_ "GenMsgCycleTime" BO_ 2307129344 100;
+BA_ "RxTimeoutMs" BO_ 2307129344 1000;
+BA_ "Status" BO_ 2307129344 "Planned";
+BA_ "VFrameFormat" BO_ 2307129344 1;
+BA_ "SendType" BO_ 2555117568 "OnRequest";
+BA_ "Status" BO_ 2555117568 "Planned";
+BA_ "VFrameFormat" BO_ 2555117568 1;
+BA_ "SendType" BO_ 2554855424 "OnRequest";
+BA_ "Status" BO_ 2554855424 "Planned";
+BA_ "VFrameFormat" BO_ 2554855424 1;
+BA_ "SendType" BO_ 2424357104 "OnRequest";
+BA_ "Status" BO_ 2424357104 "Legacy";
+BA_ "VFrameFormat" BO_ 2424357104 1;
+BA_ "SendType" BO_ 2424357105 "OnRequest";
+BA_ "Status" BO_ 2424357105 "Legacy";
+BA_ "VFrameFormat" BO_ 2424357105 1;
+BA_ "GenMsgCycleTime" BO_ 2424356864 100;
+BA_ "Status" BO_ 2424356864 "Legacy";
+BA_ "VFrameFormat" BO_ 2424356864 1;
+BA_ "GenMsgCycleTime" BO_ 2290122784 20;
+BA_ "Status" BO_ 2290122784 "Legacy";
+BA_ "VFrameFormat" BO_ 2290122784 1;
+BA_ "GenMsgCycleTime" BO_ 2290122800 20;
+BA_ "Status" BO_ 2290122800 "Legacy";
+BA_ "VFrameFormat" BO_ 2290122800 1;
+VAL_ 2286157824 ECU_State 0 "BOOT" 1 "POWERUP" 20 "PREFLIGHT" 40 "PRECHARGE" 41 "ENERGISE" 42 "RTD" 100 "DRIVING" 240 "FAULT" 250 "SHUTDOWN" ;
+VAL_ 2286157824 ECU_FaultCode 0 "NONE" 257 "BOARD_OUTPUT_INIT" 258 "BOARD_ADC" 259 "BOARD_EEPROM" 260 "BOARD_CAN" 512 "OUTPUT_CRITICAL" 768 "BMU_TIMEOUT" 769 "BMU_SHUTDOWN" 770 "BMU_PRECHARGE_TIMEOUT" 771 "BMU_HV_FAULT" 772 "BMU_TEMP_FAULT" 773 "BMU_ISOLATION" 774 "BMU_CONTACTOR" 775 "BMU_STATE_UNEXPECTED" 1024 "INV_FAULT" 1040 "INV_TIMEOUT" 1056 "INV_ENERGISE_TIMEOUT" 1057 "INV_ENABLE_FAIL" 1280 "PEDAL_APPS" 1281 "PEDAL_BSE" 1282 "PEDAL_BRAKE_APPS" 1283 "PEDAL_UNCALIBRATED" 1536 "SAFETY_SHDN_OPEN" 1537 "SAFETY_SHDN_TIMEOUT" 1538 "SAFETY_WATCHDOG" 2048 "COMM_CAN_A_BUSOFF" 2049 "COMM_CAN_B_BUSOFF" ;
+VAL_ 2286157824 ECU_FaultSeverity 0 "NONE" 1 "WARNING" 2 "CRITICAL" 3 "FATAL" ;
+VAL_ 2424356865 ECU_C25_State 0 "BOOT" 1 "POWERUP" 20 "PREFLIGHT" 40 "PRECHARGE" 41 "ENERGISE" 42 "RTD" 100 "DRIVING" 240 "FAULT" 250 "SHUTDOWN" ;
+VAL_ 2281963520 BMU_State 0 "START" 1 "INIT_PERIPHERAL" 2 "INIT_CMU" 3 "CHECK_CMU_GPIO" 4 "CHECK_SENDYNE" 5 "CHECK_BOARD" 6 "READY" 7 "PRECHARGE" 8 "TS_ACTIVE" 13 "TRIG_SHDN" 15 "SHUTDOWN" 22 "CHRG_CHECK_BOARD" 23 "CHRG_READY" 24 "CHRG_PRECHARGE" 25 "CHRG_TS_ACTIVE" 26 "CHRG_FAIL" 255 "ERROR" ;
+VAL_ 2418327552 BMU_State 0 "START" 1 "INIT_PERIPHERAL" 2 "INIT_CMU" 3 "CHECK_CMU_GPIO" 4 "CHECK_SENDYNE" 5 "CHECK_BOARD" 6 "READY" 7 "PRECHARGE" 8 "TS_ACTIVE" 13 "TRIG_SHDN" 15 "SHUTDOWN" 22 "CHRG_CHECK_BOARD" 23 "CHRG_READY" 24 "CHRG_PRECHARGE" 25 "CHRG_TS_ACTIVE" 26 "CHRG_FAIL" 255 "ERROR" ;
+VAL_ 2298740736 SHDN_LoopClosed 0 "OPEN" 1 "CLOSED" ;
+VAL_ 2298740736 SHDN_FirstOpen 0 "NONE" ;
+VAL_ 2290122752 SHDN_OldFirstFault 0 "HEALTHY" 1 "INPUT_1_OPEN" 2 "INPUT_2_OPEN" 3 "INPUT_3_OPEN" 4 "INPUT_4_OPEN" 5 "INPUT_5_OPEN" 6 "INPUT_6_OPEN" 7 "INPUT_7_OPEN" 8 "INPUT_8_OPEN" 9 "INPUT_9_OPEN" 10 "INPUT_10_OPEN" ;
+VAL_ 2307129344 CHRG_State 1 "IDLE" 2 "PRECHARGE_REQUEST" 3 "PRECHARGE" 4 "CHARGING" 15 "STOP_CHARGE" ;
+VAL_ 2555117568 DBG_ReqCmd 1 "PING" 16 "OUTPUT_SET" 17 "OUTPUT_DUTY" 18 "OUTPUT_CLEAR" 19 "OUTPUT_TEST_MODE" 32 "PARAM_GET" 33 "PARAM_SET" 34 "PARAM_SAVE" 35 "PARAM_DEFAULTS" 36 "PROFILE_SELECT" 48 "CAL_PEDAL_START" 49 "CAL_PEDAL_PRESSED" 50 "CAL_PEDAL_SAVE" 51 "CAL_PEDAL_ABORT" 52 "CAL_ADC_ZERO" 53 "CAL_ADC_SPAN" 54 "CAL_ADC_SAVE" 55 "CAL_BRAKE_FULLSCALE" 64 "FAULT_CLEAR" 65 "FAULT_LOG_READ" 80 "INV_FAULT_RESET" 96 "LOG_LEVEL" 97 "TELEM_RAW_ADC" 98 "CAPTURE_CONFIG" 99 "CAPTURE_ARM" 100 "CAPTURE_STATUS" 101 "CAPTURE_ABORT" 126 "TEST_WATCHDOG" 127 "REBOOT" ;
+VAL_ 2554855424 DBG_RespCmd 1 "PING" 16 "OUTPUT_SET" 17 "OUTPUT_DUTY" 18 "OUTPUT_CLEAR" 19 "OUTPUT_TEST_MODE" 32 "PARAM_GET" 33 "PARAM_SET" 34 "PARAM_SAVE" 35 "PARAM_DEFAULTS" 36 "PROFILE_SELECT" 48 "CAL_PEDAL_START" 49 "CAL_PEDAL_PRESSED" 50 "CAL_PEDAL_SAVE" 51 "CAL_PEDAL_ABORT" 52 "CAL_ADC_ZERO" 53 "CAL_ADC_SPAN" 54 "CAL_ADC_SAVE" 55 "CAL_BRAKE_FULLSCALE" 64 "FAULT_CLEAR" 65 "FAULT_LOG_READ" 80 "INV_FAULT_RESET" 96 "LOG_LEVEL" 97 "TELEM_RAW_ADC" 98 "CAPTURE_CONFIG" 99 "CAPTURE_ARM" 100 "CAPTURE_STATUS" 101 "CAPTURE_ABORT" 126 "TEST_WATCHDOG" 127 "REBOOT" ;
+VAL_ 2554855424 DBG_RespStatus 0 "OK" 1 "UNKNOWN_CMD" 2 "REFUSED" 3 "BAD_INDEX" 4 "OUT_OF_RANGE" 5 "BAD_ARG" 6 "FAILED" ;
+VAL_ 2424357104 DBG_ReqCmd 1 "PING" 16 "OUTPUT_SET" 17 "OUTPUT_DUTY" 18 "OUTPUT_CLEAR" 19 "OUTPUT_TEST_MODE" 32 "PARAM_GET" 33 "PARAM_SET" 34 "PARAM_SAVE" 35 "PARAM_DEFAULTS" 36 "PROFILE_SELECT" 48 "CAL_PEDAL_START" 49 "CAL_PEDAL_PRESSED" 50 "CAL_PEDAL_SAVE" 51 "CAL_PEDAL_ABORT" 52 "CAL_ADC_ZERO" 53 "CAL_ADC_SPAN" 54 "CAL_ADC_SAVE" 55 "CAL_BRAKE_FULLSCALE" 64 "FAULT_CLEAR" 65 "FAULT_LOG_READ" 80 "INV_FAULT_RESET" 96 "LOG_LEVEL" 97 "TELEM_RAW_ADC" 98 "CAPTURE_CONFIG" 99 "CAPTURE_ARM" 100 "CAPTURE_STATUS" 101 "CAPTURE_ABORT" 126 "TEST_WATCHDOG" 127 "REBOOT" ;
+VAL_ 2424357105 DBG_RespCmd 1 "PING" 16 "OUTPUT_SET" 17 "OUTPUT_DUTY" 18 "OUTPUT_CLEAR" 19 "OUTPUT_TEST_MODE" 32 "PARAM_GET" 33 "PARAM_SET" 34 "PARAM_SAVE" 35 "PARAM_DEFAULTS" 36 "PROFILE_SELECT" 48 "CAL_PEDAL_START" 49 "CAL_PEDAL_PRESSED" 50 "CAL_PEDAL_SAVE" 51 "CAL_PEDAL_ABORT" 52 "CAL_ADC_ZERO" 53 "CAL_ADC_SPAN" 54 "CAL_ADC_SAVE" 55 "CAL_BRAKE_FULLSCALE" 64 "FAULT_CLEAR" 65 "FAULT_LOG_READ" 80 "INV_FAULT_RESET" 96 "LOG_LEVEL" 97 "TELEM_RAW_ADC" 98 "CAPTURE_CONFIG" 99 "CAPTURE_ARM" 100 "CAPTURE_STATUS" 101 "CAPTURE_ABORT" 126 "TEST_WATCHDOG" 127 "REBOOT" ;
+VAL_ 2424357105 DBG_RespStatus 0 "OK" 1 "UNKNOWN_CMD" 2 "REFUSED" 3 "BAD_INDEX" 4 "OUT_OF_RANGE" 5 "BAD_ARG" 6 "FAILED" ;
+VAL_ 2424356864 VCU_Heartbeat_StateID 0 "BOOT" 1 "POWERUP" 20 "PREFLIGHT" 40 "PRECHARGE" 41 "ENERGISE" 42 "RTD" 100 "DRIVING" 240 "FAULT" 250 "SHUTDOWN" ;
+VAL_ 2424356864 fault_code 0 "NONE" 257 "BOARD_OUTPUT_INIT" 258 "BOARD_ADC" 259 "BOARD_EEPROM" 260 "BOARD_CAN" 512 "OUTPUT_CRITICAL(+load)" 768 "BMU_TIMEOUT" 769 "BMU_SHUTDOWN" 770 "BMU_PRECHARGE_TIMEOUT" 771 "BMU_HV_FAULT" 772 "BMU_TEMP_FAULT" 773 "BMU_ISOLATION" 774 "BMU_CONTACTOR" 775 "BMU_STATE_UNEXPECTED" 1024 "INV_FAULT(+inv)" 1040 "INV_TIMEOUT(+inv)" 1056 "INV_ENERGISE_TIMEOUT" 1057 "INV_ENABLE_FAIL" 1280 "PEDAL_APPS" 1281 "PEDAL_BSE" 1282 "PEDAL_BRAKE_APPS" 1283 "PEDAL_UNCALIBRATED" 1536 "SAFETY_SHDN_OPEN" 1537 "SAFETY_SHDN_TIMEOUT" 1538 "SAFETY_WATCHDOG" 2048 "COMM_CAN_A_BUSOFF" 2049 "COMM_CAN_B_BUSOFF" ;
