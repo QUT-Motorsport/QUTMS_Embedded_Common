@@ -1,0 +1,484 @@
+VERSION ""
+
+
+NS_ :
+	CM_
+	BA_DEF_
+	BA_
+	VAL_
+	BA_DEF_DEF_
+
+BS_:
+
+BU_: BMU DTI_L DTI_R ECU SBG SEVCON_L SEVCON_R SHDN C125
+
+
+BO_ 256 CAN1_SBG_ECAN_MSG_STATUS_01: 8 SBG
+ SG_ SBG_MSG_01_TIME_STAMP : 0|32@1+ (1,0) [0|4294970000] "µs" C125
+ SG_ SBG_MSG_01_GENERAL : 32|16@1+ (1,0) [0|65535] "" C125
+ SG_ SBG_MSG_01_CLOCK : 48|16@1+ (1,0) [0|65535] "" C125
+
+BO_ 289 CAN1_SBG_ECAN_MSG_IMU_ACCEL: 6 SBG
+ SG_ SBG_IMU_ACCEL_X : 0|16@1- (0.01,0) [-327.68|327.67] "m.s-2" C125
+ SG_ SBG_IMU_ACCEL_Y : 16|16@1- (0.01,0) [-327.68|327.67] "m.s-2" C125
+ SG_ SBG_IMU_ACCEL_Z : 32|16@1- (0.01,0) [-327.68|327.67] "m.s-2" C125
+
+BO_ 290 CAN1_SBG_ECAN_MSG_IMU_GYRO: 6 SBG
+ SG_ SBG_IMU_GYRO_X : 0|16@1- (0.001,0) [-32.768|32.767] "rad.s-1" C125
+ SG_ SBG_IMU_GYRO_Y : 16|16@1- (0.001,0) [-32.768|32.767] "rad.s-1" C125
+ SG_ SBG_IMU_GYRO_Z : 32|16@1- (0.001,0) [-32.768|32.767] "rad.s-1" C125
+
+BO_ 304 CAN1_SBG_ECAN_MSG_EKF_INFO: 4 SBG
+ SG_ SBG_EFK_TIME_STAMP : 0|32@1+ (1,0) [0|4294970000] "µs" C125
+
+BO_ 306 CAN1_SBG_ECAN_MSG_EKF_EULER: 6 SBG
+ SG_ SBG_EKF_EULER_ROLL : 0|16@1- (0.0001,0) [-3.2768|3.2767] "rad" C125
+ SG_ SBG_EKF_EULER_PITCH : 16|16@1- (0.0001,0) [-3.2768|3.2767] "rad" C125
+ SG_ SBG_EKF_EULER_YAW : 32|16@1- (0.0001,0) [-3.2768|3.2767] "rad" C125
+
+BO_ 308 CAN1_SBG_ECAN_MSG_EKF_POS: 8 SBG
+ SG_ SBG_EKF_POS_LATITUDE : 0|32@1- (0.0000001,0) [-214.7483648|214.7483647] "°" C125
+ SG_ SBG_EKF_POS_LONGITUDE : 32|32@1- (0.0000001,0) [-214.7483648|214.7483647] "°" C125
+
+BO_ 309 CAN1_SBG_ECAN_MSG_EKF_ALTITUDE: 6 SBG
+ SG_ SBG_EKF_ALTITUDE : 0|32@1- (0.001,0) [-2147480|2147480] "m" C125
+ SG_ SBG_EKF_UNDULATION : 32|16@1- (0.005,0) [-163.84|163.835] "m" C125
+
+BO_ 311 CAN1_SBG_ECAN_MSG_EKF_VEL_NED: 6 SBG
+ SG_ SBG_EKF_NED_VELOCITY_N : 0|16@1- (0.01,0) [-327.68|327.67] "m.s-1" C125
+ SG_ SBG_EKF_NED_VELOCITY_E : 16|16@1- (0.01,0) [-327.68|327.67] "m.s-1" C125
+ SG_ SBG_EKF_NED_VELOCITY_D : 32|16@1- (0.01,0) [-327.68|327.67] "m.s-1" C125
+
+BO_ 313 CAN1_SBG_ECAN_MSG_EKF_VEL_BODY: 6 SBG
+ SG_ SBG_EKF_BODY_VELOCITY_X : 0|16@1- (0.01,0) [-327.68|327.67] "m.s-1" C125
+ SG_ SBG_EKF_BODY_VELOCITY_Y : 16|16@1- (0.01,0) [-327.68|327.67] "m.s-1" C125
+ SG_ SBG_EKF_BODY_VELOCITY_Z : 32|16@1- (0.01,0) [-327.68|327.67] "m.s-1" C125
+
+BO_ 369 CAN1_SBG_ECAN_MSG_GPS1_VEL: 6 SBG
+ SG_ SBG_GPS1_VEL_VELOCITY_N : 0|16@1- (0.01,0) [-327.68|327.67] "m.s-1" C125
+ SG_ SBG_GPS1_VEL_VELOCITY_E : 16|16@1- (0.01,0) [-327.68|327.67] "m.s-1" C125
+ SG_ SBG_GPS1_VEL_VELOCITY_D : 32|16@1- (0.01,0) [-327.68|327.67] "m.s-1" C125
+
+BO_ 373 CAN1_SBG_ECAN_MSG_GPS1_POS: 8 SBG
+ SG_ SBG_GPS1_POS_LATITUDE : 0|32@1- (0.0000001,0) [-214.7483648|214.7483647] "°" C125
+ SG_ SBG_GPS1_POS_LONGITUDE : 32|32@1- (0.0000001,0) [-214.7483648|214.7483647] "°" C125
+
+BO_ 544 CAN1_SBG_ECAN_MSG_AUTO_SLIP_CURV: 7 SBG
+ SG_ SBG_ASLIP_ANGLE_TRACK : 0|16@1- (0.0001,0) [-3.2768|3.2767] "rad" C125
+ SG_ SBG_ASLIP_ANGLE_SLIP : 16|16@1- (0.0001,0) [-3.2768|3.2767] "rad" C125
+ SG_ SBG_ASLIP_CURVATURE_RADIUS : 32|16@1+ (0.01,0) [0|655.35] "m" C125
+ SG_ SBG_ASLIP_AUTO_STATUS : 48|8@1+ (1,0) [0|255] "" C125
+
+BO_ 2147484988 CAN1_DTI_L_SET_REL_CURRENT: 8 ECU
+ SG_ DTI_L_CmdRelCurrent : 7|16@0- (0.1,0) [-100|100] "%" C125
+
+BO_ 2147484989 CAN1_DTI_R_SET_REL_CURRENT: 8 ECU
+ SG_ DTI_R_CmdRelCurrent : 7|16@0- (0.1,0) [-100|100] "%" C125
+
+BO_ 2147486780 CAN1_DTI_L_DRIVE_ENABLE: 8 ECU
+ SG_ DTI_L_CmdDriveEnable : 7|8@0+ (1,0) [0|255] "" C125
+
+BO_ 2147486781 CAN1_DTI_R_DRIVE_ENABLE: 8 ECU
+ SG_ DTI_R_CmdDriveEnable : 7|8@0+ (1,0) [0|255] "" C125
+
+BO_ 2147491900 CAN1_DTI_L_ERPM_DUTY_VIN: 8 DTI_L
+ SG_ DTI_L_Erpm : 7|32@0- (1,0) [-2147483648|2147483647] "rpm" C125
+ SG_ DTI_L_Duty : 39|16@0- (0.1,0) [-3276.8|3276.7] "%" C125
+ SG_ DTI_L_InputVoltage : 55|16@0- (1,0) [-32768|32767] "V" C125
+
+BO_ 2147491901 CAN1_DTI_R_ERPM_DUTY_VIN: 8 DTI_R
+ SG_ DTI_R_Erpm : 7|32@0- (1,0) [-2147483648|2147483647] "rpm" C125
+ SG_ DTI_R_Duty : 39|16@0- (0.1,0) [-3276.8|3276.7] "%" C125
+ SG_ DTI_R_InputVoltage : 55|16@0- (1,0) [-32768|32767] "V" C125
+
+BO_ 2147492156 CAN1_DTI_L_CURRENTS: 8 DTI_L
+ SG_ DTI_L_AcCurrent : 7|16@0- (0.1,0) [-3276.8|3276.7] "A" C125
+ SG_ DTI_L_DcCurrent : 23|16@0- (0.1,0) [-3276.8|3276.7] "A" C125
+
+BO_ 2147492157 CAN1_DTI_R_CURRENTS: 8 DTI_R
+ SG_ DTI_R_AcCurrent : 7|16@0- (0.1,0) [-3276.8|3276.7] "A" C125
+ SG_ DTI_R_DcCurrent : 23|16@0- (0.1,0) [-3276.8|3276.7] "A" C125
+
+BO_ 2147492412 CAN1_DTI_L_TEMPS_FAULT: 8 DTI_L
+ SG_ DTI_L_CtrlTemp : 7|16@0- (0.1,0) [-3276.8|3276.7] "degC" C125
+ SG_ DTI_L_MotorTemp : 23|16@0- (0.1,0) [-3276.8|3276.7] "degC" C125
+ SG_ DTI_L_FaultCode : 39|8@0+ (1,0) [0|255] "" C125
+
+BO_ 2147492413 CAN1_DTI_R_TEMPS_FAULT: 8 DTI_R
+ SG_ DTI_R_CtrlTemp : 7|16@0- (0.1,0) [-3276.8|3276.7] "degC" C125
+ SG_ DTI_R_MotorTemp : 23|16@0- (0.1,0) [-3276.8|3276.7] "degC" C125
+ SG_ DTI_R_FaultCode : 39|8@0+ (1,0) [0|255] "" C125
+
+BO_ 2147492924 CAN1_DTI_L_IO_STATUS: 8 DTI_L
+ SG_ DTI_L_DriveEnabled : 31|8@0+ (1,0) [0|255] "" C125
+ SG_ DTI_L_Limits : 39|16@0+ (1,0) [0|65535] "" C125
+
+BO_ 2147492925 CAN1_DTI_R_IO_STATUS: 8 DTI_R
+ SG_ DTI_R_DriveEnabled : 31|8@0+ (1,0) [0|255] "" C125
+ SG_ DTI_R_Limits : 39|16@0+ (1,0) [0|65535] "" C125
+
+BO_ 2284096768 CAN1_BMU25_TransmitPackInfo: 8 BMU
+ SG_ BMU_PackCurrent : 0|32@1- (0.000001,0) [-2147.483648|2147.483647] "A" C125
+ SG_ BMU_PackVoltage : 32|32@1- (0.000001,0) [-2147.483648|2147.483647] "V" C125
+
+BO_ 2284096784 CAN1_BMU25_TransmitPackSummary: 8 BMU
+ SG_ BMU_MinCell : 0|16@1+ (1,0) [0|65535] "mV" C125
+ SG_ BMU_ValidCells : 16|16@1+ (1,0) [0|65535] "" C125
+ SG_ BMU_MaxCellTemp : 32|8@1+ (1,0) [0|255] "degC" C125
+
+BO_ 2284096800 CAN1_BMU25_TransmitSOC: 8 BMU
+ SG_ BMU_SocPct : 0|8@1+ (1,0) [0|255] "%" C125
+ SG_ BMU_SocFlags : 8|2@1+ (1,0) [0|3] "" C125
+ SG_ BMU_Charge : 16|32@1- (0.000001,0) [-2147.483648|2147.483647] "Ah" C125
+
+BO_ 2286157824 CAN1_ECU_HEARTBEAT: 8 ECU
+ SG_ ECU_State : 0|8@1+ (1,0) [0|255] "" C125
+ SG_ ECU_Flags : 8|15@1+ (1,0) [0|32767] "" C125
+ SG_ ECU_FaultCode : 24|16@1+ (1,0) [0|65535] "" C125
+ SG_ ECU_FaultSeverity : 40|8@1+ (1,0) [0|255] "" C125
+ SG_ ECU_Uptime : 48|16@1+ (1,0) [0|65535] "s" C125
+
+BO_ 2298740736 CAN1_SHDN_STATUS: 8 SHDN
+ SG_ SHDN_OpenSegs : 0|10@1+ (1,0) [0|1023] "" C125
+ SG_ SHDN_LoopClosed : 16|8@1+ (1,0) [0|255] "" C125
+ SG_ SHDN_FirstOpen : 24|8@1+ (1,0) [0|255] "" C125
+
+BO_ 2418327552 CAN1_BMU25_Heartbeat: 8 BMU
+ SG_ BMU_State : 0|8@1+ (1,0) [0|255] "" C125
+ SG_ BMU_Flags : 8|28@1+ (1,0) [0|268435455] "" C125
+
+BO_ 2568552305 CAN1_Sevcon_1_HS1: 8 SEVCON_L
+ SG_ Sevcon_1_OutputTorque : 0|16@1- (0.0625,0) [-2048|2047.9375] "Nm" C125
+ SG_ Sevcon_1_Speed : 16|16@1- (1,0) [-32768|32767] "RPM" C125
+ SG_ Sevcon_1_BatteryCurrent : 32|16@1- (1,0) [-32768|32767] "A" C125
+
+BO_ 2568552306 CAN1_Sevcon_2_HS1: 8 SEVCON_R
+ SG_ Sevcon_2_OutputTorque : 0|16@1- (0.0625,0) [-2048|2047.9375] "Nm" C125
+ SG_ Sevcon_2_Speed : 16|16@1- (1,0) [-32768|32767] "RPM" C125
+ SG_ Sevcon_2_BatteryCurrent : 32|16@1- (1,0) [-32768|32767] "A" C125
+
+BO_ 2568617841 CAN1_Sevcon_1_HS2: 8 SEVCON_L
+ SG_ Sevcon_1_AvailFwdTorque : 0|16@1- (0.0625,0) [-2048|2047.9375] "Nm" C125
+ SG_ Sevcon_1_AvailRevTorque : 16|16@1- (0.0625,0) [-2048|2047.9375] "Nm" C125
+ SG_ Sevcon_1_StatusWord : 32|16@1+ (1,0) [0|65535] "" C125
+
+BO_ 2568617842 CAN1_Sevcon_2_HS2: 8 SEVCON_R
+ SG_ Sevcon_2_AvailFwdTorque : 0|16@1- (0.0625,0) [-2048|2047.9375] "Nm" C125
+ SG_ Sevcon_2_AvailRevTorque : 16|16@1- (0.0625,0) [-2048|2047.9375] "Nm" C125
+ SG_ Sevcon_2_StatusWord : 32|16@1+ (1,0) [0|65535] "" C125
+
+BO_ 2568683377 CAN1_Sevcon_1_HS3: 8 SEVCON_L
+ SG_ Sevcon_1_HeatSinkTemp : 0|16@1- (1,0) [-32768|32767] "degC" C125
+ SG_ Sevcon_1_RemainingTemp : 16|16@1- (1,0) [-32768|32767] "degC" C125
+ SG_ Sevcon_1_CapVoltage : 32|16@1- (0.0625,0) [-2048|2047.9375] "V" C125
+
+BO_ 2568683378 CAN1_Sevcon_2_HS3: 8 SEVCON_R
+ SG_ Sevcon_2_HeatSinkTemp : 0|16@1- (1,0) [-32768|32767] "degC" C125
+ SG_ Sevcon_2_RemainingTemp : 16|16@1- (1,0) [-32768|32767] "degC" C125
+ SG_ Sevcon_2_CapVoltage : 32|16@1- (0.0625,0) [-2048|2047.9375] "V" C125
+
+BO_ 2420637712 CAN2_ECU_PEDAL_ACCEL: 8 ECU
+ SG_ ECU_Apps0 : 0|16@1+ (0.1,0) [0|100] "%" C125
+ SG_ ECU_Apps1 : 16|16@1+ (0.1,0) [0|100] "%" C125
+ SG_ ECU_Apps0_mV : 32|16@1+ (1,0) [0|65535] "mV" C125
+ SG_ ECU_Apps1_mV : 48|16@1+ (1,0) [0|65535] "mV" C125
+
+BO_ 2420637728 CAN2_ECU_PEDAL_BRAKE: 8 ECU
+ SG_ ECU_Brake0_mV : 0|16@1+ (1,0) [0|65535] "mV" C125
+ SG_ ECU_Brake1_mV : 16|16@1+ (1,0) [0|65535] "mV" C125
+ SG_ ECU_Brake0 : 32|16@1- (0.0625,0) [-2048|2047.9375] "psi" C125
+ SG_ ECU_Brake1 : 48|16@1- (0.0625,0) [-2048|2047.9375] "psi" C125
+
+BO_ 2420637744 CAN2_ECU_GEARBOX_TEMP_LEFT: 8 ECU
+ SG_ ECU_GearboxL : 32|16@1- (0.1,0) [-3276.8|3276.7] "degC" C125
+
+BO_ 2420637760 CAN2_ECU_GEARBOX_TEMP_RIGHT: 8 ECU
+ SG_ ECU_GearboxR : 32|16@1- (0.1,0) [-3276.8|3276.7] "degC" C125
+
+BO_ 2420637776 CAN2_ECU_COOLING_SENSE_1: 8 ECU
+ SG_ ECU_Rad1Pressure : 0|16@1+ (0.1,0) [0|6553.5] "kPa" C125
+ SG_ ECU_Rad1Temp : 48|16@1- (0.1,0) [-3276.8|3276.7] "degC" C125
+
+BO_ 2420637792 CAN2_ECU_COOLING_SENSE_2: 8 ECU
+ SG_ ECU_Rad2Pressure : 0|16@1+ (0.1,0) [0|6553.5] "kPa" C125
+ SG_ ECU_Rad2Temp : 48|16@1- (0.1,0) [-3276.8|3276.7] "degC" C125
+
+BO_ 2420637856 CAN2_ECU_COOLING_PRESSURE: 8 ECU
+ SG_ ECU_CoolFlags : 32|6@1+ (1,0) [0|63] "" C125
+
+BO_ 2420637904 CAN2_ECU_STEERING_ANGLE: 8 ECU
+ SG_ ECU_Steering : 0|16@1- (0.1,0) [-3276.8|3276.7] "deg" C125
+ SG_ ECU_Steering_mV : 32|16@1+ (1,0) [0|65535] "mV" C125
+
+BO_ 2420637952 CAN2_ECU_STATUS: 8 ECU
+ SG_ ECU_Profile : 32|8@1+ (1,0) [0|255] "" C125
+ SG_ ECU_InvLState : 40|4@1+ (1,0) [0|15] "" C125
+ SG_ ECU_InvRState : 44|4@1+ (1,0) [0|15] "" C125
+ SG_ ECU_StatusFlags : 48|4@1+ (1,0) [0|15] "" C125
+
+BO_ 2420637968 CAN2_ECU_TORQUE: 8 ECU
+ SG_ ECU_TorqueReqL : 0|16@1- (0.1,0) [-3276.8|3276.7] "Nm" C125
+ SG_ ECU_TorqueReqR : 16|16@1- (0.1,0) [-3276.8|3276.7] "Nm" C125
+ SG_ ECU_Throttle : 32|16@1+ (0.1,0) [0|6553.5] "%" C125
+ SG_ ECU_PedalFlags : 48|8@1+ (1,0) [0|255] "" C125
+ SG_ ECU_TorqueFlags : 56|5@1+ (1,0) [0|31] "" C125
+
+BO_ 2420637984 CAN2_ECU_OUTPUTS_STATE: 8 ECU
+ SG_ ECU_OutOn : 0|17@1+ (1,0) [0|131071] "" C125
+ SG_ ECU_OutFault : 24|17@1+ (1,0) [0|131071] "" C125
+ SG_ ECU_OutStartupStage : 48|4@1+ (1,0) [0|15] "" C125
+ SG_ ECU_OutSafeState : 54|1@1+ (1,0) [0|1] "" C125
+ SG_ ECU_OutStartupDone : 55|1@1+ (1,0) [0|1] "" C125
+ SG_ ECU_DrvOkMask : 56|5@1+ (1,0) [0|31] "" C125
+ SG_ ECU_BtsOkMask : 61|3@1+ (1,0) [0|7] "" C125
+
+BO_ 2420638000 CAN2_ECU_OUTPUTS_CURRENT: 8 ECU
+ SG_ ECU_I_DrvA : 0|8@1+ (0.05,0) [0|12.75] "A" C125
+ SG_ ECU_I_DrvB : 8|8@1+ (0.05,0) [0|12.75] "A" C125
+ SG_ ECU_I_DrvC : 16|8@1+ (0.05,0) [0|12.75] "A" C125
+ SG_ ECU_I_DrvD : 24|8@1+ (0.05,0) [0|12.75] "A" C125
+ SG_ ECU_I_DrvE : 32|8@1+ (0.05,0) [0|12.75] "A" C125
+ SG_ ECU_IValid : 40|5@1+ (1,0) [0|31] "" C125
+ SG_ ECU_IFault : 48|5@1+ (1,0) [0|31] "" C125
+
+BO_ 2420638016 CAN2_ECU_CAN_HEALTH: 8 ECU
+ SG_ ECU_CanATec : 0|8@1+ (1,0) [0|255] "" C125
+ SG_ ECU_CanARec : 8|8@1+ (1,0) [0|255] "" C125
+ SG_ ECU_CanBTec : 16|8@1+ (1,0) [0|255] "" C125
+ SG_ ECU_CanBRec : 24|8@1+ (1,0) [0|255] "" C125
+ SG_ ECU_CanFlags : 32|8@1+ (1,0) [0|255] "" C125
+ SG_ ECU_CanSeen : 40|8@1+ (1,0) [0|255] "" C125
+ SG_ ECU_CanALec : 48|4@1+ (1,0) [0|15] "" C125
+ SG_ ECU_CanBLec : 52|4@1+ (1,0) [0|15] "" C125
+ SG_ ECU_CanAProbe : 56|2@1+ (1,0) [0|3] "" C125
+ SG_ ECU_CanBProbe : 58|2@1+ (1,0) [0|3] "" C125
+
+BO_ 2420638032 CAN2_ECU_COOLING_CONTROL: 8 ECU
+ SG_ ECU_CoolControlTemp : 0|16@1- (0.1,0) [-3276.8|3276.7] "degC" C125
+ SG_ ECU_FanDuty : 16|8@1+ (1,0) [0|255] "%" C125
+ SG_ ECU_FanTarget : 24|8@1+ (1,0) [0|255] "%" C125
+ SG_ ECU_PumpDuty : 32|8@1+ (1,0) [0|255] "%" C125
+ SG_ ECU_TorqueDerate : 40|8@1+ (1,0) [0|255] "%" C125
+
+BO_ 2420638048 CAN2_ECU_BOARD_HEALTH: 8 ECU
+ SG_ ECU_Vdda : 0|16@1+ (1,0) [0|65535] "mV" C125
+ SG_ ECU_CpuIdle : 16|8@1+ (1,0) [0|255] "%" C125
+ SG_ ECU_ResetFlags : 25|7@1+ (1,0) [0|127] "" C125
+ SG_ ECU_StackFreeMin : 32|16@1+ (1,0) [0|65535] "words" C125
+
+BO_ 2420638064 CAN2_ECU_CAN_QUEUES: 8 ECU
+ SG_ ECU_TxAHighWater : 0|8@1+ (1,0) [0|255] "" C125
+ SG_ ECU_TxBHighWater : 8|8@1+ (1,0) [0|255] "" C125
+ SG_ ECU_TxADropped : 16|8@1+ (1,0) [0|255] "" C125
+ SG_ ECU_TxBDropped : 24|8@1+ (1,0) [0|255] "" C125
+ SG_ ECU_RxHighWater : 32|8@1+ (1,0) [0|255] "" C125
+ SG_ ECU_RxDropped : 40|8@1+ (1,0) [0|255] "" C125
+ SG_ ECU_RxUnrouted : 48|8@1+ (1,0) [0|255] "" C125
+ SG_ ECU_QueueFlags : 56|2@1+ (1,0) [0|3] "" C125
+
+
+CM_ SG_ 2147492924 DTI_L_Limits "b0 DTI_L_LimRpmMin, b1 DTI_L_LimRpmMax, b2 DTI_L_LimPower, b8 DTI_L_LimCapTemp, b9 DTI_L_LimDcCurrent, b10 DTI_L_LimDriveEnable, b11 DTI_L_LimIgbtAccelTemp, b12 DTI_L_LimIgbtTemp, b13 DTI_L_LimInputVoltage, b14 DTI_L_LimMotorAccelTemp, b15 DTI_L_LimMotorTemp";
+CM_ SG_ 2147492925 DTI_R_Limits "b0 DTI_R_LimRpmMin, b1 DTI_R_LimRpmMax, b2 DTI_R_LimPower, b8 DTI_R_LimCapTemp, b9 DTI_R_LimDcCurrent, b10 DTI_R_LimDriveEnable, b11 DTI_R_LimIgbtAccelTemp, b12 DTI_R_LimIgbtTemp, b13 DTI_R_LimInputVoltage, b14 DTI_R_LimMotorAccelTemp, b15 DTI_R_LimMotorTemp";
+CM_ SG_ 2284096800 BMU_SocFlags "b0 BMU_SocValid, b1 BMU_SocCalibrated";
+CM_ SG_ 2286157824 ECU_Flags "b0 ECU_F_PedalPolarity, b1 ECU_F_BmuAlive, b2 ECU_F_InvAlive, b3 ECU_F_ShdnClosed, b4 ECU_F_PedalOk, b5 ECU_F_BrakePressed, b6 ECU_F_PrechargeReq, b7 ECU_F_TorqueAllowed, b8 ECU_F_OutputFault, b9 ECU_F_CanAOk, b10 ECU_F_CanBOk, b11 ECU_F_Warning, b12 ECU_F_EepromOk, b13 ECU_F_Calibrated, b14 ECU_F_HvOffReq";
+CM_ SG_ 2298740736 SHDN_OpenSegs "b0 SHDN_Seg1Open, b1 SHDN_Seg2Open, b2 SHDN_Seg3Open, b3 SHDN_Seg4Open, b4 SHDN_Seg5Open, b5 SHDN_Seg6Open, b6 SHDN_Seg7Open, b7 SHDN_Seg8Open, b8 SHDN_Seg9Open, b9 SHDN_Seg10Open";
+CM_ SG_ 2418327552 BMU_Flags "b0 BMU_F_HbCmu, b1 BMU_F_HbSendyne1, b2 BMU_F_HbSendyne2, b3 BMU_F_HbEcu, b4 BMU_F_HbChrgCtrl, b5 BMU_F_Watchdog, b6 BMU_F_Can1, b7 BMU_F_Can2, b8 BMU_F_ContactorPos, b9 BMU_F_ContactorNeg, b10 BMU_F_ContactorPchrg, b11 BMU_F_PrechargeTimeout, b12 BMU_F_CmuOverVolt, b13 BMU_F_CmuUnderVolt, b14 BMU_F_CmuBadTemp, b15 BMU_F_CmuOpenVolt, b16 BMU_F_CmuOpenTemp, b17 BMU_F_CmuMissingVolt, b18 BMU_F_CmuMissingTemp, b19 BMU_F_ShdnBmu, b20 BMU_F_ShdnPdoc, b21 BMU_F_ShdnImd, b22 BMU_F_ShdnInterlock, b23 BMU_F_Balancing, b24 BMU_F_DieTemps, b25 BMU_F_HvKey, b26 BMU_F_ChrgDetect, b27 BMU_F_ChrgCtrl";
+CM_ SG_ 2420637856 ECU_CoolFlags "b0 ECU_CoolPressureValid, b1 ECU_CoolTempValid, b2 ECU_CoolFanOn, b3 ECU_CoolPumpOn, b4 ECU_CoolOvertempWarn, b5 ECU_CoolOvertempFault";
+CM_ SG_ 2420637952 ECU_StatusFlags "b0 ECU_S_InvLAlive, b1 ECU_S_InvRAlive, b3 ECU_S_RegenAllowed";
+CM_ SG_ 2420637968 ECU_PedalFlags "b0 ECU_P_Uncalibrated, b1 ECU_P_Apps0Range, b2 ECU_P_Apps1Range, b3 ECU_P_AppsImplausible, b4 ECU_P_Bse0Range, b5 ECU_P_Bse1Range, b6 ECU_P_BseFault, b7 ECU_P_BrakeApps";
+CM_ SG_ 2420637968 ECU_TorqueFlags "b0 ECU_T_Allowed, b1 ECU_T_RegenActive, b2 ECU_T_TvActive, b3 ECU_T_Derated, b4 ECU_T_BrakeLight";
+CM_ SG_ 2420637984 ECU_OutOn "b0 ECU_On_DrvA, b1 ECU_On_DrvB, b2 ECU_On_DrvC, b3 ECU_On_DrvD, b4 ECU_On_DrvE, b5 ECU_On_SW1, b6 ECU_On_SW2, b7 ECU_On_SW3, b8 ECU_On_SW4, b9 ECU_On_SW5, b10 ECU_On_SW6, b11 ECU_On_SW7, b12 ECU_On_SW8, b13 ECU_On_SW9, b14 ECU_On_SW10, b15 ECU_On_SW11, b16 ECU_On_SW12";
+CM_ SG_ 2420637984 ECU_OutFault "b0 ECU_Fault_DrvA, b1 ECU_Fault_DrvB, b2 ECU_Fault_DrvC, b3 ECU_Fault_DrvD, b4 ECU_Fault_DrvE, b5 ECU_Fault_SW1, b6 ECU_Fault_SW2, b7 ECU_Fault_SW3, b8 ECU_Fault_SW4, b9 ECU_Fault_SW5, b10 ECU_Fault_SW6, b11 ECU_Fault_SW7, b12 ECU_Fault_SW8, b13 ECU_Fault_SW9, b14 ECU_Fault_SW10, b15 ECU_Fault_SW11, b16 ECU_Fault_SW12";
+CM_ SG_ 2420638000 ECU_IValid "b0 ECU_IValid_DrvA, b1 ECU_IValid_DrvB, b2 ECU_IValid_DrvC, b3 ECU_IValid_DrvD, b4 ECU_IValid_DrvE";
+CM_ SG_ 2420638000 ECU_IFault "b0 ECU_IFault_DrvA, b1 ECU_IFault_DrvB, b2 ECU_IFault_DrvC, b3 ECU_IFault_DrvD, b4 ECU_IFault_DrvE";
+CM_ SG_ 2420638016 ECU_CanFlags "b0 ECU_CanABusOff, b1 ECU_CanAPassive, b2 ECU_CanBBusOff, b3 ECU_CanBPassive, b4 ECU_CanAAlone, b5 ECU_CanBAlone, b6 ECU_CanASelfTestFail, b7 ECU_CanBSelfTestFail";
+CM_ SG_ 2420638016 ECU_CanSeen "b0 ECU_SeenBmu, b1 ECU_SeenShdn, b2 ECU_SeenInvL, b3 ECU_SeenInvR, b4 ECU_SeenSbg, b5 ECU_SeenC125, b6 ECU_SeenChrg, b7 ECU_SeenTool";
+CM_ SG_ 2420638048 ECU_ResetFlags "b0 ECU_RstOptionBytes, b1 ECU_RstPin, b2 ECU_RstBor, b3 ECU_RstSoftware, b4 ECU_RstIwdg, b5 ECU_RstWwdg, b6 ECU_RstLowPower";
+CM_ SG_ 2420638064 ECU_QueueFlags "b0 ECU_Q_TelemFailed, b1 ECU_Q_TxFailed";
+BA_DEF_  "BusType" STRING ;
+BA_DEF_  "DBName" STRING ;
+BA_DEF_ BO_  "GenMsgCycleTime" INT 0 65535;
+BA_DEF_ BO_  "SendType" STRING;
+BA_DEF_ BO_  "RxTimeoutMs" INT 0 65535;
+BA_DEF_ BO_  "MoTeC" STRING;
+BA_DEF_ SG_  "MoTeCLog" STRING;
+BA_DEF_ SG_  "MoTeCGroup" STRING;
+BA_DEF_ BO_  "Status" STRING;
+BA_DEF_ BO_  "Variant" STRING;
+BA_DEF_ BO_  "VFrameFormat" ENUM "StandardCAN","ExtendedCAN";
+BA_DEF_DEF_  "BusType" "CAN";
+BA_DEF_DEF_  "DBName" "";
+BA_DEF_DEF_  "GenMsgCycleTime" 0;
+BA_DEF_DEF_  "SendType" "Cyclic";
+BA_DEF_DEF_  "RxTimeoutMs" 0;
+BA_DEF_DEF_  "MoTeC" "No";
+BA_DEF_DEF_  "MoTeCLog" "";
+BA_DEF_DEF_  "MoTeCGroup" "";
+BA_DEF_DEF_  "Status" "Current";
+BA_DEF_DEF_  "Variant" "";
+BA_DEF_DEF_  "VFrameFormat" "StandardCAN";
+BA_ "BusType" "CAN";
+BA_ "DBName" "qev6_motec";
+BA_ "GenMsgCycleTime" BO_ 256 1000;
+BA_ "MoTeC" BO_ 256 "Yes";
+BA_ "GenMsgCycleTime" BO_ 289 10;
+BA_ "MoTeC" BO_ 289 "Yes";
+BA_ "GenMsgCycleTime" BO_ 290 10;
+BA_ "MoTeC" BO_ 290 "Yes";
+BA_ "GenMsgCycleTime" BO_ 304 1000;
+BA_ "MoTeC" BO_ 304 "Yes";
+BA_ "GenMsgCycleTime" BO_ 306 20;
+BA_ "MoTeC" BO_ 306 "Yes";
+BA_ "GenMsgCycleTime" BO_ 308 100;
+BA_ "MoTeC" BO_ 308 "Yes";
+BA_ "GenMsgCycleTime" BO_ 309 100;
+BA_ "MoTeC" BO_ 309 "Yes";
+BA_ "GenMsgCycleTime" BO_ 311 20;
+BA_ "MoTeC" BO_ 311 "Yes";
+BA_ "GenMsgCycleTime" BO_ 313 20;
+BA_ "MoTeC" BO_ 313 "Yes";
+BA_ "GenMsgCycleTime" BO_ 369 100;
+BA_ "MoTeC" BO_ 369 "Yes";
+BA_ "GenMsgCycleTime" BO_ 373 100;
+BA_ "MoTeC" BO_ 373 "Yes";
+BA_ "GenMsgCycleTime" BO_ 544 20;
+BA_ "MoTeC" BO_ 544 "Yes";
+BA_ "GenMsgCycleTime" BO_ 2147484988 10;
+BA_ "MoTeC" BO_ 2147484988 "Yes";
+BA_ "VFrameFormat" BO_ 2147484988 1;
+BA_ "GenMsgCycleTime" BO_ 2147484989 10;
+BA_ "MoTeC" BO_ 2147484989 "Yes";
+BA_ "VFrameFormat" BO_ 2147484989 1;
+BA_ "GenMsgCycleTime" BO_ 2147486780 100;
+BA_ "MoTeC" BO_ 2147486780 "Yes";
+BA_ "VFrameFormat" BO_ 2147486780 1;
+BA_ "GenMsgCycleTime" BO_ 2147486781 100;
+BA_ "MoTeC" BO_ 2147486781 "Yes";
+BA_ "VFrameFormat" BO_ 2147486781 1;
+BA_ "GenMsgCycleTime" BO_ 2147491900 10;
+BA_ "MoTeC" BO_ 2147491900 "Yes";
+BA_ "VFrameFormat" BO_ 2147491900 1;
+BA_ "GenMsgCycleTime" BO_ 2147491901 10;
+BA_ "MoTeC" BO_ 2147491901 "Yes";
+BA_ "VFrameFormat" BO_ 2147491901 1;
+BA_ "GenMsgCycleTime" BO_ 2147492156 10;
+BA_ "MoTeC" BO_ 2147492156 "Yes";
+BA_ "VFrameFormat" BO_ 2147492156 1;
+BA_ "GenMsgCycleTime" BO_ 2147492157 10;
+BA_ "MoTeC" BO_ 2147492157 "Yes";
+BA_ "VFrameFormat" BO_ 2147492157 1;
+BA_ "GenMsgCycleTime" BO_ 2147492412 50;
+BA_ "MoTeC" BO_ 2147492412 "Yes";
+BA_ "VFrameFormat" BO_ 2147492412 1;
+BA_ "GenMsgCycleTime" BO_ 2147492413 50;
+BA_ "MoTeC" BO_ 2147492413 "Yes";
+BA_ "VFrameFormat" BO_ 2147492413 1;
+BA_ "GenMsgCycleTime" BO_ 2147492924 50;
+BA_ "MoTeC" BO_ 2147492924 "Yes";
+BA_ "VFrameFormat" BO_ 2147492924 1;
+BA_ "GenMsgCycleTime" BO_ 2147492925 50;
+BA_ "MoTeC" BO_ 2147492925 "Yes";
+BA_ "VFrameFormat" BO_ 2147492925 1;
+BA_ "GenMsgCycleTime" BO_ 2284096768 100;
+BA_ "MoTeC" BO_ 2284096768 "Yes";
+BA_ "VFrameFormat" BO_ 2284096768 1;
+BA_ "GenMsgCycleTime" BO_ 2284096784 3300;
+BA_ "SendType" BO_ 2284096784 "Burst";
+BA_ "MoTeC" BO_ 2284096784 "Yes";
+BA_ "VFrameFormat" BO_ 2284096784 1;
+BA_ "GenMsgCycleTime" BO_ 2284096800 1020;
+BA_ "MoTeC" BO_ 2284096800 "Yes";
+BA_ "VFrameFormat" BO_ 2284096800 1;
+BA_ "GenMsgCycleTime" BO_ 2286157824 100;
+BA_ "MoTeC" BO_ 2286157824 "Yes";
+BA_ "VFrameFormat" BO_ 2286157824 1;
+BA_ "GenMsgCycleTime" BO_ 2298740736 100;
+BA_ "MoTeC" BO_ 2298740736 "Yes";
+BA_ "VFrameFormat" BO_ 2298740736 1;
+BA_ "GenMsgCycleTime" BO_ 2418327552 100;
+BA_ "MoTeC" BO_ 2418327552 "Yes";
+BA_ "VFrameFormat" BO_ 2418327552 1;
+BA_ "GenMsgCycleTime" BO_ 2568552305 10;
+BA_ "MoTeC" BO_ 2568552305 "Yes";
+BA_ "VFrameFormat" BO_ 2568552305 1;
+BA_ "GenMsgCycleTime" BO_ 2568552306 10;
+BA_ "MoTeC" BO_ 2568552306 "Yes";
+BA_ "VFrameFormat" BO_ 2568552306 1;
+BA_ "GenMsgCycleTime" BO_ 2568617841 10;
+BA_ "MoTeC" BO_ 2568617841 "Yes";
+BA_ "VFrameFormat" BO_ 2568617841 1;
+BA_ "GenMsgCycleTime" BO_ 2568617842 10;
+BA_ "MoTeC" BO_ 2568617842 "Yes";
+BA_ "VFrameFormat" BO_ 2568617842 1;
+BA_ "GenMsgCycleTime" BO_ 2568683377 10;
+BA_ "MoTeC" BO_ 2568683377 "Yes";
+BA_ "VFrameFormat" BO_ 2568683377 1;
+BA_ "GenMsgCycleTime" BO_ 2568683378 10;
+BA_ "MoTeC" BO_ 2568683378 "Yes";
+BA_ "VFrameFormat" BO_ 2568683378 1;
+BA_ "GenMsgCycleTime" BO_ 2420637712 20;
+BA_ "MoTeC" BO_ 2420637712 "Yes";
+BA_ "VFrameFormat" BO_ 2420637712 1;
+BA_ "GenMsgCycleTime" BO_ 2420637728 20;
+BA_ "MoTeC" BO_ 2420637728 "Yes";
+BA_ "VFrameFormat" BO_ 2420637728 1;
+BA_ "GenMsgCycleTime" BO_ 2420637744 200;
+BA_ "MoTeC" BO_ 2420637744 "Yes";
+BA_ "VFrameFormat" BO_ 2420637744 1;
+BA_ "GenMsgCycleTime" BO_ 2420637760 200;
+BA_ "MoTeC" BO_ 2420637760 "Yes";
+BA_ "VFrameFormat" BO_ 2420637760 1;
+BA_ "GenMsgCycleTime" BO_ 2420637776 500;
+BA_ "MoTeC" BO_ 2420637776 "Yes";
+BA_ "VFrameFormat" BO_ 2420637776 1;
+BA_ "GenMsgCycleTime" BO_ 2420637792 500;
+BA_ "MoTeC" BO_ 2420637792 "Yes";
+BA_ "VFrameFormat" BO_ 2420637792 1;
+BA_ "GenMsgCycleTime" BO_ 2420637856 500;
+BA_ "MoTeC" BO_ 2420637856 "Yes";
+BA_ "VFrameFormat" BO_ 2420637856 1;
+BA_ "GenMsgCycleTime" BO_ 2420637904 20;
+BA_ "MoTeC" BO_ 2420637904 "Yes";
+BA_ "VFrameFormat" BO_ 2420637904 1;
+BA_ "GenMsgCycleTime" BO_ 2420637952 100;
+BA_ "MoTeC" BO_ 2420637952 "Yes";
+BA_ "VFrameFormat" BO_ 2420637952 1;
+BA_ "GenMsgCycleTime" BO_ 2420637968 20;
+BA_ "MoTeC" BO_ 2420637968 "Yes";
+BA_ "VFrameFormat" BO_ 2420637968 1;
+BA_ "GenMsgCycleTime" BO_ 2420637984 200;
+BA_ "MoTeC" BO_ 2420637984 "Yes";
+BA_ "VFrameFormat" BO_ 2420637984 1;
+BA_ "GenMsgCycleTime" BO_ 2420638000 200;
+BA_ "MoTeC" BO_ 2420638000 "Yes";
+BA_ "VFrameFormat" BO_ 2420638000 1;
+BA_ "GenMsgCycleTime" BO_ 2420638016 1000;
+BA_ "MoTeC" BO_ 2420638016 "Yes";
+BA_ "VFrameFormat" BO_ 2420638016 1;
+BA_ "GenMsgCycleTime" BO_ 2420638032 200;
+BA_ "MoTeC" BO_ 2420638032 "Yes";
+BA_ "VFrameFormat" BO_ 2420638032 1;
+BA_ "GenMsgCycleTime" BO_ 2420638048 1000;
+BA_ "MoTeC" BO_ 2420638048 "Yes";
+BA_ "VFrameFormat" BO_ 2420638048 1;
+BA_ "GenMsgCycleTime" BO_ 2420638064 1000;
+BA_ "MoTeC" BO_ 2420638064 "Yes";
+BA_ "VFrameFormat" BO_ 2420638064 1;
+VAL_ 2147486780 DTI_L_CmdDriveEnable 0 "NOT_ALLOWED" 1 "ALLOWED" ;
+VAL_ 2147486781 DTI_R_CmdDriveEnable 0 "NOT_ALLOWED" 1 "ALLOWED" ;
+VAL_ 2147492412 DTI_L_FaultCode 0 "NO_FAULTS" 1 "OVERVOLTAGE" 2 "UNDERVOLTAGE" 3 "DRV" 4 "ABS_OVERCURRENT" 5 "CTLR_OVERTEMP" 6 "MOTOR_OVERTEMP" 7 "SENSOR_WIRE_FAULT" 8 "SENSOR_GENERAL_FAULT" 9 "CAN_COMMAND_ERROR" 10 "ANALOG_INPUT_ERROR" ;
+VAL_ 2147492413 DTI_R_FaultCode 0 "NO_FAULTS" 1 "OVERVOLTAGE" 2 "UNDERVOLTAGE" 3 "DRV" 4 "ABS_OVERCURRENT" 5 "CTLR_OVERTEMP" 6 "MOTOR_OVERTEMP" 7 "SENSOR_WIRE_FAULT" 8 "SENSOR_GENERAL_FAULT" 9 "CAN_COMMAND_ERROR" 10 "ANALOG_INPUT_ERROR" ;
+VAL_ 2147492924 DTI_L_DriveEnabled 0 "DISABLED" 1 "ENABLED" ;
+VAL_ 2147492925 DTI_R_DriveEnabled 0 "DISABLED" 1 "ENABLED" ;
+VAL_ 2286157824 ECU_State 0 "BOOT" 1 "POWERUP" 20 "PREFLIGHT" 40 "PRECHARGE" 41 "ENERGISE" 42 "RTD" 100 "DRIVING" 240 "FAULT" 250 "SHUTDOWN" ;
+VAL_ 2286157824 ECU_FaultCode 0 "NONE" 257 "BOARD_OUTPUT_INIT" 258 "BOARD_ADC" 259 "BOARD_EEPROM" 260 "BOARD_CAN" 512 "OUTPUT_CRITICAL" 768 "BMU_TIMEOUT" 769 "BMU_SHUTDOWN" 770 "BMU_PRECHARGE_TIMEOUT" 771 "BMU_HV_FAULT" 772 "BMU_TEMP_FAULT" 773 "BMU_ISOLATION" 774 "BMU_CONTACTOR" 775 "BMU_STATE_UNEXPECTED" 1024 "INV_FAULT" 1040 "INV_TIMEOUT" 1056 "INV_ENERGISE_TIMEOUT" 1057 "INV_ENABLE_FAIL" 1280 "PEDAL_APPS" 1281 "PEDAL_BSE" 1282 "PEDAL_BRAKE_APPS" 1283 "PEDAL_UNCALIBRATED" 1536 "SAFETY_SHDN_OPEN" 1537 "SAFETY_SHDN_TIMEOUT" 1538 "SAFETY_WATCHDOG" 2048 "COMM_CAN_A_BUSOFF" 2049 "COMM_CAN_B_BUSOFF" ;
+VAL_ 2286157824 ECU_FaultSeverity 0 "NONE" 1 "WARNING" 2 "CRITICAL" 3 "FATAL" ;
+VAL_ 2298740736 SHDN_LoopClosed 0 "OPEN" 1 "CLOSED" ;
+VAL_ 2298740736 SHDN_FirstOpen 0 "NONE" ;
+VAL_ 2418327552 BMU_State 0 "START" 1 "INIT_PERIPHERAL" 2 "INIT_CMU" 3 "CHECK_CMU_GPIO" 4 "CHECK_SENDYNE" 5 "CHECK_BOARD" 6 "READY" 7 "PRECHARGE" 8 "TS_ACTIVE" 13 "TRIG_SHDN" 15 "SHUTDOWN" 22 "CHRG_CHECK_BOARD" 23 "CHRG_READY" 24 "CHRG_PRECHARGE" 25 "CHRG_TS_ACTIVE" 26 "CHRG_FAIL" 255 "ERROR" ;
+VAL_ 2420637952 ECU_InvLState 0 "NOT_READY" 1 "SHUTDOWN" 2 "PRECHARGE" 3 "ENERGISED" 4 "ENABLED" 5 "FAULT" ;
+VAL_ 2420637952 ECU_InvRState 0 "NOT_READY" 1 "SHUTDOWN" 2 "PRECHARGE" 3 "ENERGISED" 4 "ENABLED" 5 "FAULT" ;
+VAL_ 2420638016 ECU_CanALec 0 "NONE" 1 "STUFF" 2 "FORM" 3 "ACK" 4 "BIT1" 5 "BIT0" 6 "CRC" 7 "NO_CHANGE" ;
+VAL_ 2420638016 ECU_CanBLec 0 "NONE" 1 "STUFF" 2 "FORM" 3 "ACK" 4 "BIT1" 5 "BIT0" 6 "CRC" 7 "NO_CHANGE" ;
+VAL_ 2420638016 ECU_CanAProbe 0 "NOT_RUN" 1 "SILENT" 2 "HEARD" 3 "ERRORS" ;
+VAL_ 2420638016 ECU_CanBProbe 0 "NOT_RUN" 1 "SILENT" 2 "HEARD" 3 "ERRORS" ;

@@ -1,4 +1,4 @@
-"""Lints every DBC here and writes out/: merged bus DBCs, MoTeC imports, the spreadsheet and the board C.
+"""Lints every DBC here and writes out/: merged bus DBCs, the MoTeC import, the spreadsheet and the board C.
 
     python tools/build.py            lint, then write out/
     python tools/build.py --check    lint only, non-zero exit on errors
@@ -29,6 +29,10 @@ VENDOR = ("vendor/",)
 COMBOS = [("bmu_comp25", "inv_dti"), ("bmu_qev6", "inv_dti"), ("bmu_comp25", "inv_sevcon"), ("bmu_qev6", "inv_sevcon")]
 MOTEC_RES = (1, 0.1, 0.01, 0.001)  # channel resolutions a scale may land on
 MOTEC_CAN_BUDGET = 200  # of the C125's ~300, leaving room for its own pots, wheel speeds and maths
+# both BMU firmwares log to the same channel names so the dash maths doesn't care, which means
+# only one fits in the import. Swap after comp
+MOTEC_BMU = "bmu_comp25"
+MOTEC_PORT = {"A": "CAN1", "B": "CAN2"}
 
 
 class Rec:
@@ -249,6 +253,19 @@ def check(recs, lint):
         if len(seen) > MOTEC_CAN_BUDGET:
             lint.warn("MoTeC", f"{len(seen)} CAN channels for {'+'.join(combo)}: the C125 takes 'over 300' all up, "
                                f"including its own inputs and maths, so keep CAN under {MOTEC_CAN_BUDGET}")
+    seen = {}
+    for r in motec_import(recs):
+        for c in motec_channels(r):
+            if c.name in seen and seen[c.name] != r.m.name:
+                lint.err(c.name, f"MoTeC channel name used by {seen[c.name]} and {r.m.name} in qev6_motec.dbc")
+            seen[c.name] = r.m.name
+
+
+def motec_import(recs):
+    """Everything the C125 could log off either bus, one file. Both inverter options are in, they don't clash."""
+    order = lambda r: (r.bus, r.m.is_extended_frame, r.m.frame_id)
+    return sorted((r for r in recs if r.motec and r.status != "Legacy" and
+                   (r.variant in ("", MOTEC_BMU) or r.variant.startswith("inv_"))), key=order)
 
 
 def bitset(c):
@@ -306,37 +323,28 @@ def to_msg(r, signals=None, motec_only=False):
                comment="" if motec_only else (r.m.comment or ""))
 
 
-def motec_msg(r):
+def motec_msg(r, name=None):
     """What the C125 imports: logged channels only, flag groups as words with the bit map in the comment."""
     sigs = [Sig(c.name, c.start, c.length, le=c.byte_order == "little_endian", signed=c.is_signed,
                 factor=c.scale, offset=c.offset, lo=c.minimum, hi=c.maximum, unit=c.unit,
                 values={int(k): str(v) for k, v in c.choices.items()},
                 comment=", ".join(f"b{b} {n}" for b, n in c.bits) if c.bits else "")
             for c in motec_channels(r)]
-    return Msg(r.m.name, r.m.frame_id, r.m.length, r.sender, sigs, ext=r.m.is_extended_frame,
+    return Msg(name or r.m.name, r.m.frame_id, r.m.length, r.sender, sigs, ext=r.m.is_extended_frame,
                cycle_ms=r.cycle, send_type=r.send_type, motec=True)
 
 
-def write_outputs(recs, nodes, lint):
-    os.makedirs(os.path.join(OUT, "motec"), exist_ok=True)
+def write_outputs(recs, nodes):
     order = lambda r: (r.m.is_extended_frame, r.m.frame_id)
     for bus in BUS_FILES:
         rs = sorted((r for r in recs if r.bus == bus), key=order)
         with open(os.path.join(OUT, f"qev6_can_{bus.lower()}.dbc"), "w", encoding="utf-8", newline="\n") as f:
             f.write(render([to_msg(r) for r in rs], nodes[bus], db_name=f"qev6_can_{bus.lower()}"))
-    exports = []
-    for bus in BUS_FILES:
-        combos = COMBOS if any(r.variant for r in recs if r.bus == bus) else [("",)]
-        for combo in combos:
-            rs = sorted((r for r in recs if r.bus == bus and r.motec and r.on_bus(combo)), key=order)
-            tag = "_".join(c for c in combo if c)
-            name = f"qev6_can_{bus.lower()}{'_' + tag if tag else ''}_motec.dbc"
-            msgs = [motec_msg(r) for r in rs]
-            used = sorted({n for m in msgs for n in [m.sender] if n})
-            with open(os.path.join(OUT, "motec", name), "w", encoding="utf-8", newline="\n") as f:
-                f.write(render(msgs, used, db_name=name[:-4]))
-            exports.append((bus, combo, name, rs))
-    return exports
+    # the same file goes on both ports, the CAN1_/CAN2_ on the front says which one keeps it
+    msgs = [motec_msg(r, f"{MOTEC_PORT[r.bus]}_{r.m.name}") for r in motec_import(recs)]
+    used = sorted({m.sender for m in msgs if m.sender})
+    with open(os.path.join(OUT, "qev6_motec.dbc"), "w", encoding="utf-8", newline="\n") as f:
+        f.write(render(msgs, used, db_name="qev6_motec"))
 
 
 def write_xlsx(recs):
@@ -522,7 +530,7 @@ def main():
     print(f"{len(recs)} messages, {len(lint.errors)} errors, {len(lint.items) - len(lint.errors)} warnings")
     if a.check:
         sys.exit(1 if lint.errors else 0)
-    exports = write_outputs(recs, nodes, lint)
+    write_outputs(recs, nodes)
     write_xlsx(recs)
     if not lint.errors:
         import gen_c
