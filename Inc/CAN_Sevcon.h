@@ -2,7 +2,7 @@
  * CAN_Sevcon.h
  *
  *  Created on: Nov 18, 2023
- *      Author: Calvin
+ * 
  */
 
 #ifndef INC_CAN_SEVCON_H_

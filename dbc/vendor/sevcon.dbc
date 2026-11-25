@@ -1,0 +1,284 @@
+VERSION ""
+
+
+NS_ :
+	CM_
+	BA_DEF_
+	BA_
+	VAL_
+	BA_DEF_DEF_
+
+BS_:
+
+BU_: ECU SEVCON_L SEVCON_R C125 LOGGER
+
+
+BO_ 2165338473 Sevcon_1_HC1: 8 ECU
+ SG_ Sevcon_1_TorqueDemand : 0|16@1- (0.0625,0) [-2048|2047.9375] "Nm" SEVCON_L
+ SG_ Sevcon_1_ControlWord : 16|16@1+ (1,0) [0|65535] "" SEVCON_L
+ SG_ Sevcon_1_TorqueLimit : 32|16@1- (0.0625,0) [-2048|2047.9375] "Nm" SEVCON_L
+
+BO_ 2165404009 Sevcon_1_HC2: 8 ECU
+ SG_ Sevcon_1_RegenTorqueLimit : 0|16@1- (0.0625,0) [-2048|2047.9375] "Nm" SEVCON_L
+ SG_ Sevcon_1_FwdSpeedLimit : 16|16@1+ (1,0) [0|65535] "RPM" SEVCON_L
+ SG_ Sevcon_1_RevSpeedLimit : 32|16@1- (1,0) [-32768|32767] "RPM" SEVCON_L
+
+BO_ 2165469545 Sevcon_1_HC3: 8 ECU
+ SG_ Sevcon_1_DischargeLimit : 0|16@1- (1,0) [-32768|32767] "A" SEVCON_L
+ SG_ Sevcon_1_ChargeLimit : 16|16@1- (1,0) [-32768|32767] "A" SEVCON_L
+ SG_ Sevcon_1_TargetCapVoltage : 32|16@1- (1,0) [-32768|32767] "V" SEVCON_L
+
+BO_ 2165338729 Sevcon_2_HC1: 8 ECU
+ SG_ Sevcon_2_TorqueDemand : 0|16@1- (0.0625,0) [-2048|2047.9375] "Nm" SEVCON_R
+ SG_ Sevcon_2_ControlWord : 16|16@1+ (1,0) [0|65535] "" SEVCON_R
+ SG_ Sevcon_2_TorqueLimit : 32|16@1- (0.0625,0) [-2048|2047.9375] "Nm" SEVCON_R
+
+BO_ 2165404265 Sevcon_2_HC2: 8 ECU
+ SG_ Sevcon_2_RegenTorqueLimit : 0|16@1- (0.0625,0) [-2048|2047.9375] "Nm" SEVCON_R
+ SG_ Sevcon_2_FwdSpeedLimit : 16|16@1+ (1,0) [0|65535] "RPM" SEVCON_R
+ SG_ Sevcon_2_RevSpeedLimit : 32|16@1- (1,0) [-32768|32767] "RPM" SEVCON_R
+
+BO_ 2165469801 Sevcon_2_HC3: 8 ECU
+ SG_ Sevcon_2_DischargeLimit : 0|16@1- (1,0) [-32768|32767] "A" SEVCON_R
+ SG_ Sevcon_2_ChargeLimit : 16|16@1- (1,0) [-32768|32767] "A" SEVCON_R
+ SG_ Sevcon_2_TargetCapVoltage : 32|16@1- (1,0) [-32768|32767] "V" SEVCON_R
+
+BO_ 2568552305 Sevcon_1_HS1: 8 SEVCON_L
+ SG_ Sevcon_1_OutputTorque : 0|16@1- (0.0625,0) [-2048|2047.9375] "Nm" ECU,C125
+ SG_ Sevcon_1_Speed : 16|16@1- (1,0) [-32768|32767] "RPM" ECU,C125
+ SG_ Sevcon_1_BatteryCurrent : 32|16@1- (1,0) [-32768|32767] "A" ECU,C125
+
+BO_ 2568617841 Sevcon_1_HS2: 8 SEVCON_L
+ SG_ Sevcon_1_AvailFwdTorque : 0|16@1- (0.0625,0) [-2048|2047.9375] "Nm" ECU,C125
+ SG_ Sevcon_1_AvailRevTorque : 16|16@1- (0.0625,0) [-2048|2047.9375] "Nm" ECU,C125
+ SG_ Sevcon_1_StatusWord : 32|16@1+ (1,0) [0|65535] "" ECU,C125
+
+BO_ 2568683377 Sevcon_1_HS3: 8 SEVCON_L
+ SG_ Sevcon_1_HeatSinkTemp : 0|16@1- (1,0) [-32768|32767] "degC" ECU,C125
+ SG_ Sevcon_1_RemainingTemp : 16|16@1- (1,0) [-32768|32767] "degC" ECU,C125
+ SG_ Sevcon_1_CapVoltage : 32|16@1- (0.0625,0) [-2048|2047.9375] "V" ECU,C125
+
+BO_ 2568748913 Sevcon_1_HS4: 8 SEVCON_L
+ SG_ Sevcon_1_FaultCode : 0|16@1+ (1,0) [0|65535] "" LOGGER
+ SG_ Sevcon_1_DebugBytes : 16|32@1+ (1,0) [0|4294967295] "" LOGGER
+
+BO_ 2568814449 Sevcon_1_HS5: 8 SEVCON_L
+ SG_ Sevcon_1_EncoderAngle : 0|32@1- (0.00001525,0) [-32749.125632|32749.12561675] "" LOGGER
+
+BO_ 2568552306 Sevcon_2_HS1: 8 SEVCON_R
+ SG_ Sevcon_2_OutputTorque : 0|16@1- (0.0625,0) [-2048|2047.9375] "Nm" ECU,C125
+ SG_ Sevcon_2_Speed : 16|16@1- (1,0) [-32768|32767] "RPM" ECU,C125
+ SG_ Sevcon_2_BatteryCurrent : 32|16@1- (1,0) [-32768|32767] "A" ECU,C125
+
+BO_ 2568617842 Sevcon_2_HS2: 8 SEVCON_R
+ SG_ Sevcon_2_AvailFwdTorque : 0|16@1- (0.0625,0) [-2048|2047.9375] "Nm" ECU,C125
+ SG_ Sevcon_2_AvailRevTorque : 16|16@1- (0.0625,0) [-2048|2047.9375] "Nm" ECU,C125
+ SG_ Sevcon_2_StatusWord : 32|16@1+ (1,0) [0|65535] "" ECU,C125
+
+BO_ 2568683378 Sevcon_2_HS3: 8 SEVCON_R
+ SG_ Sevcon_2_HeatSinkTemp : 0|16@1- (1,0) [-32768|32767] "degC" ECU,C125
+ SG_ Sevcon_2_RemainingTemp : 16|16@1- (1,0) [-32768|32767] "degC" ECU,C125
+ SG_ Sevcon_2_CapVoltage : 32|16@1- (0.0625,0) [-2048|2047.9375] "V" ECU,C125
+
+BO_ 2568748914 Sevcon_2_HS4: 8 SEVCON_R
+ SG_ Sevcon_2_FaultCode : 0|16@1+ (1,0) [0|65535] "" LOGGER
+ SG_ Sevcon_2_DebugBytes : 16|32@1+ (1,0) [0|4294967295] "" LOGGER
+
+BO_ 2568814450 Sevcon_2_HS5: 8 SEVCON_R
+ SG_ Sevcon_2_EncoderAngle : 0|32@1+ (0.00001525,0) [0|65498.25124875] "" LOGGER
+
+BO_ 2569600881 Sevcon_1_HD1: 8 SEVCON_L
+ SG_ Sevcon_1_IdActual : 0|16@1- (0.0625,0) [-2048|2047.9375] "A" LOGGER
+ SG_ Sevcon_1_IqActual : 16|16@1- (0.0625,0) [-2048|2047.9375] "A" LOGGER
+ SG_ Sevcon_1_IdRef : 32|16@1- (0.0625,0) [-2048|2047.9375] "A" LOGGER
+ SG_ Sevcon_1_IqRef : 48|16@1- (0.0625,0) [-2048|2047.9375] "A" LOGGER
+
+BO_ 2569666417 Sevcon_1_HD2: 8 SEVCON_L
+ SG_ Sevcon_1_Ud : 0|16@1- (0.0625,0) [-2048|2047.9375] "V" LOGGER
+ SG_ Sevcon_1_Uq : 16|16@1- (0.0625,0) [-2048|2047.9375] "V" LOGGER
+ SG_ Sevcon_1_ModIndex : 32|16@1+ (0.0030517578,0) [0|199.9969482422] "%" LOGGER
+ SG_ Sevcon_1_TargetTorque : 48|16@1- (0.0625,0) [-2048|2047.9375] "Nm" LOGGER
+
+BO_ 2569731953 Sevcon_1_HD3: 8 SEVCON_L
+ SG_ Sevcon_1_Junction0Temp : 0|8@1+ (1,0) [0|255] "degC" LOGGER
+ SG_ Sevcon_1_Junction1Temp : 8|8@1+ (1,0) [0|255] "degC" LOGGER
+ SG_ Sevcon_1_Junction2Temp : 16|8@1+ (1,0) [0|255] "degC" LOGGER
+ SG_ Sevcon_1_Junction3Temp : 24|8@1+ (1,0) [0|255] "degC" LOGGER
+ SG_ Sevcon_1_Junction4Temp : 32|8@1+ (1,0) [0|255] "degC" LOGGER
+ SG_ Sevcon_1_Junction5Temp : 40|8@1+ (1,0) [0|255] "degC" LOGGER
+ SG_ Sevcon_1_EstMotorTemp : 48|8@1+ (1,0) [0|255] "degC" LOGGER
+ SG_ Sevcon_1_MotorTemp : 56|8@1+ (1,0) [0|255] "degC" LOGGER
+
+BO_ 2569797489 Sevcon_1_HD4: 8 SEVCON_L
+ SG_ Sevcon_1_FastCapTemp : 0|8@1+ (1,0) [0|255] "" LOGGER
+ SG_ Sevcon_1_TrackTemp : 8|8@1+ (1,0) [0|255] "degC" LOGGER
+ SG_ Sevcon_1_SlowCapTemp : 16|8@1+ (1,0) [0|255] "degC" LOGGER
+ SG_ Sevcon_1_HeatsinkTemp : 24|8@1+ (1,0) [0|255] "degC" LOGGER
+ SG_ Sevcon_1_DeltaTj : 32|8@1+ (1,0) [0|255] "degC" LOGGER
+ SG_ Sevcon_1_OverallTemp : 40|8@1+ (1,0) [0|255] "degC" LOGGER
+ SG_ Sevcon_1_CoolantTemp : 48|8@1+ (1,0) [0|255] "degC" LOGGER
+ SG_ Sevcon_1_WindingTemp : 56|8@1+ (1,0) [0|255] "degC" LOGGER
+
+BO_ 2569863025 Sevcon_1_HD5: 8 SEVCON_L
+ SG_ Sevcon_1_MaxFlux : 0|16@1- (1,0) [-32768|32767] "A" LOGGER
+ SG_ Sevcon_1_IvLim : 16|16@1- (1,0) [-32768|32767] "A" LOGGER
+ SG_ Sevcon_1_IqMax : 32|16@1- (1,0) [-32768|32767] "A" LOGGER
+ SG_ Sevcon_1_Ls : 48|16@1+ (0.059604645,0) [0|3906.1904087643] "uH" LOGGER
+
+BO_ 2569600882 Sevcon_2_HD1: 8 SEVCON_R
+ SG_ Sevcon_2_IdActual : 0|16@1- (0.0625,0) [-2048|2047.9375] "A" LOGGER
+ SG_ Sevcon_2_IqActual : 16|16@1- (0.0625,0) [-2048|2047.9375] "A" LOGGER
+ SG_ Sevcon_2_IdRef : 32|16@1- (0.0625,0) [-2048|2047.9375] "A" LOGGER
+ SG_ Sevcon_2_IqRef : 48|16@1- (0.0625,0) [-2048|2047.9375] "A" LOGGER
+
+BO_ 2569666418 Sevcon_2_HD2: 8 SEVCON_R
+ SG_ Sevcon_2_Ud : 0|16@1- (0.0625,0) [-2048|2047.9375] "V" LOGGER
+ SG_ Sevcon_2_Uq : 16|16@1- (0.0625,0) [-2048|2047.9375] "V" LOGGER
+ SG_ Sevcon_2_ModIndex : 32|16@1+ (0.0030517578,0) [0|199.9969482422] "%" LOGGER
+ SG_ Sevcon_2_TargetTorque : 48|16@1- (0.0625,0) [-2048|2047.9375] "Nm" LOGGER
+
+BO_ 2569731954 Sevcon_2_HD3: 8 SEVCON_R
+ SG_ Sevcon_2_Junction0Temp : 0|8@1+ (1,0) [0|255] "degC" LOGGER
+ SG_ Sevcon_2_Junction1Temp : 8|8@1+ (1,0) [0|255] "degC" LOGGER
+ SG_ Sevcon_2_Junction2Temp : 16|8@1+ (1,0) [0|255] "degC" LOGGER
+ SG_ Sevcon_2_Junction3Temp : 24|8@1+ (1,0) [0|255] "degC" LOGGER
+ SG_ Sevcon_2_Junction4Temp : 32|8@1+ (1,0) [0|255] "degC" LOGGER
+ SG_ Sevcon_2_Junction5Temp : 40|8@1+ (1,0) [0|255] "degC" LOGGER
+ SG_ Sevcon_2_EstMotorTemp : 48|8@1+ (1,0) [0|255] "degC" LOGGER
+ SG_ Sevcon_2_MotorTemp : 56|8@1+ (1,0) [0|255] "degC" LOGGER
+
+BO_ 2569797490 Sevcon_2_HD4: 8 SEVCON_R
+ SG_ Sevcon_2_FastCapTemp : 0|8@1+ (1,0) [0|255] "" LOGGER
+ SG_ Sevcon_2_TrackTemp : 8|8@1+ (1,0) [0|255] "degC" LOGGER
+ SG_ Sevcon_2_SlowCapTemp : 16|8@1+ (1,0) [0|255] "degC" LOGGER
+ SG_ Sevcon_2_HeatsinkTemp : 24|8@1+ (1,0) [0|255] "degC" LOGGER
+ SG_ Sevcon_2_DeltaTj : 32|8@1+ (1,0) [0|255] "degC" LOGGER
+ SG_ Sevcon_2_OverallTemp : 40|8@1+ (1,0) [0|255] "degC" LOGGER
+ SG_ Sevcon_2_CoolantTemp : 48|8@1+ (1,0) [0|255] "degC" LOGGER
+ SG_ Sevcon_2_WindingTemp : 56|8@1+ (1,0) [0|255] "degC" LOGGER
+
+BO_ 2569863026 Sevcon_2_HD5: 8 SEVCON_R
+ SG_ Sevcon_2_MaxFlux : 0|16@1- (1,0) [-32768|32767] "A" LOGGER
+ SG_ Sevcon_2_IvLim : 16|16@1- (1,0) [-32768|32767] "A" LOGGER
+ SG_ Sevcon_2_IqMax : 32|16@1- (1,0) [-32768|32767] "A" LOGGER
+ SG_ Sevcon_2_Ls : 48|16@1+ (0.059604645,0) [0|3906.1904087643] "uH" LOGGER
+
+
+BA_DEF_  "BusType" STRING ;
+BA_DEF_  "DBName" STRING ;
+BA_DEF_ BO_  "GenMsgCycleTime" INT 0 65535;
+BA_DEF_ BO_  "SendType" STRING;
+BA_DEF_ BO_  "RxTimeoutMs" INT 0 65535;
+BA_DEF_ BO_  "MoTeC" STRING;
+BA_DEF_ SG_  "MoTeCLog" STRING;
+BA_DEF_ SG_  "MoTeCGroup" STRING;
+BA_DEF_ BO_  "Status" STRING;
+BA_DEF_ BO_  "Variant" STRING;
+BA_DEF_ BO_  "VFrameFormat" ENUM "StandardCAN","ExtendedCAN";
+BA_DEF_DEF_  "BusType" "CAN";
+BA_DEF_DEF_  "DBName" "";
+BA_DEF_DEF_  "GenMsgCycleTime" 0;
+BA_DEF_DEF_  "SendType" "Cyclic";
+BA_DEF_DEF_  "RxTimeoutMs" 0;
+BA_DEF_DEF_  "MoTeC" "No";
+BA_DEF_DEF_  "MoTeCLog" "";
+BA_DEF_DEF_  "MoTeCGroup" "";
+BA_DEF_DEF_  "Status" "Current";
+BA_DEF_DEF_  "Variant" "";
+BA_DEF_DEF_  "VFrameFormat" "StandardCAN";
+BA_ "BusType" "CAN";
+BA_ "DBName" "sevcon";
+BA_ "GenMsgCycleTime" BO_ 2165338473 10;
+BA_ "Variant" BO_ 2165338473 "inv_sevcon";
+BA_ "VFrameFormat" BO_ 2165338473 1;
+BA_ "GenMsgCycleTime" BO_ 2165404009 10;
+BA_ "Variant" BO_ 2165404009 "inv_sevcon";
+BA_ "VFrameFormat" BO_ 2165404009 1;
+BA_ "GenMsgCycleTime" BO_ 2165469545 10;
+BA_ "Variant" BO_ 2165469545 "inv_sevcon";
+BA_ "VFrameFormat" BO_ 2165469545 1;
+BA_ "GenMsgCycleTime" BO_ 2165338729 10;
+BA_ "Variant" BO_ 2165338729 "inv_sevcon";
+BA_ "VFrameFormat" BO_ 2165338729 1;
+BA_ "GenMsgCycleTime" BO_ 2165404265 10;
+BA_ "Variant" BO_ 2165404265 "inv_sevcon";
+BA_ "VFrameFormat" BO_ 2165404265 1;
+BA_ "GenMsgCycleTime" BO_ 2165469801 10;
+BA_ "Variant" BO_ 2165469801 "inv_sevcon";
+BA_ "VFrameFormat" BO_ 2165469801 1;
+BA_ "GenMsgCycleTime" BO_ 2568552305 10;
+BA_ "RxTimeoutMs" BO_ 2568552305 3000;
+BA_ "MoTeC" BO_ 2568552305 "Yes";
+BA_ "Variant" BO_ 2568552305 "inv_sevcon";
+BA_ "VFrameFormat" BO_ 2568552305 1;
+BA_ "GenMsgCycleTime" BO_ 2568617841 10;
+BA_ "RxTimeoutMs" BO_ 2568617841 3000;
+BA_ "MoTeC" BO_ 2568617841 "Yes";
+BA_ "Variant" BO_ 2568617841 "inv_sevcon";
+BA_ "VFrameFormat" BO_ 2568617841 1;
+BA_ "GenMsgCycleTime" BO_ 2568683377 10;
+BA_ "RxTimeoutMs" BO_ 2568683377 3000;
+BA_ "MoTeC" BO_ 2568683377 "Yes";
+BA_ "Variant" BO_ 2568683377 "inv_sevcon";
+BA_ "VFrameFormat" BO_ 2568683377 1;
+BA_ "GenMsgCycleTime" BO_ 2568748913 100;
+BA_ "RxTimeoutMs" BO_ 2568748913 3000;
+BA_ "Variant" BO_ 2568748913 "inv_sevcon";
+BA_ "VFrameFormat" BO_ 2568748913 1;
+BA_ "GenMsgCycleTime" BO_ 2568814449 100;
+BA_ "RxTimeoutMs" BO_ 2568814449 3000;
+BA_ "Variant" BO_ 2568814449 "inv_sevcon";
+BA_ "VFrameFormat" BO_ 2568814449 1;
+BA_ "GenMsgCycleTime" BO_ 2568552306 10;
+BA_ "RxTimeoutMs" BO_ 2568552306 3000;
+BA_ "MoTeC" BO_ 2568552306 "Yes";
+BA_ "Variant" BO_ 2568552306 "inv_sevcon";
+BA_ "VFrameFormat" BO_ 2568552306 1;
+BA_ "GenMsgCycleTime" BO_ 2568617842 10;
+BA_ "RxTimeoutMs" BO_ 2568617842 3000;
+BA_ "MoTeC" BO_ 2568617842 "Yes";
+BA_ "Variant" BO_ 2568617842 "inv_sevcon";
+BA_ "VFrameFormat" BO_ 2568617842 1;
+BA_ "GenMsgCycleTime" BO_ 2568683378 10;
+BA_ "RxTimeoutMs" BO_ 2568683378 3000;
+BA_ "MoTeC" BO_ 2568683378 "Yes";
+BA_ "Variant" BO_ 2568683378 "inv_sevcon";
+BA_ "VFrameFormat" BO_ 2568683378 1;
+BA_ "GenMsgCycleTime" BO_ 2568748914 100;
+BA_ "RxTimeoutMs" BO_ 2568748914 3000;
+BA_ "Variant" BO_ 2568748914 "inv_sevcon";
+BA_ "VFrameFormat" BO_ 2568748914 1;
+BA_ "GenMsgCycleTime" BO_ 2568814450 100;
+BA_ "RxTimeoutMs" BO_ 2568814450 3000;
+BA_ "Variant" BO_ 2568814450 "inv_sevcon";
+BA_ "VFrameFormat" BO_ 2568814450 1;
+BA_ "SendType" BO_ 2569600881 "Event";
+BA_ "Variant" BO_ 2569600881 "inv_sevcon";
+BA_ "VFrameFormat" BO_ 2569600881 1;
+BA_ "SendType" BO_ 2569666417 "Event";
+BA_ "Variant" BO_ 2569666417 "inv_sevcon";
+BA_ "VFrameFormat" BO_ 2569666417 1;
+BA_ "SendType" BO_ 2569731953 "Event";
+BA_ "Variant" BO_ 2569731953 "inv_sevcon";
+BA_ "VFrameFormat" BO_ 2569731953 1;
+BA_ "SendType" BO_ 2569797489 "Event";
+BA_ "Variant" BO_ 2569797489 "inv_sevcon";
+BA_ "VFrameFormat" BO_ 2569797489 1;
+BA_ "SendType" BO_ 2569863025 "Event";
+BA_ "Variant" BO_ 2569863025 "inv_sevcon";
+BA_ "VFrameFormat" BO_ 2569863025 1;
+BA_ "SendType" BO_ 2569600882 "Event";
+BA_ "Variant" BO_ 2569600882 "inv_sevcon";
+BA_ "VFrameFormat" BO_ 2569600882 1;
+BA_ "SendType" BO_ 2569666418 "Event";
+BA_ "Variant" BO_ 2569666418 "inv_sevcon";
+BA_ "VFrameFormat" BO_ 2569666418 1;
+BA_ "SendType" BO_ 2569731954 "Event";
+BA_ "Variant" BO_ 2569731954 "inv_sevcon";
+BA_ "VFrameFormat" BO_ 2569731954 1;
+BA_ "SendType" BO_ 2569797490 "Event";
+BA_ "Variant" BO_ 2569797490 "inv_sevcon";
+BA_ "VFrameFormat" BO_ 2569797490 1;
+BA_ "SendType" BO_ 2569863026 "Event";
+BA_ "Variant" BO_ 2569863026 "inv_sevcon";
+BA_ "VFrameFormat" BO_ 2569863026 1;

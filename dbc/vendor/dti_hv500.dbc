@@ -1,0 +1,388 @@
+VERSION ""
+
+
+NS_ :
+	CM_
+	BA_DEF_
+	BA_
+	VAL_
+	BA_DEF_DEF_
+
+BS_:
+
+BU_: ECU DTI_L DTI_R C125
+
+
+BO_ 2147484988 DTI_L_SET_REL_CURRENT: 8 ECU
+ SG_ DTI_L_CmdRelCurrent : 7|16@0- (0.1,0) [-100|100] "%" DTI_L,C125
+
+BO_ 2147485244 DTI_L_SET_REL_BRAKE: 8 ECU
+ SG_ DTI_L_CmdRelBrake : 7|16@0- (0.1,0) [0|100] "%" DTI_L
+
+BO_ 2147485756 DTI_L_SET_MAX_AC_CURRENT: 8 ECU
+ SG_ DTI_L_CmdMaxAc : 7|16@0- (0.1,0) [-3276.8|3276.7] "A" DTI_L
+
+BO_ 2147486012 DTI_L_SET_MAX_AC_BRAKE: 8 ECU
+ SG_ DTI_L_CmdMaxAcBrake : 7|16@0- (0.1,0) [-3276.8|3276.7] "A" DTI_L
+
+BO_ 2147486268 DTI_L_SET_MAX_DC_CURRENT: 8 ECU
+ SG_ DTI_L_CmdMaxDc : 7|16@0- (0.1,0) [-3276.8|3276.7] "A" DTI_L
+
+BO_ 2147486524 DTI_L_SET_MAX_DC_BRAKE: 8 ECU
+ SG_ DTI_L_CmdMaxDcBrake : 7|16@0- (0.1,0) [-3276.8|3276.7] "A" DTI_L
+
+BO_ 2147486780 DTI_L_DRIVE_ENABLE: 8 ECU
+ SG_ DTI_L_CmdDriveEnable : 7|8@0+ (1,0) [0|255] "" DTI_L,C125
+
+BO_ 2147491644 DTI_L_CONTROL_MODE: 8 DTI_L
+ SG_ DTI_L_ControlMode : 7|8@0+ (1,0) [0|255] "" ECU
+ SG_ DTI_L_TargetIq : 15|16@0- (0.1,0) [-3276.8|3276.7] "A" ECU
+ SG_ DTI_L_MotorPosition : 31|16@0+ (0.1,0) [0|6553.5] "deg" ECU
+ SG_ DTI_L_MotorStill : 47|8@0+ (1,0) [0|255] "" ECU
+
+BO_ 2147491900 DTI_L_ERPM_DUTY_VIN: 8 DTI_L
+ SG_ DTI_L_Erpm : 7|32@0- (1,0) [-2147483648|2147483647] "rpm" ECU,C125
+ SG_ DTI_L_Duty : 39|16@0- (0.1,0) [-3276.8|3276.7] "%" ECU,C125
+ SG_ DTI_L_InputVoltage : 55|16@0- (1,0) [-32768|32767] "V" ECU,C125
+
+BO_ 2147492156 DTI_L_CURRENTS: 8 DTI_L
+ SG_ DTI_L_AcCurrent : 7|16@0- (0.1,0) [-3276.8|3276.7] "A" ECU,C125
+ SG_ DTI_L_DcCurrent : 23|16@0- (0.1,0) [-3276.8|3276.7] "A" ECU,C125
+
+BO_ 2147492412 DTI_L_TEMPS_FAULT: 8 DTI_L
+ SG_ DTI_L_CtrlTemp : 7|16@0- (0.1,0) [-3276.8|3276.7] "degC" ECU,C125
+ SG_ DTI_L_MotorTemp : 23|16@0- (0.1,0) [-3276.8|3276.7] "degC" ECU,C125
+ SG_ DTI_L_FaultCode : 39|8@0+ (1,0) [0|255] "" ECU,C125
+
+BO_ 2147492668 DTI_L_ID_IQ: 8 DTI_L
+ SG_ DTI_L_Id : 7|32@0- (0.01,0) [-21474836.4800000004|21474836.4699999988] "A" ECU
+ SG_ DTI_L_Iq : 39|32@0- (0.01,0) [-21474836.4800000004|21474836.4699999988] "A" ECU
+
+BO_ 2147492924 DTI_L_IO_STATUS: 8 DTI_L
+ SG_ DTI_L_Throttle : 7|8@0- (1,0) [-128|127] "%" ECU
+ SG_ DTI_L_Brake : 15|8@0- (1,0) [-128|127] "%" ECU
+ SG_ DTI_L_DigIn1 : 16|1@0+ (1,0) [0|1] "" ECU
+ SG_ DTI_L_DigIn2 : 17|1@0+ (1,0) [0|1] "" ECU
+ SG_ DTI_L_DigIn3 : 18|1@0+ (1,0) [0|1] "" ECU
+ SG_ DTI_L_DigIn4 : 19|1@0+ (1,0) [0|1] "" ECU
+ SG_ DTI_L_DigOut1 : 20|1@0+ (1,0) [0|1] "" ECU
+ SG_ DTI_L_DigOut2 : 21|1@0+ (1,0) [0|1] "" ECU
+ SG_ DTI_L_DigOut3 : 22|1@0+ (1,0) [0|1] "" ECU
+ SG_ DTI_L_DigOut4 : 23|1@0+ (1,0) [0|1] "" ECU
+ SG_ DTI_L_DriveEnabled : 31|8@0+ (1,0) [0|255] "" ECU,C125
+ SG_ DTI_L_LimCapTemp : 32|1@0+ (1,0) [0|1] "" ECU,C125
+ SG_ DTI_L_LimDcCurrent : 33|1@0+ (1,0) [0|1] "" ECU,C125
+ SG_ DTI_L_LimDriveEnable : 34|1@0+ (1,0) [0|1] "" ECU,C125
+ SG_ DTI_L_LimIgbtAccelTemp : 35|1@0+ (1,0) [0|1] "" ECU,C125
+ SG_ DTI_L_LimIgbtTemp : 36|1@0+ (1,0) [0|1] "" ECU,C125
+ SG_ DTI_L_LimInputVoltage : 37|1@0+ (1,0) [0|1] "" ECU,C125
+ SG_ DTI_L_LimMotorAccelTemp : 38|1@0+ (1,0) [0|1] "" ECU,C125
+ SG_ DTI_L_LimMotorTemp : 39|1@0+ (1,0) [0|1] "" ECU,C125
+ SG_ DTI_L_LimRpmMin : 40|1@0+ (1,0) [0|1] "" ECU,C125
+ SG_ DTI_L_LimRpmMax : 41|1@0+ (1,0) [0|1] "" ECU,C125
+ SG_ DTI_L_LimPower : 42|1@0+ (1,0) [0|1] "" ECU,C125
+ SG_ DTI_L_CanMapVersion : 63|8@0+ (0.1,0) [0|25.5] "" ECU
+
+BO_ 2147493180 DTI_L_AC_LIMITS: 8 DTI_L
+ SG_ DTI_L_MaxAc : 7|16@0- (0.1,0) [-3276.8|3276.7] "A" ECU
+ SG_ DTI_L_AvMaxAc : 23|16@0- (0.1,0) [-3276.8|3276.7] "A" ECU
+ SG_ DTI_L_MinAc : 39|16@0- (0.1,0) [-3276.8|3276.7] "A" ECU
+ SG_ DTI_L_AvMinAc : 55|16@0- (0.1,0) [-3276.8|3276.7] "A" ECU
+
+BO_ 2147493436 DTI_L_DC_LIMITS: 8 DTI_L
+ SG_ DTI_L_MaxDc : 7|16@0- (0.1,0) [-3276.8|3276.7] "A" ECU
+ SG_ DTI_L_AvMaxDc : 23|16@0- (0.1,0) [-3276.8|3276.7] "A" ECU
+ SG_ DTI_L_MinDc : 39|16@0- (0.1,0) [-3276.8|3276.7] "A" ECU
+ SG_ DTI_L_AvMinDc : 55|16@0- (0.1,0) [-3276.8|3276.7] "A" ECU
+
+BO_ 2147484989 DTI_R_SET_REL_CURRENT: 8 ECU
+ SG_ DTI_R_CmdRelCurrent : 7|16@0- (0.1,0) [-100|100] "%" DTI_R,C125
+
+BO_ 2147485245 DTI_R_SET_REL_BRAKE: 8 ECU
+ SG_ DTI_R_CmdRelBrake : 7|16@0- (0.1,0) [0|100] "%" DTI_R
+
+BO_ 2147485757 DTI_R_SET_MAX_AC_CURRENT: 8 ECU
+ SG_ DTI_R_CmdMaxAc : 7|16@0- (0.1,0) [-3276.8|3276.7] "A" DTI_R
+
+BO_ 2147486013 DTI_R_SET_MAX_AC_BRAKE: 8 ECU
+ SG_ DTI_R_CmdMaxAcBrake : 7|16@0- (0.1,0) [-3276.8|3276.7] "A" DTI_R
+
+BO_ 2147486269 DTI_R_SET_MAX_DC_CURRENT: 8 ECU
+ SG_ DTI_R_CmdMaxDc : 7|16@0- (0.1,0) [-3276.8|3276.7] "A" DTI_R
+
+BO_ 2147486525 DTI_R_SET_MAX_DC_BRAKE: 8 ECU
+ SG_ DTI_R_CmdMaxDcBrake : 7|16@0- (0.1,0) [-3276.8|3276.7] "A" DTI_R
+
+BO_ 2147486781 DTI_R_DRIVE_ENABLE: 8 ECU
+ SG_ DTI_R_CmdDriveEnable : 7|8@0+ (1,0) [0|255] "" DTI_R,C125
+
+BO_ 2147491645 DTI_R_CONTROL_MODE: 8 DTI_R
+ SG_ DTI_R_ControlMode : 7|8@0+ (1,0) [0|255] "" ECU
+ SG_ DTI_R_TargetIq : 15|16@0- (0.1,0) [-3276.8|3276.7] "A" ECU
+ SG_ DTI_R_MotorPosition : 31|16@0+ (0.1,0) [0|6553.5] "deg" ECU
+ SG_ DTI_R_MotorStill : 47|8@0+ (1,0) [0|255] "" ECU
+
+BO_ 2147491901 DTI_R_ERPM_DUTY_VIN: 8 DTI_R
+ SG_ DTI_R_Erpm : 7|32@0- (1,0) [-2147483648|2147483647] "rpm" ECU,C125
+ SG_ DTI_R_Duty : 39|16@0- (0.1,0) [-3276.8|3276.7] "%" ECU,C125
+ SG_ DTI_R_InputVoltage : 55|16@0- (1,0) [-32768|32767] "V" ECU,C125
+
+BO_ 2147492157 DTI_R_CURRENTS: 8 DTI_R
+ SG_ DTI_R_AcCurrent : 7|16@0- (0.1,0) [-3276.8|3276.7] "A" ECU,C125
+ SG_ DTI_R_DcCurrent : 23|16@0- (0.1,0) [-3276.8|3276.7] "A" ECU,C125
+
+BO_ 2147492413 DTI_R_TEMPS_FAULT: 8 DTI_R
+ SG_ DTI_R_CtrlTemp : 7|16@0- (0.1,0) [-3276.8|3276.7] "degC" ECU,C125
+ SG_ DTI_R_MotorTemp : 23|16@0- (0.1,0) [-3276.8|3276.7] "degC" ECU,C125
+ SG_ DTI_R_FaultCode : 39|8@0+ (1,0) [0|255] "" ECU,C125
+
+BO_ 2147492669 DTI_R_ID_IQ: 8 DTI_R
+ SG_ DTI_R_Id : 7|32@0- (0.01,0) [-21474836.4800000004|21474836.4699999988] "A" ECU
+ SG_ DTI_R_Iq : 39|32@0- (0.01,0) [-21474836.4800000004|21474836.4699999988] "A" ECU
+
+BO_ 2147492925 DTI_R_IO_STATUS: 8 DTI_R
+ SG_ DTI_R_Throttle : 7|8@0- (1,0) [-128|127] "%" ECU
+ SG_ DTI_R_Brake : 15|8@0- (1,0) [-128|127] "%" ECU
+ SG_ DTI_R_DigIn1 : 16|1@0+ (1,0) [0|1] "" ECU
+ SG_ DTI_R_DigIn2 : 17|1@0+ (1,0) [0|1] "" ECU
+ SG_ DTI_R_DigIn3 : 18|1@0+ (1,0) [0|1] "" ECU
+ SG_ DTI_R_DigIn4 : 19|1@0+ (1,0) [0|1] "" ECU
+ SG_ DTI_R_DigOut1 : 20|1@0+ (1,0) [0|1] "" ECU
+ SG_ DTI_R_DigOut2 : 21|1@0+ (1,0) [0|1] "" ECU
+ SG_ DTI_R_DigOut3 : 22|1@0+ (1,0) [0|1] "" ECU
+ SG_ DTI_R_DigOut4 : 23|1@0+ (1,0) [0|1] "" ECU
+ SG_ DTI_R_DriveEnabled : 31|8@0+ (1,0) [0|255] "" ECU,C125
+ SG_ DTI_R_LimCapTemp : 32|1@0+ (1,0) [0|1] "" ECU,C125
+ SG_ DTI_R_LimDcCurrent : 33|1@0+ (1,0) [0|1] "" ECU,C125
+ SG_ DTI_R_LimDriveEnable : 34|1@0+ (1,0) [0|1] "" ECU,C125
+ SG_ DTI_R_LimIgbtAccelTemp : 35|1@0+ (1,0) [0|1] "" ECU,C125
+ SG_ DTI_R_LimIgbtTemp : 36|1@0+ (1,0) [0|1] "" ECU,C125
+ SG_ DTI_R_LimInputVoltage : 37|1@0+ (1,0) [0|1] "" ECU,C125
+ SG_ DTI_R_LimMotorAccelTemp : 38|1@0+ (1,0) [0|1] "" ECU,C125
+ SG_ DTI_R_LimMotorTemp : 39|1@0+ (1,0) [0|1] "" ECU,C125
+ SG_ DTI_R_LimRpmMin : 40|1@0+ (1,0) [0|1] "" ECU,C125
+ SG_ DTI_R_LimRpmMax : 41|1@0+ (1,0) [0|1] "" ECU,C125
+ SG_ DTI_R_LimPower : 42|1@0+ (1,0) [0|1] "" ECU,C125
+ SG_ DTI_R_CanMapVersion : 63|8@0+ (0.1,0) [0|25.5] "" ECU
+
+BO_ 2147493181 DTI_R_AC_LIMITS: 8 DTI_R
+ SG_ DTI_R_MaxAc : 7|16@0- (0.1,0) [-3276.8|3276.7] "A" ECU
+ SG_ DTI_R_AvMaxAc : 23|16@0- (0.1,0) [-3276.8|3276.7] "A" ECU
+ SG_ DTI_R_MinAc : 39|16@0- (0.1,0) [-3276.8|3276.7] "A" ECU
+ SG_ DTI_R_AvMinAc : 55|16@0- (0.1,0) [-3276.8|3276.7] "A" ECU
+
+BO_ 2147493437 DTI_R_DC_LIMITS: 8 DTI_R
+ SG_ DTI_R_MaxDc : 7|16@0- (0.1,0) [-3276.8|3276.7] "A" ECU
+ SG_ DTI_R_AvMaxDc : 23|16@0- (0.1,0) [-3276.8|3276.7] "A" ECU
+ SG_ DTI_R_MinDc : 39|16@0- (0.1,0) [-3276.8|3276.7] "A" ECU
+ SG_ DTI_R_AvMinDc : 55|16@0- (0.1,0) [-3276.8|3276.7] "A" ECU
+
+
+CM_ BO_ 2147485244 "Regen's off for comp so MoTeC doesn't bother with it";
+CM_ SG_ 2147486012 DTI_L_CmdMaxAcBrake "Negative only";
+CM_ SG_ 2147486524 DTI_L_CmdMaxDcBrake "Negative only, the manual says % but it's A x10";
+CM_ BO_ 2147491644 "Leave it off unless something actually needs it";
+CM_ BO_ 2147491900 "Broadcast periods are whatever's set in the DTI CAN Tool, not us";
+CM_ SG_ 2147491900 DTI_L_Erpm "Electrical, divide by pole pairs for the motor";
+CM_ BO_ 2147485245 "Regen's off for comp so MoTeC doesn't bother with it";
+CM_ SG_ 2147486013 DTI_R_CmdMaxAcBrake "Negative only";
+CM_ SG_ 2147486525 DTI_R_CmdMaxDcBrake "Negative only, the manual says % but it's A x10";
+CM_ BO_ 2147491645 "Leave it off unless something actually needs it";
+CM_ BO_ 2147491901 "Broadcast periods are whatever's set in the DTI CAN Tool, not us";
+CM_ SG_ 2147491901 DTI_R_Erpm "Electrical, divide by pole pairs for the motor";
+BA_DEF_  "BusType" STRING ;
+BA_DEF_  "DBName" STRING ;
+BA_DEF_ BO_  "GenMsgCycleTime" INT 0 65535;
+BA_DEF_ BO_  "SendType" STRING;
+BA_DEF_ BO_  "RxTimeoutMs" INT 0 65535;
+BA_DEF_ BO_  "MoTeC" STRING;
+BA_DEF_ SG_  "MoTeCLog" STRING;
+BA_DEF_ SG_  "MoTeCGroup" STRING;
+BA_DEF_ BO_  "Status" STRING;
+BA_DEF_ BO_  "Variant" STRING;
+BA_DEF_ BO_  "VFrameFormat" ENUM "StandardCAN","ExtendedCAN";
+BA_DEF_DEF_  "BusType" "CAN";
+BA_DEF_DEF_  "DBName" "";
+BA_DEF_DEF_  "GenMsgCycleTime" 0;
+BA_DEF_DEF_  "SendType" "Cyclic";
+BA_DEF_DEF_  "RxTimeoutMs" 0;
+BA_DEF_DEF_  "MoTeC" "No";
+BA_DEF_DEF_  "MoTeCLog" "";
+BA_DEF_DEF_  "MoTeCGroup" "";
+BA_DEF_DEF_  "Status" "Current";
+BA_DEF_DEF_  "Variant" "";
+BA_DEF_DEF_  "VFrameFormat" "StandardCAN";
+BA_ "BusType" "CAN";
+BA_ "DBName" "dti_hv500";
+BA_ "GenMsgCycleTime" BO_ 2147484988 10;
+BA_ "MoTeC" BO_ 2147484988 "Yes";
+BA_ "Variant" BO_ 2147484988 "inv_dti";
+BA_ "VFrameFormat" BO_ 2147484988 1;
+BA_ "GenMsgCycleTime" BO_ 2147485244 10;
+BA_ "SendType" BO_ 2147485244 "Event";
+BA_ "Variant" BO_ 2147485244 "inv_dti";
+BA_ "VFrameFormat" BO_ 2147485244 1;
+BA_ "SendType" BO_ 2147485756 "Event";
+BA_ "Variant" BO_ 2147485756 "inv_dti";
+BA_ "VFrameFormat" BO_ 2147485756 1;
+BA_ "SendType" BO_ 2147486012 "Event";
+BA_ "Variant" BO_ 2147486012 "inv_dti";
+BA_ "VFrameFormat" BO_ 2147486012 1;
+BA_ "SendType" BO_ 2147486268 "Event";
+BA_ "Variant" BO_ 2147486268 "inv_dti";
+BA_ "VFrameFormat" BO_ 2147486268 1;
+BA_ "SendType" BO_ 2147486524 "Event";
+BA_ "Variant" BO_ 2147486524 "inv_dti";
+BA_ "VFrameFormat" BO_ 2147486524 1;
+BA_ "GenMsgCycleTime" BO_ 2147486780 100;
+BA_ "MoTeC" BO_ 2147486780 "Yes";
+BA_ "Variant" BO_ 2147486780 "inv_dti";
+BA_ "VFrameFormat" BO_ 2147486780 1;
+BA_ "SendType" BO_ 2147491644 "Event";
+BA_ "Variant" BO_ 2147491644 "inv_dti";
+BA_ "VFrameFormat" BO_ 2147491644 1;
+BA_ "GenMsgCycleTime" BO_ 2147491900 10;
+BA_ "RxTimeoutMs" BO_ 2147491900 500;
+BA_ "MoTeC" BO_ 2147491900 "Yes";
+BA_ "Variant" BO_ 2147491900 "inv_dti";
+BA_ "VFrameFormat" BO_ 2147491900 1;
+BA_ "GenMsgCycleTime" BO_ 2147492156 10;
+BA_ "RxTimeoutMs" BO_ 2147492156 500;
+BA_ "MoTeC" BO_ 2147492156 "Yes";
+BA_ "Variant" BO_ 2147492156 "inv_dti";
+BA_ "VFrameFormat" BO_ 2147492156 1;
+BA_ "GenMsgCycleTime" BO_ 2147492412 50;
+BA_ "RxTimeoutMs" BO_ 2147492412 500;
+BA_ "MoTeC" BO_ 2147492412 "Yes";
+BA_ "Variant" BO_ 2147492412 "inv_dti";
+BA_ "VFrameFormat" BO_ 2147492412 1;
+BA_ "GenMsgCycleTime" BO_ 2147492668 100;
+BA_ "RxTimeoutMs" BO_ 2147492668 500;
+BA_ "Variant" BO_ 2147492668 "inv_dti";
+BA_ "VFrameFormat" BO_ 2147492668 1;
+BA_ "GenMsgCycleTime" BO_ 2147492924 50;
+BA_ "RxTimeoutMs" BO_ 2147492924 500;
+BA_ "MoTeC" BO_ 2147492924 "Yes";
+BA_ "Variant" BO_ 2147492924 "inv_dti";
+BA_ "VFrameFormat" BO_ 2147492924 1;
+BA_ "MoTeCLog" SG_ 2147492924 DTI_L_Throttle "No";
+BA_ "MoTeCLog" SG_ 2147492924 DTI_L_Brake "No";
+BA_ "MoTeCLog" SG_ 2147492924 DTI_L_DigIn1 "No";
+BA_ "MoTeCLog" SG_ 2147492924 DTI_L_DigIn2 "No";
+BA_ "MoTeCLog" SG_ 2147492924 DTI_L_DigIn3 "No";
+BA_ "MoTeCLog" SG_ 2147492924 DTI_L_DigIn4 "No";
+BA_ "MoTeCLog" SG_ 2147492924 DTI_L_DigOut1 "No";
+BA_ "MoTeCLog" SG_ 2147492924 DTI_L_DigOut2 "No";
+BA_ "MoTeCLog" SG_ 2147492924 DTI_L_DigOut3 "No";
+BA_ "MoTeCLog" SG_ 2147492924 DTI_L_DigOut4 "No";
+BA_ "MoTeCGroup" SG_ 2147492924 DTI_L_LimCapTemp "DTI_L_Limits";
+BA_ "MoTeCGroup" SG_ 2147492924 DTI_L_LimDcCurrent "DTI_L_Limits";
+BA_ "MoTeCGroup" SG_ 2147492924 DTI_L_LimDriveEnable "DTI_L_Limits";
+BA_ "MoTeCGroup" SG_ 2147492924 DTI_L_LimIgbtAccelTemp "DTI_L_Limits";
+BA_ "MoTeCGroup" SG_ 2147492924 DTI_L_LimIgbtTemp "DTI_L_Limits";
+BA_ "MoTeCGroup" SG_ 2147492924 DTI_L_LimInputVoltage "DTI_L_Limits";
+BA_ "MoTeCGroup" SG_ 2147492924 DTI_L_LimMotorAccelTemp "DTI_L_Limits";
+BA_ "MoTeCGroup" SG_ 2147492924 DTI_L_LimMotorTemp "DTI_L_Limits";
+BA_ "MoTeCGroup" SG_ 2147492924 DTI_L_LimRpmMin "DTI_L_Limits";
+BA_ "MoTeCGroup" SG_ 2147492924 DTI_L_LimRpmMax "DTI_L_Limits";
+BA_ "MoTeCGroup" SG_ 2147492924 DTI_L_LimPower "DTI_L_Limits";
+BA_ "MoTeCLog" SG_ 2147492924 DTI_L_CanMapVersion "No";
+BA_ "GenMsgCycleTime" BO_ 2147493180 100;
+BA_ "RxTimeoutMs" BO_ 2147493180 500;
+BA_ "Variant" BO_ 2147493180 "inv_dti";
+BA_ "VFrameFormat" BO_ 2147493180 1;
+BA_ "GenMsgCycleTime" BO_ 2147493436 100;
+BA_ "RxTimeoutMs" BO_ 2147493436 500;
+BA_ "Variant" BO_ 2147493436 "inv_dti";
+BA_ "VFrameFormat" BO_ 2147493436 1;
+BA_ "GenMsgCycleTime" BO_ 2147484989 10;
+BA_ "MoTeC" BO_ 2147484989 "Yes";
+BA_ "Variant" BO_ 2147484989 "inv_dti";
+BA_ "VFrameFormat" BO_ 2147484989 1;
+BA_ "GenMsgCycleTime" BO_ 2147485245 10;
+BA_ "SendType" BO_ 2147485245 "Event";
+BA_ "Variant" BO_ 2147485245 "inv_dti";
+BA_ "VFrameFormat" BO_ 2147485245 1;
+BA_ "SendType" BO_ 2147485757 "Event";
+BA_ "Variant" BO_ 2147485757 "inv_dti";
+BA_ "VFrameFormat" BO_ 2147485757 1;
+BA_ "SendType" BO_ 2147486013 "Event";
+BA_ "Variant" BO_ 2147486013 "inv_dti";
+BA_ "VFrameFormat" BO_ 2147486013 1;
+BA_ "SendType" BO_ 2147486269 "Event";
+BA_ "Variant" BO_ 2147486269 "inv_dti";
+BA_ "VFrameFormat" BO_ 2147486269 1;
+BA_ "SendType" BO_ 2147486525 "Event";
+BA_ "Variant" BO_ 2147486525 "inv_dti";
+BA_ "VFrameFormat" BO_ 2147486525 1;
+BA_ "GenMsgCycleTime" BO_ 2147486781 100;
+BA_ "MoTeC" BO_ 2147486781 "Yes";
+BA_ "Variant" BO_ 2147486781 "inv_dti";
+BA_ "VFrameFormat" BO_ 2147486781 1;
+BA_ "SendType" BO_ 2147491645 "Event";
+BA_ "Variant" BO_ 2147491645 "inv_dti";
+BA_ "VFrameFormat" BO_ 2147491645 1;
+BA_ "GenMsgCycleTime" BO_ 2147491901 10;
+BA_ "RxTimeoutMs" BO_ 2147491901 500;
+BA_ "MoTeC" BO_ 2147491901 "Yes";
+BA_ "Variant" BO_ 2147491901 "inv_dti";
+BA_ "VFrameFormat" BO_ 2147491901 1;
+BA_ "GenMsgCycleTime" BO_ 2147492157 10;
+BA_ "RxTimeoutMs" BO_ 2147492157 500;
+BA_ "MoTeC" BO_ 2147492157 "Yes";
+BA_ "Variant" BO_ 2147492157 "inv_dti";
+BA_ "VFrameFormat" BO_ 2147492157 1;
+BA_ "GenMsgCycleTime" BO_ 2147492413 50;
+BA_ "RxTimeoutMs" BO_ 2147492413 500;
+BA_ "MoTeC" BO_ 2147492413 "Yes";
+BA_ "Variant" BO_ 2147492413 "inv_dti";
+BA_ "VFrameFormat" BO_ 2147492413 1;
+BA_ "GenMsgCycleTime" BO_ 2147492669 100;
+BA_ "RxTimeoutMs" BO_ 2147492669 500;
+BA_ "Variant" BO_ 2147492669 "inv_dti";
+BA_ "VFrameFormat" BO_ 2147492669 1;
+BA_ "GenMsgCycleTime" BO_ 2147492925 50;
+BA_ "RxTimeoutMs" BO_ 2147492925 500;
+BA_ "MoTeC" BO_ 2147492925 "Yes";
+BA_ "Variant" BO_ 2147492925 "inv_dti";
+BA_ "VFrameFormat" BO_ 2147492925 1;
+BA_ "MoTeCLog" SG_ 2147492925 DTI_R_Throttle "No";
+BA_ "MoTeCLog" SG_ 2147492925 DTI_R_Brake "No";
+BA_ "MoTeCLog" SG_ 2147492925 DTI_R_DigIn1 "No";
+BA_ "MoTeCLog" SG_ 2147492925 DTI_R_DigIn2 "No";
+BA_ "MoTeCLog" SG_ 2147492925 DTI_R_DigIn3 "No";
+BA_ "MoTeCLog" SG_ 2147492925 DTI_R_DigIn4 "No";
+BA_ "MoTeCLog" SG_ 2147492925 DTI_R_DigOut1 "No";
+BA_ "MoTeCLog" SG_ 2147492925 DTI_R_DigOut2 "No";
+BA_ "MoTeCLog" SG_ 2147492925 DTI_R_DigOut3 "No";
+BA_ "MoTeCLog" SG_ 2147492925 DTI_R_DigOut4 "No";
+BA_ "MoTeCGroup" SG_ 2147492925 DTI_R_LimCapTemp "DTI_R_Limits";
+BA_ "MoTeCGroup" SG_ 2147492925 DTI_R_LimDcCurrent "DTI_R_Limits";
+BA_ "MoTeCGroup" SG_ 2147492925 DTI_R_LimDriveEnable "DTI_R_Limits";
+BA_ "MoTeCGroup" SG_ 2147492925 DTI_R_LimIgbtAccelTemp "DTI_R_Limits";
+BA_ "MoTeCGroup" SG_ 2147492925 DTI_R_LimIgbtTemp "DTI_R_Limits";
+BA_ "MoTeCGroup" SG_ 2147492925 DTI_R_LimInputVoltage "DTI_R_Limits";
+BA_ "MoTeCGroup" SG_ 2147492925 DTI_R_LimMotorAccelTemp "DTI_R_Limits";
+BA_ "MoTeCGroup" SG_ 2147492925 DTI_R_LimMotorTemp "DTI_R_Limits";
+BA_ "MoTeCGroup" SG_ 2147492925 DTI_R_LimRpmMin "DTI_R_Limits";
+BA_ "MoTeCGroup" SG_ 2147492925 DTI_R_LimRpmMax "DTI_R_Limits";
+BA_ "MoTeCGroup" SG_ 2147492925 DTI_R_LimPower "DTI_R_Limits";
+BA_ "MoTeCLog" SG_ 2147492925 DTI_R_CanMapVersion "No";
+BA_ "GenMsgCycleTime" BO_ 2147493181 100;
+BA_ "RxTimeoutMs" BO_ 2147493181 500;
+BA_ "Variant" BO_ 2147493181 "inv_dti";
+BA_ "VFrameFormat" BO_ 2147493181 1;
+BA_ "GenMsgCycleTime" BO_ 2147493437 100;
+BA_ "RxTimeoutMs" BO_ 2147493437 500;
+BA_ "Variant" BO_ 2147493437 "inv_dti";
+BA_ "VFrameFormat" BO_ 2147493437 1;
+VAL_ 2147486780 DTI_L_CmdDriveEnable 0 "NOT_ALLOWED" 1 "ALLOWED" ;
+VAL_ 2147491644 DTI_L_ControlMode 0 "NOT_USED" 1 "SPEED" 2 "CURRENT" 3 "CURRENT_BRAKE" 4 "POSITION" 7 "NONE" ;
+VAL_ 2147491644 DTI_L_MotorStill 0 "ROTATING" 1 "STILL" ;
+VAL_ 2147492412 DTI_L_FaultCode 0 "NO_FAULTS" 1 "OVERVOLTAGE" 2 "UNDERVOLTAGE" 3 "DRV" 4 "ABS_OVERCURRENT" 5 "CTLR_OVERTEMP" 6 "MOTOR_OVERTEMP" 7 "SENSOR_WIRE_FAULT" 8 "SENSOR_GENERAL_FAULT" 9 "CAN_COMMAND_ERROR" 10 "ANALOG_INPUT_ERROR" ;
+VAL_ 2147492924 DTI_L_DriveEnabled 0 "DISABLED" 1 "ENABLED" ;
+VAL_ 2147486781 DTI_R_CmdDriveEnable 0 "NOT_ALLOWED" 1 "ALLOWED" ;
+VAL_ 2147491645 DTI_R_ControlMode 0 "NOT_USED" 1 "SPEED" 2 "CURRENT" 3 "CURRENT_BRAKE" 4 "POSITION" 7 "NONE" ;
+VAL_ 2147491645 DTI_R_MotorStill 0 "ROTATING" 1 "STILL" ;
+VAL_ 2147492413 DTI_R_FaultCode 0 "NO_FAULTS" 1 "OVERVOLTAGE" 2 "UNDERVOLTAGE" 3 "DRV" 4 "ABS_OVERCURRENT" 5 "CTLR_OVERTEMP" 6 "MOTOR_OVERTEMP" 7 "SENSOR_WIRE_FAULT" 8 "SENSOR_GENERAL_FAULT" 9 "CAN_COMMAND_ERROR" 10 "ANALOG_INPUT_ERROR" ;
+VAL_ 2147492925 DTI_R_DriveEnabled 0 "DISABLED" 1 "ENABLED" ;
