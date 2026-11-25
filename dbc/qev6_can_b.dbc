@@ -213,6 +213,53 @@ BO_ 2420638048 ECU_BOARD_HEALTH: 8 ECU
  SG_ ECU_RstLowPower : 31|1@1+ (1,0) [0|1] "" C125
  SG_ ECU_StackFreeMin : 32|16@1+ (1,0) [0|65535] "words" C125
 
+BO_ 2420638208 ECU_BATT_SOC: 8 ECU
+ SG_ ECU_Batt_Soc : 0|16@1+ (0.01,0) [0|655.35] "%" C125
+ SG_ ECU_Batt_SocOcv : 16|16@1+ (0.01,0) [0|655.35] "%" C125
+ SG_ ECU_Batt_AhUsed : 32|16@1- (0.001,0) [-32.768|32.767] "Ah" C125
+ SG_ ECU_Batt_WhUsed : 48|16@1+ (1,0) [0|65535] "Wh" C125
+
+BO_ 2420638224 ECU_BATT_POWER: 8 ECU
+ SG_ ECU_Batt_PackV : 0|16@1+ (0.01,0) [0|655.35] "V" C125
+ SG_ ECU_Batt_PackI : 16|16@1- (0.1,0) [-3276.8|3276.7] "A" C125
+ SG_ ECU_Batt_PowerKw : 32|16@1- (0.01,0) [-327.68|327.67] "kW" C125
+ SG_ ECU_B_SocValid : 48|1@1+ (1,0) [0|1] "" C125
+ SG_ ECU_B_CapacitySet : 49|1@1+ (1,0) [0|1] "" C125
+ SG_ ECU_B_SrcOcv : 50|1@1+ (1,0) [0|1] "" C125
+ SG_ ECU_B_SrcStored : 51|1@1+ (1,0) [0|1] "" C125
+ SG_ ECU_B_SrcManual : 52|1@1+ (1,0) [0|1] "" C125
+ SG_ ECU_B_Rested : 53|1@1+ (1,0) [0|1] "" C125
+ SG_ ECU_B_CountingCc : 54|1@1+ (1,0) [0|1] "" C125
+ SG_ ECU_B_CellsComplete : 55|1@1+ (1,0) [0|1] "" C125
+ SG_ ECU_B_CellsStale : 56|1@1+ (1,0) [0|1] "" C125
+ SG_ ECU_B_CheckFailing : 57|1@1+ (1,0) [0|1] "" C125
+ SG_ ECU_B_PackFresh : 58|1@1+ (1,0) [0|1] "" C125
+
+BO_ 2420638240 ECU_BATT_CELLS: 8 ECU
+ SG_ ECU_Batt_CellMin : 0|16@1+ (1,0) [0|65535] "mV" C125
+ SG_ ECU_Batt_CellMax : 16|16@1+ (1,0) [0|65535] "mV" C125
+ SG_ ECU_Batt_CellAvg : 32|16@1+ (1,0) [0|65535] "mV" C125
+ SG_ ECU_Batt_CellsOk : 48|16@1+ (1,0) [0|65535] "" C125
+
+BO_ 2420638256 ECU_BATT_EXTREMES: 8 ECU
+ SG_ ECU_Batt_CellMinAt : 0|16@1+ (1,0) [0|65535] "" C125
+ SG_ ECU_Batt_CellMaxAt : 16|16@1+ (1,0) [0|65535] "" C125
+ SG_ ECU_Batt_TempMinAt : 32|16@1+ (1,0) [0|65535] "" Vector__XXX
+ SG_ ECU_Batt_TempMaxAt : 48|16@1+ (1,0) [0|65535] "" C125
+
+BO_ 2420638272 ECU_BATT_TEMPS: 8 ECU
+ SG_ ECU_Batt_TempMin : 0|8@1+ (1,0) [0|255] "degC" C125
+ SG_ ECU_Batt_TempMax : 8|8@1+ (1,0) [0|255] "degC" C125
+ SG_ ECU_Batt_TempAvg : 16|16@1+ (0.1,0) [0|6553.5] "degC" C125
+ SG_ ECU_Batt_TempsOk : 32|8@1+ (1,0) [0|255] "" C125
+ SG_ ECU_Batt_CellsBad : 40|16@1+ (1,0) [0|65535] "" C125
+
+BO_ 2420638288 ECU_BATT_CHECKS: 8 ECU
+ SG_ ECU_Batt_ChkRun : 0|16@1+ (1,0) [0|65535] "" TOOL
+ SG_ ECU_Batt_ChkPass : 16|16@1+ (1,0) [0|65535] "" TOOL
+ SG_ ECU_Batt_PackVErr : 32|16@1- (0.01,0) [-327.68|327.67] "V" TOOL
+ SG_ ECU_Batt_CountErr : 48|16@1- (0.001,0) [-32.768|32.767] "Ah" TOOL
+
 BO_ 2437415088 MOTEC_SUSPENSION_FRONT: 8 C125
  SG_ C125_FrontHeave_mV : 0|16@1+ (1,0) [0|65535] "mV" ECU
  SG_ C125_FrontRoll_mV : 16|16@1+ (1,0) [0|65535] "mV" ECU
@@ -534,6 +581,15 @@ CM_ BO_ 2555117568 "Anything that touches outputs, cal or params is refused whil
 CM_ SG_ 2555117568 DBG_ReqArg "Float bits for PARAM_SET, OUTPUT_DUTY and the CAL_ ones";
 CM_ BO_ 2554855424 "Anything that touches outputs, cal or params is refused while DRIVING. Reply goes back on whichever bus asked";
 CM_ SG_ 2424357104 DBG_ReqArg "Float bits for PARAM_SET, OUTPUT_DUTY and the CAL_ ones";
+CM_ BO_ 2420638208 "The ECU's own SOC off the BMU's frames, it only watches, the BMU still protects the pack";
+CM_ SG_ 2420638208 ECU_Batt_Soc "Coulomb count off the anchor, can go past 0-100 if the capacity param is wrong";
+CM_ SG_ 2420638208 ECU_Batt_SocOcv "Off the average cell right now, only true at rest";
+CM_ SG_ 2420638224 ECU_Batt_PackI "Sendyne current, discharge positive";
+CM_ SG_ 2420638224 ECU_B_PackFresh "Off means V, I and kW are the last ones we got, the BMU has gone quiet";
+CM_ SG_ 2420638256 ECU_Batt_CellMinAt "cmu * 12 + cell";
+CM_ SG_ 2420638256 ECU_Batt_TempMaxAt "cmu * 7 + sensor";
+CM_ SG_ 2420638272 ECU_Batt_CellsBad "Stale, never heard, zero or out of range. The 48 the BMU never sends aren't counted";
+CM_ BO_ 2420638288 "Bits are the BATT_CHK_* cross-checks in battery.h, ./ecu pack names them";
 BA_DEF_  "BusType" STRING ;
 BA_DEF_  "DBName" STRING ;
 BA_DEF_ BO_  "GenMsgCycleTime" INT 0 65535;
@@ -751,6 +807,46 @@ BA_ "MoTeCGroup" SG_ 2420638048 ECU_RstSoftware "ECU_ResetFlags";
 BA_ "MoTeCGroup" SG_ 2420638048 ECU_RstIwdg "ECU_ResetFlags";
 BA_ "MoTeCGroup" SG_ 2420638048 ECU_RstWwdg "ECU_ResetFlags";
 BA_ "MoTeCGroup" SG_ 2420638048 ECU_RstLowPower "ECU_ResetFlags";
+BA_ "GenMsgCycleTime" BO_ 2420638208 200;
+BA_ "RxTimeoutMs" BO_ 2420638208 1000;
+BA_ "MoTeC" BO_ 2420638208 "Yes";
+BA_ "Status" BO_ 2420638208 "Planned";
+BA_ "VFrameFormat" BO_ 2420638208 1;
+BA_ "GenMsgCycleTime" BO_ 2420638224 100;
+BA_ "RxTimeoutMs" BO_ 2420638224 500;
+BA_ "MoTeC" BO_ 2420638224 "Yes";
+BA_ "Status" BO_ 2420638224 "Planned";
+BA_ "VFrameFormat" BO_ 2420638224 1;
+BA_ "MoTeCGroup" SG_ 2420638224 ECU_B_SocValid "ECU_BattFlags";
+BA_ "MoTeCGroup" SG_ 2420638224 ECU_B_CapacitySet "ECU_BattFlags";
+BA_ "MoTeCGroup" SG_ 2420638224 ECU_B_SrcOcv "ECU_BattFlags";
+BA_ "MoTeCGroup" SG_ 2420638224 ECU_B_SrcStored "ECU_BattFlags";
+BA_ "MoTeCGroup" SG_ 2420638224 ECU_B_SrcManual "ECU_BattFlags";
+BA_ "MoTeCGroup" SG_ 2420638224 ECU_B_Rested "ECU_BattFlags";
+BA_ "MoTeCGroup" SG_ 2420638224 ECU_B_CountingCc "ECU_BattFlags";
+BA_ "MoTeCGroup" SG_ 2420638224 ECU_B_CellsComplete "ECU_BattFlags";
+BA_ "MoTeCGroup" SG_ 2420638224 ECU_B_CellsStale "ECU_BattFlags";
+BA_ "MoTeCGroup" SG_ 2420638224 ECU_B_CheckFailing "ECU_BattFlags";
+BA_ "MoTeCGroup" SG_ 2420638224 ECU_B_PackFresh "ECU_BattFlags";
+BA_ "GenMsgCycleTime" BO_ 2420638240 500;
+BA_ "RxTimeoutMs" BO_ 2420638240 2000;
+BA_ "MoTeC" BO_ 2420638240 "Yes";
+BA_ "Status" BO_ 2420638240 "Planned";
+BA_ "VFrameFormat" BO_ 2420638240 1;
+BA_ "GenMsgCycleTime" BO_ 2420638256 500;
+BA_ "RxTimeoutMs" BO_ 2420638256 2000;
+BA_ "MoTeC" BO_ 2420638256 "Yes";
+BA_ "Status" BO_ 2420638256 "Planned";
+BA_ "VFrameFormat" BO_ 2420638256 1;
+BA_ "GenMsgCycleTime" BO_ 2420638272 1000;
+BA_ "RxTimeoutMs" BO_ 2420638272 3000;
+BA_ "MoTeC" BO_ 2420638272 "Yes";
+BA_ "Status" BO_ 2420638272 "Planned";
+BA_ "VFrameFormat" BO_ 2420638272 1;
+BA_ "GenMsgCycleTime" BO_ 2420638288 1000;
+BA_ "RxTimeoutMs" BO_ 2420638288 3000;
+BA_ "Status" BO_ 2420638288 "Planned";
+BA_ "VFrameFormat" BO_ 2420638288 1;
 BA_ "GenMsgCycleTime" BO_ 2437415088 20;
 BA_ "RxTimeoutMs" BO_ 2437415088 100;
 BA_ "Status" BO_ 2437415088 "Proposed";
@@ -865,7 +961,7 @@ BA_ "VFrameFormat" BO_ 2449473538 1;
 BA_ "GenMsgCycleTime" BO_ 2424357091 1000;
 BA_ "Status" BO_ 2424357091 "Legacy";
 BA_ "VFrameFormat" BO_ 2424357091 1;
-VAL_ 2420637952 ECU_StatusState 0 "BOOT" 1 "POWERUP" 20 "PREFLIGHT" 40 "PRECHARGE" 41 "ENERGISE" 42 "RTD" 100 "DRIVING" 240 "FAULT" 250 "SHUTDOWN" ;
+VAL_ 2420637952 ECU_StatusState 0 "BOOT" 1 "POWERUP" 20 "PREFLIGHT" 40 "PRECHARGE" 41 "ENERGISE" 42 "RTD" 60 "RUN_IN" 100 "DRIVING" 240 "FAULT" 250 "SHUTDOWN" ;
 VAL_ 2420637952 ECU_StatusFault 0 "NONE" 257 "BOARD_OUTPUT_INIT" 258 "BOARD_ADC" 259 "BOARD_EEPROM" 260 "BOARD_CAN" 512 "OUTPUT_CRITICAL" 768 "BMU_TIMEOUT" 769 "BMU_SHUTDOWN" 770 "BMU_PRECHARGE_TIMEOUT" 771 "BMU_HV_FAULT" 772 "BMU_TEMP_FAULT" 773 "BMU_ISOLATION" 774 "BMU_CONTACTOR" 775 "BMU_STATE_UNEXPECTED" 1024 "INV_FAULT" 1040 "INV_TIMEOUT" 1056 "INV_ENERGISE_TIMEOUT" 1057 "INV_ENABLE_FAIL" 1280 "PEDAL_APPS" 1281 "PEDAL_BSE" 1282 "PEDAL_BRAKE_APPS" 1283 "PEDAL_UNCALIBRATED" 1536 "SAFETY_SHDN_OPEN" 1537 "SAFETY_SHDN_TIMEOUT" 1538 "SAFETY_WATCHDOG" 2048 "COMM_CAN_A_BUSOFF" 2049 "COMM_CAN_B_BUSOFF" ;
 VAL_ 2420637952 ECU_StatusSeverity 0 "NONE" 1 "WARNING" 2 "CRITICAL" 3 "FATAL" ;
 VAL_ 2420637952 ECU_InvLState 0 "NOT_READY" 1 "SHUTDOWN" 2 "PRECHARGE" 3 "ENERGISED" 4 "ENABLED" 5 "FAULT" ;

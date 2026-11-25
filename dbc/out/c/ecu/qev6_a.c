@@ -2384,6 +2384,110 @@ bool qev6_a_bmu25_transmit_pack_info_bmu_pack_voltage_is_in_range(int32_t value)
     return (true);
 }
 
+int qev6_a_bmu25_transmit_pack_summary_unpack(
+    struct qev6_a_bmu25_transmit_pack_summary_t *dst_p,
+    const uint8_t *src_p,
+    size_t size)
+{
+    if (size < 8u) {
+        return (-EINVAL);
+    }
+
+    dst_p->bmu_min_cell = unpack_right_shift_u16(src_p[0], 0u, 0xffu);
+    dst_p->bmu_min_cell |= unpack_left_shift_u16(src_p[1], 8u, 0xffu);
+    dst_p->bmu_valid_cells = unpack_right_shift_u16(src_p[2], 0u, 0xffu);
+    dst_p->bmu_valid_cells |= unpack_left_shift_u16(src_p[3], 8u, 0xffu);
+    dst_p->bmu_max_cell_temp = unpack_right_shift_u8(src_p[4], 0u, 0xffu);
+
+    return (0);
+}
+
+int qev6_a_bmu25_transmit_pack_summary_init(struct qev6_a_bmu25_transmit_pack_summary_t *msg_p)
+{
+    if (msg_p == NULL) return -1;
+
+    memset(msg_p, 0, sizeof(struct qev6_a_bmu25_transmit_pack_summary_t));
+
+    return 0;
+}
+
+bool qev6_a_bmu25_transmit_pack_summary_bmu_min_cell_is_in_range(uint16_t value)
+{
+    (void)value;
+
+    return (true);
+}
+
+bool qev6_a_bmu25_transmit_pack_summary_bmu_valid_cells_is_in_range(uint16_t value)
+{
+    (void)value;
+
+    return (true);
+}
+
+bool qev6_a_bmu25_transmit_pack_summary_bmu_max_cell_temp_is_in_range(uint8_t value)
+{
+    (void)value;
+
+    return (true);
+}
+
+int qev6_a_bmu25_transmit_soc_unpack(
+    struct qev6_a_bmu25_transmit_soc_t *dst_p,
+    const uint8_t *src_p,
+    size_t size)
+{
+    uint32_t bmu_charge;
+
+    if (size < 8u) {
+        return (-EINVAL);
+    }
+
+    dst_p->bmu_soc_pct = unpack_right_shift_u8(src_p[0], 0u, 0xffu);
+    dst_p->bmu_soc_valid = unpack_right_shift_u8(src_p[1], 0u, 0x01u);
+    dst_p->bmu_soc_calibrated = unpack_right_shift_u8(src_p[1], 1u, 0x02u);
+    bmu_charge = unpack_right_shift_u32(src_p[2], 0u, 0xffu);
+    bmu_charge |= unpack_left_shift_u32(src_p[3], 8u, 0xffu);
+    bmu_charge |= unpack_left_shift_u32(src_p[4], 16u, 0xffu);
+    bmu_charge |= unpack_left_shift_u32(src_p[5], 24u, 0xffu);
+    dst_p->bmu_charge = (int32_t)bmu_charge;
+
+    return (0);
+}
+
+int qev6_a_bmu25_transmit_soc_init(struct qev6_a_bmu25_transmit_soc_t *msg_p)
+{
+    if (msg_p == NULL) return -1;
+
+    memset(msg_p, 0, sizeof(struct qev6_a_bmu25_transmit_soc_t));
+
+    return 0;
+}
+
+bool qev6_a_bmu25_transmit_soc_bmu_soc_pct_is_in_range(uint8_t value)
+{
+    (void)value;
+
+    return (true);
+}
+
+bool qev6_a_bmu25_transmit_soc_bmu_soc_valid_is_in_range(uint8_t value)
+{
+    return (value <= 1u);
+}
+
+bool qev6_a_bmu25_transmit_soc_bmu_soc_calibrated_is_in_range(uint8_t value)
+{
+    return (value <= 1u);
+}
+
+bool qev6_a_bmu25_transmit_soc_bmu_charge_is_in_range(int32_t value)
+{
+    (void)value;
+
+    return (true);
+}
+
 int qev6_a_ecu_heartbeat_pack(
     uint8_t *dst_p,
     const struct qev6_a_ecu_heartbeat_t *src_p,

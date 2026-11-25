@@ -60,6 +60,12 @@ extern "C" {
 #define QEV6_B_ECU_COOLING_CONTROL_FRAME_ID (0x10480150u)
 #define QEV6_B_ECU_BOARD_HEALTH_FRAME_ID (0x10480160u)
 #define QEV6_B_ECU_CAN_QUEUES_FRAME_ID (0x10480170u)
+#define QEV6_B_ECU_BATT_SOC_FRAME_ID (0x10480200u)
+#define QEV6_B_ECU_BATT_POWER_FRAME_ID (0x10480210u)
+#define QEV6_B_ECU_BATT_CELLS_FRAME_ID (0x10480220u)
+#define QEV6_B_ECU_BATT_EXTREMES_FRAME_ID (0x10480230u)
+#define QEV6_B_ECU_BATT_TEMPS_FRAME_ID (0x10480240u)
+#define QEV6_B_ECU_BATT_CHECKS_FRAME_ID (0x10480250u)
 #define QEV6_B_MOTEC_SUSPENSION_FRONT_FRAME_ID (0x114800b0u)
 #define QEV6_B_MOTEC_SUSPENSION_REAR_FRAME_ID (0x114800c0u)
 #define QEV6_B_MOTEC_WHEEL_SPEEDS_FRAME_ID (0x114800e0u)
@@ -89,6 +95,12 @@ extern "C" {
 #define QEV6_B_ECU_COOLING_CONTROL_LENGTH (8u)
 #define QEV6_B_ECU_BOARD_HEALTH_LENGTH (8u)
 #define QEV6_B_ECU_CAN_QUEUES_LENGTH (8u)
+#define QEV6_B_ECU_BATT_SOC_LENGTH (8u)
+#define QEV6_B_ECU_BATT_POWER_LENGTH (8u)
+#define QEV6_B_ECU_BATT_CELLS_LENGTH (8u)
+#define QEV6_B_ECU_BATT_EXTREMES_LENGTH (8u)
+#define QEV6_B_ECU_BATT_TEMPS_LENGTH (8u)
+#define QEV6_B_ECU_BATT_CHECKS_LENGTH (8u)
 #define QEV6_B_MOTEC_SUSPENSION_FRONT_LENGTH (8u)
 #define QEV6_B_MOTEC_SUSPENSION_REAR_LENGTH (8u)
 #define QEV6_B_MOTEC_WHEEL_SPEEDS_LENGTH (8u)
@@ -118,6 +130,12 @@ extern "C" {
 #define QEV6_B_ECU_COOLING_CONTROL_IS_EXTENDED (1)
 #define QEV6_B_ECU_BOARD_HEALTH_IS_EXTENDED (1)
 #define QEV6_B_ECU_CAN_QUEUES_IS_EXTENDED (1)
+#define QEV6_B_ECU_BATT_SOC_IS_EXTENDED (1)
+#define QEV6_B_ECU_BATT_POWER_IS_EXTENDED (1)
+#define QEV6_B_ECU_BATT_CELLS_IS_EXTENDED (1)
+#define QEV6_B_ECU_BATT_EXTREMES_IS_EXTENDED (1)
+#define QEV6_B_ECU_BATT_TEMPS_IS_EXTENDED (1)
+#define QEV6_B_ECU_BATT_CHECKS_IS_EXTENDED (1)
 #define QEV6_B_MOTEC_SUSPENSION_FRONT_IS_EXTENDED (1)
 #define QEV6_B_MOTEC_SUSPENSION_REAR_IS_EXTENDED (1)
 #define QEV6_B_MOTEC_WHEEL_SPEEDS_IS_EXTENDED (1)
@@ -147,6 +165,12 @@ extern "C" {
 #define QEV6_B_ECU_COOLING_CONTROL_CYCLE_TIME_MS (200u)
 #define QEV6_B_ECU_BOARD_HEALTH_CYCLE_TIME_MS (1000u)
 #define QEV6_B_ECU_CAN_QUEUES_CYCLE_TIME_MS (1000u)
+#define QEV6_B_ECU_BATT_SOC_CYCLE_TIME_MS (200u)
+#define QEV6_B_ECU_BATT_POWER_CYCLE_TIME_MS (100u)
+#define QEV6_B_ECU_BATT_CELLS_CYCLE_TIME_MS (500u)
+#define QEV6_B_ECU_BATT_EXTREMES_CYCLE_TIME_MS (500u)
+#define QEV6_B_ECU_BATT_TEMPS_CYCLE_TIME_MS (1000u)
+#define QEV6_B_ECU_BATT_CHECKS_CYCLE_TIME_MS (1000u)
 #define QEV6_B_MOTEC_SUSPENSION_FRONT_CYCLE_TIME_MS (20u)
 #define QEV6_B_MOTEC_SUSPENSION_REAR_CYCLE_TIME_MS (20u)
 #define QEV6_B_MOTEC_WHEEL_SPEEDS_CYCLE_TIME_MS (20u)
@@ -164,6 +188,7 @@ extern "C" {
 #define QEV6_B_ECU_STATUS_ECU_STATUS_STATE_PRECHARGE_CHOICE (40u)
 #define QEV6_B_ECU_STATUS_ECU_STATUS_STATE_ENERGISE_CHOICE (41u)
 #define QEV6_B_ECU_STATUS_ECU_STATUS_STATE_RTD_CHOICE (42u)
+#define QEV6_B_ECU_STATUS_ECU_STATUS_STATE_RUN_IN_CHOICE (60u)
 #define QEV6_B_ECU_STATUS_ECU_STATUS_STATE_DRIVING_CHOICE (100u)
 #define QEV6_B_ECU_STATUS_ECU_STATUS_STATE_FAULT_CHOICE (240u)
 #define QEV6_B_ECU_STATUS_ECU_STATUS_STATE_SHUTDOWN_CHOICE (250u)
@@ -328,6 +353,12 @@ extern "C" {
 #define QEV6_B_ECU_COOLING_CONTROL_NAME "ECU_COOLING_CONTROL"
 #define QEV6_B_ECU_BOARD_HEALTH_NAME "ECU_BOARD_HEALTH"
 #define QEV6_B_ECU_CAN_QUEUES_NAME "ECU_CAN_QUEUES"
+#define QEV6_B_ECU_BATT_SOC_NAME "ECU_BATT_SOC"
+#define QEV6_B_ECU_BATT_POWER_NAME "ECU_BATT_POWER"
+#define QEV6_B_ECU_BATT_CELLS_NAME "ECU_BATT_CELLS"
+#define QEV6_B_ECU_BATT_EXTREMES_NAME "ECU_BATT_EXTREMES"
+#define QEV6_B_ECU_BATT_TEMPS_NAME "ECU_BATT_TEMPS"
+#define QEV6_B_ECU_BATT_CHECKS_NAME "ECU_BATT_CHECKS"
 #define QEV6_B_MOTEC_SUSPENSION_FRONT_NAME "MOTEC_SUSPENSION_FRONT"
 #define QEV6_B_MOTEC_SUSPENSION_REAR_NAME "MOTEC_SUSPENSION_REAR"
 #define QEV6_B_MOTEC_WHEEL_SPEEDS_NAME "MOTEC_WHEEL_SPEEDS"
@@ -509,6 +540,41 @@ extern "C" {
 #define QEV6_B_ECU_CAN_QUEUES_ECU_RX_UNROUTED_NAME "ECU_RxUnrouted"
 #define QEV6_B_ECU_CAN_QUEUES_ECU_Q_TELEM_FAILED_NAME "ECU_Q_TelemFailed"
 #define QEV6_B_ECU_CAN_QUEUES_ECU_Q_TX_FAILED_NAME "ECU_Q_TxFailed"
+#define QEV6_B_ECU_BATT_SOC_ECU_BATT_SOC_NAME "ECU_Batt_Soc"
+#define QEV6_B_ECU_BATT_SOC_ECU_BATT_SOC_OCV_NAME "ECU_Batt_SocOcv"
+#define QEV6_B_ECU_BATT_SOC_ECU_BATT_AH_USED_NAME "ECU_Batt_AhUsed"
+#define QEV6_B_ECU_BATT_SOC_ECU_BATT_WH_USED_NAME "ECU_Batt_WhUsed"
+#define QEV6_B_ECU_BATT_POWER_ECU_BATT_PACK_V_NAME "ECU_Batt_PackV"
+#define QEV6_B_ECU_BATT_POWER_ECU_BATT_PACK_I_NAME "ECU_Batt_PackI"
+#define QEV6_B_ECU_BATT_POWER_ECU_BATT_POWER_KW_NAME "ECU_Batt_PowerKw"
+#define QEV6_B_ECU_BATT_POWER_ECU_B_SOC_VALID_NAME "ECU_B_SocValid"
+#define QEV6_B_ECU_BATT_POWER_ECU_B_CAPACITY_SET_NAME "ECU_B_CapacitySet"
+#define QEV6_B_ECU_BATT_POWER_ECU_B_SRC_OCV_NAME "ECU_B_SrcOcv"
+#define QEV6_B_ECU_BATT_POWER_ECU_B_SRC_STORED_NAME "ECU_B_SrcStored"
+#define QEV6_B_ECU_BATT_POWER_ECU_B_SRC_MANUAL_NAME "ECU_B_SrcManual"
+#define QEV6_B_ECU_BATT_POWER_ECU_B_RESTED_NAME "ECU_B_Rested"
+#define QEV6_B_ECU_BATT_POWER_ECU_B_COUNTING_CC_NAME "ECU_B_CountingCc"
+#define QEV6_B_ECU_BATT_POWER_ECU_B_CELLS_COMPLETE_NAME "ECU_B_CellsComplete"
+#define QEV6_B_ECU_BATT_POWER_ECU_B_CELLS_STALE_NAME "ECU_B_CellsStale"
+#define QEV6_B_ECU_BATT_POWER_ECU_B_CHECK_FAILING_NAME "ECU_B_CheckFailing"
+#define QEV6_B_ECU_BATT_POWER_ECU_B_PACK_FRESH_NAME "ECU_B_PackFresh"
+#define QEV6_B_ECU_BATT_CELLS_ECU_BATT_CELL_MIN_NAME "ECU_Batt_CellMin"
+#define QEV6_B_ECU_BATT_CELLS_ECU_BATT_CELL_MAX_NAME "ECU_Batt_CellMax"
+#define QEV6_B_ECU_BATT_CELLS_ECU_BATT_CELL_AVG_NAME "ECU_Batt_CellAvg"
+#define QEV6_B_ECU_BATT_CELLS_ECU_BATT_CELLS_OK_NAME "ECU_Batt_CellsOk"
+#define QEV6_B_ECU_BATT_EXTREMES_ECU_BATT_CELL_MIN_AT_NAME "ECU_Batt_CellMinAt"
+#define QEV6_B_ECU_BATT_EXTREMES_ECU_BATT_CELL_MAX_AT_NAME "ECU_Batt_CellMaxAt"
+#define QEV6_B_ECU_BATT_EXTREMES_ECU_BATT_TEMP_MIN_AT_NAME "ECU_Batt_TempMinAt"
+#define QEV6_B_ECU_BATT_EXTREMES_ECU_BATT_TEMP_MAX_AT_NAME "ECU_Batt_TempMaxAt"
+#define QEV6_B_ECU_BATT_TEMPS_ECU_BATT_TEMP_MIN_NAME "ECU_Batt_TempMin"
+#define QEV6_B_ECU_BATT_TEMPS_ECU_BATT_TEMP_MAX_NAME "ECU_Batt_TempMax"
+#define QEV6_B_ECU_BATT_TEMPS_ECU_BATT_TEMP_AVG_NAME "ECU_Batt_TempAvg"
+#define QEV6_B_ECU_BATT_TEMPS_ECU_BATT_TEMPS_OK_NAME "ECU_Batt_TempsOk"
+#define QEV6_B_ECU_BATT_TEMPS_ECU_BATT_CELLS_BAD_NAME "ECU_Batt_CellsBad"
+#define QEV6_B_ECU_BATT_CHECKS_ECU_BATT_CHK_RUN_NAME "ECU_Batt_ChkRun"
+#define QEV6_B_ECU_BATT_CHECKS_ECU_BATT_CHK_PASS_NAME "ECU_Batt_ChkPass"
+#define QEV6_B_ECU_BATT_CHECKS_ECU_BATT_PACK_V_ERR_NAME "ECU_Batt_PackVErr"
+#define QEV6_B_ECU_BATT_CHECKS_ECU_BATT_COUNT_ERR_NAME "ECU_Batt_CountErr"
 #define QEV6_B_MOTEC_SUSPENSION_FRONT_C125_FRONT_HEAVE_M_V_NAME "C125_FrontHeave_mV"
 #define QEV6_B_MOTEC_SUSPENSION_FRONT_C125_FRONT_ROLL_M_V_NAME "C125_FrontRoll_mV"
 #define QEV6_B_MOTEC_SUSPENSION_FRONT_C125_FRONT_HEAVE_NAME "C125_FrontHeave"
@@ -1874,6 +1940,311 @@ struct qev6_b_ecu_can_queues_t {
      * Offset: 0
      */
     uint8_t ecu_q_tx_failed;
+};
+
+/**
+ * Signals in message ECU_BATT_SOC.
+ *
+ * The ECU's own SOC off the BMU's frames, it only watches, the BMU still protects the pack
+ *
+ * All signal values are as on the CAN bus.
+ */
+struct qev6_b_ecu_batt_soc_t {
+    /**
+     * Coulomb count off the anchor, can go past 0-100 if the capacity param is wrong
+     *
+     * Range: 0..65535 (0..655.35 %)
+     * Scale: 0.01
+     * Offset: 0
+     */
+    uint16_t ecu_batt_soc;
+
+    /**
+     * Off the average cell right now, only true at rest
+     *
+     * Range: 0..65535 (0..655.35 %)
+     * Scale: 0.01
+     * Offset: 0
+     */
+    uint16_t ecu_batt_soc_ocv;
+
+    /**
+     * Range: -32768..32767 (-32.768..32.767 Ah)
+     * Scale: 0.001
+     * Offset: 0
+     */
+    int16_t ecu_batt_ah_used;
+
+    /**
+     * Range: 0..65535 (0..65535 Wh)
+     * Scale: 1
+     * Offset: 0
+     */
+    uint16_t ecu_batt_wh_used;
+};
+
+/**
+ * Signals in message ECU_BATT_POWER.
+ *
+ * All signal values are as on the CAN bus.
+ */
+struct qev6_b_ecu_batt_power_t {
+    /**
+     * Range: 0..65535 (0..655.35 V)
+     * Scale: 0.01
+     * Offset: 0
+     */
+    uint16_t ecu_batt_pack_v;
+
+    /**
+     * Sendyne current, discharge positive
+     *
+     * Range: -32768..32767 (-3276.8..3276.7 A)
+     * Scale: 0.1
+     * Offset: 0
+     */
+    int16_t ecu_batt_pack_i;
+
+    /**
+     * Range: -32768..32767 (-327.68..327.67 kW)
+     * Scale: 0.01
+     * Offset: 0
+     */
+    int16_t ecu_batt_power_kw;
+
+    /**
+     * Range: 0..1 (0..1 -)
+     * Scale: 1
+     * Offset: 0
+     */
+    uint8_t ecu_b_soc_valid;
+
+    /**
+     * Range: 0..1 (0..1 -)
+     * Scale: 1
+     * Offset: 0
+     */
+    uint8_t ecu_b_capacity_set;
+
+    /**
+     * Range: 0..1 (0..1 -)
+     * Scale: 1
+     * Offset: 0
+     */
+    uint8_t ecu_b_src_ocv;
+
+    /**
+     * Range: 0..1 (0..1 -)
+     * Scale: 1
+     * Offset: 0
+     */
+    uint8_t ecu_b_src_stored;
+
+    /**
+     * Range: 0..1 (0..1 -)
+     * Scale: 1
+     * Offset: 0
+     */
+    uint8_t ecu_b_src_manual;
+
+    /**
+     * Range: 0..1 (0..1 -)
+     * Scale: 1
+     * Offset: 0
+     */
+    uint8_t ecu_b_rested;
+
+    /**
+     * Range: 0..1 (0..1 -)
+     * Scale: 1
+     * Offset: 0
+     */
+    uint8_t ecu_b_counting_cc;
+
+    /**
+     * Range: 0..1 (0..1 -)
+     * Scale: 1
+     * Offset: 0
+     */
+    uint8_t ecu_b_cells_complete;
+
+    /**
+     * Range: 0..1 (0..1 -)
+     * Scale: 1
+     * Offset: 0
+     */
+    uint8_t ecu_b_cells_stale;
+
+    /**
+     * Range: 0..1 (0..1 -)
+     * Scale: 1
+     * Offset: 0
+     */
+    uint8_t ecu_b_check_failing;
+
+    /**
+     * Off means V, I and kW are the last ones we got, the BMU has gone quiet
+     *
+     * Range: 0..1 (0..1 -)
+     * Scale: 1
+     * Offset: 0
+     */
+    uint8_t ecu_b_pack_fresh;
+};
+
+/**
+ * Signals in message ECU_BATT_CELLS.
+ *
+ * All signal values are as on the CAN bus.
+ */
+struct qev6_b_ecu_batt_cells_t {
+    /**
+     * Range: 0..65535 (0..65535 mV)
+     * Scale: 1
+     * Offset: 0
+     */
+    uint16_t ecu_batt_cell_min;
+
+    /**
+     * Range: 0..65535 (0..65535 mV)
+     * Scale: 1
+     * Offset: 0
+     */
+    uint16_t ecu_batt_cell_max;
+
+    /**
+     * Range: 0..65535 (0..65535 mV)
+     * Scale: 1
+     * Offset: 0
+     */
+    uint16_t ecu_batt_cell_avg;
+
+    /**
+     * Range: 0..65535 (0..65535 -)
+     * Scale: 1
+     * Offset: 0
+     */
+    uint16_t ecu_batt_cells_ok;
+};
+
+/**
+ * Signals in message ECU_BATT_EXTREMES.
+ *
+ * All signal values are as on the CAN bus.
+ */
+struct qev6_b_ecu_batt_extremes_t {
+    /**
+     * cmu * 12 + cell
+     *
+     * Range: 0..65535 (0..65535 -)
+     * Scale: 1
+     * Offset: 0
+     */
+    uint16_t ecu_batt_cell_min_at;
+
+    /**
+     * Range: 0..65535 (0..65535 -)
+     * Scale: 1
+     * Offset: 0
+     */
+    uint16_t ecu_batt_cell_max_at;
+
+    /**
+     * Range: 0..65535 (0..65535 -)
+     * Scale: 1
+     * Offset: 0
+     */
+    uint16_t ecu_batt_temp_min_at;
+
+    /**
+     * cmu * 7 + sensor
+     *
+     * Range: 0..65535 (0..65535 -)
+     * Scale: 1
+     * Offset: 0
+     */
+    uint16_t ecu_batt_temp_max_at;
+};
+
+/**
+ * Signals in message ECU_BATT_TEMPS.
+ *
+ * All signal values are as on the CAN bus.
+ */
+struct qev6_b_ecu_batt_temps_t {
+    /**
+     * Range: 0..255 (0..255 degC)
+     * Scale: 1
+     * Offset: 0
+     */
+    uint8_t ecu_batt_temp_min;
+
+    /**
+     * Range: 0..255 (0..255 degC)
+     * Scale: 1
+     * Offset: 0
+     */
+    uint8_t ecu_batt_temp_max;
+
+    /**
+     * Range: 0..65535 (0..6553.5 degC)
+     * Scale: 0.1
+     * Offset: 0
+     */
+    uint16_t ecu_batt_temp_avg;
+
+    /**
+     * Range: 0..255 (0..255 -)
+     * Scale: 1
+     * Offset: 0
+     */
+    uint8_t ecu_batt_temps_ok;
+
+    /**
+     * Stale, never heard, zero or out of range. The 48 the BMU never sends aren't counted
+     *
+     * Range: 0..65535 (0..65535 -)
+     * Scale: 1
+     * Offset: 0
+     */
+    uint16_t ecu_batt_cells_bad;
+};
+
+/**
+ * Signals in message ECU_BATT_CHECKS.
+ *
+ * Bits are the BATT_CHK_* cross-checks in battery.h, ./ecu pack names them
+ *
+ * All signal values are as on the CAN bus.
+ */
+struct qev6_b_ecu_batt_checks_t {
+    /**
+     * Range: 0..65535 (0..65535 -)
+     * Scale: 1
+     * Offset: 0
+     */
+    uint16_t ecu_batt_chk_run;
+
+    /**
+     * Range: 0..65535 (0..65535 -)
+     * Scale: 1
+     * Offset: 0
+     */
+    uint16_t ecu_batt_chk_pass;
+
+    /**
+     * Range: -32768..32767 (-327.68..327.67 V)
+     * Scale: 0.01
+     * Offset: 0
+     */
+    int16_t ecu_batt_pack_v_err;
+
+    /**
+     * Range: -32768..32767 (-32.768..32.767 Ah)
+     * Scale: 0.001
+     * Offset: 0
+     */
+    int16_t ecu_batt_count_err;
 };
 
 /**
@@ -4158,6 +4529,459 @@ bool qev6_b_ecu_can_queues_ecu_q_telem_failed_is_in_range(uint8_t value);
  * @return true if in range, false otherwise.
  */
 bool qev6_b_ecu_can_queues_ecu_q_tx_failed_is_in_range(uint8_t value);
+
+/**
+ * Pack message ECU_BATT_SOC.
+ *
+ * @param[out] dst_p Buffer to pack the message into.
+ * @param[in] src_p Data to pack.
+ * @param[in] size Size of dst_p.
+ *
+ * @return Size of packed data, or negative error code.
+ */
+int qev6_b_ecu_batt_soc_pack(
+    uint8_t *dst_p,
+    const struct qev6_b_ecu_batt_soc_t *src_p,
+    size_t size);
+
+/**
+ * Init message fields to default values from ECU_BATT_SOC.
+ *
+ * @param[in] msg_p Message to init.
+ *
+ * @return zero(0) on success or (-1) in case of nullptr argument.
+ */
+int qev6_b_ecu_batt_soc_init(struct qev6_b_ecu_batt_soc_t *msg_p);
+
+/**
+ * Check that given signal is in allowed range.
+ *
+ * @param[in] value Signal to check.
+ *
+ * @return true if in range, false otherwise.
+ */
+bool qev6_b_ecu_batt_soc_ecu_batt_soc_is_in_range(uint16_t value);
+
+/**
+ * Check that given signal is in allowed range.
+ *
+ * @param[in] value Signal to check.
+ *
+ * @return true if in range, false otherwise.
+ */
+bool qev6_b_ecu_batt_soc_ecu_batt_soc_ocv_is_in_range(uint16_t value);
+
+/**
+ * Check that given signal is in allowed range.
+ *
+ * @param[in] value Signal to check.
+ *
+ * @return true if in range, false otherwise.
+ */
+bool qev6_b_ecu_batt_soc_ecu_batt_ah_used_is_in_range(int16_t value);
+
+/**
+ * Check that given signal is in allowed range.
+ *
+ * @param[in] value Signal to check.
+ *
+ * @return true if in range, false otherwise.
+ */
+bool qev6_b_ecu_batt_soc_ecu_batt_wh_used_is_in_range(uint16_t value);
+
+/**
+ * Pack message ECU_BATT_POWER.
+ *
+ * @param[out] dst_p Buffer to pack the message into.
+ * @param[in] src_p Data to pack.
+ * @param[in] size Size of dst_p.
+ *
+ * @return Size of packed data, or negative error code.
+ */
+int qev6_b_ecu_batt_power_pack(
+    uint8_t *dst_p,
+    const struct qev6_b_ecu_batt_power_t *src_p,
+    size_t size);
+
+/**
+ * Init message fields to default values from ECU_BATT_POWER.
+ *
+ * @param[in] msg_p Message to init.
+ *
+ * @return zero(0) on success or (-1) in case of nullptr argument.
+ */
+int qev6_b_ecu_batt_power_init(struct qev6_b_ecu_batt_power_t *msg_p);
+
+/**
+ * Check that given signal is in allowed range.
+ *
+ * @param[in] value Signal to check.
+ *
+ * @return true if in range, false otherwise.
+ */
+bool qev6_b_ecu_batt_power_ecu_batt_pack_v_is_in_range(uint16_t value);
+
+/**
+ * Check that given signal is in allowed range.
+ *
+ * @param[in] value Signal to check.
+ *
+ * @return true if in range, false otherwise.
+ */
+bool qev6_b_ecu_batt_power_ecu_batt_pack_i_is_in_range(int16_t value);
+
+/**
+ * Check that given signal is in allowed range.
+ *
+ * @param[in] value Signal to check.
+ *
+ * @return true if in range, false otherwise.
+ */
+bool qev6_b_ecu_batt_power_ecu_batt_power_kw_is_in_range(int16_t value);
+
+/**
+ * Check that given signal is in allowed range.
+ *
+ * @param[in] value Signal to check.
+ *
+ * @return true if in range, false otherwise.
+ */
+bool qev6_b_ecu_batt_power_ecu_b_soc_valid_is_in_range(uint8_t value);
+
+/**
+ * Check that given signal is in allowed range.
+ *
+ * @param[in] value Signal to check.
+ *
+ * @return true if in range, false otherwise.
+ */
+bool qev6_b_ecu_batt_power_ecu_b_capacity_set_is_in_range(uint8_t value);
+
+/**
+ * Check that given signal is in allowed range.
+ *
+ * @param[in] value Signal to check.
+ *
+ * @return true if in range, false otherwise.
+ */
+bool qev6_b_ecu_batt_power_ecu_b_src_ocv_is_in_range(uint8_t value);
+
+/**
+ * Check that given signal is in allowed range.
+ *
+ * @param[in] value Signal to check.
+ *
+ * @return true if in range, false otherwise.
+ */
+bool qev6_b_ecu_batt_power_ecu_b_src_stored_is_in_range(uint8_t value);
+
+/**
+ * Check that given signal is in allowed range.
+ *
+ * @param[in] value Signal to check.
+ *
+ * @return true if in range, false otherwise.
+ */
+bool qev6_b_ecu_batt_power_ecu_b_src_manual_is_in_range(uint8_t value);
+
+/**
+ * Check that given signal is in allowed range.
+ *
+ * @param[in] value Signal to check.
+ *
+ * @return true if in range, false otherwise.
+ */
+bool qev6_b_ecu_batt_power_ecu_b_rested_is_in_range(uint8_t value);
+
+/**
+ * Check that given signal is in allowed range.
+ *
+ * @param[in] value Signal to check.
+ *
+ * @return true if in range, false otherwise.
+ */
+bool qev6_b_ecu_batt_power_ecu_b_counting_cc_is_in_range(uint8_t value);
+
+/**
+ * Check that given signal is in allowed range.
+ *
+ * @param[in] value Signal to check.
+ *
+ * @return true if in range, false otherwise.
+ */
+bool qev6_b_ecu_batt_power_ecu_b_cells_complete_is_in_range(uint8_t value);
+
+/**
+ * Check that given signal is in allowed range.
+ *
+ * @param[in] value Signal to check.
+ *
+ * @return true if in range, false otherwise.
+ */
+bool qev6_b_ecu_batt_power_ecu_b_cells_stale_is_in_range(uint8_t value);
+
+/**
+ * Check that given signal is in allowed range.
+ *
+ * @param[in] value Signal to check.
+ *
+ * @return true if in range, false otherwise.
+ */
+bool qev6_b_ecu_batt_power_ecu_b_check_failing_is_in_range(uint8_t value);
+
+/**
+ * Check that given signal is in allowed range.
+ *
+ * @param[in] value Signal to check.
+ *
+ * @return true if in range, false otherwise.
+ */
+bool qev6_b_ecu_batt_power_ecu_b_pack_fresh_is_in_range(uint8_t value);
+
+/**
+ * Pack message ECU_BATT_CELLS.
+ *
+ * @param[out] dst_p Buffer to pack the message into.
+ * @param[in] src_p Data to pack.
+ * @param[in] size Size of dst_p.
+ *
+ * @return Size of packed data, or negative error code.
+ */
+int qev6_b_ecu_batt_cells_pack(
+    uint8_t *dst_p,
+    const struct qev6_b_ecu_batt_cells_t *src_p,
+    size_t size);
+
+/**
+ * Init message fields to default values from ECU_BATT_CELLS.
+ *
+ * @param[in] msg_p Message to init.
+ *
+ * @return zero(0) on success or (-1) in case of nullptr argument.
+ */
+int qev6_b_ecu_batt_cells_init(struct qev6_b_ecu_batt_cells_t *msg_p);
+
+/**
+ * Check that given signal is in allowed range.
+ *
+ * @param[in] value Signal to check.
+ *
+ * @return true if in range, false otherwise.
+ */
+bool qev6_b_ecu_batt_cells_ecu_batt_cell_min_is_in_range(uint16_t value);
+
+/**
+ * Check that given signal is in allowed range.
+ *
+ * @param[in] value Signal to check.
+ *
+ * @return true if in range, false otherwise.
+ */
+bool qev6_b_ecu_batt_cells_ecu_batt_cell_max_is_in_range(uint16_t value);
+
+/**
+ * Check that given signal is in allowed range.
+ *
+ * @param[in] value Signal to check.
+ *
+ * @return true if in range, false otherwise.
+ */
+bool qev6_b_ecu_batt_cells_ecu_batt_cell_avg_is_in_range(uint16_t value);
+
+/**
+ * Check that given signal is in allowed range.
+ *
+ * @param[in] value Signal to check.
+ *
+ * @return true if in range, false otherwise.
+ */
+bool qev6_b_ecu_batt_cells_ecu_batt_cells_ok_is_in_range(uint16_t value);
+
+/**
+ * Pack message ECU_BATT_EXTREMES.
+ *
+ * @param[out] dst_p Buffer to pack the message into.
+ * @param[in] src_p Data to pack.
+ * @param[in] size Size of dst_p.
+ *
+ * @return Size of packed data, or negative error code.
+ */
+int qev6_b_ecu_batt_extremes_pack(
+    uint8_t *dst_p,
+    const struct qev6_b_ecu_batt_extremes_t *src_p,
+    size_t size);
+
+/**
+ * Init message fields to default values from ECU_BATT_EXTREMES.
+ *
+ * @param[in] msg_p Message to init.
+ *
+ * @return zero(0) on success or (-1) in case of nullptr argument.
+ */
+int qev6_b_ecu_batt_extremes_init(struct qev6_b_ecu_batt_extremes_t *msg_p);
+
+/**
+ * Check that given signal is in allowed range.
+ *
+ * @param[in] value Signal to check.
+ *
+ * @return true if in range, false otherwise.
+ */
+bool qev6_b_ecu_batt_extremes_ecu_batt_cell_min_at_is_in_range(uint16_t value);
+
+/**
+ * Check that given signal is in allowed range.
+ *
+ * @param[in] value Signal to check.
+ *
+ * @return true if in range, false otherwise.
+ */
+bool qev6_b_ecu_batt_extremes_ecu_batt_cell_max_at_is_in_range(uint16_t value);
+
+/**
+ * Check that given signal is in allowed range.
+ *
+ * @param[in] value Signal to check.
+ *
+ * @return true if in range, false otherwise.
+ */
+bool qev6_b_ecu_batt_extremes_ecu_batt_temp_min_at_is_in_range(uint16_t value);
+
+/**
+ * Check that given signal is in allowed range.
+ *
+ * @param[in] value Signal to check.
+ *
+ * @return true if in range, false otherwise.
+ */
+bool qev6_b_ecu_batt_extremes_ecu_batt_temp_max_at_is_in_range(uint16_t value);
+
+/**
+ * Pack message ECU_BATT_TEMPS.
+ *
+ * @param[out] dst_p Buffer to pack the message into.
+ * @param[in] src_p Data to pack.
+ * @param[in] size Size of dst_p.
+ *
+ * @return Size of packed data, or negative error code.
+ */
+int qev6_b_ecu_batt_temps_pack(
+    uint8_t *dst_p,
+    const struct qev6_b_ecu_batt_temps_t *src_p,
+    size_t size);
+
+/**
+ * Init message fields to default values from ECU_BATT_TEMPS.
+ *
+ * @param[in] msg_p Message to init.
+ *
+ * @return zero(0) on success or (-1) in case of nullptr argument.
+ */
+int qev6_b_ecu_batt_temps_init(struct qev6_b_ecu_batt_temps_t *msg_p);
+
+/**
+ * Check that given signal is in allowed range.
+ *
+ * @param[in] value Signal to check.
+ *
+ * @return true if in range, false otherwise.
+ */
+bool qev6_b_ecu_batt_temps_ecu_batt_temp_min_is_in_range(uint8_t value);
+
+/**
+ * Check that given signal is in allowed range.
+ *
+ * @param[in] value Signal to check.
+ *
+ * @return true if in range, false otherwise.
+ */
+bool qev6_b_ecu_batt_temps_ecu_batt_temp_max_is_in_range(uint8_t value);
+
+/**
+ * Check that given signal is in allowed range.
+ *
+ * @param[in] value Signal to check.
+ *
+ * @return true if in range, false otherwise.
+ */
+bool qev6_b_ecu_batt_temps_ecu_batt_temp_avg_is_in_range(uint16_t value);
+
+/**
+ * Check that given signal is in allowed range.
+ *
+ * @param[in] value Signal to check.
+ *
+ * @return true if in range, false otherwise.
+ */
+bool qev6_b_ecu_batt_temps_ecu_batt_temps_ok_is_in_range(uint8_t value);
+
+/**
+ * Check that given signal is in allowed range.
+ *
+ * @param[in] value Signal to check.
+ *
+ * @return true if in range, false otherwise.
+ */
+bool qev6_b_ecu_batt_temps_ecu_batt_cells_bad_is_in_range(uint16_t value);
+
+/**
+ * Pack message ECU_BATT_CHECKS.
+ *
+ * @param[out] dst_p Buffer to pack the message into.
+ * @param[in] src_p Data to pack.
+ * @param[in] size Size of dst_p.
+ *
+ * @return Size of packed data, or negative error code.
+ */
+int qev6_b_ecu_batt_checks_pack(
+    uint8_t *dst_p,
+    const struct qev6_b_ecu_batt_checks_t *src_p,
+    size_t size);
+
+/**
+ * Init message fields to default values from ECU_BATT_CHECKS.
+ *
+ * @param[in] msg_p Message to init.
+ *
+ * @return zero(0) on success or (-1) in case of nullptr argument.
+ */
+int qev6_b_ecu_batt_checks_init(struct qev6_b_ecu_batt_checks_t *msg_p);
+
+/**
+ * Check that given signal is in allowed range.
+ *
+ * @param[in] value Signal to check.
+ *
+ * @return true if in range, false otherwise.
+ */
+bool qev6_b_ecu_batt_checks_ecu_batt_chk_run_is_in_range(uint16_t value);
+
+/**
+ * Check that given signal is in allowed range.
+ *
+ * @param[in] value Signal to check.
+ *
+ * @return true if in range, false otherwise.
+ */
+bool qev6_b_ecu_batt_checks_ecu_batt_chk_pass_is_in_range(uint16_t value);
+
+/**
+ * Check that given signal is in allowed range.
+ *
+ * @param[in] value Signal to check.
+ *
+ * @return true if in range, false otherwise.
+ */
+bool qev6_b_ecu_batt_checks_ecu_batt_pack_v_err_is_in_range(int16_t value);
+
+/**
+ * Check that given signal is in allowed range.
+ *
+ * @param[in] value Signal to check.
+ *
+ * @return true if in range, false otherwise.
+ */
+bool qev6_b_ecu_batt_checks_ecu_batt_count_err_is_in_range(int16_t value);
 
 /**
  * Unpack message MOTEC_SUSPENSION_FRONT.

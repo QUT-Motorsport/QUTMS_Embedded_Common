@@ -83,6 +83,8 @@ extern "C" {
 #define QEV6_A_SEVCON_2_HC3_FRAME_ID (0x1127269u)
 #define QEV6_A_BMU_HEARTBEAT_FRAME_ID (0x8040000u)
 #define QEV6_A_BMU25_TRANSMIT_PACK_INFO_FRAME_ID (0x8248d00u)
+#define QEV6_A_BMU25_TRANSMIT_PACK_SUMMARY_FRAME_ID (0x8248d10u)
+#define QEV6_A_BMU25_TRANSMIT_SOC_FRAME_ID (0x8248d20u)
 #define QEV6_A_ECU_HEARTBEAT_FRAME_ID (0x8440000u)
 #define QEV6_A_SHDN_STATUS_FRAME_ID (0x9040000u)
 #define QEV6_A_BMU_TRANSMIT_PACKINFO_FRAME_ID (0x10080d00u)
@@ -138,6 +140,8 @@ extern "C" {
 #define QEV6_A_SEVCON_2_HC3_LENGTH (8u)
 #define QEV6_A_BMU_HEARTBEAT_LENGTH (8u)
 #define QEV6_A_BMU25_TRANSMIT_PACK_INFO_LENGTH (8u)
+#define QEV6_A_BMU25_TRANSMIT_PACK_SUMMARY_LENGTH (8u)
+#define QEV6_A_BMU25_TRANSMIT_SOC_LENGTH (8u)
 #define QEV6_A_ECU_HEARTBEAT_LENGTH (8u)
 #define QEV6_A_SHDN_STATUS_LENGTH (8u)
 #define QEV6_A_BMU_TRANSMIT_PACKINFO_LENGTH (8u)
@@ -193,6 +197,8 @@ extern "C" {
 #define QEV6_A_SEVCON_2_HC3_IS_EXTENDED (1)
 #define QEV6_A_BMU_HEARTBEAT_IS_EXTENDED (1)
 #define QEV6_A_BMU25_TRANSMIT_PACK_INFO_IS_EXTENDED (1)
+#define QEV6_A_BMU25_TRANSMIT_PACK_SUMMARY_IS_EXTENDED (1)
+#define QEV6_A_BMU25_TRANSMIT_SOC_IS_EXTENDED (1)
 #define QEV6_A_ECU_HEARTBEAT_IS_EXTENDED (1)
 #define QEV6_A_SHDN_STATUS_IS_EXTENDED (1)
 #define QEV6_A_BMU_TRANSMIT_PACKINFO_IS_EXTENDED (1)
@@ -237,6 +243,8 @@ extern "C" {
 #define QEV6_A_SEVCON_2_HC3_CYCLE_TIME_MS (10u)
 #define QEV6_A_BMU_HEARTBEAT_CYCLE_TIME_MS (100u)
 #define QEV6_A_BMU25_TRANSMIT_PACK_INFO_CYCLE_TIME_MS (100u)
+#define QEV6_A_BMU25_TRANSMIT_PACK_SUMMARY_CYCLE_TIME_MS (3300u)
+#define QEV6_A_BMU25_TRANSMIT_SOC_CYCLE_TIME_MS (1020u)
 #define QEV6_A_ECU_HEARTBEAT_CYCLE_TIME_MS (100u)
 #define QEV6_A_SHDN_STATUS_CYCLE_TIME_MS (100u)
 #define QEV6_A_BMU_TRANSMIT_PACKINFO_CYCLE_TIME_MS (100u)
@@ -331,6 +339,7 @@ extern "C" {
 #define QEV6_A_ECU_HEARTBEAT_ECU_STATE_PRECHARGE_CHOICE (40u)
 #define QEV6_A_ECU_HEARTBEAT_ECU_STATE_ENERGISE_CHOICE (41u)
 #define QEV6_A_ECU_HEARTBEAT_ECU_STATE_RTD_CHOICE (42u)
+#define QEV6_A_ECU_HEARTBEAT_ECU_STATE_RUN_IN_CHOICE (60u)
 #define QEV6_A_ECU_HEARTBEAT_ECU_STATE_DRIVING_CHOICE (100u)
 #define QEV6_A_ECU_HEARTBEAT_ECU_STATE_FAULT_CHOICE (240u)
 #define QEV6_A_ECU_HEARTBEAT_ECU_STATE_SHUTDOWN_CHOICE (250u)
@@ -397,6 +406,7 @@ extern "C" {
 #define QEV6_A_ECU_BMU_COMP25_HEARTBEAT_ECU_C25_STATE_PRECHARGE_CHOICE (40u)
 #define QEV6_A_ECU_BMU_COMP25_HEARTBEAT_ECU_C25_STATE_ENERGISE_CHOICE (41u)
 #define QEV6_A_ECU_BMU_COMP25_HEARTBEAT_ECU_C25_STATE_RTD_CHOICE (42u)
+#define QEV6_A_ECU_BMU_COMP25_HEARTBEAT_ECU_C25_STATE_RUN_IN_CHOICE (60u)
 #define QEV6_A_ECU_BMU_COMP25_HEARTBEAT_ECU_C25_STATE_DRIVING_CHOICE (100u)
 #define QEV6_A_ECU_BMU_COMP25_HEARTBEAT_ECU_C25_STATE_FAULT_CHOICE (240u)
 #define QEV6_A_ECU_BMU_COMP25_HEARTBEAT_ECU_C25_STATE_SHUTDOWN_CHOICE (250u)
@@ -509,6 +519,8 @@ extern "C" {
 #define QEV6_A_SEVCON_2_HC3_NAME "Sevcon_2_HC3"
 #define QEV6_A_BMU_HEARTBEAT_NAME "BMU_HEARTBEAT"
 #define QEV6_A_BMU25_TRANSMIT_PACK_INFO_NAME "BMU25_TransmitPackInfo"
+#define QEV6_A_BMU25_TRANSMIT_PACK_SUMMARY_NAME "BMU25_TransmitPackSummary"
+#define QEV6_A_BMU25_TRANSMIT_SOC_NAME "BMU25_TransmitSOC"
 #define QEV6_A_ECU_HEARTBEAT_NAME "ECU_HEARTBEAT"
 #define QEV6_A_SHDN_STATUS_NAME "SHDN_STATUS"
 #define QEV6_A_BMU_TRANSMIT_PACKINFO_NAME "BMU_TRANSMIT_PACKINFO"
@@ -682,6 +694,13 @@ extern "C" {
 #define QEV6_A_BMU_HEARTBEAT_BMU_SOC_NAME "BMU_SOC"
 #define QEV6_A_BMU25_TRANSMIT_PACK_INFO_BMU_PACK_CURRENT_NAME "BMU_PackCurrent"
 #define QEV6_A_BMU25_TRANSMIT_PACK_INFO_BMU_PACK_VOLTAGE_NAME "BMU_PackVoltage"
+#define QEV6_A_BMU25_TRANSMIT_PACK_SUMMARY_BMU_MIN_CELL_NAME "BMU_MinCell"
+#define QEV6_A_BMU25_TRANSMIT_PACK_SUMMARY_BMU_VALID_CELLS_NAME "BMU_ValidCells"
+#define QEV6_A_BMU25_TRANSMIT_PACK_SUMMARY_BMU_MAX_CELL_TEMP_NAME "BMU_MaxCellTemp"
+#define QEV6_A_BMU25_TRANSMIT_SOC_BMU_SOC_PCT_NAME "BMU_SocPct"
+#define QEV6_A_BMU25_TRANSMIT_SOC_BMU_SOC_VALID_NAME "BMU_SocValid"
+#define QEV6_A_BMU25_TRANSMIT_SOC_BMU_SOC_CALIBRATED_NAME "BMU_SocCalibrated"
+#define QEV6_A_BMU25_TRANSMIT_SOC_BMU_CHARGE_NAME "BMU_Charge"
 #define QEV6_A_ECU_HEARTBEAT_ECU_STATE_NAME "ECU_State"
 #define QEV6_A_ECU_HEARTBEAT_ECU_F_PEDAL_POLARITY_NAME "ECU_F_PedalPolarity"
 #define QEV6_A_ECU_HEARTBEAT_ECU_F_BMU_ALIVE_NAME "ECU_F_BmuAlive"
@@ -2182,6 +2201,69 @@ struct qev6_a_bmu25_transmit_pack_info_t {
      * Offset: 0
      */
     int32_t bmu_pack_voltage;
+};
+
+/**
+ * Signals in message BMU25_TransmitPackSummary.
+ *
+ * All signal values are as on the CAN bus.
+ */
+struct qev6_a_bmu25_transmit_pack_summary_t {
+    /**
+     * Range: 0..65535 (0..65535 mV)
+     * Scale: 1
+     * Offset: 0
+     */
+    uint16_t bmu_min_cell;
+
+    /**
+     * Range: 0..65535 (0..65535 -)
+     * Scale: 1
+     * Offset: 0
+     */
+    uint16_t bmu_valid_cells;
+
+    /**
+     * Range: 0..255 (0..255 degC)
+     * Scale: 1
+     * Offset: 0
+     */
+    uint8_t bmu_max_cell_temp;
+};
+
+/**
+ * Signals in message BMU25_TransmitSOC.
+ *
+ * All signal values are as on the CAN bus.
+ */
+struct qev6_a_bmu25_transmit_soc_t {
+    /**
+     * Range: 0..255 (0..255 %)
+     * Scale: 1
+     * Offset: 0
+     */
+    uint8_t bmu_soc_pct;
+
+    /**
+     * Range: 0..1 (0..1 -)
+     * Scale: 1
+     * Offset: 0
+     */
+    uint8_t bmu_soc_valid;
+
+    /**
+     * Range: 0..1 (0..1 -)
+     * Scale: 1
+     * Offset: 0
+     */
+    uint8_t bmu_soc_calibrated;
+
+    /**
+     * Range: -2147483648..2147483647 (-2147.48365..2147.48365 Ah)
+     * Scale: 1e-06
+     * Offset: 0
+     */
+    int32_t bmu_charge;
 };
 
 /**
@@ -5282,6 +5364,115 @@ bool qev6_a_bmu25_transmit_pack_info_bmu_pack_current_is_in_range(int32_t value)
  * @return true if in range, false otherwise.
  */
 bool qev6_a_bmu25_transmit_pack_info_bmu_pack_voltage_is_in_range(int32_t value);
+
+/**
+ * Unpack message BMU25_TransmitPackSummary.
+ *
+ * @param[out] dst_p Object to unpack the message into.
+ * @param[in] src_p Message to unpack.
+ * @param[in] size Size of src_p.
+ *
+ * @return zero(0) or negative error code.
+ */
+int qev6_a_bmu25_transmit_pack_summary_unpack(
+    struct qev6_a_bmu25_transmit_pack_summary_t *dst_p,
+    const uint8_t *src_p,
+    size_t size);
+
+/**
+ * Init message fields to default values from BMU25_TransmitPackSummary.
+ *
+ * @param[in] msg_p Message to init.
+ *
+ * @return zero(0) on success or (-1) in case of nullptr argument.
+ */
+int qev6_a_bmu25_transmit_pack_summary_init(struct qev6_a_bmu25_transmit_pack_summary_t *msg_p);
+
+/**
+ * Check that given signal is in allowed range.
+ *
+ * @param[in] value Signal to check.
+ *
+ * @return true if in range, false otherwise.
+ */
+bool qev6_a_bmu25_transmit_pack_summary_bmu_min_cell_is_in_range(uint16_t value);
+
+/**
+ * Check that given signal is in allowed range.
+ *
+ * @param[in] value Signal to check.
+ *
+ * @return true if in range, false otherwise.
+ */
+bool qev6_a_bmu25_transmit_pack_summary_bmu_valid_cells_is_in_range(uint16_t value);
+
+/**
+ * Check that given signal is in allowed range.
+ *
+ * @param[in] value Signal to check.
+ *
+ * @return true if in range, false otherwise.
+ */
+bool qev6_a_bmu25_transmit_pack_summary_bmu_max_cell_temp_is_in_range(uint8_t value);
+
+/**
+ * Unpack message BMU25_TransmitSOC.
+ *
+ * @param[out] dst_p Object to unpack the message into.
+ * @param[in] src_p Message to unpack.
+ * @param[in] size Size of src_p.
+ *
+ * @return zero(0) or negative error code.
+ */
+int qev6_a_bmu25_transmit_soc_unpack(
+    struct qev6_a_bmu25_transmit_soc_t *dst_p,
+    const uint8_t *src_p,
+    size_t size);
+
+/**
+ * Init message fields to default values from BMU25_TransmitSOC.
+ *
+ * @param[in] msg_p Message to init.
+ *
+ * @return zero(0) on success or (-1) in case of nullptr argument.
+ */
+int qev6_a_bmu25_transmit_soc_init(struct qev6_a_bmu25_transmit_soc_t *msg_p);
+
+/**
+ * Check that given signal is in allowed range.
+ *
+ * @param[in] value Signal to check.
+ *
+ * @return true if in range, false otherwise.
+ */
+bool qev6_a_bmu25_transmit_soc_bmu_soc_pct_is_in_range(uint8_t value);
+
+/**
+ * Check that given signal is in allowed range.
+ *
+ * @param[in] value Signal to check.
+ *
+ * @return true if in range, false otherwise.
+ */
+bool qev6_a_bmu25_transmit_soc_bmu_soc_valid_is_in_range(uint8_t value);
+
+/**
+ * Check that given signal is in allowed range.
+ *
+ * @param[in] value Signal to check.
+ *
+ * @return true if in range, false otherwise.
+ */
+bool qev6_a_bmu25_transmit_soc_bmu_soc_calibrated_is_in_range(uint8_t value);
+
+/**
+ * Check that given signal is in allowed range.
+ *
+ * @param[in] value Signal to check.
+ *
+ * @return true if in range, false otherwise.
+ */
+bool qev6_a_bmu25_transmit_soc_bmu_charge_is_in_range(int32_t value);
 
 /**
  * Pack message ECU_HEARTBEAT.

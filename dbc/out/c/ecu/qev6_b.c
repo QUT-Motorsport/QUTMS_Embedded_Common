@@ -1687,6 +1687,442 @@ bool qev6_b_ecu_can_queues_ecu_q_tx_failed_is_in_range(uint8_t value)
     return (value <= 1u);
 }
 
+int qev6_b_ecu_batt_soc_pack(
+    uint8_t *dst_p,
+    const struct qev6_b_ecu_batt_soc_t *src_p,
+    size_t size)
+{
+    uint16_t ecu_batt_ah_used;
+
+    if (size < 8u) {
+        return (-EINVAL);
+    }
+
+    memset(&dst_p[0], 0, 8);
+
+    dst_p[0] |= pack_left_shift_u16(src_p->ecu_batt_soc, 0u, 0xffu);
+    dst_p[1] |= pack_right_shift_u16(src_p->ecu_batt_soc, 8u, 0xffu);
+    dst_p[2] |= pack_left_shift_u16(src_p->ecu_batt_soc_ocv, 0u, 0xffu);
+    dst_p[3] |= pack_right_shift_u16(src_p->ecu_batt_soc_ocv, 8u, 0xffu);
+    ecu_batt_ah_used = (uint16_t)src_p->ecu_batt_ah_used;
+    dst_p[4] |= pack_left_shift_u16(ecu_batt_ah_used, 0u, 0xffu);
+    dst_p[5] |= pack_right_shift_u16(ecu_batt_ah_used, 8u, 0xffu);
+    dst_p[6] |= pack_left_shift_u16(src_p->ecu_batt_wh_used, 0u, 0xffu);
+    dst_p[7] |= pack_right_shift_u16(src_p->ecu_batt_wh_used, 8u, 0xffu);
+
+    return (8);
+}
+
+int qev6_b_ecu_batt_soc_init(struct qev6_b_ecu_batt_soc_t *msg_p)
+{
+    if (msg_p == NULL) return -1;
+
+    memset(msg_p, 0, sizeof(struct qev6_b_ecu_batt_soc_t));
+
+    return 0;
+}
+
+bool qev6_b_ecu_batt_soc_ecu_batt_soc_is_in_range(uint16_t value)
+{
+    (void)value;
+
+    return (true);
+}
+
+bool qev6_b_ecu_batt_soc_ecu_batt_soc_ocv_is_in_range(uint16_t value)
+{
+    (void)value;
+
+    return (true);
+}
+
+bool qev6_b_ecu_batt_soc_ecu_batt_ah_used_is_in_range(int16_t value)
+{
+    (void)value;
+
+    return (true);
+}
+
+bool qev6_b_ecu_batt_soc_ecu_batt_wh_used_is_in_range(uint16_t value)
+{
+    (void)value;
+
+    return (true);
+}
+
+int qev6_b_ecu_batt_power_pack(
+    uint8_t *dst_p,
+    const struct qev6_b_ecu_batt_power_t *src_p,
+    size_t size)
+{
+    uint16_t ecu_batt_pack_i;
+    uint16_t ecu_batt_power_kw;
+
+    if (size < 8u) {
+        return (-EINVAL);
+    }
+
+    memset(&dst_p[0], 0, 8);
+
+    dst_p[0] |= pack_left_shift_u16(src_p->ecu_batt_pack_v, 0u, 0xffu);
+    dst_p[1] |= pack_right_shift_u16(src_p->ecu_batt_pack_v, 8u, 0xffu);
+    ecu_batt_pack_i = (uint16_t)src_p->ecu_batt_pack_i;
+    dst_p[2] |= pack_left_shift_u16(ecu_batt_pack_i, 0u, 0xffu);
+    dst_p[3] |= pack_right_shift_u16(ecu_batt_pack_i, 8u, 0xffu);
+    ecu_batt_power_kw = (uint16_t)src_p->ecu_batt_power_kw;
+    dst_p[4] |= pack_left_shift_u16(ecu_batt_power_kw, 0u, 0xffu);
+    dst_p[5] |= pack_right_shift_u16(ecu_batt_power_kw, 8u, 0xffu);
+    dst_p[6] |= pack_left_shift_u8(src_p->ecu_b_soc_valid, 0u, 0x01u);
+    dst_p[6] |= pack_left_shift_u8(src_p->ecu_b_capacity_set, 1u, 0x02u);
+    dst_p[6] |= pack_left_shift_u8(src_p->ecu_b_src_ocv, 2u, 0x04u);
+    dst_p[6] |= pack_left_shift_u8(src_p->ecu_b_src_stored, 3u, 0x08u);
+    dst_p[6] |= pack_left_shift_u8(src_p->ecu_b_src_manual, 4u, 0x10u);
+    dst_p[6] |= pack_left_shift_u8(src_p->ecu_b_rested, 5u, 0x20u);
+    dst_p[6] |= pack_left_shift_u8(src_p->ecu_b_counting_cc, 6u, 0x40u);
+    dst_p[6] |= pack_left_shift_u8(src_p->ecu_b_cells_complete, 7u, 0x80u);
+    dst_p[7] |= pack_left_shift_u8(src_p->ecu_b_cells_stale, 0u, 0x01u);
+    dst_p[7] |= pack_left_shift_u8(src_p->ecu_b_check_failing, 1u, 0x02u);
+    dst_p[7] |= pack_left_shift_u8(src_p->ecu_b_pack_fresh, 2u, 0x04u);
+
+    return (8);
+}
+
+int qev6_b_ecu_batt_power_init(struct qev6_b_ecu_batt_power_t *msg_p)
+{
+    if (msg_p == NULL) return -1;
+
+    memset(msg_p, 0, sizeof(struct qev6_b_ecu_batt_power_t));
+
+    return 0;
+}
+
+bool qev6_b_ecu_batt_power_ecu_batt_pack_v_is_in_range(uint16_t value)
+{
+    (void)value;
+
+    return (true);
+}
+
+bool qev6_b_ecu_batt_power_ecu_batt_pack_i_is_in_range(int16_t value)
+{
+    (void)value;
+
+    return (true);
+}
+
+bool qev6_b_ecu_batt_power_ecu_batt_power_kw_is_in_range(int16_t value)
+{
+    (void)value;
+
+    return (true);
+}
+
+bool qev6_b_ecu_batt_power_ecu_b_soc_valid_is_in_range(uint8_t value)
+{
+    return (value <= 1u);
+}
+
+bool qev6_b_ecu_batt_power_ecu_b_capacity_set_is_in_range(uint8_t value)
+{
+    return (value <= 1u);
+}
+
+bool qev6_b_ecu_batt_power_ecu_b_src_ocv_is_in_range(uint8_t value)
+{
+    return (value <= 1u);
+}
+
+bool qev6_b_ecu_batt_power_ecu_b_src_stored_is_in_range(uint8_t value)
+{
+    return (value <= 1u);
+}
+
+bool qev6_b_ecu_batt_power_ecu_b_src_manual_is_in_range(uint8_t value)
+{
+    return (value <= 1u);
+}
+
+bool qev6_b_ecu_batt_power_ecu_b_rested_is_in_range(uint8_t value)
+{
+    return (value <= 1u);
+}
+
+bool qev6_b_ecu_batt_power_ecu_b_counting_cc_is_in_range(uint8_t value)
+{
+    return (value <= 1u);
+}
+
+bool qev6_b_ecu_batt_power_ecu_b_cells_complete_is_in_range(uint8_t value)
+{
+    return (value <= 1u);
+}
+
+bool qev6_b_ecu_batt_power_ecu_b_cells_stale_is_in_range(uint8_t value)
+{
+    return (value <= 1u);
+}
+
+bool qev6_b_ecu_batt_power_ecu_b_check_failing_is_in_range(uint8_t value)
+{
+    return (value <= 1u);
+}
+
+bool qev6_b_ecu_batt_power_ecu_b_pack_fresh_is_in_range(uint8_t value)
+{
+    return (value <= 1u);
+}
+
+int qev6_b_ecu_batt_cells_pack(
+    uint8_t *dst_p,
+    const struct qev6_b_ecu_batt_cells_t *src_p,
+    size_t size)
+{
+    if (size < 8u) {
+        return (-EINVAL);
+    }
+
+    memset(&dst_p[0], 0, 8);
+
+    dst_p[0] |= pack_left_shift_u16(src_p->ecu_batt_cell_min, 0u, 0xffu);
+    dst_p[1] |= pack_right_shift_u16(src_p->ecu_batt_cell_min, 8u, 0xffu);
+    dst_p[2] |= pack_left_shift_u16(src_p->ecu_batt_cell_max, 0u, 0xffu);
+    dst_p[3] |= pack_right_shift_u16(src_p->ecu_batt_cell_max, 8u, 0xffu);
+    dst_p[4] |= pack_left_shift_u16(src_p->ecu_batt_cell_avg, 0u, 0xffu);
+    dst_p[5] |= pack_right_shift_u16(src_p->ecu_batt_cell_avg, 8u, 0xffu);
+    dst_p[6] |= pack_left_shift_u16(src_p->ecu_batt_cells_ok, 0u, 0xffu);
+    dst_p[7] |= pack_right_shift_u16(src_p->ecu_batt_cells_ok, 8u, 0xffu);
+
+    return (8);
+}
+
+int qev6_b_ecu_batt_cells_init(struct qev6_b_ecu_batt_cells_t *msg_p)
+{
+    if (msg_p == NULL) return -1;
+
+    memset(msg_p, 0, sizeof(struct qev6_b_ecu_batt_cells_t));
+
+    return 0;
+}
+
+bool qev6_b_ecu_batt_cells_ecu_batt_cell_min_is_in_range(uint16_t value)
+{
+    (void)value;
+
+    return (true);
+}
+
+bool qev6_b_ecu_batt_cells_ecu_batt_cell_max_is_in_range(uint16_t value)
+{
+    (void)value;
+
+    return (true);
+}
+
+bool qev6_b_ecu_batt_cells_ecu_batt_cell_avg_is_in_range(uint16_t value)
+{
+    (void)value;
+
+    return (true);
+}
+
+bool qev6_b_ecu_batt_cells_ecu_batt_cells_ok_is_in_range(uint16_t value)
+{
+    (void)value;
+
+    return (true);
+}
+
+int qev6_b_ecu_batt_extremes_pack(
+    uint8_t *dst_p,
+    const struct qev6_b_ecu_batt_extremes_t *src_p,
+    size_t size)
+{
+    if (size < 8u) {
+        return (-EINVAL);
+    }
+
+    memset(&dst_p[0], 0, 8);
+
+    dst_p[0] |= pack_left_shift_u16(src_p->ecu_batt_cell_min_at, 0u, 0xffu);
+    dst_p[1] |= pack_right_shift_u16(src_p->ecu_batt_cell_min_at, 8u, 0xffu);
+    dst_p[2] |= pack_left_shift_u16(src_p->ecu_batt_cell_max_at, 0u, 0xffu);
+    dst_p[3] |= pack_right_shift_u16(src_p->ecu_batt_cell_max_at, 8u, 0xffu);
+    dst_p[4] |= pack_left_shift_u16(src_p->ecu_batt_temp_min_at, 0u, 0xffu);
+    dst_p[5] |= pack_right_shift_u16(src_p->ecu_batt_temp_min_at, 8u, 0xffu);
+    dst_p[6] |= pack_left_shift_u16(src_p->ecu_batt_temp_max_at, 0u, 0xffu);
+    dst_p[7] |= pack_right_shift_u16(src_p->ecu_batt_temp_max_at, 8u, 0xffu);
+
+    return (8);
+}
+
+int qev6_b_ecu_batt_extremes_init(struct qev6_b_ecu_batt_extremes_t *msg_p)
+{
+    if (msg_p == NULL) return -1;
+
+    memset(msg_p, 0, sizeof(struct qev6_b_ecu_batt_extremes_t));
+
+    return 0;
+}
+
+bool qev6_b_ecu_batt_extremes_ecu_batt_cell_min_at_is_in_range(uint16_t value)
+{
+    (void)value;
+
+    return (true);
+}
+
+bool qev6_b_ecu_batt_extremes_ecu_batt_cell_max_at_is_in_range(uint16_t value)
+{
+    (void)value;
+
+    return (true);
+}
+
+bool qev6_b_ecu_batt_extremes_ecu_batt_temp_min_at_is_in_range(uint16_t value)
+{
+    (void)value;
+
+    return (true);
+}
+
+bool qev6_b_ecu_batt_extremes_ecu_batt_temp_max_at_is_in_range(uint16_t value)
+{
+    (void)value;
+
+    return (true);
+}
+
+int qev6_b_ecu_batt_temps_pack(
+    uint8_t *dst_p,
+    const struct qev6_b_ecu_batt_temps_t *src_p,
+    size_t size)
+{
+    if (size < 8u) {
+        return (-EINVAL);
+    }
+
+    memset(&dst_p[0], 0, 8);
+
+    dst_p[0] |= pack_left_shift_u8(src_p->ecu_batt_temp_min, 0u, 0xffu);
+    dst_p[1] |= pack_left_shift_u8(src_p->ecu_batt_temp_max, 0u, 0xffu);
+    dst_p[2] |= pack_left_shift_u16(src_p->ecu_batt_temp_avg, 0u, 0xffu);
+    dst_p[3] |= pack_right_shift_u16(src_p->ecu_batt_temp_avg, 8u, 0xffu);
+    dst_p[4] |= pack_left_shift_u8(src_p->ecu_batt_temps_ok, 0u, 0xffu);
+    dst_p[5] |= pack_left_shift_u16(src_p->ecu_batt_cells_bad, 0u, 0xffu);
+    dst_p[6] |= pack_right_shift_u16(src_p->ecu_batt_cells_bad, 8u, 0xffu);
+
+    return (8);
+}
+
+int qev6_b_ecu_batt_temps_init(struct qev6_b_ecu_batt_temps_t *msg_p)
+{
+    if (msg_p == NULL) return -1;
+
+    memset(msg_p, 0, sizeof(struct qev6_b_ecu_batt_temps_t));
+
+    return 0;
+}
+
+bool qev6_b_ecu_batt_temps_ecu_batt_temp_min_is_in_range(uint8_t value)
+{
+    (void)value;
+
+    return (true);
+}
+
+bool qev6_b_ecu_batt_temps_ecu_batt_temp_max_is_in_range(uint8_t value)
+{
+    (void)value;
+
+    return (true);
+}
+
+bool qev6_b_ecu_batt_temps_ecu_batt_temp_avg_is_in_range(uint16_t value)
+{
+    (void)value;
+
+    return (true);
+}
+
+bool qev6_b_ecu_batt_temps_ecu_batt_temps_ok_is_in_range(uint8_t value)
+{
+    (void)value;
+
+    return (true);
+}
+
+bool qev6_b_ecu_batt_temps_ecu_batt_cells_bad_is_in_range(uint16_t value)
+{
+    (void)value;
+
+    return (true);
+}
+
+int qev6_b_ecu_batt_checks_pack(
+    uint8_t *dst_p,
+    const struct qev6_b_ecu_batt_checks_t *src_p,
+    size_t size)
+{
+    uint16_t ecu_batt_count_err;
+    uint16_t ecu_batt_pack_v_err;
+
+    if (size < 8u) {
+        return (-EINVAL);
+    }
+
+    memset(&dst_p[0], 0, 8);
+
+    dst_p[0] |= pack_left_shift_u16(src_p->ecu_batt_chk_run, 0u, 0xffu);
+    dst_p[1] |= pack_right_shift_u16(src_p->ecu_batt_chk_run, 8u, 0xffu);
+    dst_p[2] |= pack_left_shift_u16(src_p->ecu_batt_chk_pass, 0u, 0xffu);
+    dst_p[3] |= pack_right_shift_u16(src_p->ecu_batt_chk_pass, 8u, 0xffu);
+    ecu_batt_pack_v_err = (uint16_t)src_p->ecu_batt_pack_v_err;
+    dst_p[4] |= pack_left_shift_u16(ecu_batt_pack_v_err, 0u, 0xffu);
+    dst_p[5] |= pack_right_shift_u16(ecu_batt_pack_v_err, 8u, 0xffu);
+    ecu_batt_count_err = (uint16_t)src_p->ecu_batt_count_err;
+    dst_p[6] |= pack_left_shift_u16(ecu_batt_count_err, 0u, 0xffu);
+    dst_p[7] |= pack_right_shift_u16(ecu_batt_count_err, 8u, 0xffu);
+
+    return (8);
+}
+
+int qev6_b_ecu_batt_checks_init(struct qev6_b_ecu_batt_checks_t *msg_p)
+{
+    if (msg_p == NULL) return -1;
+
+    memset(msg_p, 0, sizeof(struct qev6_b_ecu_batt_checks_t));
+
+    return 0;
+}
+
+bool qev6_b_ecu_batt_checks_ecu_batt_chk_run_is_in_range(uint16_t value)
+{
+    (void)value;
+
+    return (true);
+}
+
+bool qev6_b_ecu_batt_checks_ecu_batt_chk_pass_is_in_range(uint16_t value)
+{
+    (void)value;
+
+    return (true);
+}
+
+bool qev6_b_ecu_batt_checks_ecu_batt_pack_v_err_is_in_range(int16_t value)
+{
+    (void)value;
+
+    return (true);
+}
+
+bool qev6_b_ecu_batt_checks_ecu_batt_count_err_is_in_range(int16_t value)
+{
+    (void)value;
+
+    return (true);
+}
+
 int qev6_b_motec_suspension_front_unpack(
     struct qev6_b_motec_suspension_front_t *dst_p,
     const uint8_t *src_p,
